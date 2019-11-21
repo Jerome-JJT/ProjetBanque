@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace ProjetBanque
 {
-    public partial class Form1 : Form
+    public partial class RegisterOk : Form
     {
-        public Form1()
+        public RegisterOk()
         {
             InitializeComponent();
         }
