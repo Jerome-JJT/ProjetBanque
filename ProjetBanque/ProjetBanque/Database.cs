@@ -89,6 +89,46 @@ namespace ProjetBanque
             return result;
         }
 
+        /// <summary>
+        /// Add a user in the database
+        /// </summary>
+        /// <param name="email"></param>
+        /// <returns>1 if success, 0 for duplicate entry or -1 for unknown error
+        public int DeleteUser(string email)
+        {
+            // Create a SQL command
+            MySqlCommand query = connection.CreateCommand();
+
+            // SQL request
+            query.CommandText = "insert into users (type, email, password, money) values (@type, @email, @password, 10000)";
+
+            // Add parameters to query
+            query.Parameters.AddWithValue("@type", type);
+            query.Parameters.AddWithValue("@email", email);
+            query.Parameters.AddWithValue("@password", hashedPassword);
+
+            int result = 0;
+
+            try
+            {
+                // Execute the SQL command
+                result = query.ExecuteNonQuery();
+            }
+            catch (MySql.Data.MySqlClient.MySqlException error)
+            {
+                if (error.Message.Contains("Duplicate entry"))
+                {
+                    result = 0;
+                }
+                else
+                {
+                    result = -1;
+                }
+            }
+
+            return result;
+        }
+
 
         /// <summary>
         /// Verify a user with password in the database
