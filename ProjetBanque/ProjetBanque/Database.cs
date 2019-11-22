@@ -18,6 +18,7 @@ namespace ProjetBanque
             InitConnection();
         }
 
+
         /// <summary>
         /// Initialize the connection to the database
         /// </summary>
@@ -29,6 +30,7 @@ namespace ProjetBanque
             connection = new MySqlConnection(connectionString);
         }
 
+
         /// <summary>
         /// Open connection to the database
         /// </summary>
@@ -37,34 +39,92 @@ namespace ProjetBanque
             connection.Open();
         }
 
+
         /// <summary>
-        /// add a player in the table "players"
+        /// Add a user in the database
         /// </summary>
-        /// <param name="pseudo"></param>
-        public void AddPlayer(string pseudo)
+        /// <param name="email"></param>
+        /// <returns>1 if success, 0 for duplicate entry or -1 for unknown error
+        public int AddUser(string email, string password, string type)
         {
+            if (!(new List<string> { "Public", "Entreprise" }).Contains(type))
+            {
+                throw new Exception("Wrong account type");
+            }
+
+            CryptoPassword cryptoFunctions = new CryptoPassword();
+            string hashedPassword = cryptoFunctions.Hash(password);
+
+
             // Create a SQL command
-            MySqlCommand cmd = connection.CreateCommand();
+            MySqlCommand query = connection.CreateCommand();
 
             // SQL request
-            cmd.CommandText = "insert into players (pseudo) values (@name)";
+            query.CommandText = "insert into users (type, email, password, money) values (@type, @email, @password, 10000)";
 
-            // use of the pseudo string, parameter of the method AddPlayer
-            cmd.Parameters.AddWithValue("@name", pseudo);
+            // Add parameters to query
+            query.Parameters.AddWithValue("@type", type);
+            query.Parameters.AddWithValue("@email", email);
+            query.Parameters.AddWithValue("@password", hashedPassword);
 
-            // Execute the SQL command
-            cmd.ExecuteNonQuery();
+            int result = 0;
+
+            try
+            {
+                // Execute the SQL command
+                result = query.ExecuteNonQuery();
+            }
+            catch (MySql.Data.MySqlClient.MySqlException error)
+            {
+                if (error.Message.Contains("Duplicate entry"))
+                {
+                    result = 0;
+                }
+                else
+                {
+                    result = -1;
+                }
+            }
+
+            return result;
         }
+
+
+        /// <summary>
+        /// Verify a user with password in the database
+        /// </summary>
+        /// <param name="email"></param>
+        /// <returns>true if password success
+        public bool VerifyUser(string email, string password)
+        {
+            // Create a SQL command
+            MySqlCommand query = connection.CreateCommand();
+
+            // SQL request
+            query.CommandText = "select (password) from users where email = (@email)";
+            query.Parameters.AddWithValue("@email", email);
+
+            DbDataReader reader = query.ExecuteReader();
+
+            reader.Read();
+
+            string hashedPassword = reader.GetString(0);
+
+
+            CryptoPassword cryptoFunctions = new CryptoPassword();
+            bool correctPassword = cryptoFunctions.Verify(password, hashedPassword);
+
+            return correctPassword;
+        }
+
 
         /// <summary>
         /// get the name of the player according to his id
         /// </summary>
         /// <param name="id">id of the player</param>
-        /// <returns></returns>
+        /// <returns>Return user's money</returns>
         public int GetUserMoney(int id)
         {
-            int money = 0;
-
             // Create a command object
             MySqlCommand cmd = connection.CreateCommand();
 
@@ -73,8 +133,6 @@ namespace ProjetBanque
             DbDataReader reader = cmd.ExecuteReader();
 
             reader.Read();
-
-
 
             int result = reader.GetInt32(0);
 
