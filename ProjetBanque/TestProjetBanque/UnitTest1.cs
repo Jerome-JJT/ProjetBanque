@@ -5,7 +5,7 @@ using ProjetBanque;
 namespace TestProjetBanque
 {
     [TestClass]
-    public class UnitTest1
+    public class TestProjetBanque
     {
         [TestMethod]
         public void TestNormalDbConnexion()
