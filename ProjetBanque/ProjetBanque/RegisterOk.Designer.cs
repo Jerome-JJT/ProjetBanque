@@ -65,11 +65,14 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(528, 296);
+            this.ClientSize = new System.Drawing.Size(528, 295);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.buttonRegisterOk);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MinimizeBox = false;
             this.Name = "RegisterOk";
+            this.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.Text = "RegisterOk";
             this.ResumeLayout(false);
             this.PerformLayout();

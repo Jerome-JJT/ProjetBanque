@@ -1,6 +1,6 @@
 ﻿namespace ProjetBanque
 {
-    partial class formLogin
+    partial class formRegister
     {
         /// <summary>
         /// Variable nécessaire au concepteur.
