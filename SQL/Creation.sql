@@ -1,7 +1,7 @@
 DROP DATABASE IF EXISTS `Banking`;
 
 CREATE DATABASE `Banking`;
-
+usersusersusersusersusersusersusersusers
 USE `Banking`;
 
 CREATE TABLE IF NOT EXISTS `Users` (
