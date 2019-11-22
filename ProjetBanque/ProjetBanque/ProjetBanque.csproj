@@ -67,9 +67,6 @@
   <ItemGroup>
     <Compile Include="Login.cs" />
     <Compile Include="Database.cs" />
-    <Compile Include="Form1.cs">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="Login.Designer.cs">
       <DependentUpon>Login.cs</DependentUpon>
     </Compile>
