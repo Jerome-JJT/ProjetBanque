@@ -60,7 +60,7 @@ namespace ProjetBanque
             MySqlCommand query = connection.CreateCommand();
 
             // SQL request
-            query.CommandText = "insert into users (type, email, password, money) values (@type, @email, @password, 10000)";
+            query.CommandText = "insert into users (type, email, password) values (@type, @email, @password)";
 
             // Add parameters to query
             query.Parameters.AddWithValue("@type", type);
@@ -69,22 +69,8 @@ namespace ProjetBanque
 
             int result = 0;
 
-            try
-            {
-                // Execute the SQL command
-                result = query.ExecuteNonQuery();
-            }
-            catch (MySql.Data.MySqlClient.MySqlException error)
-            {
-                if (error.Message.Contains("Duplicate entry"))
-                {
-                    result = 0;
-                }
-                else
-                {
-                    result = -1;
-                }
-            }
+            // Execute the SQL command
+            result = query.ExecuteNonQuery();
 
             return result;
         }
@@ -94,41 +80,36 @@ namespace ProjetBanque
         /// </summary>
         /// <param name="email"></param>
         /// <returns>1 if success, 0 for duplicate entry or -1 for unknown error
-        public int DeleteUser(string email)
+        public int AddUser(string email, string password, string type, int money)
         {
+            if (!(new List<string> { "Public", "Entreprise" }).Contains(type))
+            {
+                throw new Exception("Wrong account type");
+            }
+
+            CryptoPassword cryptoFunctions = new CryptoPassword();
+            string hashedPassword = cryptoFunctions.Hash(password);
+
+
             // Create a SQL command
             MySqlCommand query = connection.CreateCommand();
 
             // SQL request
-            query.CommandText = "insert into users (type, email, password, money) values (@type, @email, @password, 10000)";
+            query.CommandText = "insert into users (type, email, password, money) values (@type, @email, @password, @money)";
 
             // Add parameters to query
             query.Parameters.AddWithValue("@type", type);
             query.Parameters.AddWithValue("@email", email);
             query.Parameters.AddWithValue("@password", hashedPassword);
+            query.Parameters.AddWithValue("@money", money);
 
             int result = 0;
 
-            try
-            {
-                // Execute the SQL command
-                result = query.ExecuteNonQuery();
-            }
-            catch (MySql.Data.MySqlClient.MySqlException error)
-            {
-                if (error.Message.Contains("Duplicate entry"))
-                {
-                    result = 0;
-                }
-                else
-                {
-                    result = -1;
-                }
-            }
+            // Execute the SQL command
+            result = query.ExecuteNonQuery();
 
             return result;
         }
-
 
         /// <summary>
         /// Verify a user with password in the database
@@ -157,41 +138,50 @@ namespace ProjetBanque
             return correctPassword;
         }
 
+        /// <summary>
+        /// Add a user in the database
+        /// </summary>
+        /// <param name="email"></param>
+        /// <returns>1 if success, 0 for duplicate entry or -1 for unknown error
+        public int DeleteUser(string email)
+        {
+            // Create a SQL command
+            MySqlCommand query = connection.CreateCommand();
+
+            // SQL request
+            query.CommandText = "delete from users where email = (@email)";
+
+            // Add parameters to query
+            query.Parameters.AddWithValue("@email", email);
+
+            int result = 0;
+
+            // Execute the SQL command
+            result = query.ExecuteNonQuery();
+
+            return result;
+        }
+
+
 
         /// <summary>
         /// get the name of the player according to his id
         /// </summary>
         /// <param name="id">id of the player</param>
         /// <returns>Return user's money</returns>
-        public int GetUserMoney(int id)
+        public int GetUserMoney(int email)
         {
             // Create a command object
-            MySqlCommand cmd = connection.CreateCommand();
+            MySqlCommand query = connection.CreateCommand();
 
-            cmd.CommandText = "select money from users where id = " + id;
+            query.CommandText = "select money from users where email = (@email)";
+            query.Parameters.AddWithValue("@email", email);
 
-            DbDataReader reader = cmd.ExecuteReader();
+            DbDataReader reader = query.ExecuteReader();
 
             reader.Read();
 
             int result = reader.GetInt32(0);
-
-            /*if (reader.HasRows)
-            {
-                //we go through the result of the select, we might get only one response. 
-                //Despite this, we use a while
-                while (reader.Read())
-                {
-                    name = reader.GetString(0);
-                    //if a field can be null, we check if the result is not null before getting the value
-                    //if (!reader.IsDBNull(2))
-                    //{
-                    //    telContact = reader.GetString(2);
-                    //}
-
-                }
-                return name;
-            }*/
 
             return result;
         }
