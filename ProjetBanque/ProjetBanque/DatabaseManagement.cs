@@ -10,10 +10,16 @@ using System.Net.Mail;
 
 namespace ProjetBanque
 {
+    /// <summary>
+    /// Execute SQL queries on banque database and return success or result
+    /// </summary>
     public class DatabaseManagement
     {
         private MySqlConnection connection;
 
+        /// <summary>
+        /// Create database instance and init connection
+        /// </summary>
         public DatabaseManagement()
         {
             InitConnection();

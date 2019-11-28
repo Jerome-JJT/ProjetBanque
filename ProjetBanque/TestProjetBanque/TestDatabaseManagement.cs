@@ -9,7 +9,7 @@ using ProjetBanque;
 namespace TestProjetBanque
 {
     [TestClass]
-    public class TestDatabase
+    public class TestDatabaseManagement
     {
         [TestMethod]
         public void TestNormalInsert()
