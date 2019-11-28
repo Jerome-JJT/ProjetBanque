@@ -83,7 +83,11 @@ namespace ProjetBanque
                     throw new WrongEmailFormatException();
                 }
             }
-            catch(FormatException)
+            catch (FormatException)
+            {
+                throw new WrongEmailFormatException();
+            }
+            catch (ArgumentException)
             {
                 throw new WrongEmailFormatException();
             }

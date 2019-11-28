@@ -21,32 +21,43 @@ namespace ProjetBanque
 
         private void buttonRegister_Click(object sender, EventArgs e)
         {
-            try{
-
-            }
-            catch (WrongEmailFormatException)
-            {
-
-            }
+            
             if (this.txtPassword.Text != this.txtPasswordVerify.Text)
             {
                 this.lblError.Text = "Oups.. il y a eu une erreur sur la verification du mot de passe";
             }
-            this.lblError.Text = "";
+            else
+            {
+                this.lblError.Text = "";
 
-            DatabaseManagement database = new DatabaseManagement();
+                try
+                {
+                    DatabaseManagement database = new DatabaseManagement();
 
-            database.OpenConnection();           
+                    database.OpenConnection();
 
-            database.AddUser(this.txtEmail.Text, this.txtPassword.Text, "Public");           
+                    if (database.AddUser(this.txtEmail.Text, this.txtPassword.Text, "Public") != 0)
+                    {
+                        formRegisterOk formOK = new formRegisterOk();
 
-            database.CloseConnection();
+                        formOK.lblEmail.Text = this.txtEmail.Text + ", vous êtes bien incrit-e";
 
-            formRegisterOk formOK = new formRegisterOk();
+                        formOK.ShowDialog(); 
+                    }
 
-            formOK.ShowDialog();
+                    database.CloseConnection();
+                }
+                catch (WrongEmailFormatException)
+                {
+                    this.lblError.Text = "Oups.. Votre email ne correspond pas a un email valide";
+                }
+            }
 
-            formOK.lblEmail.Text = this.txtEmail.Text + ", vous êtes bien incrit-e";
+
+        }
+        public void RegisterClose()
+        {
+            this.Close();
         }
     }
 }
