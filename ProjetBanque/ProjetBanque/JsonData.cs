@@ -12,14 +12,25 @@ namespace ProjetBanque
     /// </summary>
     public class JsonData
     {
-        //private int[] windowPosition = new int[] { 100, 100 };
-        //private int[] windowSize = new int[] { 100, 100 };
+        private Size windowSize = new Size { Width = 800, Height = 900 };
+        private Point windowPosition = new Point { X = 80, Y = 90 };
 
-        public Size winSize = new Size { Width = 800, Height = 800 };
+        /// <summary>
+        /// Get/Set json's window size
+        /// </summary>
+        public Size WindowSize
+        {
+            get { return windowSize; }
+            set { windowSize = value; }
+        }
 
-        public int[] windowPosition;
-        public int[] windowSize;
-
-
+        /// <summary>
+        /// Get/Set json's window position
+        /// </summary>
+        public Point WindowPosition
+        {
+            get { return windowPosition; }
+            set { windowPosition = value; }
+        }
     }
 }

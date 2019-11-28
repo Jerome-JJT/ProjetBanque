@@ -29,7 +29,12 @@ namespace ProjetBanque
         public JsonData ExtractData(string path)
         {
             StreamReader file = new StreamReader(path);
-            return JsonConvert.DeserializeObject<JsonData>(file.ReadToEnd());
+
+            JsonData jsonContent = JsonConvert.DeserializeObject<JsonData>(file.ReadToEnd());
+
+            file.Close();
+
+            return jsonContent;
         }
 
         /// <summary>
@@ -40,7 +45,10 @@ namespace ProjetBanque
         public void InsertData(string path, JsonData data)
         {
             StreamWriter file = new StreamWriter(path);
+
             file.Write(JsonConvert.SerializeObject(data));
+
+            file.Close();
         }
     }
 }
