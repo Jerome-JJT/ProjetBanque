@@ -1,6 +1,6 @@
 ﻿namespace ProjetBanque
 {
-    partial class RegisterOk
+    partial class formRegisterOk
     {
         /// <summary>
         /// Required designer variable.
@@ -61,7 +61,7 @@
             this.label1.TabIndex = 11;
             this.label1.Text = "Email, vous êtes bien incrit-e";
             // 
-            // RegisterOk
+            // formRegisterOk
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -71,7 +71,7 @@
             this.Controls.Add(this.buttonRegisterOk);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MinimizeBox = false;
-            this.Name = "RegisterOk";
+            this.Name = "formRegisterOk";
             this.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.Text = "RegisterOk";
             this.ResumeLayout(false);

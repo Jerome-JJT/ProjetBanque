@@ -19,7 +19,7 @@ namespace ProjetBanque
 
         private void buttonLogin_Click(object sender, EventArgs e)
         {
-            Database database = new Database();
+            DatabaseManagement database = new DatabaseManagement();
 
             database.OpenConnection();
 
@@ -27,7 +27,18 @@ namespace ProjetBanque
 
             if (database.VerifyUser(form.txtEmail.Text, form.txtPassword.Text))
             {
+                Home formOK = new Home();
 
+                formOK.ShowDialog();
+
+                formOK.lblEmail.Text = form.txtEmail.Text; 
+
+                form.Close();
+            }
+
+            else
+            {
+                form.lblError.Text = "Oups... Une erreur dans l'email ou le mot de passe a été détectée";
             }
 
             database.CloseConnection();

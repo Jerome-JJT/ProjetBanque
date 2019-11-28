@@ -19,7 +19,7 @@ namespace ProjetBanque
 
         private void buttonRegister_Click(object sender, EventArgs e)
         {
-            Database database = new Database();
+            DatabaseManagement database = new DatabaseManagement();
 
             database.OpenConnection();
 
@@ -27,13 +27,15 @@ namespace ProjetBanque
 
             if(form.txtPassword != form.txtPasswordVerify)
             {
+                form.ShowDialog();
                 form.lblError.Text = "Oups.. il y a eu une erreur sur la verification du mot de passe";
             }
 
-            if (database.VerifyUser(form.txtEmail.Text, form.txtPassword.Text))
-            {
+            database.AddUser(form.txtEmail.Text, form.txtPassword.Text, "Public");
 
-            }
+            formRegisterOk formOK = new formRegisterOk();
+
+            formOK.ShowDialog();
 
             database.CloseConnection();
         }
