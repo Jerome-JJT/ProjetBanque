@@ -35,6 +35,7 @@
             this.txtEmail = new System.Windows.Forms.TextBox();
             this.txtPassword = new System.Windows.Forms.TextBox();
             this.lblError = new System.Windows.Forms.Label();
+            this.cmdGoRegister = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // buttonLogin
@@ -101,11 +102,22 @@
             this.lblError.Size = new System.Drawing.Size(0, 20);
             this.lblError.TabIndex = 15;
             // 
+            // cmdGoRegister
+            // 
+            this.cmdGoRegister.Location = new System.Drawing.Point(189, 311);
+            this.cmdGoRegister.Name = "cmdGoRegister";
+            this.cmdGoRegister.Size = new System.Drawing.Size(246, 23);
+            this.cmdGoRegister.TabIndex = 16;
+            this.cmdGoRegister.Text = "Vous n\'avez pas de compte? Inscrivez vous !";
+            this.cmdGoRegister.UseVisualStyleBackColor = true;
+            this.cmdGoRegister.Click += new System.EventHandler(this.cmdGoRegister_Click);
+            // 
             // formLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(604, 374);
+            this.ClientSize = new System.Drawing.Size(604, 390);
+            this.Controls.Add(this.cmdGoRegister);
             this.Controls.Add(this.lblError);
             this.Controls.Add(this.txtPassword);
             this.Controls.Add(this.txtEmail);
@@ -130,6 +142,7 @@
         private System.Windows.Forms.TextBox txtEmail;
         private System.Windows.Forms.TextBox txtPassword;
         private System.Windows.Forms.Label lblError;
+        private System.Windows.Forms.Button cmdGoRegister;
     }
 }
 

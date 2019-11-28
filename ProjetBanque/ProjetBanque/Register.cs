@@ -19,25 +19,24 @@ namespace ProjetBanque
 
         private void buttonRegister_Click(object sender, EventArgs e)
         {
-            DatabaseManagement database = new DatabaseManagement();
-
-            database.OpenConnection();
-
-            formRegister form = new formRegister();
-
-            if(form.txtPassword != form.txtPasswordVerify)
+            if (this.txtPassword.Text != this.txtPasswordVerify.Text)
             {
-                form.ShowDialog();
-                form.lblError.Text = "Oups.. il y a eu une erreur sur la verification du mot de passe";
+                this.lblError.Text = "Oups.. il y a eu une erreur sur la verification du mot de passe";
             }
 
-            database.AddUser(form.txtEmail.Text, form.txtPassword.Text, "Public");
+            DatabaseManagement database = new DatabaseManagement();
+
+            database.OpenConnection();           
+
+            database.AddUser(this.txtEmail.Text, this.txtPassword.Text, "Public");           
+
+            database.CloseConnection();
 
             formRegisterOk formOK = new formRegisterOk();
 
             formOK.ShowDialog();
 
-            database.CloseConnection();
+            formOK.lblEmail.Text = this.txtEmail.Text + ", vous êtes bien incrit-e";
         }
     }
 }

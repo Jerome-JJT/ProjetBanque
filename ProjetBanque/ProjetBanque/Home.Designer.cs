@@ -66,8 +66,7 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.Label lblEmail;
         private System.Windows.Forms.Button cmdExit;
+        public System.Windows.Forms.Label lblEmail;
     }
 }

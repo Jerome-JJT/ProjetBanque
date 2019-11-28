@@ -43,5 +43,12 @@ namespace ProjetBanque
 
             database.CloseConnection();
         }
+
+        private void cmdGoRegister_Click(object sender, EventArgs e)
+        {
+            formRegister form = new formRegister();
+
+            form.ShowDialog();
+        }
     }
 }

@@ -30,7 +30,7 @@
         {
             this.buttonRegisterOk = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
+            this.lblEmail = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // buttonRegisterOk
@@ -41,6 +41,7 @@
             this.buttonRegisterOk.TabIndex = 7;
             this.buttonRegisterOk.Text = "Connectez-vous";
             this.buttonRegisterOk.UseVisualStyleBackColor = true;
+            this.buttonRegisterOk.Click += new System.EventHandler(this.buttonRegisterOk_Click);
             // 
             // label3
             // 
@@ -52,21 +53,20 @@
             this.label3.TabIndex = 10;
             this.label3.Text = "Enregistrement validé";
             // 
-            // label1
+            // lblEmail
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(187, 131);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(141, 13);
-            this.label1.TabIndex = 11;
-            this.label1.Text = "Email, vous êtes bien incrit-e";
+            this.lblEmail.AutoSize = true;
+            this.lblEmail.Location = new System.Drawing.Point(187, 131);
+            this.lblEmail.Name = "lblEmail";
+            this.lblEmail.Size = new System.Drawing.Size(0, 13);
+            this.lblEmail.TabIndex = 11;
             // 
             // formRegisterOk
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(528, 295);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.lblEmail);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.buttonRegisterOk);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
@@ -83,6 +83,6 @@
 
         private System.Windows.Forms.Button buttonRegisterOk;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label1;
+        public System.Windows.Forms.Label lblEmail;
     }
 }

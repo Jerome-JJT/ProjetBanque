@@ -27,7 +27,7 @@ namespace ProjetBanque
         {
             // Creation of the connection string : where, who
             // Avoid user id and pwd hardcoded
-            string connectionString = "SERVER=127.0.0.1; DATABASE=Banking; UID=root; PASSWORD=12345678";
+            string connectionString = "SERVER=127.0.0.1; DATABASE=Banking; UID=BankConnector; PASSWORD=12345678";
             connection = new MySqlConnection(connectionString);
         }
 
