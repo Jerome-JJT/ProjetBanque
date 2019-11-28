@@ -31,5 +31,16 @@ namespace ProjetBanque
             StreamReader file = new StreamReader(path);
             return JsonConvert.DeserializeObject<JsonData>(file.ReadToEnd());
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="path"></param>
+        /// <returns></returns>
+        public void InsertData(string path, JsonData data)
+        {
+            StreamWriter file = new StreamWriter(path);
+            file.Write(JsonConvert.SerializeObject(data));
+        }
     }
 }
