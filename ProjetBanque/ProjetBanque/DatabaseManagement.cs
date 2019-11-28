@@ -6,14 +6,15 @@ using System.Threading.Tasks;
 
 using System.Data.Common;
 using MySql.Data.MySqlClient;
+using System.Net.Mail;
 
 namespace ProjetBanque
 {
-    public class Database
+    public class DatabaseManagement
     {
         private MySqlConnection connection;
 
-        public Database()
+        public DatabaseManagement()
         {
             InitConnection();
         }
@@ -41,60 +42,53 @@ namespace ProjetBanque
 
 
         /// <summary>
-        /// Add a user in the database
+        /// Add a user in the database with 0 money
         /// </summary>
-        /// <param name="email"></param>
-        /// <returns>1 if success, 0 for duplicate entry or -1 for unknown error
+        /// <param name="email">User's email, will be verified with regex</param>
+        /// <param name="password">User's password, will be hashed and salted</param>
+        /// <param name="type">Account type, "Public" or "Enterprise", "Admin" can't be added here</param>
+        /// <returns>1 if success, 0 for an error
         public int AddUser(string email, string password, string type)
         {
-            if (!(new List<string> { "Public", "Entreprise" }).Contains(type))
-            {
-                throw new Exception("Wrong account type");
-            }
-
-            CryptoPassword cryptoFunctions = new CryptoPassword();
-            string hashedPassword = cryptoFunctions.Hash(password);
-
-
-            // Create a SQL command
-            MySqlCommand query = connection.CreateCommand();
-
-            // SQL request
-            query.CommandText = "insert into users (type, email, password) values (@type, @email, @password)";
-
-            // Add parameters to query
-            query.Parameters.AddWithValue("@type", type);
-            query.Parameters.AddWithValue("@email", email);
-            query.Parameters.AddWithValue("@password", hashedPassword);
-
-            int result = 0;
-
-            // Execute the SQL command
-            result = query.ExecuteNonQuery();
-
-            return result;
+            return AddUser(email, password, type, 0);
         }
 
         /// <summary>
-        /// Add a user in the database
+        /// Add a user in the database with a certain ammount of money
         /// </summary>
-        /// <param name="email"></param>
-        /// <returns>1 if success, 0 for duplicate entry or -1 for unknown error
-        public int AddUser(string email, string password, string type, int money)
+        /// <param name="email">User's email, will be verified with regex</param>
+        /// <param name="password">User's password, will be hashed and salted</param>
+        /// <param name="type">Account type, "Public" or "Enterprise", "Admin" can't be added here</param>
+        /// <param name="money">Base money for the account</param>
+        /// <returns>1 if success, 0 for an error
+        public int AddUser(string email, string password, string type, double money)
         {
             if (!(new List<string> { "Public", "Entreprise" }).Contains(type))
             {
-                throw new Exception("Wrong account type");
+                throw new WrongAccountTypeException();
             }
 
+            try
+            {
+                MailAddress addr = new MailAddress(email);
+
+                if (!(addr.Address == email))
+                {
+                    throw new WrongEmailFormatException();
+                }
+            }
+            catch(FormatException)
+            {
+                throw new WrongEmailFormatException();
+            }
+
+
+            //Hash and salt password
             CryptoPassword cryptoFunctions = new CryptoPassword();
             string hashedPassword = cryptoFunctions.Hash(password);
 
-
-            // Create a SQL command
+            // Create a SQL query
             MySqlCommand query = connection.CreateCommand();
-
-            // SQL request
             query.CommandText = "insert into users (type, email, password, money) values (@type, @email, @password, @money)";
 
             // Add parameters to query
@@ -103,35 +97,52 @@ namespace ProjetBanque
             query.Parameters.AddWithValue("@password", hashedPassword);
             query.Parameters.AddWithValue("@money", money);
 
-            int result = 0;
 
-            // Execute the SQL command
-            result = query.ExecuteNonQuery();
+            int result;
+            try
+            {
+                // Execute the SQL command
+                result = query.ExecuteNonQuery();
+            }
+            catch(MySqlException)
+            {
+                throw new UserAlreadyExistsException();
+            }
+            
 
             return result;
         }
 
         /// <summary>
-        /// Verify a user with password in the database
+        /// Check a user's login with password in the database
         /// </summary>
-        /// <param name="email"></param>
-        /// <returns>true if password success
+        /// <param name="email">User's email</param>
+        /// <param name="password">User's password</param>
+        /// <returns>true if passwords matchs
         public bool VerifyUser(string email, string password)
         {
-            // Create a SQL command
+            // Create a SQL query
             MySqlCommand query = connection.CreateCommand();
-
-            // SQL request
             query.CommandText = "select (password) from users where email = (@email)";
+
+            // Add parameters to query
             query.Parameters.AddWithValue("@email", email);
 
-            DbDataReader reader = query.ExecuteReader();
+            string hashedPassword;
+            try
+            {
+                //Get hashed and salted password from the database
+                DbDataReader reader = query.ExecuteReader();
+                reader.Read();
+                hashedPassword = reader.GetString(0);
+            }
+            catch(MySqlException)
+            {
+                throw new UserDoesNotExistsException();
+            }
+            
 
-            reader.Read();
-
-            string hashedPassword = reader.GetString(0);
-
-
+            //Verify if passwords matchs
             CryptoPassword cryptoFunctions = new CryptoPassword();
             bool correctPassword = cryptoFunctions.Verify(password, hashedPassword);
 
@@ -139,23 +150,20 @@ namespace ProjetBanque
         }
 
         /// <summary>
-        /// Add a user in the database
+        /// Delete a user from the database
         /// </summary>
-        /// <param name="email"></param>
-        /// <returns>1 if success, 0 for duplicate entry or -1 for unknown error
+        /// <param name="email">User's email to delete</param>
+        /// <returns>1 if success, 0 for failure
         public int DeleteUser(string email)
         {
             // Create a SQL command
             MySqlCommand query = connection.CreateCommand();
-
-            // SQL request
             query.CommandText = "delete from users where email = (@email)";
 
             // Add parameters to query
             query.Parameters.AddWithValue("@email", email);
 
             int result = 0;
-
             // Execute the SQL command
             result = query.ExecuteNonQuery();
 
@@ -165,23 +173,25 @@ namespace ProjetBanque
 
 
         /// <summary>
-        /// get the name of the player according to his id
+        /// Get the user's money amount from his email
         /// </summary>
-        /// <param name="id">id of the player</param>
+        /// <param name="email">User's email</param>
         /// <returns>Return user's money</returns>
-        public int GetUserMoney(int email)
+        public double GetUserMoney(string email)
         {
             // Create a command object
             MySqlCommand query = connection.CreateCommand();
-
             query.CommandText = "select money from users where email = (@email)";
+
+            // Add parameters to query
             query.Parameters.AddWithValue("@email", email);
 
+            //Get user's money from the database
             DbDataReader reader = query.ExecuteReader();
 
             reader.Read();
 
-            int result = reader.GetInt32(0);
+            double result = reader.GetDouble(0);
 
             return result;
         }
