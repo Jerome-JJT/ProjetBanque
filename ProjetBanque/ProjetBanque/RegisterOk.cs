@@ -19,9 +19,9 @@ namespace ProjetBanque
 
         private void buttonRegisterOk_Click(object sender, EventArgs e)
         {
-            formRegister formRegister = new formRegister();
-            formRegister.Close();
             this.Close();
+            formRegister formRegister = new formRegister();
+            formRegister.Close();           
             formLogin form = new formLogin();
         }
     }

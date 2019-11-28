@@ -15,6 +15,7 @@ namespace ProjetBanque
         public formLogin()
         {
             InitializeComponent();
+            form.lblError.Text = "";
         }
 
         private void buttonLogin_Click(object sender, EventArgs e)
