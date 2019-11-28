@@ -32,6 +32,7 @@ namespace ProjetBanque
             {
                 this.lblError.Text = "Oups.. il y a eu une erreur sur la verification du mot de passe";
             }
+            this.lblError.Text = "";
 
             DatabaseManagement database = new DatabaseManagement();
 

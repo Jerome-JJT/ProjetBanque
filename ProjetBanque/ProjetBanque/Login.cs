@@ -24,13 +24,15 @@ namespace ProjetBanque
 
             database.OpenConnection();
 
-            if (database.VerifyUser(form.txtEmail.Text, form.txtPassword.Text))
+            if (database.VerifyUser(this.txtEmail.Text, this.txtPassword.Text))
             {
+                this.lblError.Text = "";
+
                 Home formOK = new Home();
 
                 formOK.ShowDialog();
 
-                formOK.lblEmail.Text = form.txtEmail.Text; 
+                formOK.lblEmail.Text = this.txtEmail.Text; 
 
                 this.Close();
             }
