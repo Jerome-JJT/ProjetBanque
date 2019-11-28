@@ -10,11 +10,12 @@ using System.Windows.Forms;
 
 namespace ProjetBanque
 {
-    public partial class formRegisterOk : Form
+    public partial class Home : Form
     {
-        public formRegisterOk()
+        public Home()
         {
             InitializeComponent();
         }
+
     }
 }
