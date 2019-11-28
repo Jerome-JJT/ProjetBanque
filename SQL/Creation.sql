@@ -9,5 +9,5 @@ CREATE TABLE IF NOT EXISTS `Users` (
     `type` ENUM('Public','Entreprise','Admin') NOT NULL DEFAULT 'Public',
     `email` VARCHAR(50) NOT NULL UNIQUE,
     `password` VARCHAR(80) NOT NULL,
-    `money` INT NOT NULL DEFAULT '0'
+    `money` DOUBLE NOT NULL DEFAULT '0'
 );
