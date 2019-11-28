@@ -14,11 +14,11 @@ namespace TestProjetBanque
         [TestMethod]
         public void TestNormalInsert()
         {
-            Database connDB = new Database();
+            DatabaseManagement connDB = new DatabaseManagement();
             connDB.OpenConnection();
 
             //add a user
-            int success = connDB.AddUser("jerome@jaquemet.gmail.com", "passing", "Public", 30000);
+            int success = connDB.AddUser("jerome.jaquemet@gmail.com", "passing", "Public", 30000);
 
             //close connection
             connDB.CloseConnection();
@@ -27,14 +27,30 @@ namespace TestProjetBanque
         }
 
         [TestMethod]
-        [ExpectedException(typeof(MySqlException))]
+        [ExpectedException(typeof(UserAlreadyExistsException))]
         public void TestInsertExistingUser()
         {
-            Database connDB = new Database();
+            DatabaseManagement connDB = new DatabaseManagement();
             connDB.OpenConnection();
 
             //add a user
-            int success = connDB.AddUser("jerome@jaquemet.gmail.com", "passing", "Public");
+            int success = connDB.AddUser("jerome.jaquemet@gmail.com", "passing", "Public");
+
+            //close connection
+            connDB.CloseConnection();
+
+            Assert.AreEqual(0, success);
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(WrongEmailFormatException))]
+        public void TestInsertWrongEmail()
+        {
+            DatabaseManagement connDB = new DatabaseManagement();
+            connDB.OpenConnection();
+
+            //add a user
+            int success = connDB.AddUser("jerome", "passing", "Public");
 
             //close connection
             connDB.CloseConnection();
@@ -45,11 +61,11 @@ namespace TestProjetBanque
         [TestMethod]
         public void TestNormalLogin()
         {
-            Database connDB = new Database();
+            DatabaseManagement connDB = new DatabaseManagement();
             connDB.OpenConnection();
 
             //add a user
-            bool success = connDB.VerifyUser("jerome@jaquemet.gmail.com", "passing");
+            bool success = connDB.VerifyUser("jerome.jaquemet@gmail.com", "passing");
 
             //close connection
             connDB.CloseConnection();
@@ -60,11 +76,11 @@ namespace TestProjetBanque
         [TestMethod]
         public void TestWrongLogin()
         {
-            Database connDB = new Database();
+            DatabaseManagement connDB = new DatabaseManagement();
             connDB.OpenConnection();
 
             //add a user
-            bool success = connDB.VerifyUser("jerome@jaquemet.gmail.com", "passnot");
+            bool success = connDB.VerifyUser("jerome.jaquemet@gmail.com", "passnot");
 
             //close connection
             connDB.CloseConnection();
@@ -73,14 +89,14 @@ namespace TestProjetBanque
         }
 
         [TestMethod]
-        [ExpectedException(typeof(MySqlException))]
+        [ExpectedException(typeof(UserDoesNotExistsException))]
         public void TestNonExitingLogin()
         {
-            Database connDB = new Database();
+            DatabaseManagement connDB = new DatabaseManagement();
             connDB.OpenConnection();
 
             //add a user
-            bool success = connDB.VerifyUser("jean@claude.gmail.com", "passnot");
+            bool success = connDB.VerifyUser("jean.claude@gmail.com", "passnot");
 
             //close connection
             connDB.CloseConnection();
@@ -90,11 +106,11 @@ namespace TestProjetBanque
         [TestMethod]
         public void TestGetUserMoney()
         {
-            Database connDB = new Database();
+            DatabaseManagement connDB = new DatabaseManagement();
             connDB.OpenConnection();
 
             //get a specific users money
-            int result = connDB.GetUserMoney(1);
+            double result = connDB.GetUserMoney("jerome.jaquemet@gmail.com");
 
             //close connection
             connDB.CloseConnection();
@@ -106,11 +122,11 @@ namespace TestProjetBanque
         [TestMethod]
         public void TestDeletingExistingUser()
         {
-            Database connDB = new Database();
+            DatabaseManagement connDB = new DatabaseManagement();
             connDB.OpenConnection();
 
             //add a user
-            int success = connDB.DeleteUser("jerome@jaquemet.gmail.com");
+            int success = connDB.DeleteUser("jerome.jaquemet@gmail.com");
 
             //close connection
             connDB.CloseConnection();
@@ -121,11 +137,11 @@ namespace TestProjetBanque
         [TestMethod]
         public void TestDeletingNonExistingUser()
         {
-            Database connDB = new Database();
+            DatabaseManagement connDB = new DatabaseManagement();
             connDB.OpenConnection();
 
             //add a user
-            int success = connDB.DeleteUser("jean@claude.gmail.com");
+            int success = connDB.DeleteUser("jean.claude@gmail.com");
 
             //close connection
             connDB.CloseConnection();
