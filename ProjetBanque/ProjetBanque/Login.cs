@@ -10,12 +10,27 @@ using System.Windows.Forms;
 
 namespace ProjetBanque
 {
-    public partial class formRegister : Form
+    public partial class formLogin : Form
     {
-        public formRegister()
+        public formLogin()
         {
             InitializeComponent();
         }
 
+        private void buttonLogin_Click(object sender, EventArgs e)
+        {
+            Database database = new Database();
+
+            database.OpenConnection();
+
+            formLogin form = new formLogin();
+
+            if (database.VerifyUser(form.txtEmail.Text, form.txtPassword.Text))
+            {
+
+            }
+
+            database.CloseConnection();
+        }
     }
 }

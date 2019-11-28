@@ -1,6 +1,6 @@
 ﻿namespace ProjetBanque
 {
-    partial class Register
+    partial class formRegister
     {
         /// <summary>
         /// Required designer variable.
@@ -28,31 +28,32 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtPassword = new System.Windows.Forms.TextBox();
+            this.txtEmail = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.buttonRegister = new System.Windows.Forms.Button();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.txtPasswordVerify = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
+            this.lblError = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
-            // textBox2
+            // txtPassword
             // 
-            this.textBox2.Location = new System.Drawing.Point(217, 172);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(205, 20);
-            this.textBox2.TabIndex = 11;
+            this.txtPassword.Location = new System.Drawing.Point(217, 172);
+            this.txtPassword.Name = "txtPassword";
+            this.txtPassword.Size = new System.Drawing.Size(205, 20);
+            this.txtPassword.TabIndex = 11;
             // 
-            // textBox1
+            // txtEmail
             // 
-            this.textBox1.AccessibleDescription = "";
-            this.textBox1.Location = new System.Drawing.Point(217, 117);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.textBox1.Size = new System.Drawing.Size(205, 20);
-            this.textBox1.TabIndex = 10;
+            this.txtEmail.AccessibleDescription = "";
+            this.txtEmail.Location = new System.Drawing.Point(217, 117);
+            this.txtEmail.Name = "txtEmail";
+            this.txtEmail.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.txtEmail.Size = new System.Drawing.Size(205, 20);
+            this.txtEmail.TabIndex = 10;
             // 
             // label3
             // 
@@ -90,13 +91,14 @@
             this.buttonRegister.TabIndex = 6;
             this.buttonRegister.Text = "Valider votre inscription";
             this.buttonRegister.UseVisualStyleBackColor = true;
+            this.buttonRegister.Click += new System.EventHandler(this.buttonRegister_Click);
             // 
-            // textBox3
+            // txtPasswordVerify
             // 
-            this.textBox3.Location = new System.Drawing.Point(217, 226);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(205, 20);
-            this.textBox3.TabIndex = 13;
+            this.txtPasswordVerify.Location = new System.Drawing.Point(217, 226);
+            this.txtPasswordVerify.Name = "txtPasswordVerify";
+            this.txtPasswordVerify.Size = new System.Drawing.Size(205, 20);
+            this.txtPasswordVerify.TabIndex = 13;
             // 
             // label4
             // 
@@ -107,20 +109,31 @@
             this.label4.TabIndex = 12;
             this.label4.Text = "Mot de passe (vérification)";
             // 
-            // Register
+            // lblError
+            // 
+            this.lblError.AutoSize = true;
+            this.lblError.ForeColor = System.Drawing.Color.Red;
+            this.lblError.Location = new System.Drawing.Point(160, 9);
+            this.lblError.Name = "lblError";
+            this.lblError.Size = new System.Drawing.Size(0, 13);
+            this.lblError.TabIndex = 14;
+            // 
+            // formRegister
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(604, 374);
-            this.Controls.Add(this.textBox3);
+            this.Controls.Add(this.lblError);
+            this.Controls.Add(this.txtPasswordVerify);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txtPassword);
+            this.Controls.Add(this.txtEmail);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.buttonRegister);
-            this.Name = "Register";
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Name = "formRegister";
             this.Text = "Register";
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -129,13 +142,14 @@
 
         #endregion
 
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtPassword;
+        private System.Windows.Forms.TextBox txtEmail;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button buttonRegister;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox txtPasswordVerify;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label lblError;
     }
 }
