@@ -8,6 +8,9 @@ using System.Security.Cryptography;
 namespace ProjetBanque
 {
     //Source code https://stackoverflow.com/questions/4181198/how-to-hash-a-password/10402129#10402129
+    /// <summary>
+    /// Hashing and salting management with verification
+    /// </summary>
     public class CryptoPassword
     {
         /// <summary>
@@ -25,6 +28,11 @@ namespace ProjetBanque
         /// </summary>
         private const int iterations = 10000;
 
+        /// <summary>
+        /// Hash and salt a password
+        /// </summary>
+        /// <param name="password">Password to hash/salt</param>
+        /// <returns>Hashed/Salted string</returns>
         public string Hash(string password)
         {
             byte[] salt;
@@ -48,11 +56,11 @@ namespace ProjetBanque
 
 
         /// <summary>
-        /// Verifies a password against a hash.
-        /// </summary>
-        /// <param name="password">The password.</param>
-        /// <param name="hashedPassword">The hash.</param>
-        /// <returns>Could be verified?</returns>
+        /// Verifiy a password with a hashed/salted password
+        /// /// </summary>
+        /// <param name="password">The password to verify</param>
+        /// <param name="hashedPassword">Hashed password</param>
+        /// <returns>True if password matchs, else false</returns>
         public bool Verify(string password, string hashedPassword)
         {
             // Extract iteration and Base64 string
