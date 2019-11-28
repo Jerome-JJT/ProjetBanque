@@ -15,7 +15,7 @@ namespace ProjetBanque
         public formLogin()
         {
             InitializeComponent();
-            form.lblError.Text = "";
+            this.lblError.Text = "";
         }
 
         private void buttonLogin_Click(object sender, EventArgs e)
@@ -23,8 +23,6 @@ namespace ProjetBanque
             DatabaseManagement database = new DatabaseManagement();
 
             database.OpenConnection();
-
-            formLogin form = new formLogin();
 
             if (database.VerifyUser(form.txtEmail.Text, form.txtPassword.Text))
             {
@@ -34,12 +32,12 @@ namespace ProjetBanque
 
                 formOK.lblEmail.Text = form.txtEmail.Text; 
 
-                form.Close();
+                this.Close();
             }
 
             else
             {
-                form.lblError.Text = "Oups... Une erreur dans l'email ou le mot de passe a été détectée";
+                this.lblError.Text = "Oups... Une erreur dans l'email ou le mot de passe a été détectée";
             }
 
             database.CloseConnection();

@@ -15,10 +15,19 @@ namespace ProjetBanque
         public formRegister()
         {
             InitializeComponent();
+            this.lblError.Text = "";
+
         }
 
         private void buttonRegister_Click(object sender, EventArgs e)
         {
+            try{
+
+            }
+            catch (WrongEmailFormatException)
+            {
+
+            }
             if (this.txtPassword.Text != this.txtPasswordVerify.Text)
             {
                 this.lblError.Text = "Oups.. il y a eu une erreur sur la verification du mot de passe";
