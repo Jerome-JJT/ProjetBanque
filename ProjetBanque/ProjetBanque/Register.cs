@@ -42,7 +42,9 @@ namespace ProjetBanque
 
                         formOK.lblEmail.Text = this.txtEmail.Text + ", vous êtes bien incrit-e";
 
-                        formOK.ShowDialog(); 
+                        formOK.ShowDialog();
+
+                        Close();
                     }
 
                     database.CloseConnection();
@@ -58,6 +60,16 @@ namespace ProjetBanque
         public void RegisterClose()
         {
             this.Close();
+        }
+
+        private void txtPasswordVerify_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtPassword_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

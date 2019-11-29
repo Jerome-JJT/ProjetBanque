@@ -50,6 +50,7 @@
             this.cmdExit.TabIndex = 1;
             this.cmdExit.Text = "Quitter";
             this.cmdExit.UseVisualStyleBackColor = true;
+            this.cmdExit.Click += new System.EventHandler(this.cmdExit_Click);
             // 
             // Home
             // 

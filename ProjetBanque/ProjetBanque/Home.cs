@@ -17,5 +17,9 @@ namespace ProjetBanque
             InitializeComponent();
         }
 
+        private void cmdExit_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

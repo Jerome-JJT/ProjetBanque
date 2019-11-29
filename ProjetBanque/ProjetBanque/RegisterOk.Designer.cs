@@ -70,6 +70,7 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.buttonRegisterOk);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "formRegisterOk";
             this.RightToLeft = System.Windows.Forms.RightToLeft.No;

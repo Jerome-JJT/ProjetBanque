@@ -44,7 +44,8 @@
             this.txtPassword.Location = new System.Drawing.Point(217, 172);
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.Size = new System.Drawing.Size(205, 20);
-            this.txtPassword.TabIndex = 11;
+            this.txtPassword.TabIndex = 2;
+            this.txtPassword.TextChanged += new System.EventHandler(this.txtPassword_TextChanged);
             // 
             // txtEmail
             // 
@@ -53,7 +54,7 @@
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.txtEmail.Size = new System.Drawing.Size(205, 20);
-            this.txtEmail.TabIndex = 10;
+            this.txtEmail.TabIndex = 1;
             // 
             // label3
             // 
@@ -98,7 +99,8 @@
             this.txtPasswordVerify.Location = new System.Drawing.Point(217, 226);
             this.txtPasswordVerify.Name = "txtPasswordVerify";
             this.txtPasswordVerify.Size = new System.Drawing.Size(205, 20);
-            this.txtPasswordVerify.TabIndex = 13;
+            this.txtPasswordVerify.TabIndex = 3;
+            this.txtPasswordVerify.TextChanged += new System.EventHandler(this.txtPasswordVerify_TextChanged);
             // 
             // label4
             // 
@@ -134,6 +136,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.buttonRegister);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             this.Name = "formRegister";
             this.Text = "Register";
             this.ResumeLayout(false);

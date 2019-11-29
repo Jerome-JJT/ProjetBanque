@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.buttonLogin = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -36,6 +37,7 @@
             this.txtPassword = new System.Windows.Forms.TextBox();
             this.lblError = new System.Windows.Forms.Label();
             this.cmdGoRegister = new System.Windows.Forms.Button();
+            this.tmrPassword = new System.Windows.Forms.Timer(this.components);
             this.SuspendLayout();
             // 
             // buttonLogin
@@ -43,7 +45,7 @@
             this.buttonLogin.Location = new System.Drawing.Point(216, 250);
             this.buttonLogin.Name = "buttonLogin";
             this.buttonLogin.Size = new System.Drawing.Size(182, 41);
-            this.buttonLogin.TabIndex = 0;
+            this.buttonLogin.TabIndex = 6;
             this.buttonLogin.Text = "Valider votre inscription";
             this.buttonLogin.UseVisualStyleBackColor = true;
             this.buttonLogin.Click += new System.EventHandler(this.buttonLogin_Click);
@@ -91,6 +93,7 @@
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.Size = new System.Drawing.Size(205, 20);
             this.txtPassword.TabIndex = 5;
+            this.txtPassword.TextChanged += new System.EventHandler(this.txtPassword_TextChanged);
             // 
             // lblError
             // 
@@ -107,10 +110,14 @@
             this.cmdGoRegister.Location = new System.Drawing.Point(189, 311);
             this.cmdGoRegister.Name = "cmdGoRegister";
             this.cmdGoRegister.Size = new System.Drawing.Size(246, 23);
-            this.cmdGoRegister.TabIndex = 16;
+            this.cmdGoRegister.TabIndex = 7;
             this.cmdGoRegister.Text = "Vous n\'avez pas de compte? Inscrivez vous !";
             this.cmdGoRegister.UseVisualStyleBackColor = true;
             this.cmdGoRegister.Click += new System.EventHandler(this.cmdGoRegister_Click);
+            // 
+            // tmrPassword
+            // 
+            this.tmrPassword.Interval = 1000;
             // 
             // formLogin
             // 
@@ -126,6 +133,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.buttonLogin);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             this.Name = "formLogin";
             this.Text = "Login";
             this.ResumeLayout(false);
@@ -140,9 +148,10 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txtEmail;
-        private System.Windows.Forms.TextBox txtPassword;
         private System.Windows.Forms.Label lblError;
         private System.Windows.Forms.Button cmdGoRegister;
+        private System.Windows.Forms.Timer tmrPassword;
+        public System.Windows.Forms.TextBox txtPassword;
     }
 }
 

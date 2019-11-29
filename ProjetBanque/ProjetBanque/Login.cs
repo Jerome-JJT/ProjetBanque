@@ -6,6 +6,8 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Threading;
+using System.Timers;
 using System.Windows.Forms;
 
 namespace ProjetBanque
@@ -27,12 +29,11 @@ namespace ProjetBanque
             if (database.VerifyUser(this.txtEmail.Text, this.txtPassword.Text))
             {
                 this.lblError.Text = "";
+                this.Visible = false;
+                Home home = new Home();
 
-                Home formOK = new Home();
-
-                formOK.ShowDialog();
-
-                formOK.lblEmail.Text = this.txtEmail.Text; 
+                home.lblEmail.Text = this.txtEmail.Text;
+                home.ShowDialog();
 
                 this.Close();
             }
@@ -50,6 +51,16 @@ namespace ProjetBanque
             formRegister form = new formRegister();
 
             form.ShowDialog();
+        }
+
+        private void txtPassword_TextChanged(object sender, EventArgs e)
+        {
+            tmrPassword.Enabled = true;
+
+            tmrPassword.Start();
+            txtPassword.Text.Substring(txtPassword.Text.Length - 1, 1);
+
+            tmrPassword.Stop();
         }
     }
 }
