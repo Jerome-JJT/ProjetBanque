@@ -55,11 +55,11 @@
             // 
             // lblEmail
             // 
-            this.lblEmail.AutoSize = true;
-            this.lblEmail.Location = new System.Drawing.Point(187, 131);
+            this.lblEmail.Location = new System.Drawing.Point(0, 131);
             this.lblEmail.Name = "lblEmail";
-            this.lblEmail.Size = new System.Drawing.Size(0, 13);
+            this.lblEmail.Size = new System.Drawing.Size(528, 22);
             this.lblEmail.TabIndex = 11;
+            this.lblEmail.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // formRegisterOk
             // 

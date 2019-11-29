@@ -21,40 +21,72 @@ namespace ProjetBanque
 
         private void buttonRegister_Click(object sender, EventArgs e)
         {
-            
+            this.lblError.Text = "";
+            this.txtEmail.BackColor = Color.FromArgb(255, 255, 255);
+            this.txtPassword.BackColor = Color.FromArgb(255, 255, 255);
+            this.txtPasswordVerify.BackColor = Color.FromArgb(255, 255, 255);
+
             if (this.txtPassword.Text != this.txtPasswordVerify.Text)
             {
                 this.lblError.Text = "Oups.. il y a eu une erreur sur la verification du mot de passe";
+                this.txtPasswordVerify.BackColor = Color.FromArgb(255, 128, 128);
             }
             else
             {
-                this.lblError.Text = "";
-
-                try
+               
+                if (this.txtEmail.Text == "")
                 {
-                    DatabaseManagement database = new DatabaseManagement();
-
-                    database.OpenConnection();
-
-                    if (database.AddUser(this.txtEmail.Text, this.txtPassword.Text, "Public") != 0)
+                    this.txtEmail.BackColor = Color.FromArgb(255, 128, 128);
+                    this.lblError.Text = "Oups.. Vous avez oubliez de remplir certain champ";
+                }
+                if (this.txtPassword.Text == "")
+                {
+                    this.txtPassword.BackColor = Color.FromArgb(255, 128, 128);
+                    this.lblError.Text = "Oups.. Vous avez oubliez de remplir certain champ";
+                }
+                else if (this.txtPassword.Text.Count() < 8)
+                {
+                    this.lblError.Text = "Oups.. votre mot de passe est un petit peu trop court 8 char";
+                    this.txtPassword.BackColor = Color.FromArgb(255, 128, 128);
+                }
+                
+                else
+                {
+                    try
                     {
-                        formRegisterOk formOK = new formRegisterOk();
+                        DatabaseManagement database = new DatabaseManagement();
 
-                        formOK.lblEmail.Text = this.txtEmail.Text + ", vous êtes bien incrit-e";
+                        database.OpenConnection();
+                        try
+                        {
+                            if (database.AddUser(this.txtEmail.Text, this.txtPassword.Text, "Public") != 0)
+                            {
+                                formRegisterOk formOK = new formRegisterOk();
 
-                        formOK.ShowDialog();
+                                formOK.lblEmail.Text = this.txtEmail.Text + ", vous êtes bien incrit-e";
 
-                        Close();
+                                formOK.ShowDialog();
+
+                                Close();
+                            }
+
+                            database.CloseConnection();
+                        }
+                        catch (UserAlreadyExistsException)
+                        {
+                            this.lblError.Text = "Oups.. Cette email est deja utilisée par une autre personne";
+                            this.txtEmail.BackColor = Color.FromArgb(255, 128, 128);
+                        }
+
                     }
-
-                    database.CloseConnection();
-                }
-                catch (WrongEmailFormatException)
-                {
-                    this.lblError.Text = "Oups.. Votre email ne correspond pas a un email valide";
-                }
+                    catch (WrongEmailFormatException)
+                    {
+                        this.lblError.Text = "Oups.. Votre email ne correspond pas a un email valide exemple@exemple";
+                        this.txtEmail.BackColor = Color.FromArgb(255, 128, 128);
+                    }
+                }                  
             }
-
+            
 
         }
         public void RegisterClose()

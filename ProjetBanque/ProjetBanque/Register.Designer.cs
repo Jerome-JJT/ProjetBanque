@@ -50,6 +50,8 @@
             // txtEmail
             // 
             this.txtEmail.AccessibleDescription = "";
+            this.txtEmail.BackColor = System.Drawing.Color.White;
+            this.txtEmail.ForeColor = System.Drawing.SystemColors.WindowText;
             this.txtEmail.Location = new System.Drawing.Point(217, 117);
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -113,13 +115,14 @@
             // 
             // lblError
             // 
-            this.lblError.AutoSize = true;
+            this.lblError.Dock = System.Windows.Forms.DockStyle.Top;
             this.lblError.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblError.ForeColor = System.Drawing.Color.Red;
-            this.lblError.Location = new System.Drawing.Point(79, 9);
+            this.lblError.Location = new System.Drawing.Point(0, 0);
             this.lblError.Name = "lblError";
-            this.lblError.Size = new System.Drawing.Size(0, 20);
+            this.lblError.Size = new System.Drawing.Size(604, 49);
             this.lblError.TabIndex = 14;
+            this.lblError.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // formRegister
             // 

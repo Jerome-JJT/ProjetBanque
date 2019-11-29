@@ -22,28 +22,42 @@ namespace ProjetBanque
 
         private void buttonLogin_Click(object sender, EventArgs e)
         {
+            this.lblError.Text = "";
+            this.txtEmail.BackColor = Color.FromArgb(255, 255, 255);
+            this.txtPassword.BackColor = Color.FromArgb(255, 255, 255);
+
             DatabaseManagement database = new DatabaseManagement();
 
             database.OpenConnection();
-
-            if (database.VerifyUser(this.txtEmail.Text, this.txtPassword.Text))
+            try
             {
-                this.lblError.Text = "";
-                this.Visible = false;
-                Home home = new Home();
+                if (database.VerifyUser(this.txtEmail.Text, this.txtPassword.Text))
+                {                   
+                    this.Visible = false;
+                    Home home = new Home();
 
-                home.lblEmail.Text = this.txtEmail.Text;
-                home.ShowDialog();
+                    home.lblEmail.Text = this.txtEmail.Text;
+                    home.ShowDialog();
 
-                this.Close();
+                    this.Close();
+                }
+
+                else
+                {
+                    this.lblError.Text = "Oups... Une erreur dans l'email ou le mot de passe a été détectée";
+                    this.txtEmail.BackColor = Color.FromArgb(255, 128, 128);
+                    this.txtPassword.BackColor = Color.FromArgb(255, 128, 128);
+                }
+
+                database.CloseConnection();
             }
-
-            else
+            catch (UserDoesNotExistsException)
             {
                 this.lblError.Text = "Oups... Une erreur dans l'email ou le mot de passe a été détectée";
+                this.txtEmail.BackColor = Color.FromArgb(255, 128, 128);
+                this.txtPassword.BackColor = Color.FromArgb(255, 128, 128);
             }
-
-            database.CloseConnection();
+            
         }
 
         private void cmdGoRegister_Click(object sender, EventArgs e)
