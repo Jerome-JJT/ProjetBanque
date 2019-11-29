@@ -15,6 +15,15 @@ namespace ProjetBanque
     }
 
     /// <summary>
+    /// Exception raised when database is unjoinable
+    /// </summary>
+    public class UnableToJoinDatabase : BanqueException
+    {
+
+
+    }
+
+    /// <summary>
     /// Exception raised when trying to create a user who already exists
     /// </summary>
     public class UserAlreadyExistsException : BanqueException

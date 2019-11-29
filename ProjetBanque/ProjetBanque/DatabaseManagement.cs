@@ -43,7 +43,14 @@ namespace ProjetBanque
         /// </summary>
         public void OpenConnection()
         {
-            connection.Open();
+            try
+            {
+                connection.Open();
+            }
+            catch (MySqlException)
+            {
+                throw new UnableToJoinDatabase();
+            }
         }
 
 
