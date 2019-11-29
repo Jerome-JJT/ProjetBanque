@@ -13,22 +13,30 @@ namespace ProjetBanque
     /// </summary>
     public class JsonManagement
     {
+        private string fullPath;
+
         /// <summary>
         /// Create json reader object
         /// </summary>
         public JsonManagement()
         {
+            string path = $"{Environment.GetEnvironmentVariable("appdata")}/BankProfile";
 
+            if (!Directory.Exists(path))
+            {
+                Directory.CreateDirectory(path);
+            }
+
+            fullPath = $"{path}\\bankProfile.json";
         }
 
         /// <summary>
         /// 
         /// </summary>
-        /// <param name="path"></param>
         /// <returns></returns>
-        public JsonData ExtractData(string path)
+        public JsonData ExtractData()
         {
-            StreamReader file = new StreamReader(path);
+            StreamReader file = new StreamReader(fullPath);
 
             JsonData jsonContent = JsonConvert.DeserializeObject<JsonData>(file.ReadToEnd());
 
@@ -40,11 +48,11 @@ namespace ProjetBanque
         /// <summary>
         /// 
         /// </summary>
-        /// <param name="path"></param>
+        /// <param name="data"></param>
         /// <returns></returns>
-        public void InsertData(string path, JsonData data)
+        public void InsertData(JsonData data)
         {
-            StreamWriter file = new StreamWriter(path);
+            StreamWriter file = new StreamWriter(fullPath);
 
             file.Write(JsonConvert.SerializeObject(data));
 

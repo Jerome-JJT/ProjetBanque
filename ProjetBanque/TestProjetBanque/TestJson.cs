@@ -15,9 +15,7 @@ namespace TestProjetBanque
             fileData.WindowSize = new System.Drawing.Size(400,500);
 
             JsonManagement writer = new JsonManagement();
-            writer.InsertData("bankProfile.json", fileData);
-
-            //Assert.AreEqual(0, fileData.windowPosition[0]);
+            writer.InsertData(fileData);
         }
 
         [TestMethod]
@@ -30,7 +28,7 @@ namespace TestProjetBanque
             JsonData fileData = new JsonData();
 
             JsonManagement reader = new JsonManagement();
-            fileData = reader.ExtractData("bankProfile.json");
+            fileData = reader.ExtractData();
 
             Assert.AreEqual(excepted.WindowPosition, fileData.WindowPosition);
             Assert.AreEqual(excepted.WindowSize, fileData.WindowSize);
