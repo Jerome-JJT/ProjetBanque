@@ -67,14 +67,62 @@ namespace ProjetBanque
             form.ShowDialog();
         }
 
+        private string password = "";
+        private string oldTextPassword = "";
+
         private void txtPassword_TextChanged(object sender, EventArgs e)
         {
-            tmrPassword.Enabled = true;
+            //If text is added
+            if (txtPassword.Text.Length > oldTextPassword.Length)
+            {
+                //Get new informations
+                int newCharIndex = txtPassword.SelectionStart - 1;
+                string newChar = txtPassword.Text.Substring(newCharIndex, 1);
 
-            tmrPassword.Start();
-            txtPassword.Text.Substring(txtPassword.Text.Length - 1, 1);
+                //Add new char to password
+                password = password.Insert(newCharIndex, newChar);
 
-            tmrPassword.Stop();
+                //Update oldTextPassword to prevent repetition
+                oldTextPassword = txtPassword.Text;
+
+                //Write wildcards and add new char at the right place
+                txtPassword.Text = new string('*', txtPassword.Text.Length - 1).Insert(newCharIndex, newChar);
+
+                //Replace user's cursor after writing wildcards
+                txtPassword.SelectionStart = newCharIndex + 1;
+
+                //Start/Restart timer
+                tmrPassword.Enabled = true;
+                tmrPassword.Stop();
+                tmrPassword.Start();
+            }
+            else if(txtPassword.Text.Length < oldTextPassword.Length)
+            {
+                //Get changed informations
+                int deleteStart = txtPassword.SelectionStart;
+                int deleteLength = oldTextPassword.Length - txtPassword.Text.Length;
+
+                //Update oldTextPassword to prevent repetition
+                oldTextPassword = txtPassword.Text;
+
+                //Concatenate text before and after delete
+                password = $"{password.Substring(0, deleteStart)}{password.Substring(deleteStart+deleteLength, txtPassword.Text.Length-deleteStart)}";
+            }
+        }
+
+        private void tmrPassword_Tick(object sender, EventArgs e)
+        {
+            //Timer is necessary only when adding letter
+            tmrPassword.Enabled = false;
+
+            //Keep cursor position
+            int backupSelection = txtPassword.SelectionStart;
+
+            //Write wildcards and add new char at the right place
+            txtPassword.Text = new string('*', txtPassword.Text.Length);
+
+            //Replace user's cursor after writing wildcards
+            txtPassword.SelectionStart = backupSelection;
         }
     }
 }
