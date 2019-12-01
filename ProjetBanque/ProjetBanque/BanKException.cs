@@ -9,7 +9,7 @@ namespace ProjetBanque
     /// <summary>
     /// Group all banque errors
     /// </summary>
-    public class BanqueException : Exception
+    public class BankException : Exception
     {
         
     }
@@ -17,7 +17,7 @@ namespace ProjetBanque
     /// <summary>
     /// Exception raised when database is unjoinable
     /// </summary>
-    public class UnableToJoinDatabase : BanqueException
+    public class UnableToJoinDatabase : BankException
     {
 
 
@@ -26,7 +26,7 @@ namespace ProjetBanque
     /// <summary>
     /// Exception raised when trying to create a user who already exists
     /// </summary>
-    public class UserAlreadyExistsException : BanqueException
+    public class UserAlreadyExistsException : BankException
     {
 
     }
@@ -34,7 +34,7 @@ namespace ProjetBanque
     /// <summary>
     /// Exception raised when trying to login with a user who doesn't exists
     /// </summary>
-    public class UserDoesNotExistsException : BanqueException
+    public class UserDoesNotExistsException : BankException
     {
 
     }
@@ -42,7 +42,7 @@ namespace ProjetBanque
     /// <summary>
     /// Exception raised when an email isn't a valid format
     /// </summary>
-    public class WrongEmailFormatException : BanqueException
+    public class WrongEmailFormatException : BankException
     {
 
     }
@@ -50,7 +50,7 @@ namespace ProjetBanque
     /// <summary>
     /// Exception raised when trying to create an account without a valid account type
     /// </summary>
-    public class WrongAccountTypeException : BanqueException
+    public class WrongAccountTypeException : BankException
     {
 
     }

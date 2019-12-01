@@ -54,7 +54,8 @@ namespace ProjetBanque
         {
             StreamWriter file = new StreamWriter(fullPath);
 
-            file.Write(JsonConvert.SerializeObject(data));
+            file.Write(JsonConvert.SerializeObject(data, Formatting.Indented));
+            //file.Write(JsonConvert.SerializeObject(data));
 
             file.Close();
         }

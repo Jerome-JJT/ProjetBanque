@@ -1,6 +1,6 @@
 ﻿namespace ProjetBanque
 {
-    partial class formLogin
+    partial class frmLogin
     {
         /// <summary>
         /// Variable nécessaire au concepteur.
@@ -29,26 +29,26 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.buttonLogin = new System.Windows.Forms.Button();
+            this.cmdLogin = new System.Windows.Forms.Button();
             this.lblEmail = new System.Windows.Forms.Label();
             this.lblPassword = new System.Windows.Forms.Label();
             this.lblTitle = new System.Windows.Forms.Label();
             this.txtEmail = new System.Windows.Forms.TextBox();
             this.txtPassword = new System.Windows.Forms.TextBox();
             this.lblError = new System.Windows.Forms.Label();
-            this.cmdGoRegister = new System.Windows.Forms.Button();
+            this.cmdRegister = new System.Windows.Forms.Button();
             this.tmrPassword = new System.Windows.Forms.Timer(this.components);
             this.SuspendLayout();
             // 
-            // buttonLogin
+            // cmdLogin
             // 
-            this.buttonLogin.Location = new System.Drawing.Point(216, 250);
-            this.buttonLogin.Name = "buttonLogin";
-            this.buttonLogin.Size = new System.Drawing.Size(182, 41);
-            this.buttonLogin.TabIndex = 6;
-            this.buttonLogin.Text = "Valider votre inscription";
-            this.buttonLogin.UseVisualStyleBackColor = true;
-            this.buttonLogin.Click += new System.EventHandler(this.buttonLogin_Click);
+            this.cmdLogin.Location = new System.Drawing.Point(216, 250);
+            this.cmdLogin.Name = "cmdLogin";
+            this.cmdLogin.Size = new System.Drawing.Size(182, 41);
+            this.cmdLogin.TabIndex = 6;
+            this.cmdLogin.Text = "Valider votre inscription";
+            this.cmdLogin.UseVisualStyleBackColor = true;
+            this.cmdLogin.Click += new System.EventHandler(this.cmdLogin_Click);
             // 
             // lblEmail
             // 
@@ -106,38 +106,40 @@
             this.lblError.TabIndex = 15;
             this.lblError.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // cmdGoRegister
+            // cmdRegister
             // 
-            this.cmdGoRegister.Location = new System.Drawing.Point(189, 311);
-            this.cmdGoRegister.Name = "cmdGoRegister";
-            this.cmdGoRegister.Size = new System.Drawing.Size(246, 23);
-            this.cmdGoRegister.TabIndex = 7;
-            this.cmdGoRegister.Text = "Vous n\'avez pas de compte? Inscrivez vous !";
-            this.cmdGoRegister.UseVisualStyleBackColor = true;
-            this.cmdGoRegister.Click += new System.EventHandler(this.cmdGoRegister_Click);
+            this.cmdRegister.Location = new System.Drawing.Point(189, 311);
+            this.cmdRegister.Name = "cmdRegister";
+            this.cmdRegister.Size = new System.Drawing.Size(246, 23);
+            this.cmdRegister.TabIndex = 7;
+            this.cmdRegister.Text = "Vous n\'avez pas de compte? Inscrivez vous !";
+            this.cmdRegister.UseVisualStyleBackColor = true;
+            this.cmdRegister.Click += new System.EventHandler(this.cmdRegister_Click);
             // 
             // tmrPassword
             // 
             this.tmrPassword.Interval = 1000;
             this.tmrPassword.Tick += new System.EventHandler(this.tmrPassword_Tick);
             // 
-            // formLogin
+            // frmLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(604, 390);
-            this.Controls.Add(this.cmdGoRegister);
+            this.Controls.Add(this.cmdRegister);
             this.Controls.Add(this.lblError);
             this.Controls.Add(this.txtPassword);
             this.Controls.Add(this.txtEmail);
             this.Controls.Add(this.lblTitle);
             this.Controls.Add(this.lblPassword);
             this.Controls.Add(this.lblEmail);
-            this.Controls.Add(this.buttonLogin);
+            this.Controls.Add(this.cmdLogin);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
-            this.Name = "formLogin";
+            this.Name = "frmLogin";
             this.Text = "Login";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmLogin_FormClosing);
+            this.Load += new System.EventHandler(this.frmLogin_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -145,15 +147,15 @@
 
         #endregion
 
-        private System.Windows.Forms.Button buttonLogin;
+        private System.Windows.Forms.Button cmdLogin;
         private System.Windows.Forms.Label lblEmail;
         private System.Windows.Forms.Label lblPassword;
         private System.Windows.Forms.Label lblTitle;
         private System.Windows.Forms.TextBox txtEmail;
         private System.Windows.Forms.Label lblError;
-        private System.Windows.Forms.Button cmdGoRegister;
+        private System.Windows.Forms.Button cmdRegister;
         private System.Windows.Forms.Timer tmrPassword;
-        public System.Windows.Forms.TextBox txtPassword;
+        private System.Windows.Forms.TextBox txtPassword;
     }
 }
 

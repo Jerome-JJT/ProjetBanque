@@ -18,12 +18,12 @@ namespace TestProjetBanque
             connDB.OpenConnection();
 
             //add a user
-            int success = connDB.AddUser("jerome.jaquemet@gmail.com", "passing", "Public", 30000);
+            bool success = connDB.AddUser("jerome.jaquemet@gmail.com", "passing", "Public", 30000);
 
             //close connection
             connDB.CloseConnection();
 
-            Assert.AreEqual(1, success);
+            Assert.AreEqual(true, success);
         }
 
         [TestMethod]
@@ -34,12 +34,10 @@ namespace TestProjetBanque
             connDB.OpenConnection();
 
             //add a user
-            int success = connDB.AddUser("jerome.jaquemet@gmail.com", "passing", "Public");
+            bool success = connDB.AddUser("jerome.jaquemet@gmail.com", "passing", "Public");
 
             //close connection
             connDB.CloseConnection();
-
-            Assert.AreEqual(0, success);
         }
 
         [TestMethod]
@@ -50,12 +48,10 @@ namespace TestProjetBanque
             connDB.OpenConnection();
 
             //add a user
-            int success = connDB.AddUser("jerome", "passing", "Public");
+            bool success = connDB.AddUser("jerome", "passing", "Public");
 
             //close connection
             connDB.CloseConnection();
-
-            Assert.AreEqual(0, success);
         }
 
         [TestMethod]

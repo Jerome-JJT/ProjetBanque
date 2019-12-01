@@ -11,8 +11,7 @@ namespace TestProjetBanque
         public void TestInsertNormalData()
         {
             JsonData fileData = new JsonData();
-            fileData.WindowPosition = new System.Drawing.Point(80,90);
-            fileData.WindowSize = new System.Drawing.Size(400,500);
+            fileData.LoginWindowLocation = new System.Drawing.Point(80,90);
 
             JsonManagement writer = new JsonManagement();
             writer.InsertData(fileData);
@@ -22,16 +21,14 @@ namespace TestProjetBanque
         public void TestExtractNormalData()
         {
             JsonData excepted = new JsonData();
-            excepted.WindowPosition = new System.Drawing.Point(80, 90);
-            excepted.WindowSize = new System.Drawing.Size(400, 500);
+            excepted.LoginWindowLocation = new System.Drawing.Point(80, 90);
 
             JsonData fileData = new JsonData();
 
             JsonManagement reader = new JsonManagement();
             fileData = reader.ExtractData();
 
-            Assert.AreEqual(excepted.WindowPosition, fileData.WindowPosition);
-            Assert.AreEqual(excepted.WindowSize, fileData.WindowSize);
+            Assert.AreEqual(excepted.LoginWindowLocation, fileData.LoginWindowLocation);
         }
     }
 }

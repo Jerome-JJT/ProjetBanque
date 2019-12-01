@@ -61,20 +61,21 @@ namespace ProjetBanque
         /// <param name="password">User's password, will be hashed and salted</param>
         /// <param name="type">Account type, "Public" or "Enterprise", "Admin" can't be added here</param>
         /// <returns>1 if success, 0 for an error
-        public int AddUser(string email, string password, string type)
+        public bool AddUser(string email, string password, string type)
         {
             return AddUser(email, password, type, 0);
         }
 
+
         /// <summary>
-        /// Add a user in the database with a certain ammount of money
+        /// Add a user in the database with a certain amount of money
         /// </summary>
         /// <param name="email">User's email, will be verified with regex</param>
         /// <param name="password">User's password, will be hashed and salted</param>
         /// <param name="type">Account type, "Public" or "Enterprise", "Admin" can't be added here</param>
         /// <param name="money">Base money for the account</param>
-        /// <returns>1 if success, 0 for an error
-        public int AddUser(string email, string password, string type, double money)
+        /// <returns>true if success, false for an error
+        public bool AddUser(string email, string password, string type, double money)
         {
             if (!(new List<string> { "Public", "Entreprise" }).Contains(type))
             {
@@ -115,11 +116,18 @@ namespace ProjetBanque
             query.Parameters.AddWithValue("@money", money);
 
 
-            int result;
+            bool result;
             try
             {
                 // Execute the SQL command
-                result = query.ExecuteNonQuery();
+                if(query.ExecuteNonQuery() == 1)
+                {
+                    result = true;
+                }
+                else
+                {
+                    result = false;
+                }
             }
             catch(MySqlException)
             {

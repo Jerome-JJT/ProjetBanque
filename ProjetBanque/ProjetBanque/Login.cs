@@ -9,66 +9,114 @@ using System.Threading.Tasks;
 using System.Threading;
 using System.Timers;
 using System.Windows.Forms;
+using System.IO;
 
 namespace ProjetBanque
 {
-    public partial class formLogin : Form
+    public partial class frmLogin : Form
     {
-        public formLogin()
+        JsonManagement jsonFile = new JsonManagement();
+        JsonData jsonStorage;
+
+        private string password = "";
+        private string oldTextPassword = "";
+
+        public frmLogin()
         {
             InitializeComponent();
-            this.lblError.Text = "";
         }
 
-        private void buttonLogin_Click(object sender, EventArgs e)
+        private void frmLogin_Load(object sender, EventArgs e)
         {
-            this.lblError.Text = "";
-            this.txtEmail.BackColor = Color.FromArgb(255, 255, 255);
-            this.txtPassword.BackColor = Color.FromArgb(255, 255, 255);
+            lblError.Text = "";
 
-            DatabaseManagement database = new DatabaseManagement();
-
-            database.OpenConnection();
             try
             {
-                if (database.VerifyUser(this.txtEmail.Text, this.txtPassword.Text))
-                {                   
-                    this.Visible = false;
-                    Home home = new Home();
+                jsonStorage = jsonFile.ExtractData();
+                Location = jsonStorage.LoginWindowLocation;
+            }
+            catch (FileNotFoundException)
+            {
+                //If file doesn't exist
+                jsonStorage = new JsonData();
+                jsonFile.InsertData(jsonStorage);
+            }
+            catch(NullReferenceException)
+            {
+                //If the json file is empty
+                jsonStorage = new JsonData();
+                jsonFile.InsertData(jsonStorage);
+            }
+        }
 
-                    home.lblEmail.Text = this.txtEmail.Text;
-                    home.ShowDialog();
+        private void frmLogin_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            jsonStorage.LoginWindowLocation = Location;
+            jsonFile.InsertData(jsonStorage);
+        }
 
-                    this.Close();
-                }
 
-                else
-                {
-                    this.lblError.Text = "Oups... Une erreur dans l'email ou le mot de passe a été détectée";
-                    this.txtEmail.BackColor = Color.FromArgb(255, 128, 128);
-                    this.txtPassword.BackColor = Color.FromArgb(255, 128, 128);
-                }
+        private void cmdLogin_Click(object sender, EventArgs e)
+        {
+            lblError.Text = "";
+            txtEmail.BackColor = Color.FromArgb(255, 255, 255);
+            txtPassword.BackColor = Color.FromArgb(255, 255, 255);
+
+            try
+            {
+                DatabaseManagement database = new DatabaseManagement();
+                database.OpenConnection();
+
+                bool allowConnection = database.VerifyUser(txtEmail.Text, password);
 
                 database.CloseConnection();
+
+                if (allowConnection)
+                {                   
+                    Visible = false;
+                    frmHome homeForm = new frmHome(jsonStorage);
+
+                    homeForm.lblEmail.Text = txtEmail.Text;
+                    homeForm.ShowDialog();
+
+                    jsonStorage.HomeWindowLocation = homeForm.Location;
+                    jsonStorage.HomeWindowSize = homeForm.Size;
+                    jsonFile.InsertData(jsonStorage);
+
+                    Close();
+                }
+                else
+                {
+                    //User and password doesn't match case
+                    lblError.Text = "Login incorrect";
+                    txtEmail.BackColor = Color.FromArgb(255, 128, 128);
+                    txtPassword.BackColor = Color.FromArgb(255, 128, 128);
+                }
+            }
+            catch (UnableToJoinDatabase)
+            {
+                lblError.Text = "La base de données est injoignable";
+                txtEmail.BackColor = Color.FromArgb(255, 128, 128);
+                txtPassword.BackColor = Color.FromArgb(255, 128, 128);
             }
             catch (UserDoesNotExistsException)
             {
-                this.lblError.Text = "Oups... Une erreur dans l'email ou le mot de passe a été détectée";
-                this.txtEmail.BackColor = Color.FromArgb(255, 128, 128);
-                this.txtPassword.BackColor = Color.FromArgb(255, 128, 128);
+                lblError.Text = "Login incorrect";
+                txtEmail.BackColor = Color.FromArgb(255, 128, 128);
+                txtPassword.BackColor = Color.FromArgb(255, 128, 128);
             }
             
         }
 
-        private void cmdGoRegister_Click(object sender, EventArgs e)
+        private void cmdRegister_Click(object sender, EventArgs e)
         {
-            formRegister form = new formRegister();
+            frmRegister registerForm = new frmRegister(jsonStorage);
 
-            form.ShowDialog();
+            registerForm.ShowDialog();
+
+            jsonStorage.RegisterWindowLocation = registerForm.Location;
+            jsonFile.InsertData(jsonStorage);
         }
-
-        private string password = "";
-        private string oldTextPassword = "";
 
         private void txtPassword_TextChanged(object sender, EventArgs e)
         {

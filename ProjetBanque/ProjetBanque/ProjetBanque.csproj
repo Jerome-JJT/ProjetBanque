@@ -69,7 +69,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BanqueException.cs" />
+    <Compile Include="BankException.cs" />
     <Compile Include="JsonData.cs" />
     <Compile Include="Home.cs">
       <SubType>Form</SubType>

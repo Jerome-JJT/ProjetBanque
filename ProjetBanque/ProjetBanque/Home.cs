@@ -10,16 +10,28 @@ using System.Windows.Forms;
 
 namespace ProjetBanque
 {
-    public partial class Home : Form
+    public partial class frmHome : Form
     {
-        public Home()
+        private JsonData inheritJsonStorage;
+
+        public frmHome(JsonData inheritStorage)
         {
             InitializeComponent();
+
+            inheritJsonStorage = inheritStorage;
+        }
+
+        private void Home_Load(object sender, EventArgs e)
+        {
+            Location = inheritJsonStorage.HomeWindowLocation;
+            Size = inheritJsonStorage.HomeWindowSize;
         }
 
         private void cmdExit_Click(object sender, EventArgs e)
         {
             this.Close();
         }
+
+        
     }
 }

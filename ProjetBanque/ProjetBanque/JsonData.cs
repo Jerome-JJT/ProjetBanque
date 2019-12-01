@@ -12,25 +12,48 @@ namespace ProjetBanque
     /// </summary>
     public class JsonData
     {
-        private Size windowSize = new Size { Width = 800, Height = 900 };
-        private Point windowPosition = new Point { X = 80, Y = 90 };
+        private Point loginWindowLocation = new Point { X = 0, Y = 0 };
+
+        private Point registerWindowLocation = new Point { X = 0, Y = 0 };
+
+        private Size homeWindowSize = new Size { Width = 0, Height = 0 };
+        private Point homeWindowLocation = new Point { X = 0, Y = 0 };
+
 
         /// <summary>
-        /// Get/Set json's window size
+        /// Get/Set json's login window location
         /// </summary>
-        public Size WindowSize
+        public Point LoginWindowLocation
         {
-            get { return windowSize; }
-            set { windowSize = value; }
+            get { return loginWindowLocation; }
+            set { loginWindowLocation = value; }
         }
 
         /// <summary>
-        /// Get/Set json's window position
+        /// Get/Set json's register window location
         /// </summary>
-        public Point WindowPosition
+        public Point RegisterWindowLocation
         {
-            get { return windowPosition; }
-            set { windowPosition = value; }
+            get { return registerWindowLocation; }
+            set { registerWindowLocation = value; }
+        }
+
+        /// <summary>
+        /// Get/Set json's home window size
+        /// </summary>
+        public Size HomeWindowSize
+        {
+            get { return homeWindowSize; }
+            set { homeWindowSize = value; }
+        }
+
+        /// <summary>
+        /// Get/Set json's home window location
+        /// </summary>
+        public Point HomeWindowLocation
+        {
+            get { return homeWindowLocation; }
+            set { homeWindowLocation = value; }
         }
     }
 }

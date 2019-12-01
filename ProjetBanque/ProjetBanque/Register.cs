@@ -10,98 +10,223 @@ using System.Windows.Forms;
 
 namespace ProjetBanque
 {
-    public partial class formRegister : Form
+    public partial class frmRegister : Form
     {
-        public formRegister()
+        private JsonData inheritJsonStorage;
+
+        private string password = "";
+        private string oldTextPassword = "";
+
+        private string passwordVerify = "";
+        private string oldTextPasswordVerify = "";
+
+        public frmRegister(JsonData inheritStorage)
         {
             InitializeComponent();
-            this.lblError.Text = "";
+            lblError.Text = "";
 
+            inheritJsonStorage = inheritStorage;
         }
 
-        private void buttonRegister_Click(object sender, EventArgs e)
+        private void frmRegister_Load(object sender, EventArgs e)
         {
-            this.lblError.Text = "";
-            this.txtEmail.BackColor = Color.FromArgb(255, 255, 255);
-            this.txtPassword.BackColor = Color.FromArgb(255, 255, 255);
-            this.txtPasswordVerify.BackColor = Color.FromArgb(255, 255, 255);
+            Location = inheritJsonStorage.RegisterWindowLocation;
+        }
 
-            if (this.txtPassword.Text != this.txtPasswordVerify.Text)
+        private void cmdRegister_Click(object sender, EventArgs e)
+        {
+            lblError.Text = "";
+
+            txtEmail.BackColor = Color.FromArgb(255, 255, 255);
+            txtPassword.BackColor = Color.FromArgb(255, 255, 255);
+            txtPasswordVerify.BackColor = Color.FromArgb(255, 255, 255);
+
+            if (password != passwordVerify)
             {
-                this.lblError.Text = "Oups.. il y a eu une erreur sur la verification du mot de passe";
-                this.txtPasswordVerify.BackColor = Color.FromArgb(255, 128, 128);
+                lblError.Text = "Les mots de passes sont différents";
+                txtPasswordVerify.BackColor = Color.FromArgb(255, 128, 128);
             }
             else
             {
-               
-                if (this.txtEmail.Text == "")
+                if (txtEmail.Text.Trim() == "")
                 {
-                    this.txtEmail.BackColor = Color.FromArgb(255, 128, 128);
-                    this.lblError.Text = "Oups.. Vous avez oubliez de remplir certain champ";
+                    txtEmail.BackColor = Color.FromArgb(255, 128, 128);
+                    lblError.Text = "Champ(s) incomplet(s)";
+                    //lblError.Text = "Erreur lors de la création du compte";
+
+                    if (password.Trim() == "")
+                    {
+                        txtPassword.BackColor = Color.FromArgb(255, 128, 128);
+                        lblError.Text = "Champ(s) incomplet(s)";
+                        //lblError.Text = "Erreur lors de la création du compte";
+                    }
                 }
-                if (this.txtPassword.Text == "")
+                else if (passwordVerify.Trim() == "")
                 {
-                    this.txtPassword.BackColor = Color.FromArgb(255, 128, 128);
-                    this.lblError.Text = "Oups.. Vous avez oubliez de remplir certain champ";
+                    txtPassword.BackColor = Color.FromArgb(255, 128, 128);
+                    lblError.Text = "Champ(s) incomplet(s)";
+                    //lblError.Text = "Erreur lors de la création du compte";
                 }
-                else if (this.txtPassword.Text.Count() < 8)
+                else if (password.Count() < 8)
                 {
-                    this.lblError.Text = "Oups.. votre mot de passe est un petit peu trop court 8 char";
-                    this.txtPassword.BackColor = Color.FromArgb(255, 128, 128);
+                    lblError.Text = "Votre mot de passe est trop court, 8 caractères minimum";
+                    txtPassword.BackColor = Color.FromArgb(255, 128, 128);
                 }
-                
                 else
                 {
                     try
                     {
                         DatabaseManagement database = new DatabaseManagement();
-
                         database.OpenConnection();
-                        try
+
+                        bool successCreation = database.AddUser(txtEmail.Text, password, "Public");
+
+                        database.CloseConnection();
+
+                        if (successCreation)
                         {
-                            if (database.AddUser(this.txtEmail.Text, this.txtPassword.Text, "Public") != 0)
-                            {
-                                formRegisterOk formOK = new formRegisterOk();
+                            formRegisterOk formOK = new formRegisterOk();
 
-                                formOK.lblEmail.Text = this.txtEmail.Text + ", vous êtes bien incrit-e";
+                            formOK.lblEmail.Text = txtEmail.Text + ", vous êtes bien incrit-e";
 
-                                formOK.ShowDialog();
+                            formOK.ShowDialog();
 
-                                Close();
-                            }
-
-                            database.CloseConnection();
-                        }
-                        catch (UserAlreadyExistsException)
-                        {
-                            this.lblError.Text = "Oups.. Cette email est deja utilisée par une autre personne";
-                            this.txtEmail.BackColor = Color.FromArgb(255, 128, 128);
+                            Close();
                         }
 
+                        
+                        lblError.Text = "Erreur lors de la création du compte";
+                        txtEmail.BackColor = Color.FromArgb(255, 128, 128);
+
+                    }
+                    catch (UserAlreadyExistsException)
+                    {
+                        //lblError.Text = "Oups.. Cette email est deja utilisée par une autre personne";
+                        lblError.Text = "Erreur lors de la création du compte";
                     }
                     catch (WrongEmailFormatException)
                     {
-                        this.lblError.Text = "Oups.. Votre email ne correspond pas a un email valide exemple@exemple";
-                        this.txtEmail.BackColor = Color.FromArgb(255, 128, 128);
+                        lblError.Text = "Format d'email invalide ex. exemple@exemple";
+                        txtEmail.BackColor = Color.FromArgb(255, 128, 128);
+                    }
+                    catch (WrongAccountTypeException)
+                    {
+                        lblError.Text = "Erreur lors de la création du compte";
                     }
                 }                  
             }
-            
-
         }
-        public void RegisterClose()
+
+
+        private void txtPassword_TextChanged(object sender, EventArgs e)
         {
-            this.Close();
+            //If text is added
+            if (txtPassword.Text.Length > oldTextPassword.Length)
+            {
+                //Get new informations
+                int newCharIndex = txtPassword.SelectionStart - 1;
+                string newChar = txtPassword.Text.Substring(newCharIndex, 1);
+
+                //Add new char to password
+                password = password.Insert(newCharIndex, newChar);
+
+                //Update oldTextPassword to prevent repetition
+                oldTextPassword = txtPassword.Text;
+
+                //Write wildcards and add new char at the right place
+                txtPassword.Text = new string('*', txtPassword.Text.Length - 1).Insert(newCharIndex, newChar);
+
+                //Replace user's cursor after writing wildcards
+                txtPassword.SelectionStart = newCharIndex + 1;
+
+                //Start/Restart timer
+                tmrPassword.Enabled = true;
+                tmrPassword.Stop();
+                tmrPassword.Start();
+            }
+            else if (txtPassword.Text.Length < oldTextPassword.Length)
+            {
+                //Get changed informations
+                int deleteStart = txtPassword.SelectionStart;
+                int deleteLength = oldTextPassword.Length - txtPassword.Text.Length;
+
+                //Update oldTextPassword to prevent repetition
+                oldTextPassword = txtPassword.Text;
+
+                //Concatenate text before and after delete
+                password = $"{password.Substring(0, deleteStart)}{password.Substring(deleteStart + deleteLength, txtPassword.Text.Length - deleteStart)}";
+            }
         }
 
         private void txtPasswordVerify_TextChanged(object sender, EventArgs e)
         {
+            //If text is added
+            if (txtPasswordVerify.Text.Length > oldTextPasswordVerify.Length)
+            {
+                //Get new informations
+                int newCharIndex = txtPasswordVerify.SelectionStart - 1;
+                string newChar = txtPasswordVerify.Text.Substring(newCharIndex, 1);
 
+                //Add new char to password
+                passwordVerify = passwordVerify.Insert(newCharIndex, newChar);
+
+                //Update oldTextPassword to prevent repetition
+                oldTextPasswordVerify = txtPasswordVerify.Text;
+
+                //Write wildcards and add new char at the right place
+                txtPasswordVerify.Text = new string('*', txtPasswordVerify.Text.Length - 1).Insert(newCharIndex, newChar);
+
+                //Replace user's cursor after writing wildcards
+                txtPasswordVerify.SelectionStart = newCharIndex + 1;
+
+                //Start/Restart timer
+                tmrPasswordVerify.Enabled = true;
+                tmrPasswordVerify.Stop();
+                tmrPasswordVerify.Start();
+            }
+            else if (txtPasswordVerify.Text.Length < oldTextPasswordVerify.Length)
+            {
+                //Get changed informations
+                int deleteStart = txtPasswordVerify.SelectionStart;
+                int deleteLength = oldTextPasswordVerify.Length - txtPasswordVerify.Text.Length;
+
+                //Update oldTextPassword to prevent repetition
+                oldTextPasswordVerify = txtPasswordVerify.Text;
+
+                //Concatenate text before and after delete
+                passwordVerify = $"{passwordVerify.Substring(0, deleteStart)}{passwordVerify.Substring(deleteStart + deleteLength, txtPasswordVerify.Text.Length - deleteStart)}";
+            }
         }
 
-        private void txtPassword_TextChanged(object sender, EventArgs e)
+        private void tmrPassword_Tick(object sender, EventArgs e)
         {
+            //Timer is necessary only when adding letter
+            tmrPassword.Enabled = false;
 
+            //Keep cursor position
+            int backupSelection = txtPassword.SelectionStart;
+
+            //Write wildcards and add new char at the right place
+            txtPassword.Text = new string('*', txtPassword.Text.Length);
+
+            //Replace user's cursor after writing wildcards
+            txtPassword.SelectionStart = backupSelection;
         }
+
+        private void tmrPasswordVerify_Tick(object sender, EventArgs e)
+        {
+            //Timer is necessary only when adding letter
+            tmrPasswordVerify.Enabled = false;
+
+            //Keep cursor position
+            int backupVerifySelection = txtPasswordVerify.SelectionStart;
+
+            //Write wildcards and add new char at the right place
+            txtPasswordVerify.Text = new string('*', txtPasswordVerify.Text.Length);
+
+            //Replace user's cursor after writing wildcards
+            txtPasswordVerify.SelectionStart = backupVerifySelection;
+        }
+
     }
 }

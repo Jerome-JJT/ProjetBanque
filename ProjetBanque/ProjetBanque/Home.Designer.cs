@@ -1,6 +1,6 @@
 ﻿namespace ProjetBanque
 {
-    partial class Home
+    partial class frmHome
     {
         /// <summary>
         /// Required designer variable.
@@ -52,7 +52,7 @@
             this.cmdExit.UseVisualStyleBackColor = true;
             this.cmdExit.Click += new System.EventHandler(this.cmdExit_Click);
             // 
-            // Home
+            // frmHome
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -60,8 +60,9 @@
             this.Controls.Add(this.cmdExit);
             this.Controls.Add(this.lblEmail);
             this.MinimumSize = new System.Drawing.Size(686, 486);
-            this.Name = "Home";
+            this.Name = "frmHome";
             this.Text = "Home";
+            this.Load += new System.EventHandler(this.Home_Load);
             this.ResumeLayout(false);
 
         }
