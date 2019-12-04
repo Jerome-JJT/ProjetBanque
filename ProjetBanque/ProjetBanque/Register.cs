@@ -41,14 +41,14 @@ namespace ProjetBanque
             txtPassword.BackColor = Color.FromArgb(255, 255, 255);
             txtPasswordVerify.BackColor = Color.FromArgb(255, 255, 255);
 
-            if (password != passwordVerify)
+            if (password.Trim() != passwordVerify.Trim())
             {
                 lblError.Text = "Les mots de passes sont différents";
                 txtPasswordVerify.BackColor = Color.FromArgb(255, 128, 128);
             }
             else
             {
-                if (txtEmail.Text.Trim() == "")
+                if (txtEmail.Text.ToLower().Trim() == "")
                 {
                     txtEmail.BackColor = Color.FromArgb(255, 128, 128);
                     lblError.Text = "Champ(s) incomplet(s)";
@@ -79,7 +79,7 @@ namespace ProjetBanque
                         DatabaseManagement database = new DatabaseManagement();
                         database.OpenConnection();
 
-                        bool successCreation = database.AddUser(txtEmail.Text, password, "Public");
+                        bool successCreation = database.AddUser(txtEmail.Text.ToLower().Trim(), password.Trim(), "Public");
 
                         database.CloseConnection();
 
@@ -87,7 +87,7 @@ namespace ProjetBanque
                         {
                             formRegisterOk formOK = new formRegisterOk();
 
-                            formOK.lblEmail.Text = txtEmail.Text + ", vous êtes bien incrit-e";
+                            formOK.lblEmail.Text = $"{txtEmail.Text.ToLower().Trim()}, vous êtes bien incrit-e";
 
                             formOK.ShowDialog();
 

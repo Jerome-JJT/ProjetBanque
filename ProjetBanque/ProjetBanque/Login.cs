@@ -67,7 +67,7 @@ namespace ProjetBanque
                 DatabaseManagement database = new DatabaseManagement();
                 database.OpenConnection();
 
-                bool allowConnection = database.VerifyUser(txtEmail.Text, password);
+                bool allowConnection = database.VerifyUser(txtEmail.Text.ToLower().Trim(), password.Trim());
 
                 database.CloseConnection();
 
@@ -76,7 +76,7 @@ namespace ProjetBanque
                     Visible = false;
                     frmHome homeForm = new frmHome(jsonStorage);
 
-                    homeForm.lblEmail.Text = txtEmail.Text;
+                    homeForm.lblEmail.Text = txtEmail.Text.ToLower().Trim();
                     homeForm.ShowDialog();
 
                     jsonStorage.HomeWindowLocation = homeForm.Location;
