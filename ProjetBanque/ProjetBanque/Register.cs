@@ -10,6 +10,9 @@ using System.Windows.Forms;
 
 namespace ProjetBanque
 {
+    /// <summary>
+    /// This windows is design for register the user in the database 
+    /// </summary>
     public partial class frmRegister : Form
     {
         private JsonData inheritJsonStorage;
@@ -20,6 +23,10 @@ namespace ProjetBanque
         private string passwordVerify = "";
         private string oldTextPasswordVerify = "";
 
+        /// <summary>
+        /// This is the constructor of the register
+        /// </summary>
+        /// <param name="inheritStorage">This is all the information of the Json</param>
         public frmRegister(JsonData inheritStorage)
         {
             InitializeComponent();

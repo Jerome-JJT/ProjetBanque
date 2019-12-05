@@ -10,10 +10,17 @@ using System.Windows.Forms;
 
 namespace ProjetBanque
 {
+    /// <summary>
+    /// This windows is the home page of our application
+    /// </summary>
     public partial class frmHome : Form
     {
         private JsonData inheritJsonStorage;
 
+        /// <summary>
+        /// This is the constructor of the home page
+        /// </summary>
+        /// <param name="inheritStorage"></param>
         public frmHome(JsonData inheritStorage)
         {
             InitializeComponent();
