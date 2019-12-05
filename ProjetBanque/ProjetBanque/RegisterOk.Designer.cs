@@ -75,6 +75,7 @@
             this.Name = "formRegisterOk";
             this.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.Text = "RegisterOk";
+            this.Load += new System.EventHandler(this.formRegisterOk_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

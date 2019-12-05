@@ -10,6 +10,9 @@ using System.Windows.Forms;
 
 namespace ProjetBanque
 {
+    /// <summary>
+    /// This windows is design for register the user in the database 
+    /// </summary>
     public partial class frmRegister : Form
     {
         private JsonData inheritJsonStorage;
@@ -20,6 +23,10 @@ namespace ProjetBanque
         private string passwordVerify = "";
         private string oldTextPasswordVerify = "";
 
+        /// <summary>
+        /// This is the constructor of the register
+        /// </summary>
+        /// <param name="inheritStorage">This is all the information of the Json</param>
         public frmRegister(JsonData inheritStorage)
         {
             InitializeComponent();
@@ -98,6 +105,12 @@ namespace ProjetBanque
                         lblError.Text = "Erreur lors de la création du compte";
                         txtEmail.BackColor = Color.FromArgb(255, 128, 128);
 
+                    }
+                    catch (UnableToJoinDatabase)
+                    {
+                        lblError.Text = "La base de données est injoignable";
+                        txtEmail.BackColor = Color.FromArgb(255, 128, 128);
+                        txtPassword.BackColor = Color.FromArgb(255, 128, 128);
                     }
                     catch (UserAlreadyExistsException)
                     {

@@ -13,6 +13,9 @@ using System.IO;
 
 namespace ProjetBanque
 {
+    /// <summary>
+    /// This windows is design for login the user who is register in the database 
+    /// </summary>
     public partial class frmLogin : Form
     {
         JsonManagement jsonFile = new JsonManagement();
@@ -21,6 +24,9 @@ namespace ProjetBanque
         private string password = "";
         private string oldTextPassword = "";
 
+        /// <summary>
+        /// This is the constructor of the login
+        /// </summary>
         public frmLogin()
         {
             InitializeComponent();
