@@ -27,7 +27,7 @@ namespace ProjetBanque
                 Directory.CreateDirectory(path);
             }
 
-            fullPath = $"{path}\\bankProfile.json";
+            fullPath = $"{path}/bankProfile.json";
         }
 
         /// <summary>

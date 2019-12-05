@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using ProjetBanque;
 
@@ -8,7 +9,17 @@ namespace TestProjetBanque
     public class TestJson
     {
         [TestMethod]
-        public void TestInsertNormalData()
+        public void TestCreateDirectory()
+        {
+            JsonManagement creater = new JsonManagement();
+            string path = $"{Environment.GetEnvironmentVariable("appdata")}/BankProfile";
+
+            Assert.IsTrue(Directory.Exists(path));
+            Assert.IsTrue(File.Exists($"{path}/bankProfile.json"));
+        }
+
+        [TestMethod]
+        public void TestInsertNormalProfile()
         {
             JsonData fileData = new JsonData();
             fileData.LoginWindowLocation = new System.Drawing.Point(80,90);
@@ -18,7 +29,7 @@ namespace TestProjetBanque
         }
 
         [TestMethod]
-        public void TestExtractNormalData()
+        public void TestExtractNormalProfile()
         {
             JsonData excepted = new JsonData();
             excepted.LoginWindowLocation = new System.Drawing.Point(80, 90);
