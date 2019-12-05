@@ -106,6 +106,12 @@ namespace ProjetBanque
                         txtEmail.BackColor = Color.FromArgb(255, 128, 128);
 
                     }
+                    catch (UnableToJoinDatabase)
+                    {
+                        lblError.Text = "La base de données est injoignable";
+                        txtEmail.BackColor = Color.FromArgb(255, 128, 128);
+                        txtPassword.BackColor = Color.FromArgb(255, 128, 128);
+                    }
                     catch (UserAlreadyExistsException)
                     {
                         //lblError.Text = "Oups.. Cette email est deja utilisée par une autre personne";
