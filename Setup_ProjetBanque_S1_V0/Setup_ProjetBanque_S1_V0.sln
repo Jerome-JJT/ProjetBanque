@@ -14,6 +14,7 @@ Global
 		{7139751D-AB68-4ADD-A68C-F00DA6E832BE}.Debug|Default.ActiveCfg = Debug
 		{7139751D-AB68-4ADD-A68C-F00DA6E832BE}.Debug|Default.Build.0 = Debug
 		{7139751D-AB68-4ADD-A68C-F00DA6E832BE}.Release|Default.ActiveCfg = Release
+		{7139751D-AB68-4ADD-A68C-F00DA6E832BE}.Release|Default.Build.0 = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
