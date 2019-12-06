@@ -34,20 +34,20 @@
             <taskproperty id="tpd8" name="coordinator" type="default" valuetype="text"/>
             <taskproperty id="tpd9" name="predecessorsr" type="default" valuetype="text"/>
         </taskproperties>
-        <task id="7" name="Sprint 1" meeting="false" start="2019-11-21" duration="5" complete="0" expand="true">
+        <task id="7" name="Sprint 1" meeting="false" start="2019-11-21" duration="10" complete="0" expand="true">
             <task id="0" name="Analyse / briefing" color="#8cb6ce" meeting="false" start="2019-11-21" duration="1" complete="0" expand="true"/>
-            <task id="15" name="Login / Register" meeting="false" start="2019-11-21" duration="5" complete="0" expand="true"/>
+            <task id="15" name="Login / Register" meeting="false" start="2019-11-21" duration="10" complete="0" expand="true"/>
         </task>
-        <task id="10" name="Sprint 2" meeting="false" start="2019-11-28" duration="10" complete="0" expand="true">
-            <task id="21" name="Change /delete password" color="#009933" meeting="false" start="2019-11-28" duration="6" complete="0" expand="true"/>
-            <task id="17" name="Type de compte" color="#009933" meeting="false" start="2019-12-05" duration="5" complete="0" expand="true"/>
+        <task id="10" name="Sprint 2" meeting="false" start="2019-12-05" duration="16" complete="0" expand="true">
+            <task id="21" name="Change /delete password" color="#009933" meeting="false" start="2019-12-05" duration="11" complete="0" expand="true"/>
+            <task id="17" name="Type de compte" color="#009933" meeting="false" start="2019-12-13" duration="10" complete="0" expand="true"/>
         </task>
-        <task id="11" name="Sprint 3" meeting="false" start="2019-12-12" duration="15" complete="0" expand="true">
-            <task id="24" name="Payement" color="#990066" meeting="false" start="2019-12-12" duration="12" complete="0" expand="true"/>
-            <task id="25" name="Raison du payement" color="#990066" meeting="false" start="2019-12-27" duration="4" complete="0" expand="true"/>
+        <task id="11" name="Sprint 3" meeting="false" start="2019-12-26" duration="12" complete="0" expand="true">
+            <task id="24" name="Payement" color="#990066" meeting="false" start="2019-12-26" duration="12" complete="0" expand="true"/>
+            <task id="25" name="Raison du payement" color="#990066" meeting="false" start="2019-12-27" duration="5" complete="0" expand="true"/>
         </task>
-        <task id="12" name="Sprint 4" meeting="false" start="2020-01-02" duration="10" complete="0" expand="true">
-            <task id="27" name="Relevé de compte" color="#990000" meeting="false" start="2020-01-02" duration="10" complete="0" expand="true"/>
+        <task id="12" name="Sprint 4" meeting="false" start="2020-01-09" duration="5" complete="0" expand="true">
+            <task id="27" name="Relevé de compte" color="#990000" meeting="false" start="2020-01-09" duration="5" complete="0" expand="true"/>
         </task>
         <task id="13" name="Sprint 5" meeting="false" start="2020-01-16" duration="7" complete="0" expand="true">
             <task id="29" name="Debug / autre" color="#666666" meeting="false" start="2020-01-16" duration="7" complete="0" expand="true"/>
