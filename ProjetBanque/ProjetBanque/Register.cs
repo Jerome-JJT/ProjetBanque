@@ -42,6 +42,8 @@ namespace ProjetBanque
 
         private void cmdRegister_Click(object sender, EventArgs e)
         {
+            int flag = 0;
+
             lblError.Text = "";
 
             txtEmail.BackColor = Color.FromArgb(255, 255, 255);
@@ -52,82 +54,88 @@ namespace ProjetBanque
             {
                 lblError.Text = "Les mots de passes sont différents";
                 txtPasswordVerify.BackColor = Color.FromArgb(255, 128, 128);
-            }
-            else
+                flag++;
+            }                
+            if(password.Count() < 8)
             {
-                if (txtEmail.Text.ToLower().Trim() == "")
-                {
-                    txtEmail.BackColor = Color.FromArgb(255, 128, 128);
-                    lblError.Text = "Champ(s) incomplet(s)";
-                    //lblError.Text = "Erreur lors de la création du compte";                    
-                }
-                if (password.Trim() == "")
-                {
-                    txtPassword.BackColor = Color.FromArgb(255, 128, 128);
-                    lblError.Text = "Champ(s) incomplet(s)";
-                    //lblError.Text = "Erreur lors de la création du compte";
-                }
-                if (passwordVerify.Trim() == "")
-                {
-                    txtPasswordVerify.BackColor = Color.FromArgb(255, 128, 128);
-                    lblError.Text = "Champ(s) incomplet(s)";
-                    //lblError.Text = "Erreur lors de la création du compte";
-                }
-                else if(password.Count() < 8)
-                {
-                    lblError.Text = "Votre mot de passe est trop court, 8 caractères minimum";
-                    txtPassword.BackColor = Color.FromArgb(255, 128, 128);
-                    txtPasswordVerify.BackColor = Color.FromArgb(255, 128, 128);
-                }
-                    else
-                {
-                    try
-                    {
-                        DatabaseManagement database = new DatabaseManagement();
-                        database.OpenConnection();
+                lblError.Text = "Votre mot de passe est trop court, 8 caractères minimum";
+                txtPassword.BackColor = Color.FromArgb(255, 128, 128);
+                txtPasswordVerify.BackColor = Color.FromArgb(255, 128, 128);
+                flag++;
 
-                        bool successCreation = database.AddUser(txtEmail.Text.ToLower().Trim(), password.Trim(), "Public");
-
-                        database.CloseConnection();
-
-                        if (successCreation)
-                        {
-                            formRegisterOk formOK = new formRegisterOk();
-
-                            formOK.lblEmail.Text = $"{txtEmail.Text.ToLower().Trim()}, vous êtes bien incrit-e";
-
-                            formOK.ShowDialog();
-
-                            Close();
-                        }
-
-                        
-                        lblError.Text = "Erreur lors de la création du compte";
-                        txtEmail.BackColor = Color.FromArgb(255, 128, 128);
-
-                    }
-                    catch (UnableToJoinDatabase)
-                    {
-                        lblError.Text = "La base de données est injoignable";
-                        txtEmail.BackColor = Color.FromArgb(255, 128, 128);
-                        txtPassword.BackColor = Color.FromArgb(255, 128, 128);
-                    }
-                    catch (UserAlreadyExistsException)
-                    {
-                        //lblError.Text = "Oups.. Cette email est deja utilisée par une autre personne";
-                        lblError.Text = "Erreur lors de la création du compte";
-                    }
-                    catch (WrongEmailFormatException)
-                    {
-                        lblError.Text = "Format d'email invalide ex. exemple@exemple";
-                        txtEmail.BackColor = Color.FromArgb(255, 128, 128);
-                    }
-                    catch (WrongAccountTypeException)
-                    {
-                        lblError.Text = "Erreur lors de la création du compte";
-                    }
-                }                  
             }
+            if (txtEmail.Text.ToLower().Trim() == "")
+            {
+                txtEmail.BackColor = Color.FromArgb(255, 128, 128);
+                lblError.Text = "Champ(s) incomplet(s)";
+                flag++;
+
+                //lblError.Text = "Erreur lors de la création du compte";                    
+            }
+            if (password.Trim() == "")
+            {
+                txtPassword.BackColor = Color.FromArgb(255, 128, 128);
+                lblError.Text = "Champ(s) incomplet(s)";
+                flag++;
+
+                //lblError.Text = "Erreur lors de la création du compte";
+            }
+            if (passwordVerify.Trim() == "")
+            {
+                txtPasswordVerify.BackColor = Color.FromArgb(255, 128, 128);
+                lblError.Text = "Champ(s) incomplet(s)";
+                flag++;
+
+                //lblError.Text = "Erreur lors de la création du compte";
+            }
+            if(flag == 0)
+            {
+                try
+                {
+                    DatabaseManagement database = new DatabaseManagement();
+                    database.OpenConnection();
+
+                    bool successCreation = database.AddUser(txtEmail.Text.ToLower().Trim(), password.Trim(), "Public");
+
+                    database.CloseConnection();
+
+                    if (successCreation)
+                    {
+                        formRegisterOk formOK = new formRegisterOk();
+
+                        formOK.lblEmail.Text = $"{txtEmail.Text.ToLower().Trim()}, vous êtes bien incrit-e";
+
+                        formOK.ShowDialog();
+
+                        Close();
+                    }
+
+                    
+                    lblError.Text = "Erreur lors de la création du compte";
+                    txtEmail.BackColor = Color.FromArgb(255, 128, 128);
+
+                }
+                catch (UnableToJoinDatabase)
+                {
+                    lblError.Text = "La base de données est injoignable";
+                    txtEmail.BackColor = Color.FromArgb(255, 128, 128);
+                    txtPassword.BackColor = Color.FromArgb(255, 128, 128);
+                }
+                catch (UserAlreadyExistsException)
+                {
+                    //lblError.Text = "Oups.. Cette email est deja utilisée par une autre personne";
+                    lblError.Text = "Erreur lors de la création du compte";
+                }
+                catch (WrongEmailFormatException)
+                {
+                    lblError.Text = "Format d'email invalide ex. exemple@exemple";
+                    txtEmail.BackColor = Color.FromArgb(255, 128, 128);
+                }
+                catch (WrongAccountTypeException)
+                {
+                    lblError.Text = "Erreur lors de la création du compte";
+                }
+            }                  
         }
 
 
