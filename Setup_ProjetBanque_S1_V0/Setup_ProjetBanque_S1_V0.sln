@@ -1,0 +1,24 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.329
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "Setup_ProjetBanque_S1_V0", "Setup_ProjetBanque_S1_V0\Setup_ProjetBanque_S1_V0.vdproj", "{7139751D-AB68-4ADD-A68C-F00DA6E832BE}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Default = Debug|Default
+		Release|Default = Release|Default
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7139751D-AB68-4ADD-A68C-F00DA6E832BE}.Debug|Default.ActiveCfg = Debug
+		{7139751D-AB68-4ADD-A68C-F00DA6E832BE}.Debug|Default.Build.0 = Debug
+		{7139751D-AB68-4ADD-A68C-F00DA6E832BE}.Release|Default.ActiveCfg = Release
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {1AF3C9BA-243C-4A3E-83BB-95F8BC3B7474}
+	EndGlobalSection
+EndGlobal
