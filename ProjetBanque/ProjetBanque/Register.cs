@@ -59,27 +59,27 @@ namespace ProjetBanque
                 {
                     txtEmail.BackColor = Color.FromArgb(255, 128, 128);
                     lblError.Text = "Champ(s) incomplet(s)";
-                    //lblError.Text = "Erreur lors de la création du compte";
-
-                    if (password.Trim() == "")
-                    {
-                        txtPassword.BackColor = Color.FromArgb(255, 128, 128);
-                        lblError.Text = "Champ(s) incomplet(s)";
-                        //lblError.Text = "Erreur lors de la création du compte";
-                    }
+                    //lblError.Text = "Erreur lors de la création du compte";                    
                 }
-                else if (passwordVerify.Trim() == "")
+                if (password.Trim() == "")
                 {
                     txtPassword.BackColor = Color.FromArgb(255, 128, 128);
                     lblError.Text = "Champ(s) incomplet(s)";
                     //lblError.Text = "Erreur lors de la création du compte";
                 }
-                else if (password.Count() < 8)
+                if (passwordVerify.Trim() == "")
+                {
+                    txtPasswordVerify.BackColor = Color.FromArgb(255, 128, 128);
+                    lblError.Text = "Champ(s) incomplet(s)";
+                    //lblError.Text = "Erreur lors de la création du compte";
+                }
+                else if(password.Count() < 8)
                 {
                     lblError.Text = "Votre mot de passe est trop court, 8 caractères minimum";
                     txtPassword.BackColor = Color.FromArgb(255, 128, 128);
+                    txtPasswordVerify.BackColor = Color.FromArgb(255, 128, 128);
                 }
-                else
+                    else
                 {
                     try
                     {
