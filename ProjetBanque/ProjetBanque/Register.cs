@@ -124,7 +124,7 @@ namespace ProjetBanque
                 catch (UserAlreadyExistsException)
                 {
                     //lblError.Text = "Oups.. Cette email est deja utilisée par une autre personne";
-                    lblError.Text = "Erreur lors de la création du compte";
+                    lblError.Text = "Erreur lors de la création du compte, cet email est deja utilisé";
                 }
                 catch (WrongEmailFormatException)
                 {
