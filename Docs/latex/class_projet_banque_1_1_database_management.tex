@@ -1,0 +1,174 @@
+\hypertarget{class_projet_banque_1_1_database_management}{}\section{Projet\+Banque.\+Database\+Management Class Reference}
+\label{class_projet_banque_1_1_database_management}\index{ProjetBanque.DatabaseManagement@{ProjetBanque.DatabaseManagement}}
+
+
+Execute S\+QL queries on banque database and return success or result  
+
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_projet_banque_1_1_database_management_a595d794798b5b753d9d43c623a679abc}{Database\+Management}} ()
+\begin{DoxyCompactList}\small\item\em Create database instance and init connection \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_projet_banque_1_1_database_management_ae0af13394741c4671c86ffb098e281e7}{Open\+Connection}} ()
+\begin{DoxyCompactList}\small\item\em Open connection to the database \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_projet_banque_1_1_database_management_acf89f88775d4c333e5b17f76a4913530}{Add\+User}} (string email, string password, string type)
+\begin{DoxyCompactList}\small\item\em Add a user in the database with 0 money \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_projet_banque_1_1_database_management_a8897afb1154de9e27b3823465a9af0eb}{Add\+User}} (string email, string password, string type, double money)
+\begin{DoxyCompactList}\small\item\em Add a user in the database with a certain amount of money \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_projet_banque_1_1_database_management_a2b1815dc73339c7abbe63e2b8403143d}{Verify\+User}} (string email, string password)
+\begin{DoxyCompactList}\small\item\em Check a user\textquotesingle{}s login with password in the database \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_projet_banque_1_1_database_management_a1bc7a22d48a79809b752806bcbf1107a}{Delete\+User}} (string email)
+\begin{DoxyCompactList}\small\item\em Delete a user from the database \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{class_projet_banque_1_1_database_management_aeee42ee61e0e0a96a7927bf408956881}{Get\+User\+Money}} (string email)
+\begin{DoxyCompactList}\small\item\em Get the user\textquotesingle{}s money amount from his email \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_projet_banque_1_1_database_management_aa825c23c3dd06796b8243ce8ed7c6bfb}{Close\+Connection}} ()
+\begin{DoxyCompactList}\small\item\em Close connection to the database \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Execute S\+QL queries on banque database and return success or result 
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_projet_banque_1_1_database_management_a595d794798b5b753d9d43c623a679abc}\label{class_projet_banque_1_1_database_management_a595d794798b5b753d9d43c623a679abc}} 
+\index{ProjetBanque.DatabaseManagement@{ProjetBanque.DatabaseManagement}!DatabaseManagement@{DatabaseManagement}}
+\index{DatabaseManagement@{DatabaseManagement}!ProjetBanque.DatabaseManagement@{ProjetBanque.DatabaseManagement}}
+\subsubsection{\texorpdfstring{DatabaseManagement()}{DatabaseManagement()}}
+{\footnotesize\ttfamily Projet\+Banque.\+Database\+Management.\+Database\+Management (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Create database instance and init connection 
+
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_projet_banque_1_1_database_management_acf89f88775d4c333e5b17f76a4913530}\label{class_projet_banque_1_1_database_management_acf89f88775d4c333e5b17f76a4913530}} 
+\index{ProjetBanque.DatabaseManagement@{ProjetBanque.DatabaseManagement}!AddUser@{AddUser}}
+\index{AddUser@{AddUser}!ProjetBanque.DatabaseManagement@{ProjetBanque.DatabaseManagement}}
+\subsubsection{\texorpdfstring{AddUser()}{AddUser()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily bool Projet\+Banque.\+Database\+Management.\+Add\+User (\begin{DoxyParamCaption}\item[{string}]{email,  }\item[{string}]{password,  }\item[{string}]{type }\end{DoxyParamCaption})}
+
+
+
+Add a user in the database with 0 money 
+
+
+\begin{DoxyParams}{Parameters}
+{\em email} & User\textquotesingle{}s email, will be verified with regex\\
+\hline
+{\em password} & User\textquotesingle{}s password, will be hashed and salted\\
+\hline
+{\em type} & Account type, \char`\"{}\+Public\char`\"{} or \char`\"{}\+Enterprise\char`\"{}, \char`\"{}\+Admin\char`\"{} can\textquotesingle{}t be added here\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+1 if success, 0 for an error 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_projet_banque_1_1_database_management_a8897afb1154de9e27b3823465a9af0eb}\label{class_projet_banque_1_1_database_management_a8897afb1154de9e27b3823465a9af0eb}} 
+\index{ProjetBanque.DatabaseManagement@{ProjetBanque.DatabaseManagement}!AddUser@{AddUser}}
+\index{AddUser@{AddUser}!ProjetBanque.DatabaseManagement@{ProjetBanque.DatabaseManagement}}
+\subsubsection{\texorpdfstring{AddUser()}{AddUser()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily bool Projet\+Banque.\+Database\+Management.\+Add\+User (\begin{DoxyParamCaption}\item[{string}]{email,  }\item[{string}]{password,  }\item[{string}]{type,  }\item[{double}]{money }\end{DoxyParamCaption})}
+
+
+
+Add a user in the database with a certain amount of money 
+
+
+\begin{DoxyParams}{Parameters}
+{\em email} & User\textquotesingle{}s email, will be verified with regex\\
+\hline
+{\em password} & User\textquotesingle{}s password, will be hashed and salted\\
+\hline
+{\em type} & Account type, \char`\"{}\+Public\char`\"{} or \char`\"{}\+Enterprise\char`\"{}, \char`\"{}\+Admin\char`\"{} can\textquotesingle{}t be added here\\
+\hline
+{\em money} & Base money for the account\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if success, false for an error 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_projet_banque_1_1_database_management_aa825c23c3dd06796b8243ce8ed7c6bfb}\label{class_projet_banque_1_1_database_management_aa825c23c3dd06796b8243ce8ed7c6bfb}} 
+\index{ProjetBanque.DatabaseManagement@{ProjetBanque.DatabaseManagement}!CloseConnection@{CloseConnection}}
+\index{CloseConnection@{CloseConnection}!ProjetBanque.DatabaseManagement@{ProjetBanque.DatabaseManagement}}
+\subsubsection{\texorpdfstring{CloseConnection()}{CloseConnection()}}
+{\footnotesize\ttfamily void Projet\+Banque.\+Database\+Management.\+Close\+Connection (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Close connection to the database 
+
+\mbox{\Hypertarget{class_projet_banque_1_1_database_management_a1bc7a22d48a79809b752806bcbf1107a}\label{class_projet_banque_1_1_database_management_a1bc7a22d48a79809b752806bcbf1107a}} 
+\index{ProjetBanque.DatabaseManagement@{ProjetBanque.DatabaseManagement}!DeleteUser@{DeleteUser}}
+\index{DeleteUser@{DeleteUser}!ProjetBanque.DatabaseManagement@{ProjetBanque.DatabaseManagement}}
+\subsubsection{\texorpdfstring{DeleteUser()}{DeleteUser()}}
+{\footnotesize\ttfamily int Projet\+Banque.\+Database\+Management.\+Delete\+User (\begin{DoxyParamCaption}\item[{string}]{email }\end{DoxyParamCaption})}
+
+
+
+Delete a user from the database 
+
+
+\begin{DoxyParams}{Parameters}
+{\em email} & User\textquotesingle{}s email to delete\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+1 if success, 0 for failure 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_projet_banque_1_1_database_management_aeee42ee61e0e0a96a7927bf408956881}\label{class_projet_banque_1_1_database_management_aeee42ee61e0e0a96a7927bf408956881}} 
+\index{ProjetBanque.DatabaseManagement@{ProjetBanque.DatabaseManagement}!GetUserMoney@{GetUserMoney}}
+\index{GetUserMoney@{GetUserMoney}!ProjetBanque.DatabaseManagement@{ProjetBanque.DatabaseManagement}}
+\subsubsection{\texorpdfstring{GetUserMoney()}{GetUserMoney()}}
+{\footnotesize\ttfamily double Projet\+Banque.\+Database\+Management.\+Get\+User\+Money (\begin{DoxyParamCaption}\item[{string}]{email }\end{DoxyParamCaption})}
+
+
+
+Get the user\textquotesingle{}s money amount from his email 
+
+
+\begin{DoxyParams}{Parameters}
+{\em email} & User\textquotesingle{}s email\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Return user\textquotesingle{}s money
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_projet_banque_1_1_database_management_ae0af13394741c4671c86ffb098e281e7}\label{class_projet_banque_1_1_database_management_ae0af13394741c4671c86ffb098e281e7}} 
+\index{ProjetBanque.DatabaseManagement@{ProjetBanque.DatabaseManagement}!OpenConnection@{OpenConnection}}
+\index{OpenConnection@{OpenConnection}!ProjetBanque.DatabaseManagement@{ProjetBanque.DatabaseManagement}}
+\subsubsection{\texorpdfstring{OpenConnection()}{OpenConnection()}}
+{\footnotesize\ttfamily void Projet\+Banque.\+Database\+Management.\+Open\+Connection (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Open connection to the database 
+
+\mbox{\Hypertarget{class_projet_banque_1_1_database_management_a2b1815dc73339c7abbe63e2b8403143d}\label{class_projet_banque_1_1_database_management_a2b1815dc73339c7abbe63e2b8403143d}} 
+\index{ProjetBanque.DatabaseManagement@{ProjetBanque.DatabaseManagement}!VerifyUser@{VerifyUser}}
+\index{VerifyUser@{VerifyUser}!ProjetBanque.DatabaseManagement@{ProjetBanque.DatabaseManagement}}
+\subsubsection{\texorpdfstring{VerifyUser()}{VerifyUser()}}
+{\footnotesize\ttfamily bool Projet\+Banque.\+Database\+Management.\+Verify\+User (\begin{DoxyParamCaption}\item[{string}]{email,  }\item[{string}]{password }\end{DoxyParamCaption})}
+
+
+
+Check a user\textquotesingle{}s login with password in the database 
+
+
+\begin{DoxyParams}{Parameters}
+{\em email} & User\textquotesingle{}s email\\
+\hline
+{\em password} & User\textquotesingle{}s password\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if passwords matchs 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+P\+:/\+\_\+\+Modules C\+P\+N\+V/\+Projet C\# projet 4/\+Projet\+Banque/\+Projet\+Banque/\+Projet\+Banque/Database\+Management.\+cs\end{DoxyCompactItemize}

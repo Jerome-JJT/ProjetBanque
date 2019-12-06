@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace ProjetBanque
 {
     /// <summary>
-    /// Group all banque errors
+    /// Group all bank errors
     /// </summary>
     public class BankException : Exception
     {
