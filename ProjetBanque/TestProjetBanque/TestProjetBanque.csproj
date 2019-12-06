@@ -76,7 +76,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="TestDatabaseManagement.cs" />
+    <Compile Include="TestDatabaseManagementCreation.cs" />
+    <Compile Include="TestDatabaseManagementAccess.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TestJson.cs" />
   </ItemGroup>
