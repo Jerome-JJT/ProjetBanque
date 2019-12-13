@@ -39,6 +39,5 @@ namespace ProjetBanque
             this.Close();
         }
 
-        
     }
 }

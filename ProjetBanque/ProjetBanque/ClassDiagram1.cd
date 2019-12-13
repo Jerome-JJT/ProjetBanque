@@ -1,0 +1,121 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="ProjetBanque.BankException" Collapsed="true">
+    <Position X="5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>BankException.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ProjetBanque.UnableToJoinDatabase" Collapsed="true">
+    <Position X="2.75" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>BankException.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ProjetBanque.UserAlreadyExistsException" Collapsed="true">
+    <Position X="5" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>BankException.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ProjetBanque.UserDoesNotExistsException" Collapsed="true">
+    <Position X="7.25" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>BankException.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ProjetBanque.WrongEmailFormatException" Collapsed="true">
+    <Position X="9.5" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>BankException.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ProjetBanque.WrongAccountTypeException" Collapsed="true">
+    <Position X="0.5" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>BankException.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ProjetBanque.CryptoPassword" Collapsed="true">
+    <Position X="12" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEAAAAAAAAIAAQAAAgAAAIAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>CryptoPassword.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ProjetBanque.DatabaseManagement" Collapsed="true">
+    <Position X="13.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAEAABAQAAAAEAAABABAAAQAAAAAgAAAAAAAAAAA=</HashCode>
+      <FileName>DatabaseManagement.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ProjetBanque.frmHome" Collapsed="true">
+    <Position X="17.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAgAAAAACIQQZMACAKAIKgCAAgAAAAAAAAAAACAAgA=</HashCode>
+      <FileName>Home.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ProjetBanque.JsonData" Collapsed="true">
+    <Position X="15.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAQAAAAEAAAABAAAAABAQAAAQABAAAAAQAAAAAAAA=</HashCode>
+      <FileName>JsonData.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ProjetBanque.JsonManagement" Collapsed="true">
+    <Position X="17.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABgAAgA=</HashCode>
+      <FileName>JsonManagement.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ProjetBanque.frmLogin" Collapsed="true">
+    <Position X="12" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAwAAAAgACAAAgFAAACCIAACIAIAAIAADkAAAgABEAQ=</HashCode>
+      <FileName>Login.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ProjetBanque.Program" Collapsed="true">
+    <Position X="12" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAA=</HashCode>
+      <FileName>Program.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ProjetBanque.frmRegister" Collapsed="true">
+    <Position X="13.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAgQAAAgACACAIHAAACCIACCAAIAQIAABgAAAwCAEAQ=</HashCode>
+      <FileName>Register.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ProjetBanque.formRegisterOk" Collapsed="true">
+    <Position X="15.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAIAAAAACAAABBAAADAIAACAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>RegisterOk.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ProjetBanque.Properties.Resources" Collapsed="true">
+    <Position X="13.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAABEAAAAQAAAAAAAAAAAAAAAIA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ProjetBanque.Properties.Settings" Collapsed="true">
+    <Position X="15.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAIAAAAAABAAAAAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
