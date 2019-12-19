@@ -66,6 +66,48 @@ namespace ProjetBanque
             return AddUser(email, password, type, 0);
         }
 
+        /// <summary>
+        /// Add a user in the database with a certain amount of money
+        /// </summary>
+        /// <param name="email">User's email, will be verified with regex</param>
+        /// <param name="password">User's password, will be hashed and salted</param>
+        /// <param name="type">Account type, "Public" or "Enterprise", "Admin" can't be added here</param>
+        /// <param name="money">Base money for the account</param>
+        /// <returns>true if success, false for an error
+
+
+        public string GenerateIBAN()
+        {
+            Random rand = new Random();
+            string ibanPrefix = "CH";
+            string testIban = null;
+
+            do
+            {
+
+                int ibanId = rand.Next(Convert.ToInt32(Math.Pow(10, 0)), Convert.ToInt32(Math.Pow(10, 5)));
+
+                testIban = $"{ibanPrefix}{ibanId.ToString("00 000")}";
+
+                // Create a SQL query
+                MySqlCommand query = connection.CreateCommand();
+                query.CommandText = "select null from USERS where iban = (@iban)";
+
+                // Add parameters to query
+                query.Parameters.AddWithValue("@iban", testIban);
+
+                //Get hashed and salted password from the database
+                DbDataReader reader = query.ExecuteReader();
+                if(reader.HasRows)
+                {
+                    testIban = null;
+                }
+                reader.Close();
+
+            } while (testIban == null);
+
+            return testIban;
+        }
 
         /// <summary>
         /// Add a user in the database with a certain amount of money
@@ -77,6 +119,7 @@ namespace ProjetBanque
         /// <returns>true if success, false for an error
         public bool AddUser(string email, string password, string type, double money)
         {
+            //Allow only Public or Entreprise account creation
             if (!(new List<string> { "Public", "Entreprise" }).Contains(type))
             {
                 throw new WrongAccountTypeException();
@@ -84,17 +127,21 @@ namespace ProjetBanque
 
             try
             {
+                //Check email format with microsoft default format, raise exception if wrong
                 MailAddress addr = new MailAddress(email);
 
+                //Check if email formatting has changed user's email, if so, raise exception
                 if (!(addr.Address == email))
                 {
                     throw new WrongEmailFormatException();
                 }
             }
+            //Wrong format case
             catch (FormatException)
             {
                 throw new WrongEmailFormatException();
             }
+            //Empty email adress case
             catch (ArgumentException)
             {
                 throw new WrongEmailFormatException();
@@ -105,11 +152,15 @@ namespace ProjetBanque
             CryptoPassword cryptoFunctions = new CryptoPassword();
             string hashedPassword = cryptoFunctions.Hash(password);
 
+            //Generate new iban (id)
+            string newIban = GenerateIBAN();
+
             // Create a SQL query
             MySqlCommand query = connection.CreateCommand();
-            query.CommandText = "insert into users (type, email, password, money) values (@type, @email, @password, @money)";
+            query.CommandText = "insert into USERS (iban, type, email, password, money) values (@iban, @type, @email, @password, @money)";
 
             // Add parameters to query
+            query.Parameters.AddWithValue("@iban", newIban);
             query.Parameters.AddWithValue("@type", type);
             query.Parameters.AddWithValue("@email", email);
             query.Parameters.AddWithValue("@password", hashedPassword);
@@ -117,8 +168,8 @@ namespace ProjetBanque
 
 
             bool result;
-            try
-            {
+            /*try
+            {*/
                 // Execute the SQL command
                 if(query.ExecuteNonQuery() == 1)
                 {
@@ -128,11 +179,11 @@ namespace ProjetBanque
                 {
                     result = false;
                 }
-            }
+            /*}
             catch(MySqlException)
             {
                 throw new UserAlreadyExistsException();
-            }
+            }*/
             
 
             return result;
@@ -148,7 +199,7 @@ namespace ProjetBanque
         {
             // Create a SQL query
             MySqlCommand query = connection.CreateCommand();
-            query.CommandText = "select (password) from users where email = (@email)";
+            query.CommandText = "select (password) from USERS where email = (@email)";
 
             // Add parameters to query
             query.Parameters.AddWithValue("@email", email);
@@ -159,7 +210,9 @@ namespace ProjetBanque
                 //Get hashed and salted password from the database
                 DbDataReader reader = query.ExecuteReader();
                 reader.Read();
+
                 hashedPassword = reader.GetString(0);
+                reader.Close();
             }
             catch(MySqlException)
             {
@@ -183,7 +236,7 @@ namespace ProjetBanque
         {
             // Create a SQL command
             MySqlCommand query = connection.CreateCommand();
-            query.CommandText = "delete from users where email = (@email)";
+            query.CommandText = "delete from USERS where email = (@email)";
 
             // Add parameters to query
             query.Parameters.AddWithValue("@email", email);
@@ -206,17 +259,17 @@ namespace ProjetBanque
         {
             // Create a command object
             MySqlCommand query = connection.CreateCommand();
-            query.CommandText = "select money from users where email = (@email)";
+            query.CommandText = "select money from USERS where email = (@email)";
 
-            // Add parameters to query
+            //Add parameters to query
             query.Parameters.AddWithValue("@email", email);
 
             //Get user's money from the database
             DbDataReader reader = query.ExecuteReader();
-
             reader.Read();
 
             double result = reader.GetDouble(0);
+            reader.Close();
 
             return result;
         }
