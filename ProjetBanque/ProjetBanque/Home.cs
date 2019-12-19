@@ -26,6 +26,11 @@ namespace ProjetBanque
             InitializeComponent();
 
             inheritJsonStorage = inheritStorage;
+
+            string[] row0 = { "C# 3.0 Pocket Reference", "Albahari", "O'Reilly", "20080000000000000000000000000000000\n000000000000000000000000000000000000000000000000000000000000000000000000000" };
+
+            datHistory.Rows.Add(row0);
+
         }
 
         private void Home_Load(object sender, EventArgs e)
