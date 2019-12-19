@@ -47,6 +47,7 @@
             // 
             this.txtPassword.Location = new System.Drawing.Point(217, 172);
             this.txtPassword.Name = "txtPassword";
+            this.txtPassword.ShortcutsEnabled = false;
             this.txtPassword.Size = new System.Drawing.Size(205, 20);
             this.txtPassword.TabIndex = 2;
             this.txtPassword.TextChanged += new System.EventHandler(this.txtPassword_TextChanged);
@@ -104,6 +105,7 @@
             // 
             this.txtPasswordVerify.Location = new System.Drawing.Point(217, 226);
             this.txtPasswordVerify.Name = "txtPasswordVerify";
+            this.txtPasswordVerify.ShortcutsEnabled = false;
             this.txtPasswordVerify.Size = new System.Drawing.Size(205, 20);
             this.txtPasswordVerify.TabIndex = 3;
             this.txtPasswordVerify.TextChanged += new System.EventHandler(this.txtPasswordVerify_TextChanged);
