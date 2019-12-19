@@ -27,7 +27,7 @@ namespace ProjetBanque
 
             inheritJsonStorage = inheritStorage;
 
-            string[] row0 = { "C# 3.0 Pocket Reference", "Albahari", "O'Reilly", "20080000000000000000000000000000000\n000000000000000000000000000000000000000000000000000000000000000000000000000" };
+            string[] row0 = { "C# 3.0 Pocket Reference", "Albahari", "O'Reilly", "2008" };
 
             datHistory.Rows.Add(row0);
 
