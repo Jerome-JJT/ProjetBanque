@@ -44,9 +44,13 @@
             this.label2 = new System.Windows.Forms.Label();
             this.cmdProfil = new System.Windows.Forms.Button();
             this.lblHistory = new System.Windows.Forms.Label();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.datHistory = new System.Windows.Forms.DataGridView();
+            this.datColName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.datColAmount = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.datColReason = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.datColDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.grpPayement.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.datHistory)).BeginInit();
             this.SuspendLayout();
             // 
             // lblEmail
@@ -190,20 +194,57 @@
             this.lblHistory.TabIndex = 13;
             this.lblHistory.Text = "Historique des payements:";
             // 
-            // dataGridView1
+            // datHistory
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(12, 186);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(330, 249);
-            this.dataGridView1.TabIndex = 14;
+            this.datHistory.AllowUserToAddRows = false;
+            this.datHistory.AllowUserToDeleteRows = false;
+            this.datHistory.AllowUserToResizeColumns = false;
+            this.datHistory.AllowUserToResizeRows = false;
+            this.datHistory.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.datHistory.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.datColName,
+            this.datColAmount,
+            this.datColReason,
+            this.datColDate});
+            this.datHistory.Location = new System.Drawing.Point(12, 186);
+            this.datHistory.Name = "datHistory";
+            this.datHistory.Size = new System.Drawing.Size(370, 249);
+            this.datHistory.TabIndex = 14;
+            // 
+            // datColName
+            // 
+            this.datColName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.datColName.HeaderText = "Nom / Iban(Destinataire)";
+            this.datColName.Name = "datColName";
+            this.datColName.Width = 135;
+            // 
+            // datColAmount
+            // 
+            this.datColAmount.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.datColAmount.HeaderText = "Montant";
+            this.datColAmount.Name = "datColAmount";
+            this.datColAmount.Width = 71;
+            // 
+            // datColReason
+            // 
+            this.datColReason.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.datColReason.HeaderText = "Raison";
+            this.datColReason.Name = "datColReason";
+            this.datColReason.Width = 65;
+            // 
+            // datColDate
+            // 
+            this.datColDate.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.datColDate.HeaderText = "Date";
+            this.datColDate.Name = "datColDate";
+            this.datColDate.Width = 55;
             // 
             // frmHome
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(670, 447);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.datHistory);
             this.Controls.Add(this.lblHistory);
             this.Controls.Add(this.cmdProfil);
             this.Controls.Add(this.label2);
@@ -218,7 +259,7 @@
             this.Load += new System.EventHandler(this.Home_Load);
             this.grpPayement.ResumeLayout(false);
             this.grpPayement.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.datHistory)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -240,6 +281,14 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button cmdProfil;
         private System.Windows.Forms.Label lblHistory;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView datHistory;
+        private System.Windows.Forms.DataGridViewTextBoxColumn NomIbanDestinataire;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Amount;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Reason;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Date;
+        private System.Windows.Forms.DataGridViewTextBoxColumn datColName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn datColAmount;
+        private System.Windows.Forms.DataGridViewTextBoxColumn datColReason;
+        private System.Windows.Forms.DataGridViewTextBoxColumn datColDate;
     }
 }
