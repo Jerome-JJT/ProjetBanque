@@ -11,26 +11,21 @@ using System.Windows.Forms;
 namespace ProjetBanque
 {
     /// <summary>
-    /// This windows is opened when the user has finish the register
+    /// Register confirmation form's class
     /// </summary>
-    public partial class formRegisterOk : Form
+    public partial class FrmConfirmRegister : Form
     {
         /// <summary>
-        /// This is the constructor for when the Register is end
+        /// Register confirmation form constructor
         /// </summary>
-        public formRegisterOk()
+        public FrmConfirmRegister()
         {
             InitializeComponent();
         }
 
-        private void buttonRegisterOk_Click(object sender, EventArgs e)
+        private void cmdBackLogin_Click(object sender, EventArgs e)
         {            
-            this.Close();             
-        }
-
-        private void formRegisterOk_Load(object sender, EventArgs e)
-        {
-
+            Close();             
         }
     }
 }

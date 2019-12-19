@@ -1,6 +1,6 @@
 ﻿namespace ProjetBanque
 {
-    partial class frmRegister
+    partial class FrmRegister
     {
         /// <summary>
         /// Required designer variable.
@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmRegister));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmRegister));
             this.txtPassword = new System.Windows.Forms.TextBox();
             this.txtEmail = new System.Windows.Forms.TextBox();
             this.lblRegisterTitle = new System.Windows.Forms.Label();
@@ -140,7 +140,7 @@
             this.tmrPasswordVerify.Interval = 1000;
             this.tmrPasswordVerify.Tick += new System.EventHandler(this.tmrPasswordVerify_Tick);
             // 
-            // frmRegister
+            // FrmRegister
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -157,8 +157,8 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
-            this.Name = "frmRegister";
-            this.Text = "Register";
+            this.Name = "FrmRegister";
+            this.Text = "Inscription";
             this.Load += new System.EventHandler(this.frmRegister_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

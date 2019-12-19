@@ -14,9 +14,9 @@ using System.IO;
 namespace ProjetBanque
 {
     /// <summary>
-    /// This windows is design for login the user who is register in the database 
+    /// Login form's class
     /// </summary>
-    public partial class frmLogin : Form
+    public partial class FrmLogin : Form
     {
         JsonManagement jsonFile = new JsonManagement();
         JsonData jsonStorage;
@@ -25,9 +25,9 @@ namespace ProjetBanque
         private string oldTextPassword = "";
 
         /// <summary>
-        /// This is the constructor of the login
+        /// Login form constructor
         /// </summary>
-        public frmLogin()
+        public FrmLogin()
         {
             InitializeComponent();
         }
@@ -78,11 +78,17 @@ namespace ProjetBanque
                 database.CloseConnection();
 
                 if (allowConnection)
-                {                   
-                    Visible = false;
-                    frmHome homeForm = new frmHome(jsonStorage);
+                {
+                    database = new DatabaseManagement();
+                    database.OpenConnection();
 
-                    homeForm.lblEmail.Text = txtEmail.Text.ToLower().Trim();
+                    User loggedUserInfos = database.GetUser(txtEmail.Text.ToLower().Trim());
+
+                    database.CloseConnection();
+
+                    Visible = false;
+                    FrmHome homeForm = new FrmHome(loggedUserInfos, jsonStorage);
+
                     homeForm.ShowDialog();
 
                     jsonStorage.HomeWindowLocation = homeForm.Location;
@@ -116,7 +122,7 @@ namespace ProjetBanque
 
         private void cmdRegister_Click(object sender, EventArgs e)
         {
-            frmRegister registerForm = new frmRegister(jsonStorage);
+            FrmRegister registerForm = new FrmRegister(jsonStorage);
 
             registerForm.ShowDialog();
 

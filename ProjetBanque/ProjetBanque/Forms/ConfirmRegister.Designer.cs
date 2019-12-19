@@ -1,6 +1,6 @@
 ﻿namespace ProjetBanque
 {
-    partial class formRegisterOk
+    partial class FrmConfirmRegister
     {
         /// <summary>
         /// Required designer variable.
@@ -28,21 +28,21 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(formRegisterOk));
-            this.buttonRegisterOk = new System.Windows.Forms.Button();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmConfirmRegister));
+            this.cmdBackLogin = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.lblEmail = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
-            // buttonRegisterOk
+            // cmdBackLogin
             // 
-            this.buttonRegisterOk.Location = new System.Drawing.Point(164, 176);
-            this.buttonRegisterOk.Name = "buttonRegisterOk";
-            this.buttonRegisterOk.Size = new System.Drawing.Size(182, 41);
-            this.buttonRegisterOk.TabIndex = 7;
-            this.buttonRegisterOk.Text = "Connectez-vous";
-            this.buttonRegisterOk.UseVisualStyleBackColor = true;
-            this.buttonRegisterOk.Click += new System.EventHandler(this.buttonRegisterOk_Click);
+            this.cmdBackLogin.Location = new System.Drawing.Point(164, 176);
+            this.cmdBackLogin.Name = "cmdBackLogin";
+            this.cmdBackLogin.Size = new System.Drawing.Size(182, 41);
+            this.cmdBackLogin.TabIndex = 7;
+            this.cmdBackLogin.Text = "Connectez-vous";
+            this.cmdBackLogin.UseVisualStyleBackColor = true;
+            this.cmdBackLogin.Click += new System.EventHandler(this.cmdBackLogin_Click);
             // 
             // label3
             // 
@@ -62,22 +62,21 @@
             this.lblEmail.TabIndex = 11;
             this.lblEmail.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // formRegisterOk
+            // FrmConfirmRegister
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(528, 295);
             this.Controls.Add(this.lblEmail);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.buttonRegisterOk);
+            this.Controls.Add(this.cmdBackLogin);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.Name = "formRegisterOk";
+            this.Name = "FrmConfirmRegister";
             this.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.Text = "RegisterOk";
-            this.Load += new System.EventHandler(this.formRegisterOk_Load);
+            this.Text = "Confirmation enregistrement";
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -85,7 +84,7 @@
 
         #endregion
 
-        private System.Windows.Forms.Button buttonRegisterOk;
+        private System.Windows.Forms.Button cmdBackLogin;
         private System.Windows.Forms.Label label3;
         public System.Windows.Forms.Label lblEmail;
     }

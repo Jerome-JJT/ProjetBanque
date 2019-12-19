@@ -96,11 +96,11 @@
     <Compile Include="Forms\Register.Designer.cs">
       <DependentUpon>Register.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\RegisterOk.cs">
+    <Compile Include="Forms\ConfirmRegister.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\RegisterOk.Designer.cs">
-      <DependentUpon>RegisterOk.cs</DependentUpon>
+    <Compile Include="Forms\ConfirmRegister.Designer.cs">
+      <DependentUpon>ConfirmRegister.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="Forms\Home.resx">
       <DependentUpon>Home.cs</DependentUpon>
@@ -120,8 +120,8 @@
     <EmbeddedResource Include="Forms\Register.resx">
       <DependentUpon>Register.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\RegisterOk.resx">
-      <DependentUpon>RegisterOk.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\ConfirmRegister.resx">
+      <DependentUpon>ConfirmRegister.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="ClassDiagram1.cd" />
     <None Include="packages.config" />

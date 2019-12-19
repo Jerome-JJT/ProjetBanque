@@ -11,9 +11,9 @@ using System.Windows.Forms;
 namespace ProjetBanque
 {
     /// <summary>
-    /// This windows is design for register the user in the database 
+    /// Register form's class
     /// </summary>
-    public partial class frmRegister : Form
+    public partial class FrmRegister : Form
     {
         private JsonData inheritJsonStorage;
 
@@ -24,10 +24,10 @@ namespace ProjetBanque
         private string oldTextPasswordVerify = "";
 
         /// <summary>
-        /// This is the constructor of the register
+        /// Register form constructor
         /// </summary>
-        /// <param name="inheritStorage">This is all the information of the Json</param>
-        public frmRegister(JsonData inheritStorage)
+        /// <param name="inheritStorage">Inherit json informations from parent form</param>
+        public FrmRegister(JsonData inheritStorage)
         {
             InitializeComponent();
             lblError.Text = "";
@@ -101,7 +101,7 @@ namespace ProjetBanque
 
                     if (successCreation)
                     {
-                        formRegisterOk formOK = new formRegisterOk();
+                        FrmConfirmRegister formOK = new FrmConfirmRegister();
 
                         formOK.lblEmail.Text = $"{txtEmail.Text.ToLower().Trim()}, vous êtes bien incrit-e";
 

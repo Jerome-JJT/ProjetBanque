@@ -1,6 +1,6 @@
 ﻿namespace ProjetBanque
 {
-    partial class frmLogin
+    partial class FrmLogin
     {
         /// <summary>
         /// Variable nécessaire au concepteur.
@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmLogin));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmLogin));
             this.cmdLogin = new System.Windows.Forms.Button();
             this.lblEmail = new System.Windows.Forms.Label();
             this.lblPassword = new System.Windows.Forms.Label();
@@ -73,11 +73,11 @@
             // 
             this.lblTitle.AutoSize = true;
             this.lblTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTitle.Location = new System.Drawing.Point(263, 47);
+            this.lblTitle.Location = new System.Drawing.Point(212, 46);
             this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(80, 31);
+            this.lblTitle.Size = new System.Drawing.Size(201, 31);
             this.lblTitle.TabIndex = 3;
-            this.lblTitle.Text = "Login";
+            this.lblTitle.Text = "Authentification";
             // 
             // txtEmail
             // 
@@ -123,7 +123,7 @@
             this.tmrPassword.Interval = 1000;
             this.tmrPassword.Tick += new System.EventHandler(this.tmrPassword_Tick);
             // 
-            // frmLogin
+            // FrmLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -139,8 +139,8 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
-            this.Name = "frmLogin";
-            this.Text = "Login";
+            this.Name = "FrmLogin";
+            this.Text = "Authentification";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmLogin_FormClosing);
             this.Load += new System.EventHandler(this.frmLogin_Load);
             this.ResumeLayout(false);

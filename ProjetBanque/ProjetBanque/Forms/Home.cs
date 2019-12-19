@@ -11,32 +11,38 @@ using System.Windows.Forms;
 namespace ProjetBanque
 {
     /// <summary>
-    /// This windows is the home page of our application
+    /// Home form's class
     /// </summary>
-    public partial class frmHome : Form
+    public partial class FrmHome : Form
     {
         private JsonData inheritJsonStorage;
+        private User userInformations;
 
         /// <summary>
-        /// This is the constructor of the home page
+        /// Home form constructor
         /// </summary>
-        /// <param name="inheritStorage"></param>
-        public frmHome(JsonData inheritStorage)
+        /// <param name="userInfo">Inherit user informations to display from parent form</param>
+        /// <param name="inheritStorage">Inherit json informations to use from parent form</param>
+        public FrmHome(User userInfo, JsonData inheritStorage)
         {
             InitializeComponent();
 
+            userInformations = userInfo;
             inheritJsonStorage = inheritStorage;
 
-            string[] row0 = { "C# 3.0 Pocket Reference", "Albahari", "O'Reilly", "2008" };
-
-            datHistory.Rows.Add(row0);
-
+            lblEmail.Text = userInformations.Email;
+            lblIban.Text = userInformations.Iban;
+            lblMoney.Text = userInformations.Money.ToString();
         }
 
         private void Home_Load(object sender, EventArgs e)
         {
             Location = inheritJsonStorage.HomeWindowLocation;
             Size = inheritJsonStorage.HomeWindowSize;
+
+            string[] row0 = { "C# 3.0 Pocket Reference", "Albahari", "O'Reilly", "2008" };
+
+            datHistory.Rows.Add(row0);
         }
 
         private void cmdExit_Click(object sender, EventArgs e)

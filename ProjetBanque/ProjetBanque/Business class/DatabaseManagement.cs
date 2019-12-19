@@ -60,11 +60,14 @@ namespace ProjetBanque
         /// <param name="email">User's email, will be verified with regex</param>
         /// <param name="password">User's password, will be hashed and salted</param>
         /// <param name="type">Account type, "Public" or "Enterprise", "Admin" can't be added here</param>
-        /// <returns>1 if success, 0 for an error
+        /// <returns>1 if success, 0 for an error</returns>
         public bool AddUser(string email, string password, string type)
         {
             return AddUser(email, password, type, 0);
         }
+
+
+
 
         /// <summary>
         /// Add a user in the database with a certain amount of money
@@ -73,7 +76,8 @@ namespace ProjetBanque
         /// <param name="password">User's password, will be hashed and salted</param>
         /// <param name="type">Account type, "Public" or "Enterprise", "Admin" can't be added here</param>
         /// <param name="money">Base money for the account</param>
-        /// <returns>true if success, false for an error
+        /// <returns>true if success, false for an error</returns>
+        /// 
 
 
         public string GenerateIBAN()
@@ -116,7 +120,7 @@ namespace ProjetBanque
         /// <param name="password">User's password, will be hashed and salted</param>
         /// <param name="type">Account type, "Public" or "Enterprise", "Admin" can't be added here</param>
         /// <param name="money">Base money for the account</param>
-        /// <returns>true if success, false for an error
+        /// <returns>true if success, false for an error</returns>
         public bool AddUser(string email, string password, string type, double money)
         {
             //Allow only Public or Entreprise account creation
@@ -168,8 +172,8 @@ namespace ProjetBanque
 
 
             bool result;
-            /*try
-            {*/
+            try
+            {
                 // Execute the SQL command
                 if(query.ExecuteNonQuery() == 1)
                 {
@@ -179,11 +183,11 @@ namespace ProjetBanque
                 {
                     result = false;
                 }
-            /*}
+            }
             catch(MySqlException)
             {
                 throw new UserAlreadyExistsException();
-            }*/
+            }
             
 
             return result;
@@ -194,12 +198,12 @@ namespace ProjetBanque
         /// </summary>
         /// <param name="email">User's email</param>
         /// <param name="password">User's password</param>
-        /// <returns>true if passwords matchs
+        /// <returns>true if passwords matchs</returns>
         public bool VerifyUser(string email, string password)
         {
             // Create a SQL query
             MySqlCommand query = connection.CreateCommand();
-            query.CommandText = "select (password) from USERS where email = (@email)";
+            query.CommandText = "select password from USERS where email = (@email)";
 
             // Add parameters to query
             query.Parameters.AddWithValue("@email", email);
@@ -227,11 +231,38 @@ namespace ProjetBanque
             return correctPassword;
         }
 
+
+        /// <summary>
+        /// Get all user's informations and transactions from his email
+        /// </summary>
+        /// <param name="email">User's email</param>
+        /// <returns>Return user's informations</returns>
+        public User GetUser(string email)
+        {
+            // Create a command object
+            MySqlCommand query = connection.CreateCommand();
+            query.CommandText = "select iban, type, email, money from USERS where email = (@email)";
+
+            //Add parameters to query
+            query.Parameters.AddWithValue("@email", email);
+
+            //Get user's money from the database
+            DbDataReader reader = query.ExecuteReader();
+            reader.Read();
+
+            User user = new User(reader.GetString(0), (User.AccountType)0, reader.GetString(2), reader.GetDouble(3));
+
+            reader.Close();
+
+            return user;
+        }
+
+        /*
         /// <summary>
         /// Delete a user from the database
         /// </summary>
         /// <param name="email">User's email to delete</param>
-        /// <returns>1 if success, 0 for failure
+        /// <returns>1 if success, 0 for failure</returns>
         public int DeleteUser(string email)
         {
             // Create a SQL command
@@ -247,9 +278,9 @@ namespace ProjetBanque
 
             return result;
         }
+        */
 
-
-
+        /*
         /// <summary>
         /// Get the user's money amount from his email
         /// </summary>
@@ -273,6 +304,7 @@ namespace ProjetBanque
 
             return result;
         }
+        */
 
 
         /// <summary>
