@@ -5,7 +5,7 @@ USE `Banking`;
 
 CREATE TABLE IF NOT EXISTS `USERS` (
     `id` INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
-    `iban` VARCHAR(7) NOT NULL UNIQUE,
+    `iban` VARCHAR(8) NOT NULL UNIQUE,
     `active` TINYINT(1) NOT NULL DEFAULT '1',
     `type` ENUM('Public','Entreprise','Admin') NOT NULL DEFAULT 'Public',
     `email` VARCHAR(50) NOT NULL UNIQUE,
