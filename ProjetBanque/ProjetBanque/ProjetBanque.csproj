@@ -71,6 +71,8 @@
   <ItemGroup>
     <Compile Include="Business class\BankException.cs" />
     <Compile Include="Business class\JsonData.cs" />
+    <Compile Include="Business class\Transaction.cs" />
+    <Compile Include="Business class\User.cs" />
     <Compile Include="Forms\Home.cs">
       <SubType>Form</SubType>
     </Compile>
