@@ -45,7 +45,7 @@ namespace ProjetBanque
         {
             try
             {
-                connection.Open();
+                connection.Open(); 
             }
             catch (MySqlException)
             {
