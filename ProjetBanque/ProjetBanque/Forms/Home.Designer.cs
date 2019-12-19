@@ -108,6 +108,7 @@
             // 
             // cboCompany
             // 
+            this.cboCompany.Enabled = false;
             this.cboCompany.FormattingEnabled = true;
             this.cboCompany.Location = new System.Drawing.Point(15, 97);
             this.cboCompany.Name = "cboCompany";
@@ -144,6 +145,7 @@
             // cmdList
             // 
             this.cmdList.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.cmdList.Enabled = false;
             this.cmdList.Location = new System.Drawing.Point(176, 95);
             this.cmdList.Name = "cmdList";
             this.cmdList.Size = new System.Drawing.Size(73, 23);
@@ -244,11 +246,10 @@
             // 
             // datColReason
             // 
-            this.datColReason.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.datColReason.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.datColReason.HeaderText = "Raison";
             this.datColReason.Name = "datColReason";
             this.datColReason.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.datColReason.Width = 65;
             // 
             // datColDate
             // 
