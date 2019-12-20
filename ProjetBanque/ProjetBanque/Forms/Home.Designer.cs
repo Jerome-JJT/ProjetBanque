@@ -268,10 +268,11 @@
             // 
             // datColReason
             // 
-            this.datColReason.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.datColReason.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
             this.datColReason.HeaderText = "Raison";
             this.datColReason.Name = "datColReason";
             this.datColReason.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.datColReason.Width = 65;
             // 
             // datColDate
             // 
@@ -328,11 +329,11 @@
         private System.Windows.Forms.Button cmdProfil;
         private System.Windows.Forms.Label lblHistory;
         private System.Windows.Forms.DataGridView datHistory;
+        private System.Windows.Forms.Label lblEmailReceiver;
         private System.Windows.Forms.DataGridViewTextBoxColumn datColName;
         private System.Windows.Forms.DataGridViewTextBoxColumn datColNameReceiver;
         private System.Windows.Forms.DataGridViewTextBoxColumn datColAmount;
         private System.Windows.Forms.DataGridViewTextBoxColumn datColReason;
         private System.Windows.Forms.DataGridViewTextBoxColumn datColDate;
-        private System.Windows.Forms.Label lblEmailReceiver;
     }
 }
