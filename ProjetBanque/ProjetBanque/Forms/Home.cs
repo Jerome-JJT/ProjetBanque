@@ -36,12 +36,13 @@ namespace ProjetBanque
             lblEmail.Text = userInformations.Email;
 
             lblIban.Text = userInformations.Iban;
-            
+
             lblMoney.Text = "Votre solde s'élève a: " + userInformations.Money.ToString() + " CHF";
 
             foreach(Transaction transaction in userInformations.Transactions)
             {
-                datHistory.Rows.Add(transaction);
+                string[] row = { transaction. };
+                datHistory.Rows.Add();
             }
         }
 
@@ -88,7 +89,7 @@ namespace ProjetBanque
                     lblEmailReceiver.Text = "L'Iban que vous avez entré ne correspond a personne,\nveuillez vérifiez l'Iban";
 
                     cmdPay.Enabled = false;
-                }
+                }*/
             }
             else
             {
@@ -97,5 +98,6 @@ namespace ProjetBanque
                 cmdPay.Enabled = false;
             }
         }
+
     }
 }
