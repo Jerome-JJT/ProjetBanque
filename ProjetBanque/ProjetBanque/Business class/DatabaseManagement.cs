@@ -53,19 +53,6 @@ namespace ProjetBanque
             }
         }
 
-
-        /// <summary>
-        /// Add a user in the database with 0 money
-        /// </summary>
-        /// <param name="email">User's email, will be verified with regex</param>
-        /// <param name="password">User's password, will be hashed and salted</param>
-        /// <param name="type">Account type, "Public" or "Enterprise", "Admin" can't be added here</param>
-        /// <returns>1 if success, 0 for an error</returns>
-        public bool AddUser(string email, string password, string type)
-        {
-            return AddUser(email, password, type, 0);
-        }
-
         /// <summary>
         /// Create and generate a unique IBAN by looking in the database if it exist
         /// </summary>
@@ -100,6 +87,18 @@ namespace ProjetBanque
             } while (testIban == null);
 
             return testIban;
+        }
+
+        /// <summary>
+        /// Add a user in the database with 0 money
+        /// </summary>
+        /// <param name="email">User's email, will be verified with regex</param>
+        /// <param name="password">User's password, will be hashed and salted</param>
+        /// <param name="type">Account type, "Public" or "Enterprise", "Admin" can't be added here</param>
+        /// <returns>1 if success, 0 for an error</returns>
+        public bool AddUser(string email, string password, string type)
+        {
+            return AddUser(email, password, type, 0);
         }
 
         /// <summary>
@@ -305,6 +304,75 @@ namespace ProjetBanque
             {
                 return null;
             }
+        }
+
+        /// <summary>
+        /// Move money from one account 
+        /// </summary>
+        /// <param name="amount"></param>
+        /// <param name="reason"></param>
+        /// <param name="senderIban"></param>
+        /// <param name="receiverIban"></param>
+        /// <returns></returns>
+        public bool Transact(double amount, string reason, string senderIban, string receiverIban)
+        {
+            DateTime time = DateTime.Now;
+            string nowTime = time.ToString("yyyy-MM-dd HH:mm:ss");
+
+            MySqlCommand query = connection.CreateCommand();
+            query.CommandText = @"insert into TRANSACTIONS (date, amount, reason, idSender, idReceiver) 
+                                (@date), (@amount), (@reason), 
+                                (select USERS.id from USERS where iban = (@senderIban)),
+                                (select USERS.id from USERS where iban = (@receiverIban))";
+
+            // Add parameters to query
+            query.Parameters.AddWithValue("@date", nowTime);
+            query.Parameters.AddWithValue("@amount", amount);
+            query.Parameters.AddWithValue("@reason", reason);
+            query.Parameters.AddWithValue("@senderIban", senderIban);
+            query.Parameters.AddWithValue("@receiverIban", receiverIban);
+
+            bool result;
+
+            // Execute the SQL command and check error
+            if (query.ExecuteNonQuery() != 1)
+            {
+                result = false;
+            }
+
+
+
+            query = connection.CreateCommand();
+            query.CommandText = @"UPDATE USERS SET money = money + 10 WHERE iban = (@iban)";
+
+            // Add parameters to query
+            query.Parameters.AddWithValue("@senderIban", senderIban);
+            query.Parameters.AddWithValue("@receiverIban", receiverIban);
+
+            // Execute the SQL command and check error
+            if (query.ExecuteNonQuery() != 1)
+            {
+                result = false;
+            }
+
+
+            query = connection.CreateCommand();
+            query.CommandText = @"UPDATE USERS SET money = money - (@) WHERE iban = (@iban)";
+
+            // Add parameters to query
+            query.Parameters.AddWithValue("@senderIban", senderIban);
+            query.Parameters.AddWithValue("@receiverIban", receiverIban);
+
+            // Execute the SQL command and check error
+            if (query.ExecuteNonQuery() != 1)
+            {
+                result = false;
+            }
+
+
+
+            return true;
+
         }
 
         /*

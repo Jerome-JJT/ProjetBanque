@@ -95,7 +95,7 @@ namespace ProjetBanque
                     DatabaseManagement database = new DatabaseManagement();
                     database.OpenConnection();
 
-                    bool successCreation = database.AddUser(txtEmail.Text.ToLower().Trim(), password.Trim(), "Public");
+                    bool successCreation = database.AddUser(txtEmail.Text.ToLower().Trim(), password.Trim(), "Public", 10000.5);
 
                     database.CloseConnection();
 
