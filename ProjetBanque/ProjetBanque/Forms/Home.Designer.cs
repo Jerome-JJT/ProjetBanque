@@ -34,7 +34,6 @@
             this.cmdExit = new System.Windows.Forms.Button();
             this.txtPayIban = new System.Windows.Forms.TextBox();
             this.cmdPay = new System.Windows.Forms.Button();
-            this.txtPayAmount = new System.Windows.Forms.TextBox();
             this.lblPayIban = new System.Windows.Forms.Label();
             this.cboPayList = new System.Windows.Forms.ComboBox();
             this.lblPayAmount = new System.Windows.Forms.Label();
@@ -42,6 +41,7 @@
             this.lblPayReason = new System.Windows.Forms.Label();
             this.cmdModifyList = new System.Windows.Forms.Button();
             this.grpPayement = new System.Windows.Forms.GroupBox();
+            this.updPayAmount = new System.Windows.Forms.NumericUpDown();
             this.lblEmailReceiver = new System.Windows.Forms.Label();
             this.lblMoney = new System.Windows.Forms.Label();
             this.lblIban = new System.Windows.Forms.Label();
@@ -53,14 +53,16 @@
             this.datColAmount = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.datColReason = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.datColDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lblIbanFormat = new System.Windows.Forms.Label();
             this.grpPayement.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.updPayAmount)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.datHistory)).BeginInit();
             this.SuspendLayout();
             // 
             // lblEmail
             // 
             this.lblEmail.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblEmail.Location = new System.Drawing.Point(586, 9);
+            this.lblEmail.Location = new System.Drawing.Point(734, 9);
             this.lblEmail.Name = "lblEmail";
             this.lblEmail.Size = new System.Drawing.Size(152, 33);
             this.lblEmail.TabIndex = 0;
@@ -69,43 +71,37 @@
             // cmdExit
             // 
             this.cmdExit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.cmdExit.Location = new System.Drawing.Point(624, 451);
+            this.cmdExit.Location = new System.Drawing.Point(772, 576);
             this.cmdExit.Name = "cmdExit";
             this.cmdExit.Size = new System.Drawing.Size(114, 40);
-            this.cmdExit.TabIndex = 1;
+            this.cmdExit.TabIndex = 7;
             this.cmdExit.Text = "Quitter";
             this.cmdExit.UseVisualStyleBackColor = true;
             this.cmdExit.Click += new System.EventHandler(this.cmdExit_Click);
             // 
             // txtPayIban
             // 
-            this.txtPayIban.Location = new System.Drawing.Point(97, 19);
+            this.txtPayIban.Location = new System.Drawing.Point(113, 35);
             this.txtPayIban.Name = "txtPayIban";
-            this.txtPayIban.Size = new System.Drawing.Size(157, 20);
+            this.txtPayIban.Size = new System.Drawing.Size(170, 20);
             this.txtPayIban.TabIndex = 2;
             this.txtPayIban.TextChanged += new System.EventHandler(this.txtPayIban_TextChanged);
             // 
             // cmdPay
             // 
             this.cmdPay.Enabled = false;
-            this.cmdPay.Location = new System.Drawing.Point(12, 215);
+            this.cmdPay.Location = new System.Drawing.Point(15, 290);
             this.cmdPay.Name = "cmdPay";
-            this.cmdPay.Size = new System.Drawing.Size(248, 23);
-            this.cmdPay.TabIndex = 4;
+            this.cmdPay.Size = new System.Drawing.Size(268, 23);
+            this.cmdPay.TabIndex = 6;
             this.cmdPay.Text = "Payer";
             this.cmdPay.UseVisualStyleBackColor = true;
-            // 
-            // txtPayAmount
-            // 
-            this.txtPayAmount.Location = new System.Drawing.Point(103, 124);
-            this.txtPayAmount.Name = "txtPayAmount";
-            this.txtPayAmount.Size = new System.Drawing.Size(157, 20);
-            this.txtPayAmount.TabIndex = 5;
+            this.cmdPay.Click += new System.EventHandler(this.cmdPay_Click);
             // 
             // lblPayIban
             // 
             this.lblPayIban.AutoSize = true;
-            this.lblPayIban.Location = new System.Drawing.Point(6, 22);
+            this.lblPayIban.Location = new System.Drawing.Point(12, 38);
             this.lblPayIban.Name = "lblPayIban";
             this.lblPayIban.Size = new System.Drawing.Size(85, 13);
             this.lblPayIban.TabIndex = 4;
@@ -115,16 +111,16 @@
             // 
             this.cboPayList.Enabled = false;
             this.cboPayList.FormattingEnabled = true;
-            this.cboPayList.Location = new System.Drawing.Point(15, 97);
+            this.cboPayList.Location = new System.Drawing.Point(15, 98);
             this.cboPayList.Name = "cboPayList";
-            this.cboPayList.Size = new System.Drawing.Size(155, 21);
-            this.cboPayList.TabIndex = 6;
+            this.cboPayList.Size = new System.Drawing.Size(184, 21);
+            this.cboPayList.TabIndex = 3;
             this.cboPayList.Text = "Liste entreprise";
             // 
             // lblPayAmount
             // 
             this.lblPayAmount.AutoSize = true;
-            this.lblPayAmount.Location = new System.Drawing.Point(12, 127);
+            this.lblPayAmount.Location = new System.Drawing.Point(12, 126);
             this.lblPayAmount.Name = "lblPayAmount";
             this.lblPayAmount.Size = new System.Drawing.Size(46, 13);
             this.lblPayAmount.TabIndex = 8;
@@ -132,16 +128,16 @@
             // 
             // txtPayReason
             // 
-            this.txtPayReason.Location = new System.Drawing.Point(103, 150);
+            this.txtPayReason.Location = new System.Drawing.Point(15, 183);
             this.txtPayReason.Multiline = true;
             this.txtPayReason.Name = "txtPayReason";
-            this.txtPayReason.Size = new System.Drawing.Size(157, 59);
-            this.txtPayReason.TabIndex = 9;
+            this.txtPayReason.Size = new System.Drawing.Size(268, 100);
+            this.txtPayReason.TabIndex = 5;
             // 
             // lblPayReason
             // 
             this.lblPayReason.AutoSize = true;
-            this.lblPayReason.Location = new System.Drawing.Point(12, 153);
+            this.lblPayReason.Location = new System.Drawing.Point(12, 167);
             this.lblPayReason.Name = "lblPayReason";
             this.lblPayReason.Size = new System.Drawing.Size(40, 13);
             this.lblPayReason.TabIndex = 10;
@@ -151,7 +147,7 @@
             // 
             this.cmdModifyList.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.cmdModifyList.Enabled = false;
-            this.cmdModifyList.Location = new System.Drawing.Point(176, 95);
+            this.cmdModifyList.Location = new System.Drawing.Point(210, 98);
             this.cmdModifyList.Name = "cmdModifyList";
             this.cmdModifyList.Size = new System.Drawing.Size(73, 23);
             this.cmdModifyList.TabIndex = 15;
@@ -161,6 +157,8 @@
             // grpPayement
             // 
             this.grpPayement.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.grpPayement.Controls.Add(this.lblIbanFormat);
+            this.grpPayement.Controls.Add(this.updPayAmount);
             this.grpPayement.Controls.Add(this.lblEmailReceiver);
             this.grpPayement.Controls.Add(this.cmdModifyList);
             this.grpPayement.Controls.Add(this.lblPayReason);
@@ -168,22 +166,39 @@
             this.grpPayement.Controls.Add(this.lblPayAmount);
             this.grpPayement.Controls.Add(this.cboPayList);
             this.grpPayement.Controls.Add(this.lblPayIban);
-            this.grpPayement.Controls.Add(this.txtPayAmount);
             this.grpPayement.Controls.Add(this.cmdPay);
             this.grpPayement.Controls.Add(this.txtPayIban);
-            this.grpPayement.Location = new System.Drawing.Point(478, 186);
+            this.grpPayement.Location = new System.Drawing.Point(597, 186);
             this.grpPayement.Name = "grpPayement";
-            this.grpPayement.Size = new System.Drawing.Size(260, 249);
+            this.grpPayement.Size = new System.Drawing.Size(289, 319);
             this.grpPayement.TabIndex = 5;
             this.grpPayement.TabStop = false;
             this.grpPayement.Text = "Payements";
             // 
+            // updPayAmount
+            // 
+            this.updPayAmount.DecimalPlaces = 2;
+            this.updPayAmount.Increment = new decimal(new int[] {
+            5,
+            0,
+            0,
+            65536});
+            this.updPayAmount.Location = new System.Drawing.Point(15, 144);
+            this.updPayAmount.Maximum = new decimal(new int[] {
+            10000000,
+            0,
+            0,
+            0});
+            this.updPayAmount.Name = "updPayAmount";
+            this.updPayAmount.Size = new System.Drawing.Size(268, 20);
+            this.updPayAmount.TabIndex = 4;
+            this.updPayAmount.ThousandsSeparator = true;
+            // 
             // lblEmailReceiver
             // 
-            this.lblEmailReceiver.AutoSize = true;
-            this.lblEmailReceiver.Location = new System.Drawing.Point(6, 52);
+            this.lblEmailReceiver.Location = new System.Drawing.Point(15, 68);
             this.lblEmailReceiver.Name = "lblEmailReceiver";
-            this.lblEmailReceiver.Size = new System.Drawing.Size(0, 13);
+            this.lblEmailReceiver.Size = new System.Drawing.Size(268, 27);
             this.lblEmailReceiver.TabIndex = 16;
             // 
             // lblMoney
@@ -200,7 +215,7 @@
             // 
             this.lblIban.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lblIban.AutoSize = true;
-            this.lblIban.Location = new System.Drawing.Point(586, 42);
+            this.lblIban.Location = new System.Drawing.Point(734, 42);
             this.lblIban.Name = "lblIban";
             this.lblIban.Size = new System.Drawing.Size(38, 13);
             this.lblIban.TabIndex = 12;
@@ -209,10 +224,10 @@
             // cmdProfil
             // 
             this.cmdProfil.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.cmdProfil.Location = new System.Drawing.Point(575, 84);
+            this.cmdProfil.Location = new System.Drawing.Point(723, 84);
             this.cmdProfil.Name = "cmdProfil";
             this.cmdProfil.Size = new System.Drawing.Size(73, 23);
-            this.cmdProfil.TabIndex = 11;
+            this.cmdProfil.TabIndex = 1;
             this.cmdProfil.Text = "Votre profil";
             this.cmdProfil.UseVisualStyleBackColor = true;
             // 
@@ -251,15 +266,15 @@
             this.datHistory.RowHeadersVisible = false;
             this.datHistory.RowTemplate.Height = 42;
             this.datHistory.RowTemplate.ReadOnly = true;
-            this.datHistory.Size = new System.Drawing.Size(450, 249);
+            this.datHistory.Size = new System.Drawing.Size(555, 319);
             this.datHistory.TabIndex = 14;
             // 
             // datColName
             // 
-            this.datColName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.datColName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.datColName.HeaderText = "Nom / Iban(Destinataire)";
             this.datColName.Name = "datColName";
-            this.datColName.Width = 135;
+            this.datColName.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             // 
             // datColNameReceiver
             // 
@@ -270,31 +285,38 @@
             // 
             // datColAmount
             // 
-            this.datColAmount.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
             this.datColAmount.HeaderText = "Montant";
             this.datColAmount.Name = "datColAmount";
-            this.datColAmount.Width = 71;
+            this.datColAmount.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.datColAmount.Width = 75;
             // 
             // datColReason
             // 
-            this.datColReason.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.datColReason.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.datColReason.HeaderText = "Raison";
             this.datColReason.Name = "datColReason";
             this.datColReason.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.datColReason.Width = 65;
             // 
             // datColDate
             // 
-            this.datColDate.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
             this.datColDate.HeaderText = "Date";
             this.datColDate.Name = "datColDate";
-            this.datColDate.Width = 55;
+            this.datColDate.Width = 70;
+            // 
+            // lblIbanFormat
+            // 
+            this.lblIbanFormat.AutoSize = true;
+            this.lblIbanFormat.Location = new System.Drawing.Point(110, 19);
+            this.lblIbanFormat.Name = "lblIbanFormat";
+            this.lblIbanFormat.Size = new System.Drawing.Size(96, 13);
+            this.lblIbanFormat.TabIndex = 18;
+            this.lblIbanFormat.Text = "Format : CH00 000";
             // 
             // FrmHome
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(750, 503);
+            this.ClientSize = new System.Drawing.Size(898, 628);
             this.Controls.Add(this.datHistory);
             this.Controls.Add(this.lblHistory);
             this.Controls.Add(this.cmdProfil);
@@ -304,12 +326,13 @@
             this.Controls.Add(this.cmdExit);
             this.Controls.Add(this.lblEmail);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.MinimumSize = new System.Drawing.Size(766, 542);
+            this.MinimumSize = new System.Drawing.Size(914, 622);
             this.Name = "FrmHome";
             this.Text = "Accueil";
             this.Load += new System.EventHandler(this.Home_Load);
             this.grpPayement.ResumeLayout(false);
             this.grpPayement.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.updPayAmount)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.datHistory)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -325,7 +348,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Date;
         private System.Windows.Forms.TextBox txtPayIban;
         private System.Windows.Forms.Button cmdPay;
-        private System.Windows.Forms.TextBox txtPayAmount;
         private System.Windows.Forms.Label lblPayIban;
         private System.Windows.Forms.ComboBox cboPayList;
         private System.Windows.Forms.Label lblPayAmount;
@@ -339,10 +361,12 @@
         private System.Windows.Forms.Label lblHistory;
         private System.Windows.Forms.DataGridView datHistory;
         private System.Windows.Forms.Label lblEmailReceiver;
+        private System.Windows.Forms.NumericUpDown updPayAmount;
         private System.Windows.Forms.DataGridViewTextBoxColumn datColName;
         private System.Windows.Forms.DataGridViewTextBoxColumn datColNameReceiver;
         private System.Windows.Forms.DataGridViewTextBoxColumn datColAmount;
         private System.Windows.Forms.DataGridViewTextBoxColumn datColReason;
         private System.Windows.Forms.DataGridViewTextBoxColumn datColDate;
+        private System.Windows.Forms.Label lblIbanFormat;
     }
 }

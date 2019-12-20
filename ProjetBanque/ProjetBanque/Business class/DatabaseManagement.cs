@@ -321,9 +321,9 @@ namespace ProjetBanque
 
             MySqlCommand query = connection.CreateCommand();
             query.CommandText = @"insert into TRANSACTIONS (date, amount, reason, idSender, idReceiver) 
-                                (@date), (@amount), (@reason), 
+                                values ((@date), (@amount), (@reason), 
                                 (select USERS.id from USERS where iban = (@senderIban)),
-                                (select USERS.id from USERS where iban = (@receiverIban))";
+                                (select USERS.id from USERS where iban = (@receiverIban)))";
 
             // Add parameters to query
             query.Parameters.AddWithValue("@date", nowTime);
@@ -343,10 +343,10 @@ namespace ProjetBanque
 
 
             query = connection.CreateCommand();
-            query.CommandText = @"UPDATE USERS SET money = money + 10 WHERE iban = (@iban)";
+            query.CommandText = @"UPDATE USERS SET money = money + (@amount) WHERE iban = (@receiverIban)";
 
             // Add parameters to query
-            query.Parameters.AddWithValue("@senderIban", senderIban);
+            query.Parameters.AddWithValue("@amount", amount);
             query.Parameters.AddWithValue("@receiverIban", receiverIban);
 
             // Execute the SQL command and check error
@@ -357,11 +357,11 @@ namespace ProjetBanque
 
 
             query = connection.CreateCommand();
-            query.CommandText = @"UPDATE USERS SET money = money - (@) WHERE iban = (@iban)";
+            query.CommandText = @"UPDATE USERS SET money = money - (@amount) WHERE iban = (@senderIban)";
 
             // Add parameters to query
+            query.Parameters.AddWithValue("@amount", amount);
             query.Parameters.AddWithValue("@senderIban", senderIban);
-            query.Parameters.AddWithValue("@receiverIban", receiverIban);
 
             // Execute the SQL command and check error
             if (query.ExecuteNonQuery() != 1)

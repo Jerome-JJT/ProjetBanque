@@ -77,6 +77,7 @@
             this.Name = "FrmConfirmRegister";
             this.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.Text = "Confirmation enregistrement";
+            this.Load += new System.EventHandler(this.FrmConfirmRegister_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -86,6 +87,6 @@
 
         private System.Windows.Forms.Button cmdBackLogin;
         private System.Windows.Forms.Label label3;
-        public System.Windows.Forms.Label lblEmail;
+        private System.Windows.Forms.Label lblEmail;
     }
 }

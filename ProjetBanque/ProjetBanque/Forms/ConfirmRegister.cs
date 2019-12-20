@@ -15,6 +15,7 @@ namespace ProjetBanque
     /// </summary>
     public partial class FrmConfirmRegister : Form
     {
+        private string email;
         /// <summary>
         /// Register confirmation form constructor
         /// </summary>
@@ -22,6 +23,17 @@ namespace ProjetBanque
         {
             InitializeComponent();
         }
+
+        private void FrmConfirmRegister_Load(object sender, EventArgs e)
+        {
+            lblEmail.Text = email;
+        }
+
+        public string Email
+        {
+            set { email = value; }
+        }
+
 
         private void cmdBackLogin_Click(object sender, EventArgs e)
         {            

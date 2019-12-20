@@ -101,11 +101,11 @@ namespace ProjetBanque
 
                     if (successCreation)
                     {
-                        FrmConfirmRegister formOK = new FrmConfirmRegister();
+                        FrmConfirmRegister formConfirm = new FrmConfirmRegister();
 
-                        formOK.lblEmail.Text = $"{txtEmail.Text.ToLower().Trim()}, vous êtes bien incrit-e";
+                        formConfirm.Email = $"{txtEmail.Text.ToLower().Trim()}, vous êtes bien incrit-e";
 
-                        formOK.ShowDialog();
+                        formConfirm.ShowDialog();
 
                         Close();
                     }

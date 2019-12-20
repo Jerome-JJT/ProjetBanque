@@ -32,18 +32,6 @@ namespace ProjetBanque
 
             userInformations = userInfo;
             inheritJsonStorage = inheritStorage;
-
-            lblEmail.Text = userInformations.Email;
-
-            lblIban.Text = userInformations.Iban;
-
-            lblMoney.Text = "Votre solde s'élève a: " + userInformations.Money.ToString() + " CHF";
-
-            foreach(Transaction transaction in userInformations.Transactions)
-            {
-                string[] row = { transaction. };
-                datHistory.Rows.Add();
-            }
         }
 
         private void Home_Load(object sender, EventArgs e)
@@ -51,18 +39,33 @@ namespace ProjetBanque
             Location = inheritJsonStorage.HomeWindowLocation;
             Size = inheritJsonStorage.HomeWindowSize;
 
-            //string[] row = { "C# 3.0 Pocket Reference", "Albahari", "O'Reilly", "2008" };
+            updateInfos();
         }
+
+        private void updateInfos()
+        {
+            lblEmail.Text = userInformations.Email;
+
+            lblIban.Text = userInformations.Iban;
+
+            lblMoney.Text = "Votre solde s'élève a: " + userInformations.Money.ToString() + " CHF";
+
+            datHistory.Rows.Clear();
+            foreach (Transaction transaction in userInformations.Transactions)
+            {
+                string[] row = { transaction.SenderDefine + " \n" + transaction.SenderIban, transaction.ReceiverDefine + " \n" + transaction.ReceiverIban, $"{transaction.Amount.ToString("0.00")} CHF", transaction.Reason, transaction.Date };
+                datHistory.Rows.Add(row);
+            }
+        }
+
 
         private void cmdExit_Click(object sender, EventArgs e)
         {
-            this.Close();
+            Close();
         }
 
         private void txtPayIban_TextChanged(object sender, EventArgs e)
         {
-            string emailReceiver = "";
-
             if (txtPayIban.Text.Count() == 8)
             {
                 DatabaseManagement database = new DatabaseManagement();
@@ -72,13 +75,13 @@ namespace ProjetBanque
 
                 database.CloseConnection();
 
-                if (destEmail != null && destEmail != emailReceiver)
+                if (destEmail != null && userInformations.Email != destEmail)
                 {
-                    lblEmailReceiver.Text = "Vous allez faire le payement a cette\npersonne: " + emailReceiver;
+                    lblEmailReceiver.Text = $"Vous allez faire un payement a :\n{destEmail}";
 
                     cmdPay.Enabled = true;
                 }
-                else if (destEmail == emailReceiver)
+                else if (userInformations.Email == destEmail)
                 {
                     lblEmailReceiver.Text = "Opération non possible";
 
@@ -86,7 +89,7 @@ namespace ProjetBanque
                 }
                 else
                 {
-                    lblEmailReceiver.Text = "L'Iban que vous avez entré ne correspond a personne,\nveuillez vérifiez l'Iban";
+                    lblEmailReceiver.Text = "L'Iban que vous avez entré ne correspond à personne,\nveuillez vérifiez l'Iban";
 
                     cmdPay.Enabled = false;
                 }
@@ -99,5 +102,32 @@ namespace ProjetBanque
             }
         }
 
+        private void cmdPay_Click(object sender, EventArgs e)
+        {
+            if(userInformations.Money >= Convert.ToDouble(updPayAmount.Value))
+            {
+                DatabaseManagement database = new DatabaseManagement();
+                database.OpenConnection();
+
+                bool success = database.Transact(Convert.ToDouble(updPayAmount.Value), txtPayReason.Text, userInformations.Iban, txtPayIban.Text);
+
+                if (success)
+                {
+                    userInformations = database.GetUser(userInformations.Email);
+                }
+
+                database.CloseConnection();
+
+                updateInfos();
+
+                txtPayIban.Text = "";
+                updPayAmount.Value = 0;
+                txtPayReason.Text = "";
+            }
+            else
+            {
+                MessageBox.Show("Vous n'avez pas assez d'argent pour effectuer cette transaction", "Erreur");
+            }
+        }
     }
 }
