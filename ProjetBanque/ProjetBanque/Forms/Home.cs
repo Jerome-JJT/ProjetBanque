@@ -41,7 +41,7 @@ namespace ProjetBanque
 
             foreach(Transaction transaction in userInformations.Transactions)
             {
-                string[] row = { transaction. };
+                string[] row = { transaction.};
                 datHistory.Rows.Add();
             }
         }
