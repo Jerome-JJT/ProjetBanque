@@ -246,7 +246,8 @@ namespace ProjetBanque
 
             // Create a command object
             query = connection.CreateCommand();
-            query.CommandText = @"select TRANSACTIONS.date, TRANSACTIONS.amount, TRANSACTIONS.reason, USER_RECEIVER.email, USER_SENDER.email from TRANSACTIONS
+            query.CommandText = @"select TRANSACTIONS.date, TRANSACTIONS.amount, TRANSACTIONS.reason, 
+                                USER_RECEIVER.email, USER_RECEIVER.iban, USER_SENDER.email, USER_SENDER.iban from TRANSACTIONS
                                 left join USERS as USER_RECEIVER on USER_RECEIVER.id = TRANSACTIONS.idReceiver
                                 left join USERS as USER_SENDER on USER_SENDER.id = TRANSACTIONS.idSender
                                 where USER_RECEIVER.email = (@concerned1) OR USER_SENDER.email  = (@concerned2)";
@@ -263,7 +264,14 @@ namespace ProjetBanque
                 //Add each transactions linked to the user
                 while (reader.Read())
                 {
-                    Transaction newTransaction = new Transaction(reader.GetDateTime(0).ToString(), reader.GetDouble(1), reader.GetString(2), reader.GetString(3), reader.GetString(4));
+                    Transaction newTransaction = new Transaction(
+                        reader.GetDateTime(0).ToString(), 
+                        reader.GetDouble(1), 
+                        reader.GetString(2), 
+                        reader.GetString(3), 
+                        reader.GetString(4), 
+                        reader.GetString(5), 
+                        reader.GetString(6));
                     user.Transactions.Add(newTransaction);
                 }
             }
