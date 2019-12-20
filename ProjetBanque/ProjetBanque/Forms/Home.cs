@@ -32,7 +32,12 @@ namespace ProjetBanque
 
             lblEmail.Text = userInformations.Email;
             lblIban.Text = userInformations.Iban;
-            lblMoney.Text = userInformations.Money.ToString();
+            lblMoney.Text = "Votre solde s'eleve a: " + userInformations.Money.ToString() + " CHF";
+
+            foreach(Transaction transaction in userInformations.Transactions)
+            {
+                datHistory.Rows.Add(transaction);
+            }
         }
 
         private void Home_Load(object sender, EventArgs e)
@@ -40,9 +45,7 @@ namespace ProjetBanque
             Location = inheritJsonStorage.HomeWindowLocation;
             Size = inheritJsonStorage.HomeWindowSize;
 
-            string[] row0 = { "C# 3.0 Pocket Reference", "Albahari", "O'Reilly", "2008" };
-
-            datHistory.Rows.Add(row0);
+            //string[] row = { "C# 3.0 Pocket Reference", "Albahari", "O'Reilly", "2008" };
         }
 
         private void cmdExit_Click(object sender, EventArgs e)
