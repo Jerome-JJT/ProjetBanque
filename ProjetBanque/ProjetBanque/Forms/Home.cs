@@ -41,7 +41,8 @@ namespace ProjetBanque
 
             foreach(Transaction transaction in userInformations.Transactions)
             {
-                datHistory.Rows.Add(transaction);
+                string[] row = { transaction. };
+                datHistory.Rows.Add();
             }
         }
 
@@ -67,7 +68,7 @@ namespace ProjetBanque
 
             if (txtPayIban.Text.Count() == 8)
             {
-                if (emailReceiver = database.EmailFromIban(userInformations.Iban))
+                /*if (emailReceiver = database.EmailFromIban(userInformations.Iban))
                 {
                     lblEmailReceiver.Text = "Vous allez faire le payement a cette personne: " + emailReceiver;
 
@@ -77,8 +78,9 @@ namespace ProjetBanque
                 {
                     lblEmailReceiver.Text = "L'Iban que vous avez entrez ne correspond a personne, veuillez verifiez l'Iban ";
                     cmdPay.Enabled = false;
-                }
+                }*/
             }
         }
+
     }
 }
