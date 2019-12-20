@@ -41,6 +41,7 @@
             this.lblPayReason = new System.Windows.Forms.Label();
             this.cmdModifyList = new System.Windows.Forms.Button();
             this.grpPayement = new System.Windows.Forms.GroupBox();
+            this.lblEmailReceiver = new System.Windows.Forms.Label();
             this.lblMoney = new System.Windows.Forms.Label();
             this.lblIban = new System.Windows.Forms.Label();
             this.cmdProfil = new System.Windows.Forms.Button();
@@ -50,7 +51,6 @@
             this.datColAmount = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.datColReason = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.datColDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.lblEmailReceiver = new System.Windows.Forms.Label();
             this.grpPayement.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.datHistory)).BeginInit();
             this.SuspendLayout();
@@ -85,6 +85,7 @@
             // 
             // cmdPay
             // 
+            this.cmdPay.Enabled = false;
             this.cmdPay.Location = new System.Drawing.Point(12, 215);
             this.cmdPay.Name = "cmdPay";
             this.cmdPay.Size = new System.Drawing.Size(248, 23);
@@ -175,6 +176,15 @@
             this.grpPayement.TabStop = false;
             this.grpPayement.Text = "Payements";
             // 
+            // lblEmailReceiver
+            // 
+            this.lblEmailReceiver.AutoSize = true;
+            this.lblEmailReceiver.Location = new System.Drawing.Point(6, 52);
+            this.lblEmailReceiver.Name = "lblEmailReceiver";
+            this.lblEmailReceiver.Size = new System.Drawing.Size(85, 13);
+            this.lblEmailReceiver.TabIndex = 16;
+            this.lblEmailReceiver.Text = "lblEmailReceiver";
+            // 
             // lblMoney
             // 
             this.lblMoney.AutoSize = true;
@@ -260,15 +270,6 @@
             this.datColDate.HeaderText = "Date";
             this.datColDate.Name = "datColDate";
             this.datColDate.Width = 55;
-            // 
-            // lblEmailReceiver
-            // 
-            this.lblEmailReceiver.AutoSize = true;
-            this.lblEmailReceiver.Location = new System.Drawing.Point(6, 52);
-            this.lblEmailReceiver.Name = "lblEmailReceiver";
-            this.lblEmailReceiver.Size = new System.Drawing.Size(85, 13);
-            this.lblEmailReceiver.TabIndex = 16;
-            this.lblEmailReceiver.Text = "lblEmailReceiver";
             // 
             // FrmHome
             // 

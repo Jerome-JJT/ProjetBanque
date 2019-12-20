@@ -66,9 +66,6 @@ namespace ProjetBanque
             return AddUser(email, password, type, 0);
         }
 
-
-
-
         /// <summary>
         /// Create and generate a unique IBAN by looking in the database if it exist
         /// </summary>
@@ -273,6 +270,33 @@ namespace ProjetBanque
             reader.Close();
 
             return user;
+        }
+
+
+        /// <summary>
+        /// Return user's from iban
+        /// </summary>
+        /// <returns>Email address coresponding to iban</returns>
+        public string EmailFromIban(string iban)
+        {
+            // Create a command object
+            MySqlCommand query = connection.CreateCommand();
+            query.CommandText = "select email from USERS where iban = (@iban)";
+
+            //Add parameters to query
+            query.Parameters.AddWithValue("@iban", iban);
+
+            //Get user's email from iban
+            DbDataReader reader = query.ExecuteReader();
+            if (reader.HasRows)
+            {
+                reader.Read();
+                return reader.GetString(0);
+            }
+            else
+            {
+                return null;
+            }
         }
 
         /*

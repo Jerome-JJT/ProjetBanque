@@ -56,7 +56,7 @@ namespace TestProjetBanque
         }
 
 
-        [TestMethod]
+        /*TestMethod]
         public void TestGetUserMoney()
         {
             DatabaseManagement connDB = new DatabaseManagement();
@@ -69,6 +69,6 @@ namespace TestProjetBanque
             connDB.CloseConnection();
 
             Assert.AreEqual(30000, result);
-        }
+        }*/
     }
 }
