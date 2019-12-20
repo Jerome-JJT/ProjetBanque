@@ -18,6 +18,7 @@ namespace ProjetBanque
         private JsonData inheritJsonStorage;
         private User userInformations;
 
+
         /// <summary>
         /// Home form constructor
         /// </summary>
@@ -27,11 +28,15 @@ namespace ProjetBanque
         {
             InitializeComponent();
 
+            cmdPay.Enabled = false;
+
             userInformations = userInfo;
             inheritJsonStorage = inheritStorage;
 
             lblEmail.Text = userInformations.Email;
+
             lblIban.Text = userInformations.Iban;
+            
             lblMoney.Text = "Votre solde s'eleve a: " + userInformations.Money.ToString() + " CHF";
 
             foreach(Transaction transaction in userInformations.Transactions)
@@ -53,5 +58,27 @@ namespace ProjetBanque
             this.Close();
         }
 
+        private void txtPayIban_TextChanged(object sender, EventArgs e)
+        {
+            string emailReceiver = "";
+
+            DatabaseManagement database = new DatabaseManagement();
+            database.OpenConnection();
+
+            if (txtPayIban.Text.Count() == 8)
+            {
+                if (emailReceiver = database.EmailFromIban(userInformations.Iban))
+                {
+                    lblEmailReceiver.Text = "Vous allez faire le payement a cette personne: " + emailReceiver;
+
+                    cmdPay.Enabled = true;
+                }
+                else
+                {
+                    lblEmailReceiver.Text = "L'Iban que vous avez entrez ne correspond a personne, veuillez verifiez l'Iban ";
+                    cmdPay.Enabled = false;
+                }
+            }
+        }
     }
 }
