@@ -70,16 +70,9 @@ namespace ProjetBanque
 
 
         /// <summary>
-        /// Add a user in the database with a certain amount of money
+        /// Create and generate a unique IBAN by looking in the database if it exist
         /// </summary>
-        /// <param name="email">User's email, will be verified with regex</param>
-        /// <param name="password">User's password, will be hashed and salted</param>
-        /// <param name="type">Account type, "Public" or "Enterprise", "Admin" can't be added here</param>
-        /// <param name="money">Base money for the account</param>
-        /// <returns>true if success, false for an error</returns>
-        /// 
-
-
+        /// <returns>full unique IBAN</returns>
         public string GenerateIBAN()
         {
             Random rand = new Random();
@@ -241,7 +234,7 @@ namespace ProjetBanque
         {
             // Create a command object
             MySqlCommand query = connection.CreateCommand();
-            query.CommandText = "select iban, type, email, money from USERS where email = (@email)";
+            query.CommandText = "select iban, type+0 as type, email, money from USERS where email = (@email)";
 
             //Add parameters to query
             query.Parameters.AddWithValue("@email", email);
@@ -250,7 +243,8 @@ namespace ProjetBanque
             DbDataReader reader = query.ExecuteReader();
             reader.Read();
 
-            User user = new User(reader.GetString(0), (User.AccountType)0, reader.GetString(2), reader.GetDouble(3));
+            //var aa = reader.GetInt32(1);
+            User user = new User(reader.GetString(0), (User.AccountType)reader.GetInt32(1), reader.GetString(2), reader.GetDouble(3));
 
             reader.Close();
 
