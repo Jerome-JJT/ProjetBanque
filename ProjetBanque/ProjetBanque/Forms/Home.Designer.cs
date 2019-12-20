@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmHome));
             this.lblEmail = new System.Windows.Forms.Label();
             this.cmdExit = new System.Windows.Forms.Button();
@@ -182,9 +183,8 @@
             this.lblEmailReceiver.AutoSize = true;
             this.lblEmailReceiver.Location = new System.Drawing.Point(6, 52);
             this.lblEmailReceiver.Name = "lblEmailReceiver";
-            this.lblEmailReceiver.Size = new System.Drawing.Size(85, 13);
+            this.lblEmailReceiver.Size = new System.Drawing.Size(0, 13);
             this.lblEmailReceiver.TabIndex = 16;
-            this.lblEmailReceiver.Text = "lblEmailReceiver";
             // 
             // lblMoney
             // 
@@ -238,9 +238,18 @@
             this.datColAmount,
             this.datColReason,
             this.datColDate});
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.datHistory.DefaultCellStyle = dataGridViewCellStyle1;
             this.datHistory.Location = new System.Drawing.Point(12, 186);
             this.datHistory.Name = "datHistory";
             this.datHistory.RowHeadersVisible = false;
+            this.datHistory.RowTemplate.Height = 42;
             this.datHistory.RowTemplate.ReadOnly = true;
             this.datHistory.Size = new System.Drawing.Size(450, 249);
             this.datHistory.TabIndex = 14;

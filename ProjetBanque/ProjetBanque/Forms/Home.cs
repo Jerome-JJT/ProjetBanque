@@ -41,7 +41,7 @@ namespace ProjetBanque
 
             foreach(Transaction transaction in userInformations.Transactions)
             {
-                string[] row = { transaction.SenderDefine + Environment.NewLine + transaction.SenderIban, transaction.ReceiverDefine + " \n" + transaction.ReceiverIban, transaction.Amount.ToString(), transaction.Reason, transaction.Date };
+                string[] row = { transaction.SenderDefine + " \n" + transaction.SenderIban, transaction.ReceiverDefine + " \n" + transaction.ReceiverIban, transaction.Amount.ToString(), transaction.Reason, transaction.Date };
                 datHistory.Rows.Add(row);
             }
         }
