@@ -89,7 +89,7 @@ namespace ProjetBanque
                     lblEmailReceiver.Text = "L'Iban que vous avez entré ne correspond a personne,\nveuillez vérifiez l'Iban";
 
                     cmdPay.Enabled = false;
-                }*/
+                }
             }
             else
             {
