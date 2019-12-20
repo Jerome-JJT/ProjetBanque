@@ -66,9 +66,6 @@ namespace ProjetBanque
             return AddUser(email, password, type, 0);
         }
 
-
-
-
         /// <summary>
         /// Create and generate a unique IBAN by looking in the database if it exist
         /// </summary>
@@ -249,7 +246,8 @@ namespace ProjetBanque
 
             // Create a command object
             query = connection.CreateCommand();
-            query.CommandText = @"select TRANSACTIONS.date, TRANSACTIONS.amount, TRANSACTIONS.reason, USER_RECEIVER.email, USER_SENDER.email from TRANSACTIONS
+            query.CommandText = @"select TRANSACTIONS.date, TRANSACTIONS.amount, TRANSACTIONS.reason, 
+                                USER_RECEIVER.email, USER_RECEIVER.iban, USER_SENDER.email, USER_SENDER.iban from TRANSACTIONS
                                 left join USERS as USER_RECEIVER on USER_RECEIVER.id = TRANSACTIONS.idReceiver
                                 left join USERS as USER_SENDER on USER_SENDER.id = TRANSACTIONS.idSender
                                 where USER_RECEIVER.email = (@concerned1) OR USER_SENDER.email  = (@concerned2)";
@@ -266,13 +264,47 @@ namespace ProjetBanque
                 //Add each transactions linked to the user
                 while (reader.Read())
                 {
-                    Transaction newTransaction = new Transaction(reader.GetDateTime(0).ToString(), reader.GetDouble(1), reader.GetString(2), reader.GetString(3), reader.GetString(4));
+                    Transaction newTransaction = new Transaction(
+                        reader.GetDateTime(0).ToString(), 
+                        reader.GetDouble(1), 
+                        reader.GetString(2), 
+                        reader.GetString(3), 
+                        reader.GetString(4), 
+                        reader.GetString(5), 
+                        reader.GetString(6));
                     user.Transactions.Add(newTransaction);
                 }
             }
             reader.Close();
 
             return user;
+        }
+
+
+        /// <summary>
+        /// Return user's from iban
+        /// </summary>
+        /// <returns>Email address coresponding to iban</returns>
+        public string EmailFromIban(string iban)
+        {
+            // Create a command object
+            MySqlCommand query = connection.CreateCommand();
+            query.CommandText = "select email from USERS where iban = (@iban)";
+
+            //Add parameters to query
+            query.Parameters.AddWithValue("@iban", iban);
+
+            //Get user's email from iban
+            DbDataReader reader = query.ExecuteReader();
+            if (reader.HasRows)
+            {
+                reader.Read();
+                return reader.GetString(0);
+            }
+            else
+            {
+                return null;
+            }
         }
 
         /*

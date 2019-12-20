@@ -16,7 +16,9 @@ namespace ProjetBanque
         private string reason;
 
         private string senderDefine;
+        private string senderIban;
         private string receiverDefine;
+        private string receiverIban;
 
         /// <summary>
         /// Create a displayable transaction
@@ -26,14 +28,17 @@ namespace ProjetBanque
         /// <param name="reason">Transaction's reason</param>
         /// <param name="senderDefine">Text to display about money sender</param>
         /// <param name="receiverDefine">Text to display about money receiver</param>
-        public Transaction(string date, double amount, string reason, string senderDefine, string receiverDefine)
+        public Transaction(string date, double amount, string reason, 
+            string senderDefine, string senderIban, string receiverDefine, string receiverIban)
         {
             this.date = date;
             this.amount = amount;
             this.reason = reason;
 
             this.senderDefine = senderDefine;
+            this.senderIban = senderIban;
             this.receiverDefine = receiverDefine;
+            this.receiverIban = receiverIban;
         }
 
         /// <summary>
@@ -69,11 +74,27 @@ namespace ProjetBanque
         }
 
         /// <summary>
+        /// Iban about money sender
+        /// </summary>
+        public string SenderIban
+        {
+            get { return senderIban; }
+        }
+
+        /// <summary>
         /// Text to display about money receiver
         /// </summary>
         public string ReceiverDefine
         {
             get { return receiverDefine; }
+        }
+
+        /// <summary>
+        /// Iban about money receiver
+        /// </summary>
+        public string ReceiverIban
+        {
+            get { return receiverIban; }
         }
     }
 }

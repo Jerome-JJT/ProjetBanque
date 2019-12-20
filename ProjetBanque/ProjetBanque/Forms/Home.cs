@@ -36,8 +36,8 @@ namespace ProjetBanque
             lblEmail.Text = userInformations.Email;
 
             lblIban.Text = userInformations.Iban;
-            
-            lblMoney.Text = "Votre solde s'eleve a: " + userInformations.Money.ToString() + " CHF";
+
+            lblMoney.Text = "Votre solde s'élève a: " + userInformations.Money.ToString() + " CHF";
 
             foreach(Transaction transaction in userInformations.Transactions)
             {
@@ -63,22 +63,39 @@ namespace ProjetBanque
         {
             string emailReceiver = "";
 
-            DatabaseManagement database = new DatabaseManagement();
-            database.OpenConnection();
-
             if (txtPayIban.Text.Count() == 8)
             {
-                /*if (emailReceiver = database.EmailFromIban(userInformations.Iban))
+                DatabaseManagement database = new DatabaseManagement();
+                database.OpenConnection();
+
+                string destEmail = database.EmailFromIban(txtPayIban.Text.ToUpper());
+
+                database.CloseConnection();
+
+                if (destEmail != null && destEmail != emailReceiver)
                 {
-                    lblEmailReceiver.Text = "Vous allez faire le payement a cette personne: " + emailReceiver;
+                    lblEmailReceiver.Text = "Vous allez faire le payement a cette\npersonne: " + emailReceiver;
 
                     cmdPay.Enabled = true;
                 }
+                else if (destEmail == emailReceiver)
+                {
+                    lblEmailReceiver.Text = "Opération non possible";
+
+                    cmdPay.Enabled = false;
+                }
                 else
                 {
-                    lblEmailReceiver.Text = "L'Iban que vous avez entrez ne correspond a personne, veuillez verifiez l'Iban ";
+                    lblEmailReceiver.Text = "L'Iban que vous avez entré ne correspond a personne,\nveuillez vérifiez l'Iban";
+
                     cmdPay.Enabled = false;
                 }*/
+            }
+            else
+            {
+                lblEmailReceiver.Text = "";
+
+                cmdPay.Enabled = false;
             }
         }
 

@@ -86,6 +86,7 @@
             // 
             // cmdPay
             // 
+            this.cmdPay.Enabled = false;
             this.cmdPay.Location = new System.Drawing.Point(12, 215);
             this.cmdPay.Name = "cmdPay";
             this.cmdPay.Size = new System.Drawing.Size(248, 23);
