@@ -81,7 +81,6 @@ namespace ProjetBanque
 
             do
             {
-
                 int ibanId = rand.Next(Convert.ToInt32(Math.Pow(10, 0)), Convert.ToInt32(Math.Pow(10, 5)));
 
                 testIban = $"{ibanPrefix}{ibanId.ToString("00 000")}";
@@ -206,8 +205,8 @@ namespace ProjetBanque
             {
                 //Get hashed and salted password from the database
                 DbDataReader reader = query.ExecuteReader();
-                reader.Read();
 
+                reader.Read();
                 hashedPassword = reader.GetString(0);
                 reader.Close();
             }
@@ -241,11 +240,36 @@ namespace ProjetBanque
 
             //Get user's money from the database
             DbDataReader reader = query.ExecuteReader();
+
             reader.Read();
-
-            //var aa = reader.GetInt32(1);
             User user = new User(reader.GetString(0), (User.AccountType)reader.GetInt32(1), reader.GetString(2), reader.GetDouble(3));
+            reader.Close();
 
+
+
+            // Create a command object
+            query = connection.CreateCommand();
+            query.CommandText = @"select TRANSACTIONS.date, TRANSACTIONS.amount, TRANSACTIONS.reason, USER_RECEIVER.email, USER_SENDER.email from TRANSACTIONS
+                                left join USERS as USER_RECEIVER on USER_RECEIVER.id = TRANSACTIONS.idReceiver
+                                left join USERS as USER_SENDER on USER_SENDER.id = TRANSACTIONS.idSender
+                                where USER_RECEIVER.email = (@concerned1) OR USER_SENDER.email  = (@concerned2)";
+
+            //Add parameters to query
+            query.Parameters.AddWithValue("@concerned1", email);
+            query.Parameters.AddWithValue("@concerned2", email);
+
+            //Get user's money from the database
+            reader = query.ExecuteReader();
+            
+            if (reader.HasRows)
+            {
+                //Add each transactions linked to the user
+                while (reader.Read())
+                {
+                    Transaction newTransaction = new Transaction(reader.GetDateTime(0).ToString(), reader.GetDouble(1), reader.GetString(2), reader.GetString(3), reader.GetString(4));
+                    user.Transactions.Add(newTransaction);
+                }
+            }
             reader.Close();
 
             return user;

@@ -138,7 +138,6 @@ namespace ProjetBanque
             }                  
         }
 
-
         private void txtPassword_TextChanged(object sender, EventArgs e)
         {
             //If text is added
