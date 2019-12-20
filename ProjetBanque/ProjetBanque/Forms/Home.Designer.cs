@@ -50,6 +50,7 @@
             this.datColAmount = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.datColReason = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.datColDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lblEmailReceiver = new System.Windows.Forms.Label();
             this.grpPayement.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.datHistory)).BeginInit();
             this.SuspendLayout();
@@ -80,6 +81,7 @@
             this.txtPayIban.Name = "txtPayIban";
             this.txtPayIban.Size = new System.Drawing.Size(157, 20);
             this.txtPayIban.TabIndex = 2;
+            this.txtPayIban.TextChanged += new System.EventHandler(this.txtPayIban_TextChanged);
             // 
             // cmdPay
             // 
@@ -156,6 +158,7 @@
             // grpPayement
             // 
             this.grpPayement.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.grpPayement.Controls.Add(this.lblEmailReceiver);
             this.grpPayement.Controls.Add(this.cmdModifyList);
             this.grpPayement.Controls.Add(this.lblPayReason);
             this.grpPayement.Controls.Add(this.txtPayReason);
@@ -258,6 +261,15 @@
             this.datColDate.Name = "datColDate";
             this.datColDate.Width = 55;
             // 
+            // lblEmailReceiver
+            // 
+            this.lblEmailReceiver.AutoSize = true;
+            this.lblEmailReceiver.Location = new System.Drawing.Point(6, 52);
+            this.lblEmailReceiver.Name = "lblEmailReceiver";
+            this.lblEmailReceiver.Size = new System.Drawing.Size(85, 13);
+            this.lblEmailReceiver.TabIndex = 16;
+            this.lblEmailReceiver.Text = "lblEmailReceiver";
+            // 
             // FrmHome
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -310,5 +322,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn datColAmount;
         private System.Windows.Forms.DataGridViewTextBoxColumn datColReason;
         private System.Windows.Forms.DataGridViewTextBoxColumn datColDate;
+        private System.Windows.Forms.Label lblEmailReceiver;
     }
 }
