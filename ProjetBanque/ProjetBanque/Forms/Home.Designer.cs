@@ -41,6 +41,7 @@
             this.lblPayReason = new System.Windows.Forms.Label();
             this.cmdModifyList = new System.Windows.Forms.Button();
             this.grpPayement = new System.Windows.Forms.GroupBox();
+            this.lblIbanFormat = new System.Windows.Forms.Label();
             this.updPayAmount = new System.Windows.Forms.NumericUpDown();
             this.lblEmailReceiver = new System.Windows.Forms.Label();
             this.lblMoney = new System.Windows.Forms.Label();
@@ -53,7 +54,6 @@
             this.datColAmount = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.datColReason = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.datColDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.lblIbanFormat = new System.Windows.Forms.Label();
             this.grpPayement.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.updPayAmount)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.datHistory)).BeginInit();
@@ -81,6 +81,8 @@
             // 
             // txtPayIban
             // 
+            this.txtPayIban.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.txtPayIban.Location = new System.Drawing.Point(113, 35);
             this.txtPayIban.Name = "txtPayIban";
             this.txtPayIban.Size = new System.Drawing.Size(170, 20);
@@ -89,10 +91,12 @@
             // 
             // cmdPay
             // 
+            this.cmdPay.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.cmdPay.Enabled = false;
-            this.cmdPay.Location = new System.Drawing.Point(15, 290);
+            this.cmdPay.Location = new System.Drawing.Point(13, 313);
             this.cmdPay.Name = "cmdPay";
-            this.cmdPay.Size = new System.Drawing.Size(268, 23);
+            this.cmdPay.Size = new System.Drawing.Size(268, 33);
             this.cmdPay.TabIndex = 6;
             this.cmdPay.Text = "Payer";
             this.cmdPay.UseVisualStyleBackColor = true;
@@ -109,6 +113,8 @@
             // 
             // cboPayList
             // 
+            this.cboPayList.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.cboPayList.Enabled = false;
             this.cboPayList.FormattingEnabled = true;
             this.cboPayList.Location = new System.Drawing.Point(15, 98);
@@ -128,10 +134,13 @@
             // 
             // txtPayReason
             // 
+            this.txtPayReason.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.txtPayReason.Location = new System.Drawing.Point(15, 183);
             this.txtPayReason.Multiline = true;
             this.txtPayReason.Name = "txtPayReason";
-            this.txtPayReason.Size = new System.Drawing.Size(268, 100);
+            this.txtPayReason.Size = new System.Drawing.Size(268, 124);
             this.txtPayReason.TabIndex = 5;
             // 
             // lblPayReason
@@ -147,7 +156,7 @@
             // 
             this.cmdModifyList.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.cmdModifyList.Enabled = false;
-            this.cmdModifyList.Location = new System.Drawing.Point(210, 98);
+            this.cmdModifyList.Location = new System.Drawing.Point(208, 98);
             this.cmdModifyList.Name = "cmdModifyList";
             this.cmdModifyList.Size = new System.Drawing.Size(73, 23);
             this.cmdModifyList.TabIndex = 15;
@@ -168,15 +177,26 @@
             this.grpPayement.Controls.Add(this.lblPayIban);
             this.grpPayement.Controls.Add(this.cmdPay);
             this.grpPayement.Controls.Add(this.txtPayIban);
-            this.grpPayement.Location = new System.Drawing.Point(597, 186);
+            this.grpPayement.Location = new System.Drawing.Point(599, 170);
             this.grpPayement.Name = "grpPayement";
-            this.grpPayement.Size = new System.Drawing.Size(289, 319);
+            this.grpPayement.Size = new System.Drawing.Size(287, 357);
             this.grpPayement.TabIndex = 5;
             this.grpPayement.TabStop = false;
-            this.grpPayement.Text = "Payements";
+            this.grpPayement.Text = "Payement";
+            // 
+            // lblIbanFormat
+            // 
+            this.lblIbanFormat.AutoSize = true;
+            this.lblIbanFormat.Location = new System.Drawing.Point(110, 19);
+            this.lblIbanFormat.Name = "lblIbanFormat";
+            this.lblIbanFormat.Size = new System.Drawing.Size(96, 13);
+            this.lblIbanFormat.TabIndex = 18;
+            this.lblIbanFormat.Text = "Format : CH00 000";
             // 
             // updPayAmount
             // 
+            this.updPayAmount.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.updPayAmount.DecimalPlaces = 2;
             this.updPayAmount.Increment = new decimal(new int[] {
             5,
@@ -234,7 +254,7 @@
             // lblHistory
             // 
             this.lblHistory.AutoSize = true;
-            this.lblHistory.Location = new System.Drawing.Point(12, 170);
+            this.lblHistory.Location = new System.Drawing.Point(12, 161);
             this.lblHistory.Name = "lblHistory";
             this.lblHistory.Size = new System.Drawing.Size(131, 13);
             this.lblHistory.TabIndex = 13;
@@ -266,7 +286,7 @@
             this.datHistory.RowHeadersVisible = false;
             this.datHistory.RowTemplate.Height = 42;
             this.datHistory.RowTemplate.ReadOnly = true;
-            this.datHistory.Size = new System.Drawing.Size(555, 319);
+            this.datHistory.Size = new System.Drawing.Size(555, 430);
             this.datHistory.TabIndex = 14;
             // 
             // datColName
@@ -303,15 +323,6 @@
             this.datColDate.Name = "datColDate";
             this.datColDate.Width = 70;
             // 
-            // lblIbanFormat
-            // 
-            this.lblIbanFormat.AutoSize = true;
-            this.lblIbanFormat.Location = new System.Drawing.Point(110, 19);
-            this.lblIbanFormat.Name = "lblIbanFormat";
-            this.lblIbanFormat.Size = new System.Drawing.Size(96, 13);
-            this.lblIbanFormat.TabIndex = 18;
-            this.lblIbanFormat.Text = "Format : CH00 000";
-            // 
             // FrmHome
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -330,6 +341,7 @@
             this.Name = "FrmHome";
             this.Text = "Accueil";
             this.Load += new System.EventHandler(this.Home_Load);
+            this.SizeChanged += new System.EventHandler(this.FrmHome_SizeChanged);
             this.grpPayement.ResumeLayout(false);
             this.grpPayement.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.updPayAmount)).EndInit();

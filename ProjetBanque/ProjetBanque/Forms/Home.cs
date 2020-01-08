@@ -42,6 +42,24 @@ namespace ProjetBanque
             updateInfos();
         }
 
+        private void FrmHome_SizeChanged(object sender, EventArgs e)
+        {
+            responsive();
+        }
+
+        private void responsive()
+        {
+            datHistory.Location = new Point(10, 180);
+            datHistory.Size = new Size(Convert.ToInt32((Size.Width - 40) / 1.6), Convert.ToInt32(Size.Height - 250));
+
+            grpPayement.Location = new Point(Convert.ToInt32((Size.Width) / 1.6 + 10), 180);
+            grpPayement.Size = new Size(Convert.ToInt32((Size.Width - 100) / 2.7), Convert.ToInt32(Size.Height - 300));
+
+            cmdExit.Location = new Point(Convert.ToInt32(Size.Width - 145), Convert.ToInt32(Size.Height - 95));
+            cmdExit.Size = new Size(120, 40);
+        }
+
+
         private void updateInfos()
         {
             lblEmail.Text = userInformations.Email;
