@@ -61,8 +61,20 @@ namespace ProjetBanque
             jsonFile.InsertData(jsonStorage);
         }
 
+        private void txtPassword_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter || e.KeyCode == Keys.Return)
+            {
+                tryLogin();
+            }
+        }
 
         private void cmdLogin_Click(object sender, EventArgs e)
+        {
+            tryLogin();
+        }
+
+        private void tryLogin()
         {
             lblError.Text = "";
             txtEmail.BackColor = Color.FromArgb(255, 255, 255);
@@ -117,7 +129,6 @@ namespace ProjetBanque
                 txtEmail.BackColor = Color.FromArgb(255, 128, 128);
                 txtPassword.BackColor = Color.FromArgb(255, 128, 128);
             }
-            
         }
 
         private void cmdRegister_Click(object sender, EventArgs e)
@@ -184,5 +195,7 @@ namespace ProjetBanque
             //Replace user's cursor after writing wildcards
             txtPassword.SelectionStart = backupSelection;
         }
+
+        
     }
 }
