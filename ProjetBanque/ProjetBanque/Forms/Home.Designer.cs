@@ -291,23 +291,22 @@
             // 
             // datColName
             // 
-            this.datColName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.datColName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
             this.datColName.HeaderText = "Nom / Iban(Destinataire)";
             this.datColName.Name = "datColName";
-            this.datColName.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             // 
             // datColNameReceiver
             // 
-            this.datColNameReceiver.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.datColNameReceiver.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
             this.datColNameReceiver.HeaderText = "Nom / Iban(Receveur)";
             this.datColNameReceiver.Name = "datColNameReceiver";
             this.datColNameReceiver.Width = 127;
             // 
             // datColAmount
             // 
+            this.datColAmount.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
             this.datColAmount.HeaderText = "Montant";
             this.datColAmount.Name = "datColAmount";
-            this.datColAmount.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.datColAmount.Width = 75;
             // 
             // datColReason
@@ -319,9 +318,10 @@
             // 
             // datColDate
             // 
+            this.datColDate.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
             this.datColDate.HeaderText = "Date";
             this.datColDate.Name = "datColDate";
-            this.datColDate.Width = 70;
+            this.datColDate.Width = 110;
             // 
             // FrmHome
             // 
@@ -374,11 +374,11 @@
         private System.Windows.Forms.DataGridView datHistory;
         private System.Windows.Forms.Label lblEmailReceiver;
         private System.Windows.Forms.NumericUpDown updPayAmount;
+        private System.Windows.Forms.Label lblIbanFormat;
         private System.Windows.Forms.DataGridViewTextBoxColumn datColName;
         private System.Windows.Forms.DataGridViewTextBoxColumn datColNameReceiver;
         private System.Windows.Forms.DataGridViewTextBoxColumn datColAmount;
         private System.Windows.Forms.DataGridViewTextBoxColumn datColReason;
         private System.Windows.Forms.DataGridViewTextBoxColumn datColDate;
-        private System.Windows.Forms.Label lblIbanFormat;
     }
 }

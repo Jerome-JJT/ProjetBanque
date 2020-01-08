@@ -39,6 +39,8 @@ namespace ProjetBanque
             Location = inheritJsonStorage.HomeWindowLocation;
             Size = inheritJsonStorage.HomeWindowSize;
 
+            responsive();
+
             updateInfos();
         }
 
