@@ -21,9 +21,9 @@ namespace ProjetBanque
             /// </summary>
             Public = 1,
             /// <summary>
-            /// Entreprise account, can use list
+            /// Enterprise account, can use list
             /// </summary>
-            Entreprise = 2,
+            Enterprise = 2,
             /// <summary>
             /// Admin account, can see every account
             /// </summary>
@@ -31,12 +31,27 @@ namespace ProjetBanque
         }
 
         
-        private string iban;
-        private AccountType type;
-        private string email;
-        private double money;
+        /// <summary>
+        /// .
+        /// </summary>
+        protected string iban;
+        /// <summary>
+        /// .
+        /// </summary>
+        protected AccountType type;
+        /// <summary>
+        /// .
+        /// </summary>
+        protected string email;
+        /// <summary>
+        /// .
+        /// </summary>
+        protected double money;
 
-        private List<Transaction> transactions = new List<Transaction>();
+        /// <summary>
+        /// .
+        /// </summary>
+        protected List<Transaction> transactions = new List<Transaction>();
 
         /// <summary>
         /// Create a displayable user

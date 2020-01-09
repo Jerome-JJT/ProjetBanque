@@ -112,7 +112,7 @@ namespace ProjetBanque
         public bool AddUser(string email, string password, string type, double money)
         {
             //Allow only Public or Entreprise account creation
-            if (!(new List<string> { "Public", "Entreprise" }).Contains(type))
+            if (!(new List<string> { "Public", "Enterprise" }).Contains(type))
             {
                 throw new WrongAccountTypeException();
             }
@@ -270,6 +270,41 @@ namespace ProjetBanque
                         reader.GetString(3), 
                         reader.GetString(4), 
                         reader.GetString(5), 
+                        reader.GetString(6));
+                    user.Transactions.Add(newTransaction);
+                }
+            }
+            reader.Close();
+
+
+
+            // Create a command object
+            query = connection.CreateCommand();
+            query.CommandText = @"select TRANSACTIONS.date, TRANSACTIONS.amount, TRANSACTIONS.reason, 
+                                USER_RECEIVER.email, USER_RECEIVER.iban, USER_SENDER.email, USER_SENDER.iban from TRANSACTIONS
+                                left join USERS as USER_RECEIVER on USER_RECEIVER.id = TRANSACTIONS.idReceiver
+                                left join USERS as USER_SENDER on USER_SENDER.id = TRANSACTIONS.idSender
+                                where USER_RECEIVER.email = (@concerned1) OR USER_SENDER.email  = (@concerned2)";
+
+            //Add parameters to query
+            query.Parameters.AddWithValue("@concerned1", email);
+            query.Parameters.AddWithValue("@concerned2", email);
+
+            //Get user's money from the database
+            reader = query.ExecuteReader();
+
+            if (reader.HasRows)
+            {
+                //Add each transactions linked to the user
+                while (reader.Read())
+                {
+                    Transaction newTransaction = new Transaction(
+                        reader.GetDateTime(0).ToString(),
+                        reader.GetDouble(1),
+                        reader.GetString(2),
+                        reader.GetString(3),
+                        reader.GetString(4),
+                        reader.GetString(5),
                         reader.GetString(6));
                     user.Transactions.Add(newTransaction);
                 }

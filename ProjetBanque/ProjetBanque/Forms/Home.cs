@@ -76,6 +76,8 @@ namespace ProjetBanque
                 string[] row = { transaction.SenderDefine + " \n" + transaction.SenderIban, transaction.ReceiverDefine + " \n" + transaction.ReceiverIban, $"{transaction.Amount.ToString("0.00")} CHF", transaction.Reason, transaction.Date };
                 datHistory.Rows.Add(row);
             }
+            
+            if(userInformations.GetType() == typeof(EnterpriseUser))
         }
 
 
