@@ -121,7 +121,7 @@
             this.cboPayList.Name = "cboPayList";
             this.cboPayList.Size = new System.Drawing.Size(184, 21);
             this.cboPayList.TabIndex = 3;
-            this.cboPayList.Text = "Liste entreprise";
+            this.cboPayList.Text = "Liste(s) payements";
             // 
             // lblPayAmount
             // 
@@ -244,7 +244,7 @@
             // cmdProfil
             // 
             this.cmdProfil.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.cmdProfil.Location = new System.Drawing.Point(723, 84);
+            this.cmdProfil.Location = new System.Drawing.Point(712, 58);
             this.cmdProfil.Name = "cmdProfil";
             this.cmdProfil.Size = new System.Drawing.Size(73, 23);
             this.cmdProfil.TabIndex = 1;
