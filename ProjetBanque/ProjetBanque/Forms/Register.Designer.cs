@@ -41,6 +41,7 @@
             this.lblError = new System.Windows.Forms.Label();
             this.tmrPassword = new System.Windows.Forms.Timer(this.components);
             this.tmrPasswordVerify = new System.Windows.Forms.Timer(this.components);
+            this.chkEnterprise = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // txtPassword
@@ -93,7 +94,7 @@
             // 
             // cmdRegister
             // 
-            this.cmdRegister.Location = new System.Drawing.Point(217, 289);
+            this.cmdRegister.Location = new System.Drawing.Point(217, 329);
             this.cmdRegister.Name = "cmdRegister";
             this.cmdRegister.Size = new System.Drawing.Size(182, 41);
             this.cmdRegister.TabIndex = 6;
@@ -140,11 +141,22 @@
             this.tmrPasswordVerify.Interval = 1000;
             this.tmrPasswordVerify.Tick += new System.EventHandler(this.tmrPasswordVerify_Tick);
             // 
+            // chkEnterprise
+            // 
+            this.chkEnterprise.AutoSize = true;
+            this.chkEnterprise.Location = new System.Drawing.Point(253, 280);
+            this.chkEnterprise.Name = "chkEnterprise";
+            this.chkEnterprise.Size = new System.Drawing.Size(111, 17);
+            this.chkEnterprise.TabIndex = 15;
+            this.chkEnterprise.Text = "Compte entreprise";
+            this.chkEnterprise.UseVisualStyleBackColor = true;
+            // 
             // FrmRegister
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(604, 392);
+            this.Controls.Add(this.chkEnterprise);
             this.Controls.Add(this.lblError);
             this.Controls.Add(this.txtPasswordVerify);
             this.Controls.Add(this.lblPasswordVerify);
@@ -178,5 +190,6 @@
         private System.Windows.Forms.Label lblError;
         private System.Windows.Forms.Timer tmrPassword;
         private System.Windows.Forms.Timer tmrPasswordVerify;
+        private System.Windows.Forms.CheckBox chkEnterprise;
     }
 }
