@@ -17,18 +17,19 @@ namespace ProjetBanque
         /// Create a displayable enterprise user
         /// </summary>
         /// <param name="iban">User's IBAN</param>
-        /// <param name="type">User's account type</param>
         /// <param name="email">User's email</param>
         /// <param name="money">User's money amount</param>
-        /// <param name="lists">Enterprise payment lists</param>
-        public EnterpriseUser(string iban, AccountType type, string email, double money, List<UsersList> lists) : base(iban, type, email, money)
+        public EnterpriseUser(string iban, string email, double money) : base(iban, email, money)
         {
-            this.iban = iban;
-            this.type = type;
-            this.email = email;
-            this.money = money;
+        }
 
-            this.lists = lists;
+        /// <summary>
+        /// Lists linked to enterprise user
+        /// </summary>
+        public List<UsersList> Lists
+        {
+            get { return lists; }
+            set { lists = value; }
         }
     }
 }

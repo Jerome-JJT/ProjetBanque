@@ -238,7 +238,22 @@ namespace ProjetBanque
             DbDataReader reader = query.ExecuteReader();
 
             reader.Read();
-            User user = new User(reader.GetString(0), (User.AccountType)reader.GetInt32(1), reader.GetString(2), reader.GetDouble(3));
+            User user;
+            
+            if ((User.AccountType)reader.GetInt32(1) == User.AccountType.Enterprise)
+            {
+                user = new EnterpriseUser(reader.GetString(0), reader.GetString(2), reader.GetDouble(3));
+            }
+            //else if ((User.AccountType)reader.GetInt32(1) == User.AccountType.Public)
+            else
+            {
+                user = new User(reader.GetString(0), reader.GetString(2), reader.GetDouble(3));
+            }
+            /*else if ((User.AccountType)reader.GetInt32(1) == User.AccountType.Admin)
+            {
+                new AdminUser(reader.GetString(0), reader.GetString(2), reader.GetDouble(3));
+            }*/
+
             reader.Close();
 
 
@@ -277,39 +292,43 @@ namespace ProjetBanque
             reader.Close();
 
 
-
-            // Create a command object
-            query = connection.CreateCommand();
-            query.CommandText = @"select TRANSACTIONS.date, TRANSACTIONS.amount, TRANSACTIONS.reason, 
+            if(user.GetType() == typeof(EnterpriseUser))
+            {
+                // Create a command object
+                query = connection.CreateCommand();
+                query.CommandText = @"select TRANSACTIONS.date, TRANSACTIONS.amount, TRANSACTIONS.reason, 
                                 USER_RECEIVER.email, USER_RECEIVER.iban, USER_SENDER.email, USER_SENDER.iban from TRANSACTIONS
                                 left join USERS as USER_RECEIVER on USER_RECEIVER.id = TRANSACTIONS.idReceiver
                                 left join USERS as USER_SENDER on USER_SENDER.id = TRANSACTIONS.idSender
-                                where USER_RECEIVER.email = (@concerned1) OR USER_SENDER.email  = (@concerned2)";
+                                where USER_RECEIVER.email = (@concerned1) OR USER_SENDER.email  = (@concerned2)
+                                order by TRANSACTIONS.date desc";
 
-            //Add parameters to query
-            query.Parameters.AddWithValue("@concerned1", email);
-            query.Parameters.AddWithValue("@concerned2", email);
+                //Add parameters to query
+                query.Parameters.AddWithValue("@concerned1", email);
+                query.Parameters.AddWithValue("@concerned2", email);
 
-            //Get user's money from the database
-            reader = query.ExecuteReader();
+                //Get user's money from the database
+                reader = query.ExecuteReader();
 
-            if (reader.HasRows)
-            {
-                //Add each transactions linked to the user
-                while (reader.Read())
+                if (reader.HasRows)
                 {
-                    Transaction newTransaction = new Transaction(
-                        reader.GetDateTime(0).ToString(),
-                        reader.GetDouble(1),
-                        reader.GetString(2),
-                        reader.GetString(3),
-                        reader.GetString(4),
-                        reader.GetString(5),
-                        reader.GetString(6));
-                    user.Transactions.Add(newTransaction);
+                    //Add each transactions linked to the user
+                    while (reader.Read())
+                    {
+                        Transaction newTransaction = new Transaction(
+                            reader.GetDateTime(0).ToString(),
+                            reader.GetDouble(1),
+                            reader.GetString(2),
+                            reader.GetString(3),
+                            reader.GetString(4),
+                            reader.GetString(5),
+                            reader.GetString(6));
+                        user.Transactions.Add(newTransaction);
+                    }
                 }
+                reader.Close();
             }
-            reader.Close();
+            
 
             return user;
         }

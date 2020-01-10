@@ -30,15 +30,10 @@ namespace ProjetBanque
             Admin = 3
         }
 
-        
         /// <summary>
         /// .
         /// </summary>
         protected string iban;
-        /// <summary>
-        /// .
-        /// </summary>
-        protected AccountType type;
         /// <summary>
         /// .
         /// </summary>
@@ -57,13 +52,11 @@ namespace ProjetBanque
         /// Create a displayable user
         /// </summary>
         /// <param name="iban">User's IBAN</param>
-        /// <param name="type">User's account type</param>
         /// <param name="email">User's email</param>
         /// <param name="money">User's money amount</param>
-        public User(string iban, AccountType type, string email, double money)
+        public User(string iban, string email, double money)
         {
             this.iban = iban;
-            this.type = type;
             this.email = email;
             this.money = money;
         }
@@ -74,14 +67,6 @@ namespace ProjetBanque
         public string Iban
         {
             get { return iban; }
-        }
-
-        /// <summary>
-        /// User's account type
-        /// </summary>
-        public AccountType Type
-        {
-            get { return type; }
         }
 
         /// <summary>
