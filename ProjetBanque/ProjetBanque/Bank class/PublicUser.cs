@@ -35,6 +35,15 @@ namespace ProjetBanque
         }
 
         /// <summary>
+        /// USer's money
+        /// </summary>
+        public double Money
+        {
+            get { return money; }
+            set { money = value; }
+        }
+
+        /// <summary>
         /// Transactions linked to user
         /// </summary>
         public List<Transaction> Transactions
