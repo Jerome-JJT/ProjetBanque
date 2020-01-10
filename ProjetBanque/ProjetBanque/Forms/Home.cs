@@ -38,6 +38,7 @@ namespace ProjetBanque
         {
             Location = inheritJsonStorage.HomeWindowLocation;
             Size = inheritJsonStorage.HomeWindowSize;
+            cboPayList.Items.Add("Liste(s) payements");
 
             responsive();
 
@@ -79,8 +80,23 @@ namespace ProjetBanque
             
             if(userInformations.GetType() == typeof(EnterpriseUser))
             {
+                cmdModifyList.Enabled = true;
+                cboPayList.Enabled = true;
+
+                if (cboPayList.SelectedValue.Equals(1))
+                {
+                    txtPayIban.Enabled = true;
+                }
+                else
+                {
+                    txtPayIban.Enabled = false;
+                }
 
             }
+        }
+        private void cboPayList_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            updateInfos();
         }
 
 
@@ -153,6 +169,15 @@ namespace ProjetBanque
             {
                 MessageBox.Show("Vous n'avez pas assez d'argent pour effectuer cette transaction", "Erreur");
             }
+        }
+
+        private void cmdModifyList_Click(object sender, EventArgs e)
+        {
+            ListManagement Listform = new ListManagement(userInformations);
+
+            Listform.ShowDialog();
+
+
         }
     }
 }
