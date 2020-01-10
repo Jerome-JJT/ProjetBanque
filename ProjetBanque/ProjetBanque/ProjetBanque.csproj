@@ -69,25 +69,25 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Business class\BankException.cs" />
-    <Compile Include="Business class\JsonData.cs" />
-    <Compile Include="Business class\Transaction.cs" />
-    <Compile Include="Business class\User.cs" />
+    <Compile Include="Bank class\BankException.cs" />
+    <Compile Include="Storage class\JsonData.cs" />
+    <Compile Include="Bank class\Transaction.cs" />
+    <Compile Include="Bank class\User.cs" />
     <Compile Include="Forms\Home.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\Home.Designer.cs">
       <DependentUpon>Home.cs</DependentUpon>
     </Compile>
-    <Compile Include="Business class\JsonManagement.cs" />
+    <Compile Include="Storage class\JsonManagement.cs" />
     <Compile Include="Forms\Login.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Business class\DatabaseManagement.cs" />
+    <Compile Include="Storage class\DatabaseManagement.cs" />
     <Compile Include="Forms\Login.Designer.cs">
       <DependentUpon>Login.cs</DependentUpon>
     </Compile>
-    <Compile Include="Business class\CryptoPassword.cs" />
+    <Compile Include="Storage class\CryptoPassword.cs" />
     <Compile Include="Forms\ModifyList.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -147,5 +147,6 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
