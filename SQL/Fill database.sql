@@ -2,8 +2,8 @@
 INSERT INTO `users` (`id`, `iban`, `active`, `type`, `email`, `password`, `money`) VALUES
 	(1, 'CH82 472', 1, 'Public', 'jerome@mail', '$BANQUEHASH$V1$10000$mRFwijjaYceQpZnsyQz7quqmxK7p7xsiGReBsg2AO3FDU3y9', 10000.5),
 	(2, 'CH94 589', 1, 'Public', 'jerome@me', '$BANQUEHASH$V1$10000$v5cWt1aGdwMhNBtU32ybtKXQVDCGlRbGiPcj8RknUqP7fqc8', 10000.5),
-	(3, 'CH92 428', 1, 'Public', 'jerome@test', '$BANQUEHASH$V1$10000$IfJVKdPhyaPBOGzWPfUs+mnARXECvOsip5IGFHyK4kLBAJHg', 10000.5),
-	(4, 'CH84 374', 1, 'Public', 'jerome@jerome', '$BANQUEHASH$V1$10000$TFR3t+YhM0HJGTBppCb9HUiquuOo0qt+QQ/XdbpFPruuImvE', 10000.5);
+	(3, 'CH92 428', 1, 'Enterprise', 'jerome@test', '$BANQUEHASH$V1$10000$IfJVKdPhyaPBOGzWPfUs+mnARXECvOsip5IGFHyK4kLBAJHg', 10000.5),
+	(4, 'CH84 374', 1, 'Enterprise', 'jerome@jerome', '$BANQUEHASH$V1$10000$TFR3t+YhM0HJGTBppCb9HUiquuOo0qt+QQ/XdbpFPruuImvE', 10000.5);
 	
 	
 INSERT INTO `transactions` (`id`, `date`, `amount`, `reason`, `idReceiver`, `idSender`) VALUES

@@ -7,7 +7,7 @@ CREATE TABLE IF NOT EXISTS `USERS` (
     `id` INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
     `iban` VARCHAR(8) NOT NULL UNIQUE,
     `active` TINYINT(1) NOT NULL DEFAULT '1',
-    `type` ENUM('Public','Entreprise','Admin') NOT NULL DEFAULT 'Public',
+    `type` ENUM('Public','Enterprise','Admin') NOT NULL DEFAULT 'Public',
     `email` VARCHAR(256) NOT NULL UNIQUE,
     `password` VARCHAR(80) NOT NULL,
     `money` DOUBLE NOT NULL DEFAULT '0'
