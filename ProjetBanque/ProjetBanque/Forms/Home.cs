@@ -154,7 +154,7 @@ namespace ProjetBanque
 
                 if (success)
                 {
-                    userInformations = database.GetUser(userInformations.Email);
+                    userInformations = (PublicUser)database.GetUser(userInformations.Email);
                 }
 
                 database.CloseConnection();
