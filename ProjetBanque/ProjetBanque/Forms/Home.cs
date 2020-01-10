@@ -97,6 +97,10 @@ namespace ProjetBanque
         private void cboPayList_SelectedIndexChanged(object sender, EventArgs e)
         {
             updateInfos();
+            if (cboPayList.SelectedIndex != 0)
+            {
+                cmdPay.Enabled = true;
+            }
         }
 
 
@@ -116,12 +120,12 @@ namespace ProjetBanque
 
                 database.CloseConnection();
 
-                if (destEmail != null && userInformations.Email != destEmail || cboPayList.SelectedIndex != 0)
+                if (destEmail != null && userInformations.Email != destEmail)
                 {
                     lblEmailReceiver.Text = $"Vous allez faire un payement a :\n{destEmail}";
 
                     cmdPay.Enabled = true;
-                }
+                }               
                 else if (userInformations.Email == destEmail)
                 {
                     lblEmailReceiver.Text = "Opération non possible";
