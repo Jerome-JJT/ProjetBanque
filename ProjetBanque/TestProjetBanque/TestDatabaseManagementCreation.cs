@@ -54,7 +54,7 @@ namespace TestProjetBanque
             connDB.CloseConnection();
         }
         
-        [TestMethod]
+        /*[TestMethod]
         //no longer delete right, raise exception
         [ExpectedException(typeof(MySqlException))]
         public void TestDeletingExistingUser()
@@ -86,6 +86,6 @@ namespace TestProjetBanque
             connDB.CloseConnection();
 
             Assert.AreEqual(0, success);
-        }
+        }*/
     }
 }

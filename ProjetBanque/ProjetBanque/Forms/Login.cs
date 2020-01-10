@@ -94,7 +94,7 @@ namespace ProjetBanque
                     database = new DatabaseManagement();
                     database.OpenConnection();
 
-                    User loggedUserInfos = database.GetUser(txtEmail.Text.ToLower().Trim());
+                    PublicUser loggedUserInfos = (PublicUser)database.GetUser(txtEmail.Text.ToLower().Trim());
 
                     database.CloseConnection();
 

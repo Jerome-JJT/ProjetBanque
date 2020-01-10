@@ -9,7 +9,7 @@ namespace ProjetBanque
     /// <summary>
     /// Store enterprise user's informations, transactions and payment lists to display them
     /// </summary>
-    public class EnterpriseUser : User
+    public class EnterpriseUser : PublicUser
     {
         private List<UsersList> lists;
 

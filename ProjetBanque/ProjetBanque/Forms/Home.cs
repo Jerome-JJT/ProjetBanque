@@ -16,7 +16,7 @@ namespace ProjetBanque
     public partial class FrmHome : Form
     {
         private JsonData inheritJsonStorage;
-        private User userInformations;
+        private PublicUser userInformations;
 
 
         /// <summary>
@@ -24,7 +24,7 @@ namespace ProjetBanque
         /// </summary>
         /// <param name="userInfo">Inherit user informations to display from parent form</param>
         /// <param name="inheritStorage">Inherit json informations to use from parent form</param>
-        public FrmHome(User userInfo, JsonData inheritStorage)
+        public FrmHome(PublicUser userInfo, JsonData inheritStorage)
         {
             InitializeComponent();
 
@@ -154,7 +154,7 @@ namespace ProjetBanque
 
                 if (success)
                 {
-                    userInformations = database.GetUser(userInformations.Email);
+                    userInformations = (PublicUser)database.GetUser(userInformations.Email);
                 }
 
                 database.CloseConnection();
