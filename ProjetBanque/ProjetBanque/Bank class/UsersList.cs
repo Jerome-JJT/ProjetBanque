@@ -4,9 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ProjetBanque.Bank_class
+namespace ProjetBanque
 {
     public class UsersList
     {
+        public UsersList()
+        {
+
+        }
     }
 }

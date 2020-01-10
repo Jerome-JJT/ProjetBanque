@@ -77,7 +77,7 @@ namespace ProjetBanque
                 datHistory.Rows.Add(row);
             }
             
-            if(userInformations.GetType() == typeof(EnterpriseUser))
+            //if(userInformations.GetType() == typeof(EnterpriseUser))
         }
 
 

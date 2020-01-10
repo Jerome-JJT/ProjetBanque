@@ -70,6 +70,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Bank class\BankException.cs" />
+    <Compile Include="Bank class\EnterpriseUser.cs" />
+    <Compile Include="Bank class\UsersList.cs" />
     <Compile Include="Storage class\JsonData.cs" />
     <Compile Include="Bank class\Transaction.cs" />
     <Compile Include="Bank class\User.cs" />
