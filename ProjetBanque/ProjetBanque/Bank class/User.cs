@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace ProjetBanque
 {
     /// <summary>
-    /// Store user's informations and transactions to display them
+    /// Store user's primary informations to display them
     /// </summary>
     public class User
     {
@@ -30,6 +30,7 @@ namespace ProjetBanque
             Admin = 3
         }
 
+
         /// <summary>
         /// .
         /// </summary>
@@ -38,27 +39,17 @@ namespace ProjetBanque
         /// .
         /// </summary>
         protected string email;
-        /// <summary>
-        /// .
-        /// </summary>
-        protected double money;
 
-        /// <summary>
-        /// .
-        /// </summary>
-        protected List<Transaction> transactions = new List<Transaction>();
 
         /// <summary>
         /// Create a displayable user
         /// </summary>
         /// <param name="iban">User's IBAN</param>
         /// <param name="email">User's email</param>
-        /// <param name="money">User's money amount</param>
-        public User(string iban, string email, double money)
+        public User(string iban, string email)
         {
             this.iban = iban;
             this.email = email;
-            this.money = money;
         }
 
         /// <summary>
@@ -75,23 +66,6 @@ namespace ProjetBanque
         public string Email
         {
             get { return email; }
-        }
-
-        /// <summary>
-        /// User's money amount
-        /// </summary>
-        public double Money
-        {
-            get { return money; }
-        }
-
-        /// <summary>
-        /// Transactions linked to user
-        /// </summary>
-        public List<Transaction> Transactions
-        {
-            get { return transactions; }
-            set { transactions = value; }
         }
     }
 }

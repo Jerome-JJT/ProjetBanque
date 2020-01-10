@@ -247,7 +247,7 @@ namespace ProjetBanque
             //else if ((User.AccountType)reader.GetInt32(1) == User.AccountType.Public)
             else
             {
-                user = new User(reader.GetString(0), reader.GetString(2), reader.GetDouble(3));
+                user = new PublicUser(reader.GetString(0), reader.GetString(2), reader.GetDouble(3));
             }
             /*else if ((User.AccountType)reader.GetInt32(1) == User.AccountType.Admin)
             {
@@ -286,7 +286,7 @@ namespace ProjetBanque
                         reader.GetString(4), 
                         reader.GetString(5), 
                         reader.GetString(6));
-                    user.Transactions.Add(newTransaction);
+                    ((PublicUser)user).Transactions.Add(newTransaction);
                 }
             }
             reader.Close();
@@ -296,34 +296,44 @@ namespace ProjetBanque
             {
                 // Create a command object
                 query = connection.CreateCommand();
-                query.CommandText = @"select TRANSACTIONS.date, TRANSACTIONS.amount, TRANSACTIONS.reason, 
-                                USER_RECEIVER.email, USER_RECEIVER.iban, USER_SENDER.email, USER_SENDER.iban from TRANSACTIONS
-                                left join USERS as USER_RECEIVER on USER_RECEIVER.id = TRANSACTIONS.idReceiver
-                                left join USERS as USER_SENDER on USER_SENDER.id = TRANSACTIONS.idSender
-                                where USER_RECEIVER.email = (@concerned1) OR USER_SENDER.email  = (@concerned2)
-                                order by TRANSACTIONS.date desc";
+                query.CommandText = @"select lists.name, USER_INSIDE.iban, USER_INSIDE.email from users_lists
+                                        inner join lists on lists.id = users_lists.idList
+                                        inner join users as USER_INSIDE on USER_INSIDE.id = users_lists.idUser
+                                        inner join users as LIST_OWNER on LIST_OWNER.id = lists.idUser
+                                        where LIST_OWNER.email = (@owner)
+                                        order by lists.name asc";
+
 
                 //Add parameters to query
-                query.Parameters.AddWithValue("@concerned1", email);
-                query.Parameters.AddWithValue("@concerned2", email);
+                query.Parameters.AddWithValue("@owner", email);
 
                 //Get user's money from the database
                 reader = query.ExecuteReader();
 
                 if (reader.HasRows)
                 {
+                    UsersList usersList = new UsersList("");
+
                     //Add each transactions linked to the user
                     while (reader.Read())
                     {
-                        Transaction newTransaction = new Transaction(
-                            reader.GetDateTime(0).ToString(),
-                            reader.GetDouble(1),
-                            reader.GetString(2),
-                            reader.GetString(3),
-                            reader.GetString(4),
-                            reader.GetString(5),
-                            reader.GetString(6));
-                        user.Transactions.Add(newTransaction);
+                        if(usersList.Name != reader.GetString(0))
+                        {
+                            if(usersList.Name == "")
+                            {
+                                usersList = new UsersList(reader.GetString(0));
+                            }
+                            else
+                            {
+                                ((EnterpriseUser)user).Lists.Add(usersList);
+                                usersList = new UsersList(reader.GetString(0));
+                            }
+
+                            User newListUser = new User(reader.GetString(1), reader.GetString(2));
+                            usersList.Users.Add(newListUser);
+                        }
+                        
+                        ((EnterpriseUser)user).Lists.Add(usersList);
                     }
                 }
                 reader.Close();
@@ -386,12 +396,10 @@ namespace ProjetBanque
             query.Parameters.AddWithValue("@senderIban", senderIban);
             query.Parameters.AddWithValue("@receiverIban", receiverIban);
 
-            bool result;
-
             // Execute the SQL command and check error
             if (query.ExecuteNonQuery() != 1)
             {
-                result = false;
+                return false;
             }
 
 
@@ -406,7 +414,7 @@ namespace ProjetBanque
             // Execute the SQL command and check error
             if (query.ExecuteNonQuery() != 1)
             {
-                result = false;
+                return false;
             }
 
 
@@ -420,7 +428,7 @@ namespace ProjetBanque
             // Execute the SQL command and check error
             if (query.ExecuteNonQuery() != 1)
             {
-                result = false;
+                return false;
             }
 
 
