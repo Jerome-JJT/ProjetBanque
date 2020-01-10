@@ -1,6 +1,6 @@
 ﻿namespace ProjetBanque.Forms
 {
-    partial class ModifyList
+    partial class ListManagement
     {
         /// <summary>
         /// Required designer variable.
@@ -144,7 +144,7 @@
             this.txtNameList.Size = new System.Drawing.Size(389, 20);
             this.txtNameList.TabIndex = 14;
             // 
-            // ModifyList
+            // ListManagement
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -163,8 +163,8 @@
             this.Controls.Add(this.lstList);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
-            this.Name = "ModifyList";
-            this.Text = "ModifyList";
+            this.Name = "ListManagement";
+            this.Text = "Gestion de liste";
             this.ResumeLayout(false);
             this.PerformLayout();
 

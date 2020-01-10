@@ -10,11 +10,12 @@ using System.Windows.Forms;
 
 namespace ProjetBanque.Forms
 {
-    public partial class ModifyList : Form
+    public partial class ListManagement : Form
     {
-        public ModifyList()
+        public ListManagement()
         {
             InitializeComponent();
         }
+
     }
 }
