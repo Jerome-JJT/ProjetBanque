@@ -83,7 +83,7 @@ namespace ProjetBanque
                 cmdModifyList.Enabled = true;
                 cboPayList.Enabled = true;
 
-                if (cboPayList.SelectedValue.Equals(1))
+                if (cboPayList.SelectedValue != null && Convert.ToInt32(cboPayList.SelectedValue) == 0)
                 {
                     txtPayIban.Enabled = true;
                 }
