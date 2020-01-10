@@ -83,7 +83,7 @@ namespace ProjetBanque
                 cmdModifyList.Enabled = true;
                 cboPayList.Enabled = true;
 
-                if (cboPayList.SelectedValue != null && Convert.ToInt32(cboPayList.SelectedValue) == 0)
+                if (cboPayList.SelectedIndex == 0)
                 {
                     txtPayIban.Enabled = true;
                 }
@@ -116,7 +116,7 @@ namespace ProjetBanque
 
                 database.CloseConnection();
 
-                if (destEmail != null && userInformations.Email != destEmail)
+                if (destEmail != null && userInformations.Email != destEmail || cboPayList.SelectedIndex != 0)
                 {
                     lblEmailReceiver.Text = $"Vous allez faire un payement a :\n{destEmail}";
 
