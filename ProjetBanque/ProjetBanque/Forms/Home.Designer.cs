@@ -117,11 +117,14 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.cboPayList.Enabled = false;
             this.cboPayList.FormattingEnabled = true;
+            this.cboPayList.Items.AddRange(new object[] {
+            "oui"});
             this.cboPayList.Location = new System.Drawing.Point(15, 98);
             this.cboPayList.Name = "cboPayList";
             this.cboPayList.Size = new System.Drawing.Size(184, 21);
             this.cboPayList.TabIndex = 3;
             this.cboPayList.Text = "Liste(s) payements";
+            this.cboPayList.SelectedIndexChanged += new System.EventHandler(this.cboPayList_SelectedIndexChanged);
             // 
             // lblPayAmount
             // 
@@ -160,8 +163,9 @@
             this.cmdModifyList.Name = "cmdModifyList";
             this.cmdModifyList.Size = new System.Drawing.Size(73, 23);
             this.cmdModifyList.TabIndex = 15;
-            this.cmdModifyList.Text = "Modifier liste";
+            this.cmdModifyList.Text = "Gérer liste";
             this.cmdModifyList.UseVisualStyleBackColor = true;
+            this.cmdModifyList.Click += new System.EventHandler(this.cmdModifyList_Click);
             // 
             // grpPayement
             // 

@@ -8,11 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace ProjetBanque.Forms
+namespace ProjetBanque
 {
     public partial class ListManagement : Form
     {
-        public ListManagement()
+        public ListManagement(object userInfo)
         {
             InitializeComponent();
         }

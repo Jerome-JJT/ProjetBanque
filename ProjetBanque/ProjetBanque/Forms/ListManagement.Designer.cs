@@ -1,4 +1,4 @@
-﻿namespace ProjetBanque.Forms
+﻿namespace ProjetBanque
 {
     partial class ListManagement
     {

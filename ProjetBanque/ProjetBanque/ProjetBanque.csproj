@@ -91,11 +91,11 @@
       <DependentUpon>Login.cs</DependentUpon>
     </Compile>
     <Compile Include="Storage class\CryptoPassword.cs" />
-    <Compile Include="Forms\ModifyList.cs">
+    <Compile Include="Forms\ListManagement.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\ModifyList.Designer.cs">
-      <DependentUpon>ModifyList.cs</DependentUpon>
+    <Compile Include="Forms\ListManagement.Designer.cs">
+      <DependentUpon>ListManagement.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -117,8 +117,8 @@
     <EmbeddedResource Include="Forms\Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\ModifyList.resx">
-      <DependentUpon>ModifyList.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\ListManagement.resx">
+      <DependentUpon>ListManagement.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
