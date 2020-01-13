@@ -191,7 +191,7 @@ namespace ProjetBanque
         {
             // Create a SQL query
             MySqlCommand query = connection.CreateCommand();
-            query.CommandText = "select password from USERS where email = (@email)";
+            query.CommandText = "select password from USERS where email = (@email) and active = 1";
 
             // Add parameters to query
             query.Parameters.AddWithValue("@email", email);
@@ -264,7 +264,8 @@ namespace ProjetBanque
                                 USER_RECEIVER.email, USER_RECEIVER.iban, USER_SENDER.email, USER_SENDER.iban from TRANSACTIONS
                                 left join USERS as USER_RECEIVER on USER_RECEIVER.id = TRANSACTIONS.idReceiver
                                 left join USERS as USER_SENDER on USER_SENDER.id = TRANSACTIONS.idSender
-                                where USER_RECEIVER.email = (@concerned1) OR USER_SENDER.email  = (@concerned2)";
+                                where USER_RECEIVER.email = (@concerned1) OR USER_SENDER.email  = (@concerned2)
+                                order by TRANSACTIONS.date desc";
 
             //Add parameters to query
             query.Parameters.AddWithValue("@concerned1", email);
@@ -312,7 +313,8 @@ namespace ProjetBanque
 
                 if (reader.HasRows)
                 {
-                    UsersList usersList = new UsersList("");
+                    UsersList usersList;
+                    usersList = new UsersList("");
 
                     //Add each transactions linked to the user
                     while (reader.Read())
@@ -332,9 +334,9 @@ namespace ProjetBanque
                             User newListUser = new User(reader.GetString(1), reader.GetString(2));
                             usersList.Users.Add(newListUser);
                         }
-                        
-                        ((EnterpriseUser)user).Lists.Add(usersList);
                     }
+
+                    ((EnterpriseUser)user).Lists.Add(usersList);
                 }
                 reader.Close();
             }
