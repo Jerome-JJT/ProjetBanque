@@ -439,6 +439,15 @@ namespace ProjetBanque
 
         }
 
+        public void NewUserList()
+        {
+
+        }
+        public void AddUserList(string text)
+        {
+
+        }
+
         /*
         /// <summary>
         /// Delete a user from the database
