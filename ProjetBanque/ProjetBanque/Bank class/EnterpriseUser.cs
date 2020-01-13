@@ -21,6 +21,7 @@ namespace ProjetBanque
         /// <param name="money">User's money amount</param>
         public EnterpriseUser(string iban, string email, double money) : base(iban, email, money)
         {
+            lists = new List<UsersList>();
         }
 
         /// <summary>
