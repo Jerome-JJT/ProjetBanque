@@ -118,7 +118,7 @@
             this.cboPayList.Enabled = false;
             this.cboPayList.FormattingEnabled = true;
             this.cboPayList.Items.AddRange(new object[] {
-            "oui"});
+            "Liste(s) de payements"});
             this.cboPayList.Location = new System.Drawing.Point(15, 98);
             this.cboPayList.Name = "cboPayList";
             this.cboPayList.Size = new System.Drawing.Size(184, 21);

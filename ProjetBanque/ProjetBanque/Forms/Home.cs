@@ -38,10 +38,13 @@ namespace ProjetBanque
         {
             Location = inheritJsonStorage.HomeWindowLocation;
             Size = inheritJsonStorage.HomeWindowSize;
-            cboPayList.Items.Add("Liste(s) payements");
 
             responsive();
 
+            if (userInformations.GetType() == typeof(EnterpriseUser))
+            { 
+                displayEnterpriseLists();
+            }
             updateInfos();
         }
 
@@ -77,8 +80,8 @@ namespace ProjetBanque
                 string[] row = { transaction.SenderDefine + " \n" + transaction.SenderIban, transaction.ReceiverDefine + " \n" + transaction.ReceiverIban, $"{transaction.Amount.ToString("0.00")} CHF", transaction.Reason, transaction.Date };
                 datHistory.Rows.Add(row);
             }
-            
-            if(userInformations.GetType() == typeof(EnterpriseUser))
+
+            if (userInformations.GetType() == typeof(EnterpriseUser))
             {
                 cmdModifyList.Enabled = true;
                 cboPayList.Enabled = true;
@@ -94,6 +97,22 @@ namespace ProjetBanque
 
             }
         }
+
+        private void displayEnterpriseLists()
+        {
+            int lastIndex = cboPayList.SelectedIndex;
+
+            cboPayList.Items.Clear();
+            cboPayList.Items.Add("Liste(s) de payements");
+
+            foreach (UsersList eachList in ((EnterpriseUser)userInformations).Lists)
+            {
+                cboPayList.Items.Add(eachList.Name);
+            }
+
+            cboPayList.SelectedIndex = lastIndex;
+        }
+
         private void cboPayList_SelectedIndexChanged(object sender, EventArgs e)
         {
             updateInfos();
