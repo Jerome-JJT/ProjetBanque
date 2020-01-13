@@ -101,6 +101,10 @@ namespace ProjetBanque
             {
                 cmdPay.Enabled = true;
             }
+            else
+            {
+                cmdPay.Enabled = false;
+            }
         }
 
 
@@ -177,7 +181,7 @@ namespace ProjetBanque
 
         private void cmdModifyList_Click(object sender, EventArgs e)
         {
-            ListManagement Listform = new ListManagement(userInformations);
+            ListManagement Listform = new ListManagement((EnterpriseUser)userInformations);
 
             Listform.ShowDialog();
 
