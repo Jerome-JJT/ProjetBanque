@@ -14,9 +14,25 @@ namespace ProjetBanque
     {
         private EnterpriseUser userInfo;
 
-        public ListManagement(EnterpriseUser userInfo)
+        public ListManagement(EnterpriseUser userInfos)
         {
             InitializeComponent();
+            cmdAddList.Enabled = false;
+            userInfo = userInfos;
+
+            displayEnterpriseLists();           
+        }
+
+        private void displayEnterpriseLists()
+        {
+            foreach (UsersList eachList in userInfo.Lists)
+            {
+                cboList.Items.Add(eachList.ToString());
+            }
+            /*foreach (UsersList listInfo in cboList.SelectedItem)
+            {
+                lstList.Items.Add(listInfo);
+            }*/
         }
 
         private void cmdAddList_Click(object sender, EventArgs e)
@@ -24,7 +40,7 @@ namespace ProjetBanque
             DatabaseManagement database = new DatabaseManagement();
             database.OpenConnection();
 
-            database.NewUserList();
+            database.CreateList(txtNameList.Text, userInfo.Iban);
             database.CloseConnection();
         }
 
@@ -33,7 +49,7 @@ namespace ProjetBanque
             DatabaseManagement database = new DatabaseManagement();
             database.OpenConnection();
 
-            database.AddUserList(txtIban.Text);
+            database.AddUserList(txtIban.Text, userInfo.Iban);
             database.CloseConnection();
         }
 
@@ -52,19 +68,50 @@ namespace ProjetBanque
                 {
                     lblNameUser.Text = $"Vous allez ajouter :\n{destEmail}";
                 }
+                else
+                {
+                    lblNameUser.Text = "";
+                }
             }
         }
 
         private void cmdDeleteList_Click(object sender, EventArgs e)
         {
+            DatabaseManagement database = new DatabaseManagement();
+            database.OpenConnection();
 
+            database.DeleteList(((UsersList)cboList.SelectedItem).Name);
+            database.CloseConnection();
         }
 
         private void cmdListToDelete_Click(object sender, EventArgs e)
         {
-            int indexDelete = lstList.SelectedIndex;
+            DatabaseManagement database = new DatabaseManagement();
+            database.OpenConnection();
 
+            database.DeleteUserList(((UsersList)lstList.SelectedItem).Name, userInfo.Iban);
+            database.CloseConnection();
+        }
 
+        private void cboList_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            lstList.Items.Clear();
+            /*foreach (UsersList listInfo in cboList.SelectedItem)
+            {
+                lstList.Items.Add(listInfo);
+            }*/
+        }
+
+        private void txtNameList_TextChanged(object sender, EventArgs e)
+        {
+            if(txtNameList.Text == "")
+            {
+                cmdAddList.Enabled = false;
+            }
+            else
+            {
+                cmdAddList.Enabled = true;
+            }
         }
     }
 }

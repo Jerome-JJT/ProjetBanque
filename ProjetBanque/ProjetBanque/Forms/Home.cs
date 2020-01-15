@@ -29,6 +29,8 @@ namespace ProjetBanque
             InitializeComponent();
 
             cmdPay.Enabled = false;
+            txtPayIban.Enabled = true;
+            //cboPayList.SelectedIndex = 0;
 
             userInformations = userInfo;
             inheritJsonStorage = inheritStorage;
@@ -86,7 +88,7 @@ namespace ProjetBanque
                 cmdModifyList.Enabled = true;
                 cboPayList.Enabled = true;
 
-                if (cboPayList.SelectedIndex == 0)
+                if (cboPayList.SelectedIndex == 0 || cboPayList.SelectedIndex == -1)
                 {
                     txtPayIban.Enabled = true;
                 }

@@ -459,7 +459,7 @@ namespace ProjetBanque
             return true;
         }
 
-        public bool DeleteList(int listName)
+        public bool DeleteList(string listName)
         {
             MySqlCommand query = connection.CreateCommand();
             query.CommandText = @"delete from LISTS

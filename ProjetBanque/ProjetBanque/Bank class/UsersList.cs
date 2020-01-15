@@ -39,5 +39,17 @@ namespace ProjetBanque
             set { users = value; }
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
+        public override string ToString()
+        {
+            string listname = name;
+
+            //listname = listname.Substring(9);
+
+            return listname;
+        }
     }
 }

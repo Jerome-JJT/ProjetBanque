@@ -38,14 +38,14 @@
             this.cboList = new System.Windows.Forms.ComboBox();
             this.cmdAddList = new System.Windows.Forms.Button();
             this.cmdDeleteList = new System.Windows.Forms.Button();
-            this.lblNameListChangement = new System.Windows.Forms.Label();
+            this.lblNameNewList = new System.Windows.Forms.Label();
             this.txtNameList = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // lstList
             // 
             this.lstList.FormattingEnabled = true;
-            this.lstList.Location = new System.Drawing.Point(17, 152);
+            this.lstList.Location = new System.Drawing.Point(12, 143);
             this.lstList.Name = "lstList";
             this.lstList.Size = new System.Drawing.Size(389, 277);
             this.lstList.TabIndex = 1;
@@ -73,7 +73,7 @@
             // lblNameList
             // 
             this.lblNameList.AutoSize = true;
-            this.lblNameList.Location = new System.Drawing.Point(14, 49);
+            this.lblNameList.Location = new System.Drawing.Point(12, 69);
             this.lblNameList.Name = "lblNameList";
             this.lblNameList.Size = new System.Drawing.Size(34, 13);
             this.lblNameList.TabIndex = 5;
@@ -101,21 +101,21 @@
             this.lblNameUser.AutoSize = true;
             this.lblNameUser.Location = new System.Drawing.Point(15, 480);
             this.lblNameUser.Name = "lblNameUser";
-            this.lblNameUser.Size = new System.Drawing.Size(35, 13);
+            this.lblNameUser.Size = new System.Drawing.Size(0, 13);
             this.lblNameUser.TabIndex = 9;
-            this.lblNameUser.Text = "label2";
             // 
             // cboList
             // 
             this.cboList.FormattingEnabled = true;
-            this.cboList.Location = new System.Drawing.Point(12, 65);
+            this.cboList.Location = new System.Drawing.Point(12, 85);
             this.cboList.Name = "cboList";
             this.cboList.Size = new System.Drawing.Size(389, 21);
             this.cboList.TabIndex = 10;
+            this.cboList.SelectedIndexChanged += new System.EventHandler(this.cboList_SelectedIndexChanged);
             // 
             // cmdAddList
             // 
-            this.cmdAddList.Location = new System.Drawing.Point(12, 12);
+            this.cmdAddList.Location = new System.Drawing.Point(254, 49);
             this.cmdAddList.Name = "cmdAddList";
             this.cmdAddList.Size = new System.Drawing.Size(147, 23);
             this.cmdAddList.TabIndex = 11;
@@ -125,7 +125,7 @@
             // 
             // cmdDeleteList
             // 
-            this.cmdDeleteList.Location = new System.Drawing.Point(229, 12);
+            this.cmdDeleteList.Location = new System.Drawing.Point(229, 114);
             this.cmdDeleteList.Name = "cmdDeleteList";
             this.cmdDeleteList.Size = new System.Drawing.Size(172, 23);
             this.cmdDeleteList.TabIndex = 12;
@@ -133,21 +133,22 @@
             this.cmdDeleteList.UseVisualStyleBackColor = true;
             this.cmdDeleteList.Click += new System.EventHandler(this.cmdDeleteList_Click);
             // 
-            // lblNameListChangement
+            // lblNameNewList
             // 
-            this.lblNameListChangement.AutoSize = true;
-            this.lblNameListChangement.Location = new System.Drawing.Point(12, 93);
-            this.lblNameListChangement.Name = "lblNameListChangement";
-            this.lblNameListChangement.Size = new System.Drawing.Size(76, 13);
-            this.lblNameListChangement.TabIndex = 13;
-            this.lblNameListChangement.Text = "Nom de la liste";
+            this.lblNameNewList.AutoSize = true;
+            this.lblNameNewList.Location = new System.Drawing.Point(12, 7);
+            this.lblNameNewList.Name = "lblNameNewList";
+            this.lblNameNewList.Size = new System.Drawing.Size(119, 13);
+            this.lblNameNewList.TabIndex = 13;
+            this.lblNameNewList.Text = "Nom de la nouvelle liste";
             // 
             // txtNameList
             // 
-            this.txtNameList.Location = new System.Drawing.Point(12, 109);
+            this.txtNameList.Location = new System.Drawing.Point(12, 23);
             this.txtNameList.Name = "txtNameList";
             this.txtNameList.Size = new System.Drawing.Size(389, 20);
             this.txtNameList.TabIndex = 14;
+            this.txtNameList.TextChanged += new System.EventHandler(this.txtNameList_TextChanged);
             // 
             // ListManagement
             // 
@@ -155,7 +156,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(413, 599);
             this.Controls.Add(this.txtNameList);
-            this.Controls.Add(this.lblNameListChangement);
+            this.Controls.Add(this.lblNameNewList);
             this.Controls.Add(this.cmdDeleteList);
             this.Controls.Add(this.cmdAddList);
             this.Controls.Add(this.cboList);
@@ -187,7 +188,7 @@
         private System.Windows.Forms.ComboBox cboList;
         private System.Windows.Forms.Button cmdAddList;
         private System.Windows.Forms.Button cmdDeleteList;
-        private System.Windows.Forms.Label lblNameListChangement;
+        private System.Windows.Forms.Label lblNameNewList;
         private System.Windows.Forms.TextBox txtNameList;
     }
 }

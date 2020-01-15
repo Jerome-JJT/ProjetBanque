@@ -123,7 +123,7 @@
             this.cboPayList.Name = "cboPayList";
             this.cboPayList.Size = new System.Drawing.Size(184, 21);
             this.cboPayList.TabIndex = 3;
-            this.cboPayList.Text = "Liste(s) payements";
+            this.cboPayList.Text = "Liste(s) de payements";
             this.cboPayList.SelectedIndexChanged += new System.EventHandler(this.cboPayList_SelectedIndexChanged);
             // 
             // lblPayAmount
