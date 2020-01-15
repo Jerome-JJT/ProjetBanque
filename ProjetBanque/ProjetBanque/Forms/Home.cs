@@ -30,7 +30,8 @@ namespace ProjetBanque
 
             cmdPay.Enabled = false;
             txtPayIban.Enabled = true;
-            //cboPayList.SelectedIndex = 0;
+
+            //cboPayList.SelectedIndex = 0; 
 
             userInformations = userInfo;
             inheritJsonStorage = inheritStorage;
@@ -109,7 +110,7 @@ namespace ProjetBanque
 
             foreach (UsersList eachList in ((EnterpriseUser)userInformations).Lists)
             {
-                cboPayList.Items.Add(eachList.Name);
+                cboPayList.Items.Add(eachList.ToString());
             }
 
             cboPayList.SelectedIndex = lastIndex;

@@ -25,32 +25,41 @@ namespace ProjetBanque
 
         private void displayEnterpriseLists()
         {
+            cboList.Items.Clear();
             foreach (UsersList eachList in userInfo.Lists)
             {
-                cboList.Items.Add(eachList.ToString());
+                cboList.Items.Add(eachList);
             }
-            /*foreach (UsersList listInfo in cboList.SelectedItem)
-            {
-                lstList.Items.Add(listInfo);
-            }*/
         }
 
         private void cmdAddList_Click(object sender, EventArgs e)
         {
             DatabaseManagement database = new DatabaseManagement();
             database.OpenConnection();
-
-            database.CreateList(txtNameList.Text, userInfo.Iban);
-            database.CloseConnection();
+            try {
+                database.CreateList(txtNameList.Text, userInfo.Iban);
+                database.CloseConnection();
+            }
+            catch (UserAlreadyInListException)
+            {
+                MessageBox.Show("Liste deja existante a quelque part");
+            }
+            
+            displayEnterpriseLists();
         }
 
         private void cmdAddToList_Click(object sender, EventArgs e)
         {
-            DatabaseManagement database = new DatabaseManagement();
-            database.OpenConnection();
+            if (((UsersList)cboList.SelectedItem).Users.All(item => item.Iban != txtIban.Text))
+            {
+                DatabaseManagement database = new DatabaseManagement();
+                database.OpenConnection();
 
-            database.AddUserList(txtIban.Text, userInfo.Iban);
-            database.CloseConnection();
+                database.AddUserList(((UsersList)cboList.SelectedItem).Name, txtIban.Text);
+                userInfo = (EnterpriseUser)database.GetUser(userInfo.Email);
+                database.CloseConnection();
+            }
+            
         }
 
         private void txtIban_TextChanged(object sender, EventArgs e)
@@ -82,6 +91,8 @@ namespace ProjetBanque
 
             database.DeleteList(((UsersList)cboList.SelectedItem).Name);
             database.CloseConnection();
+
+            displayEnterpriseLists();
         }
 
         private void cmdListToDelete_Click(object sender, EventArgs e)
@@ -90,16 +101,22 @@ namespace ProjetBanque
             database.OpenConnection();
 
             database.DeleteUserList(((UsersList)lstList.SelectedItem).Name, userInfo.Iban);
+            userInfo = (EnterpriseUser)database.GetUser(userInfo.Email);
             database.CloseConnection();
         }
 
         private void cboList_SelectedIndexChanged(object sender, EventArgs e)
         {
-            lstList.Items.Clear();
-            /*foreach (UsersList listInfo in cboList.SelectedItem)
+            /*lstList.Items.Clear();
+            foreach (UsersList listInfo in cboList.SelectedItem)
             {
                 lstList.Items.Add(listInfo);
             }*/
+
+            foreach (User listInfo in ((UsersList)cboList.SelectedItem).Users)
+            {
+                lstList.Items.Add(listInfo);
+            }
         }
 
         private void txtNameList_TextChanged(object sender, EventArgs e)

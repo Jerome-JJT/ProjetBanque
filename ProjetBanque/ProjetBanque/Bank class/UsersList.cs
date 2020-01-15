@@ -47,7 +47,7 @@ namespace ProjetBanque
         {
             string listname = name;
 
-            //listname = listname.Substring(9);
+            listname = listname.Substring(9);
 
             return listname;
         }

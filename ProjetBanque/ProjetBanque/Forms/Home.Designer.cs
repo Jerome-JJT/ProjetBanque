@@ -115,6 +115,7 @@
             // 
             this.cboPayList.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.cboPayList.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboPayList.Enabled = false;
             this.cboPayList.FormattingEnabled = true;
             this.cboPayList.Items.AddRange(new object[] {
@@ -123,7 +124,6 @@
             this.cboPayList.Name = "cboPayList";
             this.cboPayList.Size = new System.Drawing.Size(184, 21);
             this.cboPayList.TabIndex = 3;
-            this.cboPayList.Text = "Liste(s) de payements";
             this.cboPayList.SelectedIndexChanged += new System.EventHandler(this.cboPayList_SelectedIndexChanged);
             // 
             // lblPayAmount

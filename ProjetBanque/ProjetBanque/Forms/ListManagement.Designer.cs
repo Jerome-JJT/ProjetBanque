@@ -92,9 +92,9 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(12, 432);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(151, 13);
+            this.label1.Size = new System.Drawing.Size(149, 13);
             this.label1.TabIndex = 8;
-            this.label1.Text = "IBAN de la personne à ajoutez";
+            this.label1.Text = "IBAN de la personne à ajouter";
             // 
             // lblNameUser
             // 
@@ -106,6 +106,7 @@
             // 
             // cboList
             // 
+            this.cboList.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboList.FormattingEnabled = true;
             this.cboList.Location = new System.Drawing.Point(12, 85);
             this.cboList.Name = "cboList";

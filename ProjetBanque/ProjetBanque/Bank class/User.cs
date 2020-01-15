@@ -67,5 +67,10 @@ namespace ProjetBanque
         {
             get { return email; }
         }
+
+        public override string ToString()
+        {
+            return $"{iban} {email}";
+        }
     }
 }
