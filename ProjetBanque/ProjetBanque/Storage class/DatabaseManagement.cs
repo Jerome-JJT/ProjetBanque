@@ -319,7 +319,7 @@ namespace ProjetBanque
                     //Add each transactions linked to the user
                     while (reader.Read())
                     {
-                        if(usersList.Name != reader.GetString(0))
+                        if(usersList.Name != reader.GetString(1))
                         {
                             if(usersList.Name == "")
                             {
