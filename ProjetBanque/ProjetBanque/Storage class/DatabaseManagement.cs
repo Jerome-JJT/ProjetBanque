@@ -297,12 +297,12 @@ namespace ProjetBanque
             {
                 // Create a command object
                 query = connection.CreateCommand();
-                query.CommandText = @"select lists.name, USER_INSIDE.iban, USER_INSIDE.email from users_lists
-                                        inner join lists on lists.id = users_lists.idList
-                                        inner join users as USER_INSIDE on USER_INSIDE.id = users_lists.idUser
-                                        inner join users as LIST_OWNER on LIST_OWNER.id = lists.idUser
-                                        where LIST_OWNER.email = (@owner)
-                                        order by lists.name asc";
+                query.CommandText = @"select lists.id, lists.name, USER_INSIDE.iban, USER_INSIDE.email from users_lists
+                                    inner join lists on lists.id = users_lists.idList
+                                    inner join users as USER_INSIDE on USER_INSIDE.id = users_lists.idUser
+                                    inner join users as LIST_OWNER on LIST_OWNER.id = lists.idUser
+                                    where LIST_OWNER.email = (@owner)
+                                    order by lists.name asc";
 
 
                 //Add parameters to query
@@ -323,12 +323,12 @@ namespace ProjetBanque
                         {
                             if(usersList.Name == "")
                             {
-                                usersList = new UsersList(reader.GetString(0));
+                                usersList = new UsersList(reader.GetString(1));
                             }
                             else
                             {
                                 ((EnterpriseUser)user).Lists.Add(usersList);
-                                usersList = new UsersList(reader.GetString(0));
+                                usersList = new UsersList(reader.GetString(1));
                             }
 
                             User newListUser = new User(reader.GetString(1), reader.GetString(2));
@@ -340,7 +340,6 @@ namespace ProjetBanque
                 }
                 reader.Close();
             }
-            
 
             return user;
         }
@@ -439,13 +438,84 @@ namespace ProjetBanque
 
         }
 
-        public void NewUserList()
+        //NewUserList
+        public bool CreateList(string newName, string creatorIban)
         {
+            MySqlCommand query = connection.CreateCommand();
+            query.CommandText = @"insert into LISTS (name, idUser) 
+                                values ((@name), 
+                                (select USERS.id from USERS where iban = (@creatorIban)))";
 
+            // Add parameters to query
+            query.Parameters.AddWithValue("@name", $"{creatorIban}_{newName}");
+            query.Parameters.AddWithValue("@creatorIban", creatorIban);
+
+            // Execute the SQL command and check error
+            if (query.ExecuteNonQuery() != 1)
+            {
+                return false;
+            }
+
+            return true;
         }
-        public void AddUserList(string text)
-        {
 
+        public bool DeleteList(int listName)
+        {
+            MySqlCommand query = connection.CreateCommand();
+            query.CommandText = @"delete from LISTS
+                                where name = ((@listName)";
+
+            // Add parameters to query
+            query.Parameters.AddWithValue("@listName", listName);
+
+            // Execute the SQL command and check error
+            if (query.ExecuteNonQuery() != 1)
+            {
+                return false;
+            }
+
+            return true;
+        }
+
+        public bool AddUserList(string listName, string userIban)
+        {
+            MySqlCommand query = connection.CreateCommand();
+            query.CommandText = @"insert into USERS_LISTS (idList, idUser)
+                                values
+                                (select LISTS.id from LISTS where name = (@listName)),
+                                (select USERS.id from USERS where iban = (@userIban)))";
+
+            // Add parameters to query
+            query.Parameters.AddWithValue("@listName", listName);
+            query.Parameters.AddWithValue("@userIban", userIban);
+
+            // Execute the SQL command and check error
+            if (query.ExecuteNonQuery() != 1)
+            {
+                return false;
+            }
+
+            return true;
+        }
+
+        public bool DeleteUserList(string listName, string userIban)
+        {
+            MySqlCommand query = connection.CreateCommand();
+            query.CommandText = @"delete from USERS_LISTS 
+                                where USERS_LISTS.idList = (select id from LISTS where name = (@listName))
+                                AND   USERS_LISTS.idUser = (select id from USERS where iban = (@userIban));";
+
+            // Add parameters to query
+            query.Parameters.AddWithValue("@listName", listName);
+            query.Parameters.AddWithValue("@userIban", userIban);
+
+            // Execute the SQL command and check error
+            if (query.ExecuteNonQuery() != 1)
+            {
+                return false;
+            }
+
+            return true;
         }
 
         /*
