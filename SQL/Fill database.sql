@@ -1,9 +1,9 @@
 
 INSERT INTO `users` (`id`, `iban`, `active`, `type`, `email`, `password`, `money`) VALUES
-	(1, 'CH82 472', 1, 'Public', 'jerome@mail', '$BANQUEHASH$V1$10000$mRFwijjaYceQpZnsyQz7quqmxK7p7xsiGReBsg2AO3FDU3y9', 10000.5),
-	(2, 'CH94 589', 1, 'Public', 'jerome@me', '$BANQUEHASH$V1$10000$v5cWt1aGdwMhNBtU32ybtKXQVDCGlRbGiPcj8RknUqP7fqc8', 10000.5),
-	(3, 'CH92 428', 1, 'Enterprise', 'jerome@test', '$BANQUEHASH$V1$10000$IfJVKdPhyaPBOGzWPfUs+mnARXECvOsip5IGFHyK4kLBAJHg', 10000.5),
-	(4, 'CH84 374', 1, 'Enterprise', 'jerome@jerome', '$BANQUEHASH$V1$10000$TFR3t+YhM0HJGTBppCb9HUiquuOo0qt+QQ/XdbpFPruuImvE', 10000.5);
+	(1, 'CH11 111', 1, 'Public', 'jerome@mail', '$BANQUEHASH$V1$10000$mRFwijjaYceQpZnsyQz7quqmxK7p7xsiGReBsg2AO3FDU3y9', 10000.5),
+	(2, 'CH22 222', 1, 'Public', 'jerome@me', '$BANQUEHASH$V1$10000$v5cWt1aGdwMhNBtU32ybtKXQVDCGlRbGiPcj8RknUqP7fqc8', 10000.5),
+	(3, 'CH44 333', 1, 'Enterprise', 'jerome@test', '$BANQUEHASH$V1$10000$IfJVKdPhyaPBOGzWPfUs+mnARXECvOsip5IGFHyK4kLBAJHg', 10000.5),
+	(4, 'CH44 444', 1, 'Enterprise', 'jerome@jerome', '$BANQUEHASH$V1$10000$TFR3t+YhM0HJGTBppCb9HUiquuOo0qt+QQ/XdbpFPruuImvE', 10000.5);
 	
 	
 INSERT INTO `transactions` (`id`, `date`, `amount`, `reason`, `idReceiver`, `idSender`) VALUES
@@ -28,12 +28,12 @@ INSERT INTO `transactions` (`id`, `date`, `amount`, `reason`, `idReceiver`, `idS
 
 
 INSERT INTO `lists` (`id`, `name`, `idUser`) VALUES
-	(1, 'CH84 374_salaireEnt1', 4),
-	(2, 'CH84 374_Famille', 4),
-	(3, 'CH84 374_Amis', 4),
-	(5, 'CH84 374_Visul studio', 4),
-	(6, 'CH92 428_salaireEnterprise2', 3),
-	(7, 'CH92 428_Cadeaux', 3);
+	(1, 'CH44 444_salaireEnt1', 4),
+	(2, 'CH44 444_Famille', 4),
+	(3, 'CH44 444_Amis', 4),
+	(5, 'CH44 444_Visul studio', 4),
+	(6, 'CH33 333_salaireEnterprise2', 3),
+	(7, 'CH33 333_Cadeaux', 3);
 	
 	
 INSERT INTO `users_lists` (`id`, `idList`, `idUser`) VALUES
