@@ -2,7 +2,7 @@
 INSERT INTO `users` (`id`, `iban`, `active`, `type`, `email`, `password`, `money`) VALUES
 	(1, 'CH11 111', 1, 'Public', 'jerome@mail', '$BANQUEHASH$V1$10000$mRFwijjaYceQpZnsyQz7quqmxK7p7xsiGReBsg2AO3FDU3y9', 10000.5),
 	(2, 'CH22 222', 1, 'Public', 'jerome@me', '$BANQUEHASH$V1$10000$v5cWt1aGdwMhNBtU32ybtKXQVDCGlRbGiPcj8RknUqP7fqc8', 10000.5),
-	(3, 'CH44 333', 1, 'Enterprise', 'jerome@test', '$BANQUEHASH$V1$10000$IfJVKdPhyaPBOGzWPfUs+mnARXECvOsip5IGFHyK4kLBAJHg', 10000.5),
+	(3, 'CH33 333', 1, 'Enterprise', 'jerome@test', '$BANQUEHASH$V1$10000$IfJVKdPhyaPBOGzWPfUs+mnARXECvOsip5IGFHyK4kLBAJHg', 10000.5),
 	(4, 'CH44 444', 1, 'Enterprise', 'jerome@jerome', '$BANQUEHASH$V1$10000$TFR3t+YhM0HJGTBppCb9HUiquuOo0qt+QQ/XdbpFPruuImvE', 10000.5);
 	
 	
