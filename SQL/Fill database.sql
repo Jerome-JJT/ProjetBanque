@@ -28,12 +28,12 @@ INSERT INTO `transactions` (`id`, `date`, `amount`, `reason`, `idReceiver`, `idS
 
 
 INSERT INTO `lists` (`id`, `name`, `idUser`) VALUES
-	(1, 'salaireEnt1', 4),
-	(2, 'Famille', 4),
-	(3, 'Amis', 4),
-	(5, 'Visul studio', 4),
-	(6, 'salaireEnterprise2', 3),
-	(7, 'Cadeaux', 3);
+	(1, 'CH84 374_salaireEnt1', 4),
+	(2, 'CH84 374_Famille', 4),
+	(3, 'CH84 374_Amis', 4),
+	(5, 'CH84 374_Visul studio', 4),
+	(6, 'CH92 428_salaireEnterprise2', 3),
+	(7, 'CH92 428_Cadeaux', 3);
 	
 	
 INSERT INTO `users_lists` (`id`, `idList`, `idUser`) VALUES
