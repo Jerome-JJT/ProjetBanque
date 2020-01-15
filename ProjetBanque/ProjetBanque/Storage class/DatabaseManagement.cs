@@ -297,7 +297,7 @@ namespace ProjetBanque
             {
                 // Create a command object
                 query = connection.CreateCommand();
-                query.CommandText = @"select lists.id, lists.name, USER_INSIDE.iban, USER_INSIDE.email from users_lists
+                query.CommandText = @"select lists.name, USER_INSIDE.iban, USER_INSIDE.email from users_lists
                                     inner join lists on lists.id = users_lists.idList
                                     inner join users as USER_INSIDE on USER_INSIDE.id = users_lists.idUser
                                     inner join users as LIST_OWNER on LIST_OWNER.id = lists.idUser
@@ -319,19 +319,19 @@ namespace ProjetBanque
                     //Add each transactions linked to the user
                     while (reader.Read())
                     {
-                        if(usersList.Name != reader.GetString(1))
+                        if(usersList.Name != reader.GetString(0))
                         {
                             if(usersList.Name == "")
                             {
-                                usersList = new UsersList(reader.GetString(1));
+                                usersList = new UsersList(reader.GetString(0));
                             }
                             else
                             {
                                 ((EnterpriseUser)user).Lists.Add(usersList);
-                                usersList = new UsersList(reader.GetString(1));
+                                usersList = new UsersList(reader.GetString(0));
                             }
 
-                            User newListUser = new User(reader.GetString(1), reader.GetString(2));
+                            User newListUser = new User(reader.GetString(0), reader.GetString(1));
                             usersList.Users.Add(newListUser);
                         }
                     }
