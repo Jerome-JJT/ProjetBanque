@@ -491,7 +491,7 @@ namespace ProjetBanque
             query.CommandText = @"insert into USERS_LISTS (idList, idUser)
                                 values (
                                 (select LISTS.id from LISTS where name = (@listName)),
-                                (select USERS.id from USERS where iban = (@userIban))))";
+                                (select USERS.id from USERS where iban = (@userIban)))";
 
             // Add parameters to query
             query.Parameters.AddWithValue("@listName", listName);
