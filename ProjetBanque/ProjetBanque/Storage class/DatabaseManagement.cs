@@ -451,10 +451,18 @@ namespace ProjetBanque
             query.Parameters.AddWithValue("@creatorIban", creatorIban);
 
             // Execute the SQL command and check error
-            if (query.ExecuteNonQuery() != 1)
+            try
             {
-                return false;
+                if (query.ExecuteNonQuery() != 1)
+                {
+                    return false;
+                }
             }
+            catch(MySqlException)
+            {
+                throw new UserAlreadyInListException();
+            }
+            
 
             return true;
         }
