@@ -45,15 +45,15 @@ namespace ProjetBanque
         }
         
 
-    private void cmdAddList_Click(object sender, EventArgs e)
+        private void cmdAddList_Click(object sender, EventArgs e)
         {
             DatabaseManagement database = new DatabaseManagement();
             database.OpenConnection();
-
+            
             try {
                 database.CreateList(txtNameList.Text.Trim(), userInfo.Iban);
                 userInfo = (EnterpriseUser)database.GetUser(userInfo.Email);
-
+            
                 database.CloseConnection();
             }
             catch (ListAlreadyExists)
@@ -62,6 +62,7 @@ namespace ProjetBanque
             }
             
             displayEnterpriseLists();
+            displayUsersLists();
         }
 
         private void cmdAddToList_Click(object sender, EventArgs e)
@@ -140,9 +141,19 @@ namespace ProjetBanque
         private void cboList_SelectedIndexChanged(object sender, EventArgs e)
         {
             displayUsersLists();
-            cmdDeleteList.Enabled = true;
-            txtIban.Enabled = true;
-            cmdListToDelete.Enabled = true;
+            if (cboList.SelectedIndex != -1)
+            {
+                cmdDeleteList.Enabled = true;
+                txtIban.Enabled = true;
+                cmdListToDelete.Enabled = true;
+            }
+            else
+            {
+                cmdDeleteList.Enabled = false;
+                txtIban.Enabled = false;
+                cmdListToDelete.Enabled = false;
+            }
+            cmdListToDelete.Enabled = false;
         }
 
         private void txtNameList_TextChanged(object sender, EventArgs e)
@@ -155,6 +166,11 @@ namespace ProjetBanque
             {
                 cmdAddList.Enabled = true;
             }
+        }
+
+        private void lstList_SelectedIndexChanged(object sender, EventArgs e)
+        {
+             cmdListToDelete.Enabled = true;
         }
     }
 }
