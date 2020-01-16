@@ -49,6 +49,7 @@
             this.lstList.Name = "lstList";
             this.lstList.Size = new System.Drawing.Size(389, 277);
             this.lstList.TabIndex = 1;
+            this.lstList.SelectedIndexChanged += new System.EventHandler(this.lstList_SelectedIndexChanged);
             // 
             // cmdListToDelete
             // 
