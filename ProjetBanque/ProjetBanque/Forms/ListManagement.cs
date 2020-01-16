@@ -75,27 +75,31 @@ namespace ProjetBanque
 
         private void cmdAddToList_Click(object sender, EventArgs e)
         {
-            if (((UsersList)cboList.SelectedItem).Users.All(item => item.Iban != txtIban.Text))
-            {
-                DatabaseManagement database = new DatabaseManagement();
-                database.OpenConnection();               
-
-                database.AddUserList(((UsersList)cboList.SelectedItem).Name, txtIban.Text.Trim());
-                userInfo = (EnterpriseUser)database.GetUser(userInfo.Email);
-
-                database.CloseConnection();              
-
-                displayUsersLists();
-
-                txtIban.Text = "";
-                lblNameUser.Text = "L'utilisateur a bien été ajouter";
-            }
-            else
-            {
-                MessageBox.Show("Cette utilisateur est deja dans cette liste");
-            }
-            
+            cmdAddToListMethod();
         }
+            private void cmdAddToListMethod()
+            {
+                if (((UsersList)cboList.SelectedItem).Users.All(item => item.Iban != txtIban.Text.ToUpper()))
+                {
+                    DatabaseManagement database = new DatabaseManagement();
+                    database.OpenConnection();
+
+
+                    database.AddUserList(((UsersList)cboList.SelectedItem).Name, txtIban.Text.Trim());
+                    userInfo = (EnterpriseUser)database.GetUser(userInfo.Email);
+
+                    database.CloseConnection();
+
+                    displayUsersLists();
+
+                    txtIban.Text = "";
+                    lblNameUser.Text = "L'utilisateur a bien été ajouté";
+                }
+                else
+                {
+                    MessageBox.Show("Cette utilisateur est deja dans cette liste");
+                }
+            }                            
 
         private void txtIban_TextChanged(object sender, EventArgs e)
         {
@@ -106,8 +110,7 @@ namespace ProjetBanque
 
                 string destEmail = database.EmailFromIban(txtIban.Text.ToUpper());
 
-                database.CloseConnection();
-
+                database.CloseConnection();               
                 if (destEmail != null && userInfo.Email != destEmail)
                 {
                     lblNameUser.Text = $"Vous allez ajouter :\n{destEmail}";
@@ -117,6 +120,10 @@ namespace ProjetBanque
                 {
                     lblNameUser.Text = "";
                     cmdAddToList.Enabled = false;
+                }
+                if (txtIban.Text.ToUpper() == userInfo.Iban)
+                {
+                    lblNameUser.Text = "Vous ne pouvez vous ajouter à la liste";
                 }
             }
             else
@@ -139,6 +146,7 @@ namespace ProjetBanque
 
             displayEnterpriseLists();
             lstList.Items.Clear();
+            cmdListToDelete.Enabled = false;
         }
 
         private void cmdListToDelete_Click(object sender, EventArgs e)
@@ -190,6 +198,17 @@ namespace ProjetBanque
         private void lstList_SelectedIndexChanged(object sender, EventArgs e)
         {
              cmdListToDelete.Enabled = true;
+        }
+
+        private void txtIban_KeyDown(object sender, KeyEventArgs e)
+        {
+             if (e.KeyCode == Keys.Enter || e.KeyCode == Keys.Return)
+             {
+                if(cmdAddToList.Enabled == true)
+                {
+                    cmdAddToListMethod();
+                }                
+             }           
         }
     }
 }
