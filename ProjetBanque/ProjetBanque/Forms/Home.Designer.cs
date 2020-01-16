@@ -357,11 +357,7 @@
 
         #endregion
         private System.Windows.Forms.Button cmdExit;
-        public System.Windows.Forms.Label lblEmail;
-        private System.Windows.Forms.DataGridViewTextBoxColumn NomIbanDestinataire;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Amount;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Reason;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Date;
+        private System.Windows.Forms.Label lblEmail;
         private System.Windows.Forms.TextBox txtPayIban;
         private System.Windows.Forms.Button cmdPay;
         private System.Windows.Forms.Label lblPayIban;

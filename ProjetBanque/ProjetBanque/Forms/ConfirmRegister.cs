@@ -16,6 +16,7 @@ namespace ProjetBanque
     public partial class FrmConfirmRegister : Form
     {
         private string email;
+
         /// <summary>
         /// Register confirmation form constructor
         /// </summary>
@@ -29,6 +30,9 @@ namespace ProjetBanque
             lblEmail.Text = email;
         }
 
+        /// <summary>
+        /// Allow parent form to set the email to display
+        /// </summary>
         public string Email
         {
             set { email = value; }

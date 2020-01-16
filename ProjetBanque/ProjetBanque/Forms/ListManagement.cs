@@ -14,6 +14,10 @@ namespace ProjetBanque
     {
         private EnterpriseUser userInfo;
 
+        /// <summary>
+        /// List management form constructor
+        /// </summary>
+        /// <param name="userInfos">Inherit user informations to display from parent form</param>
         public ListManagement(EnterpriseUser userInfos)
         {
             InitializeComponent();

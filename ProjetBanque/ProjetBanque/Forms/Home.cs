@@ -22,9 +22,9 @@ namespace ProjetBanque
         /// <summary>
         /// Home form constructor
         /// </summary>
-        /// <param name="userInfo">Inherit user informations to display from parent form</param>
+        /// <param name="userInfos">Inherit user informations to display from parent form</param>
         /// <param name="inheritStorage">Inherit json informations to use from parent form</param>
-        public FrmHome(PublicUser userInfo, JsonData inheritStorage)
+        public FrmHome(PublicUser userInfos, JsonData inheritStorage)
         {
             InitializeComponent();
 
@@ -33,7 +33,7 @@ namespace ProjetBanque
 
             
 
-            userInformations = userInfo;
+            userInformations = userInfos;
             inheritJsonStorage = inheritStorage;
 
             cboPayList.SelectedIndex = 0;

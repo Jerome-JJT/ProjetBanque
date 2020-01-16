@@ -27,7 +27,9 @@ namespace ProjetBanque
         /// <param name="amount">Transaction's amount</param>
         /// <param name="reason">Transaction's reason</param>
         /// <param name="senderDefine">Text to display about money sender</param>
+        /// <param name="senderIban">Sender's iban</param>
         /// <param name="receiverDefine">Text to display about money receiver</param>
+        /// <param name="receiverIban">Receiver iban</param>
         public Transaction(string date, double amount, string reason, 
             string senderDefine, string senderIban, string receiverDefine, string receiverIban)
         {
