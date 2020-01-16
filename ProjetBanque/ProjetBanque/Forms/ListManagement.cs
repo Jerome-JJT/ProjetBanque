@@ -70,6 +70,7 @@ namespace ProjetBanque
             
             displayEnterpriseLists();
             lstList.Items.Clear();
+            txtNameList.Text = "";
         }
 
         private void cmdAddToList_Click(object sender, EventArgs e)
@@ -137,6 +138,7 @@ namespace ProjetBanque
             database.CloseConnection();
 
             displayEnterpriseLists();
+            lstList.Items.Clear();
         }
 
         private void cmdListToDelete_Click(object sender, EventArgs e)
@@ -145,11 +147,14 @@ namespace ProjetBanque
             database.OpenConnection();
 
             database.DeleteUserList(((UsersList)cboList.SelectedItem).Name, ((User)lstList.SelectedItem).Iban);
+
             userInfo = (EnterpriseUser)database.GetUser(userInfo.Email);
 
             database.CloseConnection();
 
             displayUsersLists();
+
+            cmdListToDelete.Enabled = false;
         }
 
         private void cboList_SelectedIndexChanged(object sender, EventArgs e)
