@@ -10,7 +10,10 @@ using System.Windows.Forms;
 
 namespace ProjetBanque
 {
-    public partial class ListManagement : Form
+    /// <summary>
+    /// List management form's class
+    /// </summary>
+    public partial class FrmListManagement : Form
     {
         private EnterpriseUser userInfo;
 
@@ -18,7 +21,7 @@ namespace ProjetBanque
         /// List management form constructor
         /// </summary>
         /// <param name="userInfos">Inherit user informations to display from parent form</param>
-        public ListManagement(EnterpriseUser userInfos)
+        public FrmListManagement(EnterpriseUser userInfos)
         {
             InitializeComponent();
             cmdAddList.Enabled = false;

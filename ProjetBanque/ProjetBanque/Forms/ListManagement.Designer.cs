@@ -1,6 +1,6 @@
 ﻿namespace ProjetBanque
 {
-    partial class ListManagement
+    partial class FrmListManagement
     {
         /// <summary>
         /// Required designer variable.

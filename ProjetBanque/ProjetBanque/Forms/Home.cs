@@ -205,7 +205,7 @@ namespace ProjetBanque
 
         private void cmdModifyList_Click(object sender, EventArgs e)
         {
-            ListManagement Listform = new ListManagement((EnterpriseUser)userInformations);
+            FrmListManagement Listform = new FrmListManagement((EnterpriseUser)userInformations);
 
             Listform.ShowDialog();
 
