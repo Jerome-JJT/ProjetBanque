@@ -62,7 +62,7 @@ namespace ProjetBanque
             }
             
             displayEnterpriseLists();
-            displayUsersLists();
+            lstList.Items.Clear();
         }
 
         private void cmdAddToList_Click(object sender, EventArgs e)
@@ -78,6 +78,9 @@ namespace ProjetBanque
                 database.CloseConnection();              
 
                 displayUsersLists();
+
+                txtIban.Text = "";
+                lblNameUser.Text = "L'utilisateur a bien été ajouter";
             }
             else
             {
@@ -120,7 +123,10 @@ namespace ProjetBanque
             DatabaseManagement database = new DatabaseManagement();
             database.OpenConnection();
 
+            
             database.DeleteList(((UsersList)cboList.SelectedItem).Name);
+            userInfo = (EnterpriseUser)database.GetUser(userInfo.Email);
+
             database.CloseConnection();
 
             displayEnterpriseLists();
@@ -133,6 +139,7 @@ namespace ProjetBanque
 
             database.DeleteUserList(((UsersList)cboList.SelectedItem).Name, ((User)lstList.SelectedItem).Iban);
             userInfo = (EnterpriseUser)database.GetUser(userInfo.Email);
+
             database.CloseConnection();
 
             displayUsersLists();
