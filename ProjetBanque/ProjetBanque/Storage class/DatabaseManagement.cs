@@ -474,7 +474,7 @@ namespace ProjetBanque
         {
             MySqlCommand query = connection.CreateCommand();
             query.CommandText = @"delete from LISTS
-                                where name = ((@listName)";
+                                where name = (@listName)";
 
             // Add parameters to query
             query.Parameters.AddWithValue("@listName", listName);
