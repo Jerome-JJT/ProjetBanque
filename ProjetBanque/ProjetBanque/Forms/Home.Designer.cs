@@ -97,7 +97,7 @@
             this.cmdPay.Location = new System.Drawing.Point(13, 313);
             this.cmdPay.Name = "cmdPay";
             this.cmdPay.Size = new System.Drawing.Size(268, 33);
-            this.cmdPay.TabIndex = 6;
+            this.cmdPay.TabIndex = 7;
             this.cmdPay.Text = "Payer";
             this.cmdPay.UseVisualStyleBackColor = true;
             this.cmdPay.Click += new System.EventHandler(this.cmdPay_Click);
@@ -144,7 +144,7 @@
             this.txtPayReason.Multiline = true;
             this.txtPayReason.Name = "txtPayReason";
             this.txtPayReason.Size = new System.Drawing.Size(268, 124);
-            this.txtPayReason.TabIndex = 5;
+            this.txtPayReason.TabIndex = 6;
             // 
             // lblPayReason
             // 
@@ -162,7 +162,7 @@
             this.cmdModifyList.Location = new System.Drawing.Point(208, 98);
             this.cmdModifyList.Name = "cmdModifyList";
             this.cmdModifyList.Size = new System.Drawing.Size(73, 23);
-            this.cmdModifyList.TabIndex = 15;
+            this.cmdModifyList.TabIndex = 4;
             this.cmdModifyList.Text = "Gérer liste";
             this.cmdModifyList.UseVisualStyleBackColor = true;
             this.cmdModifyList.Click += new System.EventHandler(this.cmdModifyList_Click);
@@ -215,7 +215,7 @@
             0});
             this.updPayAmount.Name = "updPayAmount";
             this.updPayAmount.Size = new System.Drawing.Size(268, 20);
-            this.updPayAmount.TabIndex = 4;
+            this.updPayAmount.TabIndex = 5;
             this.updPayAmount.ThousandsSeparator = true;
             // 
             // lblEmailReceiver

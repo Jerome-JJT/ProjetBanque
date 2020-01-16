@@ -31,13 +31,25 @@ namespace ProjetBanque
                 cboList.Items.Add(eachList);
             }
         }
+        private void displayUsersLists()
+        {
+            lstList.Items.Clear();
+            foreach (User userInfo in ((UsersList)cboList.SelectedItem).Users)
+            {
+                lstList.Items.Add(userInfo);
+            }
+        }
+        
 
-        private void cmdAddList_Click(object sender, EventArgs e)
+    private void cmdAddList_Click(object sender, EventArgs e)
         {
             DatabaseManagement database = new DatabaseManagement();
             database.OpenConnection();
+
             try {
                 database.CreateList(txtNameList.Text, userInfo.Iban);
+                userInfo = (EnterpriseUser)database.GetUser(userInfo.Email);
+
                 database.CloseConnection();
             }
             catch (UserAlreadyInListException)
@@ -53,13 +65,18 @@ namespace ProjetBanque
             if (((UsersList)cboList.SelectedItem).Users.All(item => item.Iban != txtIban.Text))
             {
                 DatabaseManagement database = new DatabaseManagement();
-                database.OpenConnection();
+                database.OpenConnection();               
 
                 database.AddUserList(((UsersList)cboList.SelectedItem).Name, txtIban.Text);
                 userInfo = (EnterpriseUser)database.GetUser(userInfo.Email);
-                database.CloseConnection();
 
-                displayEnterpriseLists();
+                database.CloseConnection();              
+
+                displayUsersLists();
+            }
+            else
+            {
+                MessageBox.Show("Cette utilisateur est deja dans cette liste");
             }
             
         }
@@ -106,21 +123,12 @@ namespace ProjetBanque
             userInfo = (EnterpriseUser)database.GetUser(userInfo.Email);
             database.CloseConnection();
 
-            displayEnterpriseLists();
+            displayUsersLists();
         }
 
         private void cboList_SelectedIndexChanged(object sender, EventArgs e)
         {
-            /*lstList.Items.Clear();
-            foreach (UsersList listInfo in cboList.SelectedItem)
-            {
-                lstList.Items.Add(listInfo);
-            }*/
-
-            foreach (User listInfo in ((UsersList)cboList.SelectedItem).Users)
-            {
-                lstList.Items.Add(listInfo);
-            }
+            displayUsersLists();
         }
 
         private void txtNameList_TextChanged(object sender, EventArgs e)
