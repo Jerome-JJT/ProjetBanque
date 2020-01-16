@@ -297,10 +297,10 @@ namespace ProjetBanque
             {
                 // Create a command object
                 query = connection.CreateCommand();
-                query.CommandText = @"select lists.name, USER_INSIDE.iban, USER_INSIDE.email from users_lists
-                                    inner join lists on lists.id = users_lists.idList
-                                    inner join users as USER_INSIDE on USER_INSIDE.id = users_lists.idUser
-                                    inner join users as LIST_OWNER on LIST_OWNER.id = lists.idUser
+                query.CommandText = @"select lists.name, COALESCE(USER_INSIDE.iban,''), COALESCE(USER_INSIDE.email,'') from lists
+                                    left join users_lists on users_lists.idList = lists.id
+                                    left join users as LIST_OWNER on lists.idUser = LIST_OWNER.id
+                                    left join users as USER_INSIDE on users_lists.idUser = USER_INSIDE.id
                                     where LIST_OWNER.email = (@owner)
                                     order by lists.name asc";
 
@@ -331,8 +331,11 @@ namespace ProjetBanque
                                 usersList = new UsersList(reader.GetString(0));
                             }
 
-                            User newListUser = new User(reader.GetString(0), reader.GetString(1));
-                            usersList.Users.Add(newListUser);
+                            if(reader.GetString(1) != "" && reader.GetString(2) != "")
+                            {
+                                User newListUser = new User(reader.GetString(1), reader.GetString(2));
+                                usersList.Users.Add(newListUser);
+                            }
                         }
                     }
 
