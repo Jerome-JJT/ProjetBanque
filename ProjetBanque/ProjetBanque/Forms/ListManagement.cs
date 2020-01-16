@@ -19,6 +19,10 @@ namespace ProjetBanque
             InitializeComponent();
             cmdAddList.Enabled = false;
             userInfo = userInfos;
+            cmdAddToList.Enabled = false;
+            cmdDeleteList.Enabled = false;
+            txtIban.Enabled = false;
+            cmdListToDelete.Enabled = false;
 
             displayEnterpriseLists();           
         }
@@ -47,7 +51,7 @@ namespace ProjetBanque
             database.OpenConnection();
 
             try {
-                database.CreateList(txtNameList.Text, userInfo.Iban);
+                database.CreateList(txtNameList.Text.Trim(), userInfo.Iban);
                 userInfo = (EnterpriseUser)database.GetUser(userInfo.Email);
 
                 database.CloseConnection();
@@ -67,7 +71,7 @@ namespace ProjetBanque
                 DatabaseManagement database = new DatabaseManagement();
                 database.OpenConnection();               
 
-                database.AddUserList(((UsersList)cboList.SelectedItem).Name, txtIban.Text);
+                database.AddUserList(((UsersList)cboList.SelectedItem).Name, txtIban.Text.Trim());
                 userInfo = (EnterpriseUser)database.GetUser(userInfo.Email);
 
                 database.CloseConnection();              
@@ -95,11 +99,18 @@ namespace ProjetBanque
                 if (destEmail != null && userInfo.Email != destEmail)
                 {
                     lblNameUser.Text = $"Vous allez ajouter :\n{destEmail}";
+                    cmdAddToList.Enabled = true;
                 }
                 else
                 {
                     lblNameUser.Text = "";
+                    cmdAddToList.Enabled = false;
                 }
+            }
+            else
+            {
+                lblNameUser.Text = "";
+                cmdAddToList.Enabled = false;
             }
         }
 
@@ -129,11 +140,14 @@ namespace ProjetBanque
         private void cboList_SelectedIndexChanged(object sender, EventArgs e)
         {
             displayUsersLists();
+            cmdDeleteList.Enabled = true;
+            txtIban.Enabled = true;
+            cmdListToDelete.Enabled = true;
         }
 
         private void txtNameList_TextChanged(object sender, EventArgs e)
         {
-            if(txtNameList.Text == "")
+            if(txtNameList.Text.Trim() == "")
             {
                 cmdAddList.Enabled = false;
             }
