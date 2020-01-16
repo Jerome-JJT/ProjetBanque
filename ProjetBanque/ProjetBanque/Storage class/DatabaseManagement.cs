@@ -381,7 +381,7 @@ namespace ProjetBanque
         /// <param name="reason"></param>
         /// <param name="senderIban"></param>
         /// <param name="receiverIban"></param>
-        /// <returns></returns>
+        /// <returns>true for success, false for an error</returns>
         public bool Transact(double amount, string reason, string senderIban, string receiverIban)
         {
             DateTime time = DateTime.Now;
@@ -405,8 +405,6 @@ namespace ProjetBanque
             {
                 return false;
             }
-
-
 
             query = connection.CreateCommand();
             query.CommandText = @"UPDATE USERS SET money = money + (@amount) WHERE iban = (@receiverIban)";
@@ -441,7 +439,12 @@ namespace ProjetBanque
 
         }
 
-        //NewUserList
+        /// <summary>
+        /// Create a new empty list
+        /// </summary>
+        /// <param name="newName">New list name</param>
+        /// <param name="creatorIban">Iban of the user who created the list</param>
+        /// <returns>true for success, false for an error</returns>
         public bool CreateList(string newName, string creatorIban)
         {
             MySqlCommand query = connection.CreateCommand();
@@ -450,6 +453,7 @@ namespace ProjetBanque
                                 (select USERS.id from USERS where iban = (@creatorIban)))";
 
             // Add parameters to query
+            //List name : create a list name unique per user
             query.Parameters.AddWithValue("@name", $"{creatorIban}_{newName}");
             query.Parameters.AddWithValue("@creatorIban", creatorIban);
 
@@ -470,6 +474,11 @@ namespace ProjetBanque
             return true;
         }
 
+        /// <summary>
+        /// Delete a list
+        /// </summary>
+        /// <param name="listName">Unique list name</param>
+        /// <returns>true for success, false for an error</returns>
         public bool DeleteList(string listName)
         {
             MySqlCommand query = connection.CreateCommand();
@@ -488,6 +497,12 @@ namespace ProjetBanque
             return true;
         }
 
+        /// <summary>
+        /// Add a user in a list
+        /// </summary>
+        /// <param name="listName">List where user need to be added</param>
+        /// <param name="userIban">Iban of the user who need to be added</param>
+        /// <returns>true for success, false for an error</returns>
         public bool AddUserList(string listName, string userIban)
         {
             MySqlCommand query = connection.CreateCommand();
@@ -509,6 +524,12 @@ namespace ProjetBanque
             return true;
         }
 
+        /// <summary>
+        /// Delete a user from a list
+        /// </summary>
+        /// <param name="listName">List where user need to be deleted</param>
+        /// <param name="userIban">Iban of the user who need to be deleted</param>
+        /// <returns>true for success, false for an error</returns>
         public bool DeleteUserList(string listName, string userIban)
         {
             MySqlCommand query = connection.CreateCommand();

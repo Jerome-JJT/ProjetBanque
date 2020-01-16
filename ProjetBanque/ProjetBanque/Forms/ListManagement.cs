@@ -130,7 +130,7 @@ namespace ProjetBanque
             DatabaseManagement database = new DatabaseManagement();
             database.OpenConnection();
 
-            database.DeleteUserList(((UsersList)lstList.SelectedItem).Name, userInfo.Iban);
+            database.DeleteUserList(((UsersList)cboList.SelectedItem).Name, ((User)lstList.SelectedItem).Iban);
             userInfo = (EnterpriseUser)database.GetUser(userInfo.Email);
             database.CloseConnection();
 
