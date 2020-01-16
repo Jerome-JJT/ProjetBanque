@@ -58,6 +58,8 @@ namespace ProjetBanque
                 database.AddUserList(((UsersList)cboList.SelectedItem).Name, txtIban.Text);
                 userInfo = (EnterpriseUser)database.GetUser(userInfo.Email);
                 database.CloseConnection();
+
+                displayEnterpriseLists();
             }
             
         }
@@ -103,6 +105,8 @@ namespace ProjetBanque
             database.DeleteUserList(((UsersList)lstList.SelectedItem).Name, userInfo.Iban);
             userInfo = (EnterpriseUser)database.GetUser(userInfo.Email);
             database.CloseConnection();
+
+            displayEnterpriseLists();
         }
 
         private void cboList_SelectedIndexChanged(object sender, EventArgs e)

@@ -31,10 +31,12 @@ namespace ProjetBanque
             cmdPay.Enabled = false;
             txtPayIban.Enabled = true;
 
-            //cboPayList.SelectedIndex = 0; 
+            
 
             userInformations = userInfo;
             inheritJsonStorage = inheritStorage;
+
+            cboPayList.SelectedIndex = 0;
         }
 
         private void Home_Load(object sender, EventArgs e)
