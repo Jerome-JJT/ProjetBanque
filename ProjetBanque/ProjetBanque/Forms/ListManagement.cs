@@ -40,7 +40,7 @@ namespace ProjetBanque
                 database.CreateList(txtNameList.Text, userInfo.Iban);
                 database.CloseConnection();
             }
-            catch (UserAlreadyInListException)
+            catch (ListAlreadyExists)
             {
                 MessageBox.Show("Liste deja existante a quelque part");
             }
