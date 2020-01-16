@@ -52,7 +52,7 @@ namespace ProjetBanque
 
                 database.CloseConnection();
             }
-            catch (UserAlreadyInListException)
+            catch (ListAlreadyExists)
             {
                 MessageBox.Show("Liste deja existante a quelque part");
             }

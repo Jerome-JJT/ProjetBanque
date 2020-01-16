@@ -463,7 +463,7 @@ namespace ProjetBanque
             }
             catch(MySqlException)
             {
-                throw new UserAlreadyInListException();
+                throw new ListAlreadyExists();
             }
             
 

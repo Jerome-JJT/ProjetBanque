@@ -56,9 +56,9 @@ namespace ProjetBanque
     }
 
     /// <summary>
-    /// Exception raised when trying to add a user in a list who already is inside
+    /// Exception raised when trying to create a list who already exist
     /// </summary>
-    public class UserAlreadyInListException : BankException
+    public class ListAlreadyExists : BankException
     {
 
     }
