@@ -199,7 +199,7 @@ namespace ProjetBanque
                     updateInfos();
 
                     txtPayIban.Text = "";
-                    updPayAmount.Value = 0;
+                    updPayAmount.Value = 1;
                     txtPayReason.Text = "";
                 }
                 else
@@ -230,6 +230,7 @@ namespace ProjetBanque
                     }
                     updPayAmount.Value = 1;
                     txtPayReason.Text = "";
+                    cboPayList.SelectedIndex = 0;
                 }
                 else
                 {

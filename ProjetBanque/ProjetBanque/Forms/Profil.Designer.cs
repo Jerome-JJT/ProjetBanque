@@ -38,6 +38,7 @@
             this.lblDeleteAccount = new System.Windows.Forms.Label();
             this.cmdDeleteAccount = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
+            this.lblError = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // txtOldPassword
@@ -46,6 +47,7 @@
             this.txtOldPassword.Name = "txtOldPassword";
             this.txtOldPassword.Size = new System.Drawing.Size(312, 20);
             this.txtOldPassword.TabIndex = 0;
+            this.txtOldPassword.UseSystemPasswordChar = true;
             // 
             // txtNewPassword
             // 
@@ -53,6 +55,7 @@
             this.txtNewPassword.Name = "txtNewPassword";
             this.txtNewPassword.Size = new System.Drawing.Size(312, 20);
             this.txtNewPassword.TabIndex = 1;
+            this.txtNewPassword.UseSystemPasswordChar = true;
             // 
             // txtNewPasswordVerify
             // 
@@ -60,6 +63,7 @@
             this.txtNewPasswordVerify.Name = "txtNewPasswordVerify";
             this.txtNewPasswordVerify.Size = new System.Drawing.Size(312, 20);
             this.txtNewPasswordVerify.TabIndex = 4;
+            this.txtNewPasswordVerify.UseSystemPasswordChar = true;
             // 
             // lblOldPassword
             // 
@@ -90,12 +94,13 @@
             // 
             // cmdChangePassword
             // 
-            this.cmdChangePassword.Location = new System.Drawing.Point(53, 239);
+            this.cmdChangePassword.Location = new System.Drawing.Point(53, 257);
             this.cmdChangePassword.Name = "cmdChangePassword";
             this.cmdChangePassword.Size = new System.Drawing.Size(312, 23);
             this.cmdChangePassword.TabIndex = 9;
             this.cmdChangePassword.Text = "Modifier mon mot de passe";
             this.cmdChangePassword.UseVisualStyleBackColor = true;
+            this.cmdChangePassword.Click += new System.EventHandler(this.cmdChangePassword_Click);
             // 
             // lblDeleteAccount
             // 
@@ -127,11 +132,20 @@
             this.label1.TabIndex = 13;
             this.label1.Text = "Modification du mot de passe";
             // 
+            // lblError
+            // 
+            this.lblError.AutoSize = true;
+            this.lblError.Location = new System.Drawing.Point(53, 221);
+            this.lblError.Name = "lblError";
+            this.lblError.Size = new System.Drawing.Size(0, 13);
+            this.lblError.TabIndex = 14;
+            // 
             // frmProfil
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(430, 450);
+            this.Controls.Add(this.lblError);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.cmdDeleteAccount);
             this.Controls.Add(this.lblDeleteAccount);
@@ -161,5 +175,6 @@
         private System.Windows.Forms.Label lblDeleteAccount;
         private System.Windows.Forms.Button cmdDeleteAccount;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblError;
     }
 }
