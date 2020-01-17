@@ -209,6 +209,14 @@ namespace ProjetBanque
 
             Listform.ShowDialog();
 
+            DatabaseManagement database = new DatabaseManagement();
+            database.OpenConnection();
+
+            userInformations = (EnterpriseUser)database.GetUser(userInformations.Email);
+
+            database.CloseConnection();
+
+            displayEnterpriseLists();
 
         }
     }

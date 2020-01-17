@@ -48,7 +48,7 @@
             this.lstList.Location = new System.Drawing.Point(12, 143);
             this.lstList.Name = "lstList";
             this.lstList.Size = new System.Drawing.Size(389, 277);
-            this.lstList.TabIndex = 1;
+            this.lstList.TabIndex = 5;
             this.lstList.SelectedIndexChanged += new System.EventHandler(this.lstList_SelectedIndexChanged);
             // 
             // cmdListToDelete
@@ -56,7 +56,7 @@
             this.cmdListToDelete.Location = new System.Drawing.Point(12, 552);
             this.cmdListToDelete.Name = "cmdListToDelete";
             this.cmdListToDelete.Size = new System.Drawing.Size(389, 31);
-            this.cmdListToDelete.TabIndex = 2;
+            this.cmdListToDelete.TabIndex = 8;
             this.cmdListToDelete.Text = "Supprimer de la liste la personne selectionnée";
             this.cmdListToDelete.UseVisualStyleBackColor = true;
             this.cmdListToDelete.Click += new System.EventHandler(this.cmdListToDelete_Click);
@@ -66,7 +66,7 @@
             this.cmdAddToList.Location = new System.Drawing.Point(12, 512);
             this.cmdAddToList.Name = "cmdAddToList";
             this.cmdAddToList.Size = new System.Drawing.Size(389, 25);
-            this.cmdAddToList.TabIndex = 4;
+            this.cmdAddToList.TabIndex = 7;
             this.cmdAddToList.Text = "Ajouter a la liste";
             this.cmdAddToList.UseVisualStyleBackColor = true;
             this.cmdAddToList.Click += new System.EventHandler(this.cmdAddToList_Click);
@@ -85,8 +85,9 @@
             this.txtIban.Location = new System.Drawing.Point(12, 453);
             this.txtIban.Name = "txtIban";
             this.txtIban.Size = new System.Drawing.Size(389, 20);
-            this.txtIban.TabIndex = 7;
+            this.txtIban.TabIndex = 6;
             this.txtIban.TextChanged += new System.EventHandler(this.txtIban_TextChanged);
+            this.txtIban.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtIban_KeyDown);
             // 
             // label1
             // 
@@ -112,7 +113,7 @@
             this.cboList.Location = new System.Drawing.Point(12, 85);
             this.cboList.Name = "cboList";
             this.cboList.Size = new System.Drawing.Size(389, 21);
-            this.cboList.TabIndex = 10;
+            this.cboList.TabIndex = 3;
             this.cboList.SelectedIndexChanged += new System.EventHandler(this.cboList_SelectedIndexChanged);
             // 
             // cmdAddList
@@ -120,7 +121,7 @@
             this.cmdAddList.Location = new System.Drawing.Point(254, 49);
             this.cmdAddList.Name = "cmdAddList";
             this.cmdAddList.Size = new System.Drawing.Size(147, 23);
-            this.cmdAddList.TabIndex = 11;
+            this.cmdAddList.TabIndex = 2;
             this.cmdAddList.Text = "Ajouter une nouvelle liste";
             this.cmdAddList.UseVisualStyleBackColor = true;
             this.cmdAddList.Click += new System.EventHandler(this.cmdAddList_Click);
@@ -130,7 +131,7 @@
             this.cmdDeleteList.Location = new System.Drawing.Point(229, 114);
             this.cmdDeleteList.Name = "cmdDeleteList";
             this.cmdDeleteList.Size = new System.Drawing.Size(172, 23);
-            this.cmdDeleteList.TabIndex = 12;
+            this.cmdDeleteList.TabIndex = 4;
             this.cmdDeleteList.Text = "Supprimez la liste selectionéee";
             this.cmdDeleteList.UseVisualStyleBackColor = true;
             this.cmdDeleteList.Click += new System.EventHandler(this.cmdDeleteList_Click);
@@ -149,10 +150,10 @@
             this.txtNameList.Location = new System.Drawing.Point(12, 23);
             this.txtNameList.Name = "txtNameList";
             this.txtNameList.Size = new System.Drawing.Size(389, 20);
-            this.txtNameList.TabIndex = 14;
+            this.txtNameList.TabIndex = 1;
             this.txtNameList.TextChanged += new System.EventHandler(this.txtNameList_TextChanged);
             // 
-            // ListManagement
+            // FrmListManagement
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -171,7 +172,7 @@
             this.Controls.Add(this.lstList);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
-            this.Name = "ListManagement";
+            this.Name = "FrmListManagement";
             this.Text = "Gestion de liste";
             this.ResumeLayout(false);
             this.PerformLayout();
