@@ -579,12 +579,16 @@ namespace ProjetBanque
         /// <returns>true for success, false for an error</returns>
         public bool ChangePassword(string userEmail, string newPassword)
         {
+            //Hash and salt password
+            CryptoPassword cryptoFunctions = new CryptoPassword();
+            string hashedPassword = cryptoFunctions.Hash(newPassword);
+
             MySqlCommand query = connection.CreateCommand();
-            query.CommandText = @"update USERS set password = (@newPassword)
+            query.CommandText = @"update USERS set password = (@newHashPassword)
                                 where email = (@userEmail);";
 
             // Add parameters to query
-            query.Parameters.AddWithValue("@newPassword", newPassword);
+            query.Parameters.AddWithValue("@newHashPassword", hashedPassword);
             query.Parameters.AddWithValue("@userEmail", userEmail);
 
             // Execute the SQL command and check error
