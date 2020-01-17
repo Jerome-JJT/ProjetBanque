@@ -73,6 +73,18 @@
     <Compile Include="Bank class\EnterpriseUser.cs" />
     <Compile Include="Bank class\PublicUser.cs" />
     <Compile Include="Bank class\UsersList.cs" />
+    <Compile Include="Forms\HomeAdmin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\HomeAdmin.Designer.cs">
+      <DependentUpon>HomeAdmin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Profil.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Profil.Designer.cs">
+      <DependentUpon>Profil.cs</DependentUpon>
+    </Compile>
     <Compile Include="Storage class\JsonData.cs" />
     <Compile Include="Bank class\Transaction.cs" />
     <Compile Include="Bank class\User.cs" />
@@ -114,11 +126,17 @@
     <EmbeddedResource Include="Forms\Home.resx">
       <DependentUpon>Home.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\HomeAdmin.resx">
+      <DependentUpon>HomeAdmin.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\ListManagement.resx">
       <DependentUpon>ListManagement.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Profil.resx">
+      <DependentUpon>Profil.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
