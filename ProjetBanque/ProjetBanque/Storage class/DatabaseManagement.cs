@@ -311,14 +311,58 @@ namespace ProjetBanque
                 //Get user's money from the database
                 reader = query.ExecuteReader();
 
+                bool endFlag = false;
                 if (reader.HasRows)
                 {
-                    UsersList usersList;
+                    reader.Read();
+
+                    while (!endFlag)
+                    {
+                        UsersList usersList = new UsersList(reader.GetString(0));
+
+                        if (reader.GetString(1) != "" && reader.GetString(2) != "")
+                        {
+                            usersList.Users.Add(new User(reader.GetString(1), reader.GetString(2)));
+
+                            while (true)
+                            {
+                                if(!reader.Read())
+                                {
+                                    endFlag = true;
+                                    break;
+                                }
+
+                                if (reader.GetString(0) == usersList.Name)
+                                {
+                                    usersList.Users.Add(new User(reader.GetString(1), reader.GetString(2)));
+                                }
+                                else
+                                {
+                                    break;
+                                }
+                            }
+                            
+                            /*if (usersList.Users.Count > 0)
+                            {
+                                ((EnterpriseUser)user).Lists.Add(usersList);
+                                break;
+                            }*/
+                        }
+                        else
+                        {
+                            reader.Read();
+                        }
+                        ((EnterpriseUser)user).Lists.Add(usersList);
+                    }
+
+                    
+                    /*UsersList usersList;
                     usersList = new UsersList("");
 
                     //Add each transactions linked to the user
-                    while (reader.Read())
+                    
                     {
+                        reader.
                         if(usersList.Name != reader.GetString(0))
                         {
                             if(usersList.Name == "")
@@ -339,7 +383,7 @@ namespace ProjetBanque
                         }
                     }
 
-                    ((EnterpriseUser)user).Lists.Add(usersList);
+                    ((EnterpriseUser)user).Lists.Add(usersList);*/
                 }
                 reader.Close();
             }
