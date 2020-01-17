@@ -1,4 +1,4 @@
-﻿namespace ProjetBanque.Forms
+﻿namespace ProjetBanque
 {
     partial class frmProfil
     {
@@ -120,6 +120,7 @@
             this.cmdDeleteAccount.TabIndex = 12;
             this.cmdDeleteAccount.Text = "Supprimer mon compte";
             this.cmdDeleteAccount.UseVisualStyleBackColor = true;
+            this.cmdDeleteAccount.Click += new System.EventHandler(this.cmdDeleteAccount_Click);
             // 
             // label1
             // 
