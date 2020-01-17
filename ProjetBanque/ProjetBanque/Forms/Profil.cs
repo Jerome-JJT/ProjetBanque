@@ -106,6 +106,11 @@ namespace ProjetBanque
 
                         database.CloseConnection();
 
+
+                        lblError.Text = "Votre mot de passe a été changé";
+                        txtOldPassword.Text = "";
+                        txtNewPassword.Text = "";
+                        txtNewPasswordVerify.Text = "";
                     }
                     else
                     {
