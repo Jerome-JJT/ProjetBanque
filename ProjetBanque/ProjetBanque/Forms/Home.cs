@@ -112,7 +112,7 @@ namespace ProjetBanque
 
             foreach (UsersList eachList in ((EnterpriseUser)userInformations).Lists)
             {
-                cboPayList.Items.Add(eachList.ToString());
+                cboPayList.Items.Add(eachList);
             }
 
             cboPayList.SelectedIndex = lastIndex;
@@ -124,11 +124,14 @@ namespace ProjetBanque
             if (cboPayList.SelectedIndex != 0)
             {
                 cmdPay.Enabled = true;
+                lblListAmount.Text = "Vous allez payer: " + ((UsersList)cboPayList.SelectedItem).Users.Count() * updPayAmount.Value + " CHF";
             }
             else
             {
                 cmdPay.Enabled = false;
+                lblListAmount.Text = "";
             }
+            
         }
 
 
@@ -177,29 +180,61 @@ namespace ProjetBanque
 
         private void cmdPay_Click(object sender, EventArgs e)
         {
-            if(userInformations.Money >= Convert.ToDouble(updPayAmount.Value))
+            if(cboPayList.SelectedIndex == 0 || cboPayList.SelectedIndex == -1)
             {
-                DatabaseManagement database = new DatabaseManagement();
-                database.OpenConnection();
-
-                bool success = database.Transact(Convert.ToDouble(updPayAmount.Value), txtPayReason.Text, userInformations.Iban, txtPayIban.Text);
-
-                if (success)
+                if (userInformations.Money >= Convert.ToDouble(updPayAmount.Value))
                 {
-                    userInformations = (PublicUser)database.GetUser(userInformations.Email);
+                    DatabaseManagement database = new DatabaseManagement();
+                    database.OpenConnection();
+
+                    bool success = database.Transact(Convert.ToDouble(updPayAmount.Value), txtPayReason.Text, userInformations.Iban, txtPayIban.Text);
+
+                    if (success)
+                    {
+                        userInformations = (PublicUser)database.GetUser(userInformations.Email);
+                    }
+
+                    database.CloseConnection();
+
+                    updateInfos();
+
+                    txtPayIban.Text = "";
+                    updPayAmount.Value = 0;
+                    txtPayReason.Text = "";
                 }
-
-                database.CloseConnection();
-
-                updateInfos();
-
-                txtPayIban.Text = "";
-                updPayAmount.Value = 0;
-                txtPayReason.Text = "";
+                else
+                {
+                    MessageBox.Show("Vous n'avez pas assez d'argent pour effectuer cette transaction", "Erreur");
+                }
             }
             else
             {
-                MessageBox.Show("Vous n'avez pas assez d'argent pour effectuer cette transaction", "Erreur");
+                if(userInformations.Money >= Convert.ToDouble(((UsersList)cboPayList.SelectedItem).Users.Count() * updPayAmount.Value))
+                {
+                    foreach (User user in ((UsersList)cboPayList.SelectedItem).Users)
+                    {
+
+                         DatabaseManagement database = new DatabaseManagement();
+                         database.OpenConnection();
+
+                         bool success = database.Transact(Convert.ToDouble(updPayAmount.Value), txtPayReason.Text, userInformations.Iban, user.Iban);
+
+                         if (success)
+                         {
+                             userInformations = (PublicUser)database.GetUser(userInformations.Email);
+                         }
+
+                         database.CloseConnection();
+
+                         updateInfos();
+                    }
+                    updPayAmount.Value = 1;
+                    txtPayReason.Text = "";
+                }
+                else
+                {
+                    MessageBox.Show("Vous n'avez pas assez d'argent pour effectuer cette transaction", "Erreur");
+                }
             }
         }
 
@@ -218,6 +253,23 @@ namespace ProjetBanque
 
             displayEnterpriseLists();
 
+        }
+
+        private void cmdProfil_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void updPayAmount_ValueChanged(object sender, EventArgs e)
+        {
+            if (cboPayList.SelectedIndex != 0)
+            {
+                lblListAmount.Text = "Vous allez payer: " + ((UsersList)cboPayList.SelectedItem).Users.Count() * updPayAmount.Value + " CHF";
+            }
+            else
+            {
+                lblListAmount.Text = "";
+            }
         }
     }
 }

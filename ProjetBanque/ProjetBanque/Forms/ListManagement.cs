@@ -90,8 +90,12 @@ namespace ProjetBanque
 
                     database.CloseConnection();
 
+                    int selectedList = cboList.SelectedIndex;
+                    
+                    displayEnterpriseLists();
+                    cboList.SelectedIndex = selectedList;
                     displayUsersLists();
-
+                    
                     txtIban.Text = "";
                     lblNameUser.Text = "L'utilisateur a bien été ajouté";
                 }
@@ -160,7 +164,11 @@ namespace ProjetBanque
 
             database.CloseConnection();
 
-            displayUsersLists();
+            int selectedList = cboList.SelectedIndex;
+
+            displayEnterpriseLists();
+            cboList.SelectedIndex = selectedList;
+            displayUsersLists();           
 
             cmdListToDelete.Enabled = false;
         }
