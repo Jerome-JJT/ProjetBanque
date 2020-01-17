@@ -127,7 +127,7 @@
             // cmdExit
             // 
             this.cmdExit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.cmdExit.Location = new System.Drawing.Point(820, 580);
+            this.cmdExit.Location = new System.Drawing.Point(820, 521);
             this.cmdExit.Name = "cmdExit";
             this.cmdExit.Size = new System.Drawing.Size(114, 40);
             this.cmdExit.TabIndex = 18;
@@ -147,7 +147,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(946, 632);
+            this.ClientSize = new System.Drawing.Size(946, 573);
             this.Controls.Add(this.datHistory);
             this.Controls.Add(this.lblHistory);
             this.Controls.Add(this.cmdProfil);
