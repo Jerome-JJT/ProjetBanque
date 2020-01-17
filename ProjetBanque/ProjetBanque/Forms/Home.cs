@@ -257,7 +257,9 @@ namespace ProjetBanque
 
         private void cmdProfil_Click(object sender, EventArgs e)
         {
-            
+            frmProfil profilForm = new frmProfil(userInformations);
+
+            profilForm.ShowDialog();
         }
 
         private void updPayAmount_ValueChanged(object sender, EventArgs e)
