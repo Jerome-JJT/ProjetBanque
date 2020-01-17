@@ -53,6 +53,7 @@ namespace ProjetBanque
             }
         }
 
+
         /// <summary>
         /// Create and generate a unique IBAN by looking in the database if it exist
         /// </summary>
@@ -89,6 +90,7 @@ namespace ProjetBanque
             return testIban;
         }
 
+
         /// <summary>
         /// Add a user in the database with 0 money
         /// </summary>
@@ -100,6 +102,7 @@ namespace ProjetBanque
         {
             return AddUser(email, password, type, 0);
         }
+
 
         /// <summary>
         /// Add a user in the database with a certain amount of money
@@ -180,6 +183,7 @@ namespace ProjetBanque
 
             return result;
         }
+
 
         /// <summary>
         /// Check a user's login with password in the database
@@ -385,6 +389,7 @@ namespace ProjetBanque
             }
         }
 
+
         /// <summary>
         /// Move money from one account 
         /// </summary>
@@ -418,7 +423,7 @@ namespace ProjetBanque
             }
 
             query = connection.CreateCommand();
-            query.CommandText = @"UPDATE USERS SET money = money + (@amount) WHERE iban = (@receiverIban)";
+            query.CommandText = @"update USERS set money = money + (@amount) where iban = (@receiverIban)";
 
             // Add parameters to query
             query.Parameters.AddWithValue("@amount", amount);
@@ -432,7 +437,7 @@ namespace ProjetBanque
 
 
             query = connection.CreateCommand();
-            query.CommandText = @"UPDATE USERS SET money = money - (@amount) WHERE iban = (@senderIban)";
+            query.CommandText = @"update USERS set money = money - (@amount) where iban = (@senderIban)";
 
             // Add parameters to query
             query.Parameters.AddWithValue("@amount", amount);
@@ -449,6 +454,7 @@ namespace ProjetBanque
             return true;
 
         }
+
 
         /// <summary>
         /// Create a new empty list
@@ -485,6 +491,7 @@ namespace ProjetBanque
             return true;
         }
 
+
         /// <summary>
         /// Delete a list
         /// </summary>
@@ -507,6 +514,7 @@ namespace ProjetBanque
 
             return true;
         }
+
 
         /// <summary>
         /// Add a user in a list
@@ -535,6 +543,7 @@ namespace ProjetBanque
             return true;
         }
 
+
         /// <summary>
         /// Delete a user from a list
         /// </summary>
@@ -559,6 +568,58 @@ namespace ProjetBanque
             }
 
             return true;
+        }
+
+
+        /// <summary>
+        /// Verify a user password then change it with a new one
+        /// </summary>
+        /// <param name="userEmail">User who need to change his password</param>
+        /// <param name="newPassword">Iban of the user who need to be deleted</param>
+        /// <returns>true for success, false for an error</returns>
+        public bool ChangePassword(string userEmail, string newPassword)
+        {
+            MySqlCommand query = connection.CreateCommand();
+            query.CommandText = @"update USERS set password = (@newPassword)
+                                where email = (@userEmail);";
+
+            // Add parameters to query
+            query.Parameters.AddWithValue("@newPassword", newPassword);
+            query.Parameters.AddWithValue("@userEmail", userEmail);
+
+            // Execute the SQL command and check error
+            if (query.ExecuteNonQuery() != 1)
+            {
+                return false;
+            }
+
+            return true;
+        }
+
+
+        /// <summary>
+        /// Disable an account
+        /// </summary>
+        /// <param name="userEmail">User's email of the account who need to be disabled</param>
+        /// <returns>true for success, false for an error</returns>
+        public bool DisableAccount(string userEmail)
+        {
+            MySqlCommand query = connection.CreateCommand();
+            query.CommandText = @"update USERS set active = 0
+                                where email = (@userEmail);";
+
+            // Add parameters to query
+            query.Parameters.AddWithValue("@userEmail", userEmail);
+
+            // Execute the SQL command and check error
+            if (query.ExecuteNonQuery() != 1)
+            {
+                return false;
+            }
+            else
+            {
+                return false;
+            }
         }
 
         /*
