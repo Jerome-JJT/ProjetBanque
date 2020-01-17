@@ -326,7 +326,7 @@ namespace ProjetBanque
 
                             while (true)
                             {
-                                if(!reader.Read())
+                                if (!reader.Read())
                                 {
                                     endFlag = true;
                                     break;
@@ -341,49 +341,16 @@ namespace ProjetBanque
                                     break;
                                 }
                             }
-                            
-                            /*if (usersList.Users.Count > 0)
-                            {
-                                ((EnterpriseUser)user).Lists.Add(usersList);
-                                break;
-                            }*/
                         }
                         else
                         {
-                            reader.Read();
+                            if (!reader.Read())
+                            {
+                                endFlag = true;
+                            }
                         }
                         ((EnterpriseUser)user).Lists.Add(usersList);
                     }
-
-                    
-                    /*UsersList usersList;
-                    usersList = new UsersList("");
-
-                    //Add each transactions linked to the user
-                    
-                    {
-                        reader.
-                        if(usersList.Name != reader.GetString(0))
-                        {
-                            if(usersList.Name == "")
-                            {
-                                usersList = new UsersList(reader.GetString(0));
-                            }
-                            else
-                            {
-                                ((EnterpriseUser)user).Lists.Add(usersList);
-                                usersList = new UsersList(reader.GetString(0));
-                            }
-
-                            if(reader.GetString(1) != "" && reader.GetString(2) != "")
-                            {
-                                User newListUser = new User(reader.GetString(1), reader.GetString(2));
-                                usersList.Users.Add(newListUser);
-                            }
-                        }
-                    }
-
-                    ((EnterpriseUser)user).Lists.Add(usersList);*/
                 }
                 reader.Close();
             }
