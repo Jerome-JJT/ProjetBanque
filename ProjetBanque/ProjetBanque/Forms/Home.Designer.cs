@@ -41,6 +41,7 @@
             this.lblPayReason = new System.Windows.Forms.Label();
             this.cmdModifyList = new System.Windows.Forms.Button();
             this.grpPayement = new System.Windows.Forms.GroupBox();
+            this.lblListAmount = new System.Windows.Forms.Label();
             this.lblIbanFormat = new System.Windows.Forms.Label();
             this.updPayAmount = new System.Windows.Forms.NumericUpDown();
             this.lblEmailReceiver = new System.Windows.Forms.Label();
@@ -54,7 +55,6 @@
             this.datColAmount = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.datColReason = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.datColDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.lblListAmount = new System.Windows.Forms.Label();
             this.grpPayement.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.updPayAmount)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.datHistory)).BeginInit();
@@ -190,6 +190,14 @@
             this.grpPayement.TabStop = false;
             this.grpPayement.Text = "Payement";
             // 
+            // lblListAmount
+            // 
+            this.lblListAmount.AutoSize = true;
+            this.lblListAmount.Location = new System.Drawing.Point(12, 133);
+            this.lblListAmount.Name = "lblListAmount";
+            this.lblListAmount.Size = new System.Drawing.Size(0, 13);
+            this.lblListAmount.TabIndex = 19;
+            // 
             // lblIbanFormat
             // 
             this.lblIbanFormat.AutoSize = true;
@@ -261,7 +269,7 @@
             // cmdProfil
             // 
             this.cmdProfil.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.cmdProfil.Location = new System.Drawing.Point(712, 58);
+            this.cmdProfil.Location = new System.Drawing.Point(732, 62);
             this.cmdProfil.Name = "cmdProfil";
             this.cmdProfil.Size = new System.Drawing.Size(73, 23);
             this.cmdProfil.TabIndex = 1;
@@ -340,14 +348,6 @@
             this.datColDate.HeaderText = "Date";
             this.datColDate.Name = "datColDate";
             this.datColDate.Width = 110;
-            // 
-            // lblListAmount
-            // 
-            this.lblListAmount.AutoSize = true;
-            this.lblListAmount.Location = new System.Drawing.Point(12, 133);
-            this.lblListAmount.Name = "lblListAmount";
-            this.lblListAmount.Size = new System.Drawing.Size(0, 13);
-            this.lblListAmount.TabIndex = 19;
             // 
             // FrmHome
             // 
