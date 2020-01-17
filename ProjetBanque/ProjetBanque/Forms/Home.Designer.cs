@@ -269,7 +269,7 @@
             // cmdProfil
             // 
             this.cmdProfil.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.cmdProfil.Location = new System.Drawing.Point(732, 62);
+            this.cmdProfil.Location = new System.Drawing.Point(720, 62);
             this.cmdProfil.Name = "cmdProfil";
             this.cmdProfil.Size = new System.Drawing.Size(73, 23);
             this.cmdProfil.TabIndex = 1;

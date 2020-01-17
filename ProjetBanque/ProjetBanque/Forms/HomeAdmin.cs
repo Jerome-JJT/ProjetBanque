@@ -12,9 +12,30 @@ namespace ProjetBanque.Forms
 {
     public partial class frmHomeAdmin : Form
     {
-        public frmHomeAdmin()
+        private PublicUser userInformations;
+
+        public frmHomeAdmin(PublicUser userInfos, JsonData inheritStorage)
         {
             InitializeComponent();
+
+            userInformations = userInfos;
+        }
+
+        private void cmdExit_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+
+        private void cmdProfil_Click(object sender, EventArgs e)
+        {
+            frmProfil profilForm = new frmProfil(userInformations);
+
+            profilForm.ShowDialog();
+        }
+
+        private void cmdModifyPassword_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
