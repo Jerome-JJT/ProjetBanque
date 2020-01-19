@@ -80,6 +80,12 @@
     <Compile Include="Forms\HomeAdmin.Designer.cs">
       <DependentUpon>HomeAdmin.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\AdminPasswordChanger.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\AdminPasswordChanger.Designer.cs">
+      <DependentUpon>AdminPasswordChanger.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Profil.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -135,6 +141,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\ListManagement.resx">
       <DependentUpon>ListManagement.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\AdminPasswordChanger.resx">
+      <DependentUpon>AdminPasswordChanger.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Profil.resx">
       <DependentUpon>Profil.cs</DependentUpon>

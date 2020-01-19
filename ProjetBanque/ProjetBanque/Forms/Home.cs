@@ -258,7 +258,7 @@ namespace ProjetBanque
 
         private void cmdProfil_Click(object sender, EventArgs e)
         {
-            frmProfil profilForm = new frmProfil(userInformations);
+            FrmProfil profilForm = new FrmProfil(userInformations);
 
             profilForm.ShowDialog();
         }

@@ -1,6 +1,6 @@
 ﻿namespace ProjetBanque
 {
-    partial class FrmProfil
+    partial class FrmAdminPasswordChanger
     {
         /// <summary>
         /// Required designer variable.
@@ -28,30 +28,27 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.txtOldPassword = new System.Windows.Forms.TextBox();
+            this.txtUserEmail = new System.Windows.Forms.TextBox();
             this.txtNewPassword = new System.Windows.Forms.TextBox();
             this.txtNewPasswordVerify = new System.Windows.Forms.TextBox();
-            this.lblOldPassword = new System.Windows.Forms.Label();
+            this.lblUserEmail = new System.Windows.Forms.Label();
             this.lblNewPassword = new System.Windows.Forms.Label();
             this.lblNewPasswordVerify = new System.Windows.Forms.Label();
             this.cmdChangePassword = new System.Windows.Forms.Button();
-            this.lblDeleteAccount = new System.Windows.Forms.Label();
-            this.cmdDeleteAccount = new System.Windows.Forms.Button();
             this.lblTitle = new System.Windows.Forms.Label();
             this.lblError = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
-            // txtOldPassword
+            // txtUserEmail
             // 
-            this.txtOldPassword.Location = new System.Drawing.Point(53, 106);
-            this.txtOldPassword.Name = "txtOldPassword";
-            this.txtOldPassword.Size = new System.Drawing.Size(312, 20);
-            this.txtOldPassword.TabIndex = 0;
-            this.txtOldPassword.UseSystemPasswordChar = true;
+            this.txtUserEmail.Location = new System.Drawing.Point(53, 121);
+            this.txtUserEmail.Name = "txtUserEmail";
+            this.txtUserEmail.Size = new System.Drawing.Size(312, 20);
+            this.txtUserEmail.TabIndex = 0;
             // 
             // txtNewPassword
             // 
-            this.txtNewPassword.Location = new System.Drawing.Point(53, 152);
+            this.txtNewPassword.Location = new System.Drawing.Point(53, 167);
             this.txtNewPassword.Name = "txtNewPassword";
             this.txtNewPassword.Size = new System.Drawing.Size(312, 20);
             this.txtNewPassword.TabIndex = 1;
@@ -59,34 +56,34 @@
             // 
             // txtNewPasswordVerify
             // 
-            this.txtNewPasswordVerify.Location = new System.Drawing.Point(53, 198);
+            this.txtNewPasswordVerify.Location = new System.Drawing.Point(53, 213);
             this.txtNewPasswordVerify.Name = "txtNewPasswordVerify";
             this.txtNewPasswordVerify.Size = new System.Drawing.Size(312, 20);
             this.txtNewPasswordVerify.TabIndex = 4;
             this.txtNewPasswordVerify.UseSystemPasswordChar = true;
             // 
-            // lblOldPassword
+            // lblUserEmail
             // 
-            this.lblOldPassword.AutoSize = true;
-            this.lblOldPassword.Location = new System.Drawing.Point(53, 87);
-            this.lblOldPassword.Name = "lblOldPassword";
-            this.lblOldPassword.Size = new System.Drawing.Size(133, 13);
-            this.lblOldPassword.TabIndex = 5;
-            this.lblOldPassword.Text = "Votre ancien mot de passe";
+            this.lblUserEmail.AutoSize = true;
+            this.lblUserEmail.Location = new System.Drawing.Point(53, 102);
+            this.lblUserEmail.Name = "lblUserEmail";
+            this.lblUserEmail.Size = new System.Drawing.Size(243, 13);
+            this.lblUserEmail.TabIndex = 5;
+            this.lblUserEmail.Text = "Email de l\'utilisateur à qui changer le mot de passe";
             // 
             // lblNewPassword
             // 
             this.lblNewPassword.AutoSize = true;
-            this.lblNewPassword.Location = new System.Drawing.Point(53, 136);
+            this.lblNewPassword.Location = new System.Drawing.Point(53, 151);
             this.lblNewPassword.Name = "lblNewPassword";
-            this.lblNewPassword.Size = new System.Drawing.Size(143, 13);
+            this.lblNewPassword.Size = new System.Drawing.Size(117, 13);
             this.lblNewPassword.TabIndex = 6;
-            this.lblNewPassword.Text = "Votre nouveau mot de passe";
+            this.lblNewPassword.Text = "Nouveau mot de passe";
             // 
             // lblNewPasswordVerify
             // 
             this.lblNewPasswordVerify.AutoSize = true;
-            this.lblNewPasswordVerify.Location = new System.Drawing.Point(53, 182);
+            this.lblNewPasswordVerify.Location = new System.Drawing.Point(53, 197);
             this.lblNewPasswordVerify.Name = "lblNewPasswordVerify";
             this.lblNewPasswordVerify.Size = new System.Drawing.Size(185, 13);
             this.lblNewPasswordVerify.TabIndex = 7;
@@ -94,70 +91,49 @@
             // 
             // cmdChangePassword
             // 
-            this.cmdChangePassword.Location = new System.Drawing.Point(53, 257);
+            this.cmdChangePassword.Location = new System.Drawing.Point(53, 272);
             this.cmdChangePassword.Name = "cmdChangePassword";
             this.cmdChangePassword.Size = new System.Drawing.Size(312, 23);
             this.cmdChangePassword.TabIndex = 9;
-            this.cmdChangePassword.Text = "Modifier mon mot de passe";
+            this.cmdChangePassword.Text = "Modifier le mot de passe";
             this.cmdChangePassword.UseVisualStyleBackColor = true;
             this.cmdChangePassword.Click += new System.EventHandler(this.cmdChangePassword_Click);
             // 
-            // lblDeleteAccount
-            // 
-            this.lblDeleteAccount.AutoSize = true;
-            this.lblDeleteAccount.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDeleteAccount.Location = new System.Drawing.Point(88, 337);
-            this.lblDeleteAccount.Name = "lblDeleteAccount";
-            this.lblDeleteAccount.Size = new System.Drawing.Size(241, 26);
-            this.lblDeleteAccount.TabIndex = 10;
-            this.lblDeleteAccount.Text = "Suppression du compte";
-            // 
-            // cmdDeleteAccount
-            // 
-            this.cmdDeleteAccount.Location = new System.Drawing.Point(53, 382);
-            this.cmdDeleteAccount.Name = "cmdDeleteAccount";
-            this.cmdDeleteAccount.Size = new System.Drawing.Size(312, 23);
-            this.cmdDeleteAccount.TabIndex = 12;
-            this.cmdDeleteAccount.Text = "Supprimer mon compte";
-            this.cmdDeleteAccount.UseVisualStyleBackColor = true;
-            this.cmdDeleteAccount.Click += new System.EventHandler(this.cmdDeleteAccount_Click);
-            // 
             // lblTitle
             // 
-            this.lblTitle.AutoSize = true;
             this.lblTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTitle.Location = new System.Drawing.Point(61, 32);
+            this.lblTitle.Location = new System.Drawing.Point(69, 30);
             this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(295, 26);
+            this.lblTitle.Size = new System.Drawing.Size(274, 55);
             this.lblTitle.TabIndex = 13;
-            this.lblTitle.Text = "Modification du mot de passe";
+            this.lblTitle.Text = "Modifier le mot de passe d\'un utilisateur";
+            this.lblTitle.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // lblError
             // 
             this.lblError.AutoSize = true;
-            this.lblError.Location = new System.Drawing.Point(53, 221);
+            this.lblError.Location = new System.Drawing.Point(53, 236);
             this.lblError.Name = "lblError";
-            this.lblError.Size = new System.Drawing.Size(0, 13);
+            this.lblError.Size = new System.Drawing.Size(58, 13);
             this.lblError.TabIndex = 14;
+            this.lblError.Text = "                 ";
             // 
-            // FrmProfil
+            // FrmAdminPasswordChanger
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(430, 450);
+            this.ClientSize = new System.Drawing.Size(430, 345);
             this.Controls.Add(this.lblError);
             this.Controls.Add(this.lblTitle);
-            this.Controls.Add(this.cmdDeleteAccount);
-            this.Controls.Add(this.lblDeleteAccount);
             this.Controls.Add(this.cmdChangePassword);
             this.Controls.Add(this.lblNewPasswordVerify);
             this.Controls.Add(this.lblNewPassword);
-            this.Controls.Add(this.lblOldPassword);
+            this.Controls.Add(this.lblUserEmail);
             this.Controls.Add(this.txtNewPasswordVerify);
             this.Controls.Add(this.txtNewPassword);
-            this.Controls.Add(this.txtOldPassword);
+            this.Controls.Add(this.txtUserEmail);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "FrmProfil";
+            this.Name = "FrmAdminPasswordChanger";
             this.Text = "Profil";
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -166,15 +142,13 @@
 
         #endregion
 
-        private System.Windows.Forms.TextBox txtOldPassword;
+        private System.Windows.Forms.TextBox txtUserEmail;
         private System.Windows.Forms.TextBox txtNewPassword;
         private System.Windows.Forms.TextBox txtNewPasswordVerify;
-        private System.Windows.Forms.Label lblOldPassword;
+        private System.Windows.Forms.Label lblUserEmail;
         private System.Windows.Forms.Label lblNewPassword;
         private System.Windows.Forms.Label lblNewPasswordVerify;
         private System.Windows.Forms.Button cmdChangePassword;
-        private System.Windows.Forms.Label lblDeleteAccount;
-        private System.Windows.Forms.Button cmdDeleteAccount;
         private System.Windows.Forms.Label lblTitle;
         private System.Windows.Forms.Label lblError;
     }

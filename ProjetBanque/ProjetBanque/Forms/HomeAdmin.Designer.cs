@@ -168,7 +168,7 @@
             // cmdModifyPassword
             // 
             this.cmdModifyPassword.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.cmdModifyPassword.Location = new System.Drawing.Point(615, 90);
+            this.cmdModifyPassword.Location = new System.Drawing.Point(633, 93);
             this.cmdModifyPassword.Name = "cmdModifyPassword";
             this.cmdModifyPassword.Size = new System.Drawing.Size(114, 39);
             this.cmdModifyPassword.TabIndex = 25;

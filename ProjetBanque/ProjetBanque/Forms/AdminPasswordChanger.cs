@@ -10,11 +10,11 @@ using System.Windows.Forms;
 
 namespace ProjetBanque
 {
-    public partial class FrmProfil : Form
+    public partial class FrmAdminPasswordChanger : Form
     {
         User userInfos;
 
-        public FrmProfil(User userInformations)
+        public FrmAdminPasswordChanger(User userInformations)
         {
             InitializeComponent();
 
@@ -46,7 +46,7 @@ namespace ProjetBanque
 
             lblError.Text = "";
 
-            txtOldPassword.BackColor = Color.FromArgb(255, 255, 255);
+            txtUserEmail.BackColor = Color.FromArgb(255, 255, 255);
             txtNewPassword.BackColor = Color.FromArgb(255, 255, 255);
             txtNewPasswordVerify.BackColor = Color.FromArgb(255, 255, 255);
 
@@ -64,9 +64,9 @@ namespace ProjetBanque
                 flag++;
 
             }
-            if (txtOldPassword.Text.Trim() == "")
+            if (txtUserEmail.Text.Trim() == "")
             {
-                txtOldPassword.BackColor = Color.FromArgb(255, 128, 128);
+                txtUserEmail.BackColor = Color.FromArgb(255, 128, 128);
                 lblError.Text = "Champ(s) incomplet(s)";
                 flag++;
             }
@@ -85,7 +85,7 @@ namespace ProjetBanque
             if (flag == 0)
             {
                 lblError.Text = "";
-                txtOldPassword.BackColor = Color.FromArgb(255, 255, 255);
+                txtUserEmail.BackColor = Color.FromArgb(255, 255, 255);
                 txtNewPassword.BackColor = Color.FromArgb(255, 255, 255);
 
                 try
@@ -93,7 +93,7 @@ namespace ProjetBanque
                     DatabaseManagement database = new DatabaseManagement();
                     database.OpenConnection();
 
-                    bool allowConnection = database.VerifyUser(userInfos.Email, txtOldPassword.Text.Trim());
+                    bool allowConnection = database.VerifyUser(userInfos.Email, txtUserEmail.Text.Trim());
 
                     database.CloseConnection();
 
@@ -108,7 +108,7 @@ namespace ProjetBanque
 
 
                         lblError.Text = "Votre mot de passe a été changé";
-                        txtOldPassword.Text = "";
+                        txtUserEmail.Text = "";
                         txtNewPassword.Text = "";
                         txtNewPasswordVerify.Text = "";
                     }
@@ -116,13 +116,13 @@ namespace ProjetBanque
                     {
                         //User and password doesn't match case
                         lblError.Text = "Login incorrect";
-                        txtOldPassword.BackColor = Color.FromArgb(255, 128, 128);
+                        txtUserEmail.BackColor = Color.FromArgb(255, 128, 128);
                     }
                 }
                 catch (UnableToJoinDatabase)
                 {
                     lblError.Text = "La base de données est injoignable";
-                    txtOldPassword.BackColor = Color.FromArgb(255, 128, 128);
+                    txtUserEmail.BackColor = Color.FromArgb(255, 128, 128);
                 }
             }
         }
