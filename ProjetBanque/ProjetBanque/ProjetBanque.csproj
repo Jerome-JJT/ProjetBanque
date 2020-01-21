@@ -70,11 +70,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Bank class\AdminUser.cs" />
+    <Compile Include="Bank class\UserTypes\AdminUser.cs" />
     <Compile Include="Bank class\BankException.cs" />
-    <Compile Include="Bank class\EnterpriseUser.cs" />
-    <Compile Include="Bank class\PublicUser.cs" />
+    <Compile Include="Bank class\UserTypes\EnterpriseUser.cs" />
+    <Compile Include="Bank class\UserTypes\PublicUser.cs" />
     <Compile Include="Bank class\UsersList.cs" />
+    <Compile Include="Bank class\UserTypes\BankUser.cs" />
     <Compile Include="Forms\HomeAdmin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -95,7 +96,7 @@
     </Compile>
     <Compile Include="Storage class\JsonData.cs" />
     <Compile Include="Bank class\Transaction.cs" />
-    <Compile Include="Bank class\User.cs" />
+    <Compile Include="Bank class\UserTypes\User.cs" />
     <Compile Include="Forms\Home.cs">
       <SubType>Form</SubType>
     </Compile>

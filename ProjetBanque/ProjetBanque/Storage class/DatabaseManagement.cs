@@ -231,6 +231,7 @@ namespace ProjetBanque
         /// <returns>Return user's informations</returns>
         public User GetUser(string email)
         {
+            #region Account type management
             // Create a command object
             MySqlCommand query = connection.CreateCommand();
             query.CommandText = "select iban, type+0 as type, email, money from USERS where email = (@email)";
@@ -240,40 +241,50 @@ namespace ProjetBanque
 
             //Get user's money from the database
             DbDataReader reader = query.ExecuteReader();
-
             reader.Read();
+
             User user;
-            
             if ((User.AccountType)reader.GetInt32(1) == User.AccountType.Enterprise)
             {
                 user = new EnterpriseUser(reader.GetString(0), reader.GetString(2), reader.GetDouble(3));
             }
-            //else if ((User.AccountType)reader.GetInt32(1) == User.AccountType.Public)
+            else if ((User.AccountType)reader.GetInt32(1) == User.AccountType.Admin)
+            {
+                user = new AdminUser(reader.GetString(0), reader.GetString(2));
+            }
             else
             {
                 user = new PublicUser(reader.GetString(0), reader.GetString(2), reader.GetDouble(3));
             }
-            /*else if ((User.AccountType)reader.GetInt32(1) == User.AccountType.Admin)
-            {
-                new AdminUser(reader.GetString(0), reader.GetString(2), reader.GetDouble(3));
-            }*/
 
             reader.Close();
+            #endregion
 
 
-
+            #region Transactions management
             // Create a command object
             query = connection.CreateCommand();
-            query.CommandText = @"select TRANSACTIONS.date, TRANSACTIONS.amount, TRANSACTIONS.reason, 
-                                USER_RECEIVER.email, USER_RECEIVER.iban, USER_SENDER.email, USER_SENDER.iban from TRANSACTIONS
-                                left join USERS as USER_RECEIVER on USER_RECEIVER.id = TRANSACTIONS.idReceiver
-                                left join USERS as USER_SENDER on USER_SENDER.id = TRANSACTIONS.idSender
-                                where USER_RECEIVER.email = (@concerned1) OR USER_SENDER.email  = (@concerned2)
-                                order by TRANSACTIONS.date desc";
+            if ((User.AccountType)reader.GetInt32(1) == User.AccountType.Admin)
+            {
+                query.CommandText = @"select TRANSACTIONS.date, TRANSACTIONS.amount, TRANSACTIONS.reason, 
+                                    USER_RECEIVER.email, USER_RECEIVER.iban, USER_SENDER.email, USER_SENDER.iban from TRANSACTIONS
+                                    left join USERS as USER_RECEIVER on USER_RECEIVER.id = TRANSACTIONS.idReceiver
+                                    left join USERS as USER_SENDER on USER_SENDER.id = TRANSACTIONS.idSender
+                                    order by TRANSACTIONS.date desc";
+            }
+            else
+            {
+                query.CommandText = @"select TRANSACTIONS.date, TRANSACTIONS.amount, TRANSACTIONS.reason, 
+                                    USER_RECEIVER.email, USER_RECEIVER.iban, USER_SENDER.email, USER_SENDER.iban from TRANSACTIONS
+                                    left join USERS as USER_RECEIVER on USER_RECEIVER.id = TRANSACTIONS.idReceiver
+                                    left join USERS as USER_SENDER on USER_SENDER.id = TRANSACTIONS.idSender
+                                    where USER_RECEIVER.email = (@concerned1) OR USER_SENDER.email  = (@concerned2)
+                                    order by TRANSACTIONS.date desc";
 
-            //Add parameters to query
-            query.Parameters.AddWithValue("@concerned1", email);
-            query.Parameters.AddWithValue("@concerned2", email);
+                //Add parameters to query
+                query.Parameters.AddWithValue("@concerned1", email);
+                query.Parameters.AddWithValue("@concerned2", email);
+            }
 
             //Get user's money from the database
             reader = query.ExecuteReader();
@@ -295,23 +306,35 @@ namespace ProjetBanque
                 }
             }
             reader.Close();
+            #endregion
 
 
-            if(user.GetType() == typeof(EnterpriseUser))
+            #region Lists management
+            if(user.GetType() == typeof(EnterpriseUser) || user.GetType() == typeof(AdminUser))
             {
                 // Create a command object
                 query = connection.CreateCommand();
-                query.CommandText = @"select lists.name, COALESCE(USER_INSIDE.iban,''), COALESCE(USER_INSIDE.email,'') from lists
-                                    left join users_lists on users_lists.idList = lists.id
-                                    left join users as LIST_OWNER on lists.idUser = LIST_OWNER.id
-                                    left join users as USER_INSIDE on users_lists.idUser = USER_INSIDE.id
-                                    where LIST_OWNER.email = (@owner)
-                                    order by lists.name asc";
+                if ((User.AccountType)reader.GetInt32(1) == User.AccountType.Admin)
+                {
+                    query.CommandText = @"select lists.name, COALESCE(USER_INSIDE.iban,''), COALESCE(USER_INSIDE.email,'') from lists
+                                        left join users_lists on users_lists.idList = lists.id
+                                        left join users as LIST_OWNER on lists.idUser = LIST_OWNER.id
+                                        left join users as USER_INSIDE on users_lists.idUser = USER_INSIDE.id
+                                        order by lists.name asc";
+                }
+                else
+                {
+                    query.CommandText = @"select lists.name, COALESCE(USER_INSIDE.iban,''), COALESCE(USER_INSIDE.email,'') from lists
+                                        left join users_lists on users_lists.idList = lists.id
+                                        left join users as LIST_OWNER on lists.idUser = LIST_OWNER.id
+                                        left join users as USER_INSIDE on users_lists.idUser = USER_INSIDE.id
+                                        where LIST_OWNER.email = (@owner)
+                                        order by lists.name asc";
 
-
-                //Add parameters to query
-                query.Parameters.AddWithValue("@owner", email);
-
+                    //Add parameters to query
+                    query.Parameters.AddWithValue("@owner", email);
+                }
+         
                 //Get user's money from the database
                 reader = query.ExecuteReader();
 
@@ -358,6 +381,7 @@ namespace ProjetBanque
                 }
                 reader.Close();
             }
+            #endregion
 
             return user;
         }
