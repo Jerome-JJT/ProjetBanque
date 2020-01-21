@@ -99,10 +99,19 @@ namespace ProjetBanque
                     database.CloseConnection();
 
                     Visible = false;
-                    FrmHome homeForm = new FrmHome(loggedUserInfos, jsonStorage);
 
-                    homeForm.ShowDialog();
-
+                    Form homeForm;
+                    if (loggedUserInfos.GetType() == typeof(AdminUser))
+                    {
+                        homeForm = new FrmHomeAdmin((AdminUser)loggedUserInfos, jsonStorage);
+                        homeForm.ShowDialog();
+                    }
+                    else
+                    {
+                        homeForm = new FrmHome(loggedUserInfos, jsonStorage);
+                        homeForm.ShowDialog();
+                    }
+                    
                     jsonStorage.HomeWindowLocation = homeForm.Location;
                     jsonStorage.HomeWindowSize = homeForm.Size;
                     jsonFile.InsertData(jsonStorage);
