@@ -65,7 +65,7 @@ namespace ProjetBanque
             }
             catch (ListAlreadyExists)
             {
-                MessageBox.Show("Liste deja existante a quelque part");
+                MessageBox.Show("Ce nom de liste existe déjà");
             }
             
             displayEnterpriseLists();
@@ -101,7 +101,7 @@ namespace ProjetBanque
                 }
                 else
                 {
-                    MessageBox.Show("Cette utilisateur est deja dans cette liste");
+                    MessageBox.Show("Cet utilisateur est déjà dans cette liste");
                 }
             }                            
 
