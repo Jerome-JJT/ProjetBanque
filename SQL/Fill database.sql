@@ -5,7 +5,7 @@ INSERT INTO `users` (`id`, `iban`, `active`, `type`, `email`, `password`, `money
 	(2, 'CH22 222', 1, 'Public', 'projet@banque', '$BANQUEHASH$V1$10000$v5cWt1aGdwMhNBtU32ybtKXQVDCGlRbGiPcj8RknUqP7fqc8', 10000.5),
 	(3, 'CH33 333', 1, 'Enterprise', 'projet@test', '$BANQUEHASH$V1$10000$IfJVKdPhyaPBOGzWPfUs+mnARXECvOsip5IGFHyK4kLBAJHg', 10000.5),
 	(4, 'CH44 444', 1, 'Enterprise', 'projet@enterprise', '$BANQUEHASH$V1$10000$TFR3t+YhM0HJGTBppCb9HUiquuOo0qt+QQ/XdbpFPruuImvE', 10000.5),
-	(5, 'CH55 555', 1, 'Admin', 'projet@admin', '$BANQUEHASH$V1$10000$TFR3t+YhM0HJGTBppCb9HUiquuOo0qt+QQ/XdbpFPruuImvE', 10000.5);
+	(5, 'CH55 555', 1, 'Admin', 'projet@admin', '$BANQUEHASH$V1$10000$TFR3t+YhM0HJGTBppCb9HUiquuOo0qt+QQ/XdbpFPruuImvE', 0);
 	
 	
 INSERT INTO `transactions` (`id`, `date`, `amount`, `reason`, `idReceiver`, `idSender`) VALUES
