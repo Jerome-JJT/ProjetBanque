@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace ProjetBanque
 {
     /// <summary>
-    /// Store enterprise user's informations, transactions and payment lists to display them
+    /// Enterprise user can have payment lists and can display them
     /// </summary>
     public class EnterpriseUser : PublicUser
     {

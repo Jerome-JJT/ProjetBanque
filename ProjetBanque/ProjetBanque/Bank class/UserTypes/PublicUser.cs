@@ -7,19 +7,14 @@ using System.Threading.Tasks;
 namespace ProjetBanque
 {
     /// <summary>
-    /// Store user's primary informations, money and transactions to display them
+    /// Public user can have transactions and can display them
     /// </summary>
-    public class PublicUser : User
+    public class PublicUser : BankUser
     {
         /// <summary>
         /// .
         /// </summary>
-        protected double money;
-
-        /// <summary>
-        /// .
-        /// </summary>
-        protected List<Transaction> transactions = new List<Transaction>();
+        protected List<Transaction> transactions;
 
         /// <summary>
         /// Create a displayable public user
@@ -27,20 +22,9 @@ namespace ProjetBanque
         /// <param name="iban">User's IBAN</param>
         /// <param name="email">User's email</param>
         /// <param name="money">User's money amount</param>
-        public PublicUser(string iban, string email, double money) : base(iban, email)
+        public PublicUser(string iban, string email, double money) : base(iban, email, money)
         {
-            this.iban = iban;
-            this.email = email;
-            this.money = money;
-        }
-
-        /// <summary>
-        /// USer's money
-        /// </summary>
-        public double Money
-        {
-            get { return money; }
-            set { money = value; }
+            transactions = new List<Transaction>();
         }
 
         /// <summary>
