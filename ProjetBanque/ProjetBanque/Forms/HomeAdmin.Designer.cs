@@ -39,7 +39,7 @@
             this.cmdProfil = new System.Windows.Forms.Button();
             this.cmdExit = new System.Windows.Forms.Button();
             this.lblEmail = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtSearchUserIban = new System.Windows.Forms.TextBox();
             this.lblSearchUser = new System.Windows.Forms.Label();
             this.cmdModifyPassword = new System.Windows.Forms.Button();
             this.tabDisplay = new System.Windows.Forms.TabControl();
@@ -48,6 +48,8 @@
             this.datAllUsers = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Iban = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colMonney = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cmdModifyMonney = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.datHistory)).BeginInit();
             this.tabDisplay.SuspendLayout();
             this.tabUsersHistory.SuspendLayout();
@@ -149,12 +151,12 @@
             this.lblEmail.TabIndex = 15;
             this.lblEmail.Text = "lblEmail";
             // 
-            // textBox1
+            // txtSearchUserIban
             // 
-            this.textBox1.Location = new System.Drawing.Point(12, 45);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(562, 20);
-            this.textBox1.TabIndex = 23;
+            this.txtSearchUserIban.Location = new System.Drawing.Point(12, 45);
+            this.txtSearchUserIban.Name = "txtSearchUserIban";
+            this.txtSearchUserIban.Size = new System.Drawing.Size(562, 20);
+            this.txtSearchUserIban.TabIndex = 23;
             // 
             // lblSearchUser
             // 
@@ -217,7 +219,8 @@
             this.datAllUsers.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.datAllUsers.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn1,
-            this.Iban});
+            this.Iban,
+            this.colMonney});
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -245,13 +248,29 @@
             this.Iban.HeaderText = "Iban";
             this.Iban.Name = "Iban";
             // 
+            // colMonney
+            // 
+            this.colMonney.HeaderText = "Argent";
+            this.colMonney.Name = "colMonney";
+            // 
+            // cmdModifyMonney
+            // 
+            this.cmdModifyMonney.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.cmdModifyMonney.Location = new System.Drawing.Point(633, 161);
+            this.cmdModifyMonney.Name = "cmdModifyMonney";
+            this.cmdModifyMonney.Size = new System.Drawing.Size(114, 39);
+            this.cmdModifyMonney.TabIndex = 27;
+            this.cmdModifyMonney.Text = "Modifier argent utilisateur";
+            this.cmdModifyMonney.UseVisualStyleBackColor = true;
+            // 
             // frmHomeAdmin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(811, 573);
+            this.Controls.Add(this.cmdModifyMonney);
             this.Controls.Add(this.tabDisplay);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txtSearchUserIban);
             this.Controls.Add(this.lblSearchUser);
             this.Controls.Add(this.cmdModifyPassword);
             this.Controls.Add(this.cmdProfil);
@@ -280,7 +299,7 @@
         private System.Windows.Forms.Button cmdProfil;
         private System.Windows.Forms.Button cmdExit;
         private System.Windows.Forms.Label lblEmail;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtSearchUserIban;
         private System.Windows.Forms.Label lblSearchUser;
         private System.Windows.Forms.Button cmdModifyPassword;
         private System.Windows.Forms.TabControl tabDisplay;
@@ -289,5 +308,7 @@
         private System.Windows.Forms.DataGridView datAllUsers;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Iban;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colMonney;
+        private System.Windows.Forms.Button cmdModifyMonney;
     }
 }

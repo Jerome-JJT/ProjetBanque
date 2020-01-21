@@ -12,18 +12,54 @@ namespace ProjetBanque.Forms
 {
     public partial class frmHomeAdmin : Form
     {
-        private PublicUser userInformations;
+        private AdminUser userInformations;
 
-        public frmHomeAdmin(PublicUser userInfos, JsonData inheritStorage)
+        public frmHomeAdmin(AdminUser userInfos, JsonData inheritStorage)
         {
             InitializeComponent();
 
             userInformations = userInfos;
+            updateInfos();
         }
 
         private void cmdExit_Click(object sender, EventArgs e)
         {
             Close();
+        }
+
+        private void updateInfos()
+        {
+            lblEmail.Text = userInformations.Email;
+
+            datHistory.Rows.Clear();
+
+            if(txtSearchUserIban.Text.Trim() != "")
+            {
+                foreach (User user in userInformations.Users)
+                {
+                    foreach (Transaction transaction in user.Transaction)
+                    {
+                        string[] row = { transaction.SenderDefine + " \n" + transaction.SenderIban, transaction.ReceiverDefine + " \n" + transaction.ReceiverIban, $"{transaction.Amount.ToString("0.00")} CHF", transaction.Reason, transaction.Date };
+                        datHistory.Rows.Add(row);
+                    }                    
+                }
+            }
+            else
+            {
+                DatabaseManagement database = new DatabaseManagement();
+                database.OpenConnection();
+
+                EnterpriseUser UserWanted = SearchUser(txtSearchUserIban.Text.Trim());
+
+                database.CloseConnection();
+
+                foreach (Transaction user in UserWanted.Users)
+                {
+                    string[] row = { user.Define + " \n" + user.Iban, $"{user.Amount.ToString("0.00")} CHF"};
+                    datHistory.Rows.Add(row);
+                }
+            }
+            
         }
 
         private void cmdProfil_Click(object sender, EventArgs e)
@@ -35,6 +71,9 @@ namespace ProjetBanque.Forms
 
         private void cmdModifyPassword_Click(object sender, EventArgs e)
         {
+            FrmAdminPasswordChanger form = new FrmAdminPasswordChanger(userInformations);
+
+            form.ShowDialog();
 
         }
     }

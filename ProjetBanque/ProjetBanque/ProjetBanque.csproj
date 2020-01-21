@@ -76,6 +76,12 @@
     <Compile Include="Bank class\UserTypes\PublicUser.cs" />
     <Compile Include="Bank class\UsersList.cs" />
     <Compile Include="Bank class\UserTypes\BankUser.cs" />
+    <Compile Include="Forms\AdminMoneyChanger.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\AdminMoneyChanger.Designer.cs">
+      <DependentUpon>AdminMoneyChanger.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\HomeAdmin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -132,6 +138,9 @@
     <Compile Include="Forms\ConfirmRegister.Designer.cs">
       <DependentUpon>ConfirmRegister.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Forms\AdminMoneyChanger.resx">
+      <DependentUpon>AdminMoneyChanger.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Home.resx">
       <DependentUpon>Home.cs</DependentUpon>
     </EmbeddedResource>
