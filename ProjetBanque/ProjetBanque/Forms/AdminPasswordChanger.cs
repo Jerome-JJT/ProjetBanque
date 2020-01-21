@@ -10,13 +10,17 @@ using System.Windows.Forms;
 
 namespace ProjetBanque
 {
+    /// <summary>
+    /// Admin password changer form's class
+    /// </summary>
     public partial class FrmAdminPasswordChanger : Form
     {
         User userInfos;
+
         /// <summary>
-        /// AdminPasswordChanger form's class
+        /// Admin password changer form constructor
         /// </summary>
-        /// <param name="userInformations"></param>
+        /// <param name="userInformations">Inherit user informations to display from parent form</param>
         public FrmAdminPasswordChanger(User userInformations)
         {
             InitializeComponent();

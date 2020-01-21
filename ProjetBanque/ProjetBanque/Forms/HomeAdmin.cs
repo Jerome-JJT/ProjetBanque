@@ -10,10 +10,18 @@ using System.Windows.Forms;
 
 namespace ProjetBanque
 {
+    /// <summary>
+    /// Admin home form's class
+    /// </summary>
     public partial class FrmHomeAdmin : Form
     {
         private AdminUser userInformations;
 
+        /// <summary>
+        /// Admin home form constructor
+        /// </summary>
+        /// <param name="userInfos">Inherit user informations to display from parent form</param>
+        /// <param name="inheritStorage">Inherit json informations to use from parent form</param>
         public FrmHomeAdmin(AdminUser userInfos, JsonData inheritStorage)
         {
             InitializeComponent();
