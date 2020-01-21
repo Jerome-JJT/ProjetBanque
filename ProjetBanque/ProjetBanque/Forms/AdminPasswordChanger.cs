@@ -13,31 +13,15 @@ namespace ProjetBanque
     public partial class FrmAdminPasswordChanger : Form
     {
         User userInfos;
-
+        /// <summary>
+        /// AdminPasswordChanger form's class
+        /// </summary>
+        /// <param name="userInformations"></param>
         public FrmAdminPasswordChanger(User userInformations)
         {
             InitializeComponent();
 
             userInfos = userInformations;
-        }
-
-        private void cmdDeleteAccount_Click(object sender, EventArgs e)
-        {
-            DialogResult dialogResult = MessageBox.Show("Êtes-vous sûr de vouloir effacer votre compte ?\nVotre argent ne sera plus accessible.", 
-                "Effacer votre compte", MessageBoxButtons.YesNo);
-
-            if (dialogResult == DialogResult.Yes)
-            {
-                DatabaseManagement database = new DatabaseManagement();
-                database.OpenConnection();
-
-                database.DisableAccount(userInfos.Email);
-
-                database.CloseConnection();
-
-                MessageBox.Show("Au revoir", "Merci");
-                Application.Exit();
-            }
         }
 
         private void cmdChangePassword_Click(object sender, EventArgs e)

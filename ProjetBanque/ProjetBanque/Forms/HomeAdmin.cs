@@ -32,34 +32,34 @@ namespace ProjetBanque.Forms
             lblEmail.Text = userInformations.Email;
 
             datHistory.Rows.Clear();
+            datAllUsers.Rows.Clear();
 
-            if(txtSearchUserIban.Text.Trim() != "")
+            if (txtSearchUserIban.Text.Trim() != "")
             {
-                foreach (User user in userInformations.Users)
+                foreach (Transaction transaction in userInformations.Transactions)
                 {
-                    foreach (Transaction transaction in user.Transaction)
-                    {
-                        string[] row = { transaction.SenderDefine + " \n" + transaction.SenderIban, transaction.ReceiverDefine + " \n" + transaction.ReceiverIban, $"{transaction.Amount.ToString("0.00")} CHF", transaction.Reason, transaction.Date };
-                        datHistory.Rows.Add(row);
-                    }                    
+                    string[] row = { transaction.SenderDefine + " \n" + transaction.SenderIban, transaction.ReceiverDefine + " \n" + transaction.ReceiverIban, $"{transaction.Amount.ToString("0.00")} CHF", transaction.Reason, transaction.Date };
+                    datHistory.Rows.Add(row);
+                }
+                foreach (BankUser user in userInformations.Users)
+                {
+                    string[] row = { user.Email + " \n" + user.Iban, $"{user.Money.ToString("0.00")} CHF" };
+                    datAllUsers.Rows.Add(row);
                 }
             }
             else
             {
-                DatabaseManagement database = new DatabaseManagement();
-                database.OpenConnection();
-
-                EnterpriseUser UserWanted = SearchUser(txtSearchUserIban.Text.Trim());
-
-                database.CloseConnection();
-
-                foreach (Transaction user in UserWanted.Users)
+                foreach (Transaction transaction in userInformations.Transactions)
                 {
-                    string[] row = { user.Define + " \n" + user.Iban, $"{user.Amount.ToString("0.00")} CHF"};
+                    string[] row = { transaction.SenderDefine + " \n" + transaction.SenderIban, transaction.ReceiverDefine + " \n" + transaction.ReceiverIban, $"{transaction.Amount.ToString("0.00")} CHF", transaction.Reason, transaction.Date };
                     datHistory.Rows.Add(row);
                 }
-            }
-            
+                foreach (BankUser user in userInformations.Users)
+                {
+                    string[] row = { user.Email + " \n" + user.Iban, $"{user.Money.ToString("0.00")} CHF"};
+                    datAllUsers.Rows.Add(row);
+                }
+            }            
         }
 
         private void cmdProfil_Click(object sender, EventArgs e)
