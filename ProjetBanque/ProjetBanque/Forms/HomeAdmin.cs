@@ -34,7 +34,7 @@ namespace ProjetBanque
             datHistory.Rows.Clear();
             datAllUsers.Rows.Clear();
 
-            if (txtSearchUserIban.Text.Trim() != "")
+            if (txtSearch.Text.Trim() == "")
             {
                 foreach (Transaction transaction in userInformations.Transactions)
                 {
@@ -43,7 +43,7 @@ namespace ProjetBanque
                 }
                 foreach (BankUser user in userInformations.Users)
                 {
-                    string[] row = { user.Email + " \n" + user.Iban, $"{user.Money.ToString("0.00")} CHF" };
+                    string[] row = { user.Email, user.Iban, $"{user.Money.ToString("0.00")} CHF" };
                     datAllUsers.Rows.Add(row);
                 }
             }
@@ -51,13 +51,19 @@ namespace ProjetBanque
             {
                 foreach (Transaction transaction in userInformations.Transactions)
                 {
-                    string[] row = { transaction.SenderDefine + " \n" + transaction.SenderIban, transaction.ReceiverDefine + " \n" + transaction.ReceiverIban, $"{transaction.Amount.ToString("0.00")} CHF", transaction.Reason, transaction.Date };
-                    datHistory.Rows.Add(row);
+                    if(transaction.SenderDefine.Contains(txtSearch.Text.Trim()) || transaction.ReceiverDefine.Contains(txtSearch.Text.Trim()))
+                    {
+                        string[] row = { transaction.SenderDefine + " \n" + transaction.SenderIban, transaction.ReceiverDefine + " \n" + transaction.ReceiverIban, $"{transaction.Amount.ToString("0.00")} CHF", transaction.Reason, transaction.Date };
+                        datHistory.Rows.Add(row);
+                    }                    
                 }
                 foreach (BankUser user in userInformations.Users)
                 {
-                    string[] row = { user.Email + " \n" + user.Iban, $"{user.Money.ToString("0.00")} CHF"};
-                    datAllUsers.Rows.Add(row);
+                    if (user.Email.Contains(txtSearch.Text.Trim()))
+                    {
+                        string[] row = { user.Email, user.Iban, $"{user.Money.ToString("0.00")} CHF" };
+                        datAllUsers.Rows.Add(row);
+                    }                         
                 }
             }            
         }
@@ -75,6 +81,11 @@ namespace ProjetBanque
 
             form.ShowDialog();
 
+        }
+
+        private void txtSearch_TextChanged(object sender, EventArgs e)
+        {
+            updateInfos();
         }
     }
 }

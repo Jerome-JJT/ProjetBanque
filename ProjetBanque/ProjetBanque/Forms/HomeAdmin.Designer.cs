@@ -39,7 +39,7 @@
             this.cmdProfil = new System.Windows.Forms.Button();
             this.cmdExit = new System.Windows.Forms.Button();
             this.lblEmail = new System.Windows.Forms.Label();
-            this.txtSearchUserIban = new System.Windows.Forms.TextBox();
+            this.txtSearch = new System.Windows.Forms.TextBox();
             this.lblSearchUser = new System.Windows.Forms.Label();
             this.cmdModifyPassword = new System.Windows.Forms.Button();
             this.tabDisplay = new System.Windows.Forms.TabControl();
@@ -151,12 +151,13 @@
             this.lblEmail.TabIndex = 15;
             this.lblEmail.Text = "lblEmail";
             // 
-            // txtSearchUserIban
+            // txtSearch
             // 
-            this.txtSearchUserIban.Location = new System.Drawing.Point(12, 45);
-            this.txtSearchUserIban.Name = "txtSearchUserIban";
-            this.txtSearchUserIban.Size = new System.Drawing.Size(562, 20);
-            this.txtSearchUserIban.TabIndex = 23;
+            this.txtSearch.Location = new System.Drawing.Point(12, 45);
+            this.txtSearch.Name = "txtSearch";
+            this.txtSearch.Size = new System.Drawing.Size(562, 20);
+            this.txtSearch.TabIndex = 23;
+            this.txtSearch.TextChanged += new System.EventHandler(this.txtSearch_TextChanged);
             // 
             // lblSearchUser
             // 
@@ -263,20 +264,20 @@
             this.cmdModifyMonney.Text = "Modifier argent utilisateur";
             this.cmdModifyMonney.UseVisualStyleBackColor = true;
             // 
-            // frmHomeAdmin
+            // FrmHomeAdmin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(811, 573);
             this.Controls.Add(this.cmdModifyMonney);
             this.Controls.Add(this.tabDisplay);
-            this.Controls.Add(this.txtSearchUserIban);
+            this.Controls.Add(this.txtSearch);
             this.Controls.Add(this.lblSearchUser);
             this.Controls.Add(this.cmdModifyPassword);
             this.Controls.Add(this.cmdProfil);
             this.Controls.Add(this.cmdExit);
             this.Controls.Add(this.lblEmail);
-            this.Name = "frmHomeAdmin";
+            this.Name = "FrmHomeAdmin";
             this.Text = "Accueil Administrateur";
             ((System.ComponentModel.ISupportInitialize)(this.datHistory)).EndInit();
             this.tabDisplay.ResumeLayout(false);
@@ -299,7 +300,7 @@
         private System.Windows.Forms.Button cmdProfil;
         private System.Windows.Forms.Button cmdExit;
         private System.Windows.Forms.Label lblEmail;
-        private System.Windows.Forms.TextBox txtSearchUserIban;
+        private System.Windows.Forms.TextBox txtSearch;
         private System.Windows.Forms.Label lblSearchUser;
         private System.Windows.Forms.Button cmdModifyPassword;
         private System.Windows.Forms.TabControl tabDisplay;
