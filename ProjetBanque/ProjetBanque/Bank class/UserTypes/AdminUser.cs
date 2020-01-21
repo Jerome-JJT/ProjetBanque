@@ -6,9 +6,12 @@ using System.Threading.Tasks;
 
 namespace ProjetBanque
 {
+    /// <summary>
+    /// Enterprise user can store bank users and can display them
+    /// </summary>
     public class AdminUser : EnterpriseUser
     {
-        private List<UsersList> users;
+        private List<BankUser> users;
 
         /// <summary>
         /// Create a displayable admin user
@@ -17,13 +20,13 @@ namespace ProjetBanque
         /// <param name="email">User's email</param>
         public AdminUser(string iban, string email) : base(iban, email, 0)
         {
-            users = new List<UsersList>();
+            users = new List<BankUser>();
         }
 
         /// <summary>
         /// Lists linked to enterprise user
         /// </summary>
-        public List<UsersList> Users
+        public List<BankUser> Users
         {
             get { return users; }
             set { users = value; }

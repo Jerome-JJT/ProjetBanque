@@ -264,7 +264,7 @@ namespace ProjetBanque
             #region Transactions management
             // Create a command object
             query = connection.CreateCommand();
-            if ((User.AccountType)reader.GetInt32(1) == User.AccountType.Admin)
+            if (user.GetType() == typeof(AdminUser))
             {
                 query.CommandText = @"select TRANSACTIONS.date, TRANSACTIONS.amount, TRANSACTIONS.reason, 
                                     USER_RECEIVER.email, USER_RECEIVER.iban, USER_SENDER.email, USER_SENDER.iban from TRANSACTIONS
@@ -309,12 +309,12 @@ namespace ProjetBanque
             #endregion
 
 
-            #region Lists management
+            #region Lists management (only enterprise and admin users)
             if(user.GetType() == typeof(EnterpriseUser) || user.GetType() == typeof(AdminUser))
             {
                 // Create a command object
                 query = connection.CreateCommand();
-                if ((User.AccountType)reader.GetInt32(1) == User.AccountType.Admin)
+                if (user.GetType() == typeof(AdminUser))
                 {
                     query.CommandText = @"select lists.name, COALESCE(USER_INSIDE.iban,''), COALESCE(USER_INSIDE.email,'') from lists
                                         left join users_lists on users_lists.idList = lists.id
