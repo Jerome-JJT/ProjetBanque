@@ -10,14 +10,17 @@ using System.Windows.Forms;
 
 namespace ProjetBanque
 {
+    /// <summary>
+    /// Admin money changer form's class
+    /// </summary>
     public partial class FrmAdminMoneyChanger : Form
     {
         User userInfos;
 
         /// <summary>
-        /// AdminMoneyChanger form's class
+        /// Admin money changer form constructor
         /// </summary>
-        /// <param name="userInformations"></param>
+        /// <param name="userInformations">Inherit user informations to display from parent form</param>
         public FrmAdminMoneyChanger(User userInformations)
         {
             InitializeComponent();

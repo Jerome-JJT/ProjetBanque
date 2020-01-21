@@ -10,10 +10,17 @@ using System.Windows.Forms;
 
 namespace ProjetBanque
 {
+    /// <summary>
+    /// User profil form's class
+    /// </summary>
     public partial class FrmProfil : Form
     {
         User userInfos;
 
+        /// <summary>
+        /// User profil form constructor
+        /// </summary>
+        /// <param name="userInformations">Inherit user informations to display from parent form</param>
         public FrmProfil(User userInformations)
         {
             InitializeComponent();

@@ -18,7 +18,6 @@ namespace ProjetBanque
         private JsonData inheritJsonStorage;
         private PublicUser userInformations;
 
-
         /// <summary>
         /// Home form constructor
         /// </summary>
