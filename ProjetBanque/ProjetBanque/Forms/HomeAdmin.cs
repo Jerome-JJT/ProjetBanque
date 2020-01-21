@@ -8,13 +8,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace ProjetBanque.Forms
+namespace ProjetBanque
 {
-    public partial class frmHomeAdmin : Form
+    public partial class FrmHomeAdmin : Form
     {
         private AdminUser userInformations;
 
-        public frmHomeAdmin(AdminUser userInfos, JsonData inheritStorage)
+        public FrmHomeAdmin(AdminUser userInfos, JsonData inheritStorage)
         {
             InitializeComponent();
 

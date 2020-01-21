@@ -1,6 +1,6 @@
-﻿namespace ProjetBanque.Forms
+﻿namespace ProjetBanque
 {
-    partial class frmHomeAdmin
+    partial class FrmHomeAdmin
     {
         /// <summary>
         /// Required designer variable.

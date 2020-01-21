@@ -231,9 +231,11 @@ namespace ProjetBanque
         /// <returns>Return user's informations</returns>
         public User GetUser(string email)
         {
+            MySqlCommand query;
             #region Account type management
+
             // Create a command object
-            MySqlCommand query = connection.CreateCommand();
+            query = connection.CreateCommand();
             query.CommandText = "select iban, type+0 as type, email, money from USERS where email = (@email)";
 
             //Add parameters to query
@@ -262,6 +264,7 @@ namespace ProjetBanque
 
 
             #region Transactions management
+
             // Create a command object
             query = connection.CreateCommand();
             if (user.GetType() == typeof(AdminUser))
@@ -310,6 +313,7 @@ namespace ProjetBanque
 
 
             #region Lists management (only enterprise and admin users)
+
             if(user.GetType() == typeof(EnterpriseUser) || user.GetType() == typeof(AdminUser))
             {
                 // Create a command object
@@ -377,6 +381,36 @@ namespace ProjetBanque
                             }
                         }
                         ((EnterpriseUser)user).Lists.Add(usersList);
+                    }
+                }
+                reader.Close();
+            }
+            #endregion
+
+
+            #region Users management (only admin users)
+
+
+
+            if (user.GetType() == typeof(AdminUser))
+            {
+                // Create a command object
+                query = connection.CreateCommand();
+                query.CommandText = "select iban, email, money from USERS order by money email";
+
+                //Get user's money from the database
+                reader = query.ExecuteReader();
+
+                if (reader.HasRows)
+                {
+                    //Add each transactions linked to the user
+                    while (reader.Read())
+                    {
+                        BankUser newBankUser = new BankUser(
+                            reader.GetString(0),
+                            reader.GetString(1),
+                            reader.GetDouble(2));
+                        ((AdminUser)user).Users.Add(newBankUser);
                     }
                 }
                 reader.Close();
