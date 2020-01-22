@@ -28,7 +28,7 @@ namespace ProjetBanque
             userInfos = userInformations;
         }
 
-        private void cmdChangePassword_Click(object sender, EventArgs e)
+        private void cmdChangeAmount_Click(object sender, EventArgs e)
         {
             int flag = 0;
 
@@ -53,20 +53,19 @@ namespace ProjetBanque
 
                     database.OpenConnection();
 
-                    /*if (database.ChangeAmount(lblUserEmail.Text.Trim(), updAmount.Value))
+                    if (database.ChangeMoney(txtUserEmail.Text.Trim(), (double)updAmount.Value))
                     {
                         lblError.Text = "Le solde a été changé";
                         txtUserEmail.Text = "";
+                        updAmount.Value = 0;
                     }
                     else
                     {
-                        lblError.Text = "Utilisateur Introuvable";
+                        lblError.Text = "Utilisateur introuvable";
                         txtUserEmail.BackColor = Color.FromArgb(255, 128, 128);
-                    }*/
+                    }
 
                     database.CloseConnection();
-
-
                 }
                 catch (UnableToJoinDatabase)
                 {

@@ -630,7 +630,7 @@ namespace ProjetBanque
 
 
         /// <summary>
-        /// Verify a user password then change it with a new one
+        /// Change user's password with a new one
         /// </summary>
         /// <param name="userEmail">User who need to change his password</param>
         /// <param name="newPassword">Iban of the user who need to be deleted</param>
@@ -647,6 +647,32 @@ namespace ProjetBanque
 
             // Add parameters to query
             query.Parameters.AddWithValue("@newHashPassword", hashedPassword);
+            query.Parameters.AddWithValue("@userEmail", userEmail);
+
+            // Execute the SQL command and check error
+            if (query.ExecuteNonQuery() != 1)
+            {
+                return false;
+            }
+
+            return true;
+        }
+
+
+        /// <summary>
+        /// Change user's money maount with a new one
+        /// </summary>
+        /// <param name="userEmail">User who's money amount will be changed</param>
+        /// <param name="newAmount">New amount of money for the user account</param>
+        /// <returns>true for success, false for an errors</returns>
+        public bool ChangeMoney(string userEmail, double newAmount)
+        {
+            MySqlCommand query = connection.CreateCommand();
+            query.CommandText = @"update USERS set money = (@newMoneyAmount)
+                                where email = (@userEmail);";
+
+            // Add parameters to query
+            query.Parameters.AddWithValue("@newMoneyAmount", newAmount);
             query.Parameters.AddWithValue("@userEmail", userEmail);
 
             // Execute the SQL command and check error
