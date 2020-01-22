@@ -263,6 +263,7 @@
             this.cmdModifyMonney.TabIndex = 27;
             this.cmdModifyMonney.Text = "Modifier argent utilisateur";
             this.cmdModifyMonney.UseVisualStyleBackColor = true;
+            this.cmdModifyMonney.Click += new System.EventHandler(this.cmdModifyMonney_Click);
             // 
             // FrmHomeAdmin
             // 
@@ -277,6 +278,9 @@
             this.Controls.Add(this.cmdProfil);
             this.Controls.Add(this.cmdExit);
             this.Controls.Add(this.lblEmail);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximumSize = new System.Drawing.Size(827, 612);
+            this.MinimumSize = new System.Drawing.Size(827, 612);
             this.Name = "FrmHomeAdmin";
             this.Text = "Accueil Administrateur";
             ((System.ComponentModel.ISupportInitialize)(this.datHistory)).EndInit();
