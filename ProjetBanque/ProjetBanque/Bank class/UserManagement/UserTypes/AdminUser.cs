@@ -11,7 +11,7 @@ namespace ProjetBanque
     /// </summary>
     public class AdminUser : EnterpriseUser
     {
-        private List<BankUser> users;
+        private List<BankUserInfos> users;
 
         /// <summary>
         /// Create a displayable admin user
@@ -20,13 +20,13 @@ namespace ProjetBanque
         /// <param name="email">User's email</param>
         public AdminUser(string iban, string email) : base(iban, email, 0)
         {
-            users = new List<BankUser>();
+            users = new List<BankUserInfos>();
         }
 
         /// <summary>
         /// Lists linked to enterprise user
         /// </summary>
-        public List<BankUser> Users
+        public List<BankUserInfos> Users
         {
             get { return users; }
             set { users = value; }

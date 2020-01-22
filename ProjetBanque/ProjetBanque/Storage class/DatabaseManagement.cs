@@ -403,7 +403,7 @@ namespace ProjetBanque
             {
                 // Create a command object
                 query = connection.CreateCommand();
-                query.CommandText = "select iban, email, money from USERS order by email asc";
+                query.CommandText = "select iban, email, money, active, type+0 as type from USERS order by email asc";
 
                 //Get user's money from the database
                 reader = query.ExecuteReader();
@@ -413,10 +413,12 @@ namespace ProjetBanque
                     //Add each transactions linked to the user
                     while (reader.Read())
                     {
-                        BankUser newBankUser = new BankUser(
+                        BankUserInfos newBankUser = new BankUserInfos(
                             reader.GetString(0),
                             reader.GetString(1),
-                            reader.GetDouble(2));
+                            reader.GetDouble(2),
+                            reader.GetBoolean(3),
+                            (User.AccountType)reader.GetInt32(4));
                         ((AdminUser)user).Users.Add(newBankUser);
                     }
                 }
