@@ -46,6 +46,7 @@ namespace ProjetBanque
             {
                 int counter = 0;
                 int counter2 = 0;
+                int counter3 = 0;
 
                 foreach (Transaction transaction in userInformations.Transactions)
                 {
@@ -65,7 +66,24 @@ namespace ProjetBanque
                         datAllUsers.Rows.Add(row);
                         counter2++;
                     }                    
-                }                               
+                }
+
+                foreach (AdminUsersList lists in userInformations.Lists)
+                {
+                    if (counter3 <= 29)
+                    {
+                        string[] row = { lists.Owner, lists.Name, "|\nV" };
+                        datAllUsers.Rows.Add(row);
+
+                        foreach (User list in lists.Users)
+                        {
+                            string[] rowuser = { "", "", list.Email };
+                            datAllUsers.Rows.Add(rowuser);
+                        }
+                        counter3++;
+                    }
+                }
+
             }
             else
             {

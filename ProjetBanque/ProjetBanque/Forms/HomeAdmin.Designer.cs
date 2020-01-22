@@ -53,8 +53,8 @@
             this.cmdModifyMonney = new System.Windows.Forms.Button();
             this.tabList = new System.Windows.Forms.TabPage();
             this.datList = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colOwner = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.datHistory)).BeginInit();
             this.tabDisplay.SuspendLayout();
@@ -292,8 +292,8 @@
             this.datList.AllowUserToResizeRows = false;
             this.datList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.datList.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn2,
             this.colOwner,
+            this.dataGridViewTextBoxColumn2,
             this.dataGridViewTextBoxColumn3});
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
@@ -311,16 +311,16 @@
             this.datList.Size = new System.Drawing.Size(556, 465);
             this.datList.TabIndex = 23;
             // 
+            // colOwner
+            // 
+            this.colOwner.HeaderText = "Nom detenteur de la liste";
+            this.colOwner.Name = "colOwner";
+            // 
             // dataGridViewTextBoxColumn2
             // 
             this.dataGridViewTextBoxColumn2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
             this.dataGridViewTextBoxColumn2.HeaderText = "Nom de la liste";
             this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            // 
-            // colOwner
-            // 
-            this.colOwner.HeaderText = "Nom detenteur de la liste";
-            this.colOwner.Name = "colOwner";
             // 
             // dataGridViewTextBoxColumn3
             // 
@@ -383,8 +383,8 @@
         private System.Windows.Forms.Button cmdModifyMonney;
         private System.Windows.Forms.TabPage tabList;
         private System.Windows.Forms.DataGridView datList;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private System.Windows.Forms.DataGridViewTextBoxColumn colOwner;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
     }
 }
