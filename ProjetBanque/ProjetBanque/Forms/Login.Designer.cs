@@ -47,7 +47,7 @@
             this.cmdLogin.Name = "cmdLogin";
             this.cmdLogin.Size = new System.Drawing.Size(182, 41);
             this.cmdLogin.TabIndex = 6;
-            this.cmdLogin.Text = "Valider votre inscription";
+            this.cmdLogin.Text = "Valider votre authentification";
             this.cmdLogin.UseVisualStyleBackColor = true;
             this.cmdLogin.Click += new System.EventHandler(this.cmdLogin_Click);
             // 
