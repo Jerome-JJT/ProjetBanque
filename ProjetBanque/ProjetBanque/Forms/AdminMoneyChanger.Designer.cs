@@ -31,7 +31,7 @@
             this.txtUserEmail = new System.Windows.Forms.TextBox();
             this.lblUserEmail = new System.Windows.Forms.Label();
             this.lblNewPassword = new System.Windows.Forms.Label();
-            this.cmdChangePassword = new System.Windows.Forms.Button();
+            this.cmdChangeAmount = new System.Windows.Forms.Button();
             this.lblTitle = new System.Windows.Forms.Label();
             this.updAmount = new System.Windows.Forms.NumericUpDown();
             this.lblError = new System.Windows.Forms.Label();
@@ -48,7 +48,7 @@
             // lblUserEmail
             // 
             this.lblUserEmail.AutoSize = true;
-            this.lblUserEmail.Location = new System.Drawing.Point(53, 102);
+            this.lblUserEmail.Location = new System.Drawing.Point(50, 103);
             this.lblUserEmail.Name = "lblUserEmail";
             this.lblUserEmail.Size = new System.Drawing.Size(205, 13);
             this.lblUserEmail.TabIndex = 5;
@@ -63,22 +63,22 @@
             this.lblNewPassword.TabIndex = 6;
             this.lblNewPassword.Text = "Nouveau solde";
             // 
-            // cmdChangePassword
+            // cmdChangeAmount
             // 
-            this.cmdChangePassword.Location = new System.Drawing.Point(53, 227);
-            this.cmdChangePassword.Name = "cmdChangePassword";
-            this.cmdChangePassword.Size = new System.Drawing.Size(312, 23);
-            this.cmdChangePassword.TabIndex = 9;
-            this.cmdChangePassword.Text = "Modifier le solde";
-            this.cmdChangePassword.UseVisualStyleBackColor = true;
-            this.cmdChangePassword.Click += new System.EventHandler(this.cmdChangePassword_Click);
+            this.cmdChangeAmount.Location = new System.Drawing.Point(53, 227);
+            this.cmdChangeAmount.Name = "cmdChangeAmount";
+            this.cmdChangeAmount.Size = new System.Drawing.Size(312, 23);
+            this.cmdChangeAmount.TabIndex = 2;
+            this.cmdChangeAmount.Text = "Modifier le solde";
+            this.cmdChangeAmount.UseVisualStyleBackColor = true;
+            this.cmdChangeAmount.Click += new System.EventHandler(this.cmdChangeAmount_Click);
             // 
             // lblTitle
             // 
             this.lblTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTitle.Location = new System.Drawing.Point(69, 30);
+            this.lblTitle.Location = new System.Drawing.Point(42, 30);
             this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(274, 55);
+            this.lblTitle.Size = new System.Drawing.Size(333, 55);
             this.lblTitle.TabIndex = 13;
             this.lblTitle.Text = "Modifier le solde d\'un utilisateur";
             this.lblTitle.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -101,7 +101,7 @@
             0});
             this.updAmount.Name = "updAmount";
             this.updAmount.Size = new System.Drawing.Size(312, 20);
-            this.updAmount.TabIndex = 14;
+            this.updAmount.TabIndex = 1;
             this.updAmount.ThousandsSeparator = true;
             // 
             // lblError
@@ -121,7 +121,7 @@
             this.Controls.Add(this.lblError);
             this.Controls.Add(this.updAmount);
             this.Controls.Add(this.lblTitle);
-            this.Controls.Add(this.cmdChangePassword);
+            this.Controls.Add(this.cmdChangeAmount);
             this.Controls.Add(this.lblNewPassword);
             this.Controls.Add(this.lblUserEmail);
             this.Controls.Add(this.txtUserEmail);
@@ -140,7 +140,7 @@
         private System.Windows.Forms.TextBox txtUserEmail;
         private System.Windows.Forms.Label lblUserEmail;
         private System.Windows.Forms.Label lblNewPassword;
-        private System.Windows.Forms.Button cmdChangePassword;
+        private System.Windows.Forms.Button cmdChangeAmount;
         private System.Windows.Forms.Label lblTitle;
         private System.Windows.Forms.NumericUpDown updAmount;
         private System.Windows.Forms.Label lblError;
