@@ -44,16 +44,28 @@ namespace ProjetBanque
 
             if (txtSearch.Text.Trim() == "")
             {
+                int counter = 0;
+                int counter2 = 0;
+
                 foreach (Transaction transaction in userInformations.Transactions)
                 {
-                    string[] row = { transaction.SenderDefine + " \n" + transaction.SenderIban, transaction.ReceiverDefine + " \n" + transaction.ReceiverIban, $"{transaction.Amount.ToString("0.00")} CHF", transaction.Reason, transaction.Date };
-                    datHistory.Rows.Add(row);
-                }
+                    if (counter <= 29)
+                    {
+                        string[] row = { transaction.SenderDefine + " \n" + transaction.SenderIban, transaction.ReceiverDefine + " \n" + transaction.ReceiverIban, $"{transaction.Amount.ToString("0.00")} CHF", transaction.Reason, transaction.Date };
+                        datHistory.Rows.Add(row);
+                        counter++;
+                    }                    
+                }                             
+                
                 foreach (BankUser user in userInformations.Users)
                 {
-                    string[] row = { user.Email, user.Iban, $"{user.Money.ToString("0.00")} CHF" };
-                    datAllUsers.Rows.Add(row);
-                }
+                    if (counter2 <= 29)
+                    {
+                        string[] row = { user.Email, user.Iban, $"{user.Money.ToString("0.00")} CHF" };
+                        datAllUsers.Rows.Add(row);
+                        counter2++;
+                    }                    
+                }                               
             }
             else
             {

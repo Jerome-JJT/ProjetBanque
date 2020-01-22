@@ -57,7 +57,8 @@ namespace ProjetBanque
             DatabaseManagement database = new DatabaseManagement();
             database.OpenConnection();
             
-            try {
+            try
+            {
                 database.CreateList(txtNameList.Text.Trim(), userInfo.Iban);
                 userInfo = (EnterpriseUser)database.GetUser(userInfo.Email);
             
@@ -151,6 +152,7 @@ namespace ProjetBanque
             displayEnterpriseLists();
             lstList.Items.Clear();
             cmdListToDelete.Enabled = false;
+            cmdDeleteList.Enabled = false;
         }
 
         private void cmdListToDelete_Click(object sender, EventArgs e)
@@ -205,7 +207,10 @@ namespace ProjetBanque
 
         private void lstList_SelectedIndexChanged(object sender, EventArgs e)
         {
-             cmdListToDelete.Enabled = true;
+            if(lstList.SelectedIndex != -1)
+            {
+                cmdListToDelete.Enabled = true;
+            }             
         }
 
         private void txtIban_KeyDown(object sender, KeyEventArgs e)
