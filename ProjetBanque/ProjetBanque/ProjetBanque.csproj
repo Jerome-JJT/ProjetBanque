@@ -77,6 +77,7 @@
     <Compile Include="Bank class\UserTypes\PublicUser.cs" />
     <Compile Include="Bank class\UsersList.cs" />
     <Compile Include="Bank class\UserTypes\BankUser.cs" />
+    <Compile Include="Bank class\UserTypes\BankUserInfos.cs" />
     <Compile Include="Forms\AdminMoneyChanger.cs">
       <SubType>Form</SubType>
     </Compile>

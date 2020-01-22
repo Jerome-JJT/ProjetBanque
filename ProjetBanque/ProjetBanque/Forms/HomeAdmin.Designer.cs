@@ -44,23 +44,23 @@
             this.lblSearchUser = new System.Windows.Forms.Label();
             this.cmdModifyPassword = new System.Windows.Forms.Button();
             this.tabDisplay = new System.Windows.Forms.TabControl();
-            this.tabUsersHistory = new System.Windows.Forms.TabPage();
             this.tabAllUsers = new System.Windows.Forms.TabPage();
             this.datAllUsers = new System.Windows.Forms.DataGridView();
+            this.tabUsersHistory = new System.Windows.Forms.TabPage();
+            this.tabList = new System.Windows.Forms.TabPage();
+            this.datList = new System.Windows.Forms.DataGridView();
+            this.cmdModifyMonney = new System.Windows.Forms.Button();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Iban = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colMonney = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cmdModifyMonney = new System.Windows.Forms.Button();
-            this.tabList = new System.Windows.Forms.TabPage();
-            this.datList = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colOwner = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.datHistory)).BeginInit();
             this.tabDisplay.SuspendLayout();
-            this.tabUsersHistory.SuspendLayout();
             this.tabAllUsers.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.datAllUsers)).BeginInit();
+            this.tabUsersHistory.SuspendLayout();
             this.tabList.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.datList)).BeginInit();
             this.SuspendLayout();
@@ -198,17 +198,6 @@
             this.tabDisplay.Size = new System.Drawing.Size(570, 490);
             this.tabDisplay.TabIndex = 26;
             // 
-            // tabUsersHistory
-            // 
-            this.tabUsersHistory.Controls.Add(this.datHistory);
-            this.tabUsersHistory.Location = new System.Drawing.Point(4, 22);
-            this.tabUsersHistory.Name = "tabUsersHistory";
-            this.tabUsersHistory.Padding = new System.Windows.Forms.Padding(3);
-            this.tabUsersHistory.Size = new System.Drawing.Size(562, 464);
-            this.tabUsersHistory.TabIndex = 0;
-            this.tabUsersHistory.Text = "Transaction";
-            this.tabUsersHistory.UseVisualStyleBackColor = true;
-            // 
             // tabAllUsers
             // 
             this.tabAllUsers.Controls.Add(this.datAllUsers);
@@ -247,32 +236,16 @@
             this.datAllUsers.Size = new System.Drawing.Size(559, 461);
             this.datAllUsers.TabIndex = 27;
             // 
-            // dataGridViewTextBoxColumn1
+            // tabUsersHistory
             // 
-            this.dataGridViewTextBoxColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.dataGridViewTextBoxColumn1.HeaderText = "Nom";
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            // 
-            // Iban
-            // 
-            this.Iban.HeaderText = "Iban";
-            this.Iban.Name = "Iban";
-            // 
-            // colMonney
-            // 
-            this.colMonney.HeaderText = "Argent";
-            this.colMonney.Name = "colMonney";
-            // 
-            // cmdModifyMonney
-            // 
-            this.cmdModifyMonney.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.cmdModifyMonney.Location = new System.Drawing.Point(633, 161);
-            this.cmdModifyMonney.Name = "cmdModifyMonney";
-            this.cmdModifyMonney.Size = new System.Drawing.Size(114, 39);
-            this.cmdModifyMonney.TabIndex = 27;
-            this.cmdModifyMonney.Text = "Modifier argent utilisateur";
-            this.cmdModifyMonney.UseVisualStyleBackColor = true;
-            this.cmdModifyMonney.Click += new System.EventHandler(this.cmdModifyMonney_Click);
+            this.tabUsersHistory.Controls.Add(this.datHistory);
+            this.tabUsersHistory.Location = new System.Drawing.Point(4, 22);
+            this.tabUsersHistory.Name = "tabUsersHistory";
+            this.tabUsersHistory.Padding = new System.Windows.Forms.Padding(3);
+            this.tabUsersHistory.Size = new System.Drawing.Size(562, 464);
+            this.tabUsersHistory.TabIndex = 0;
+            this.tabUsersHistory.Text = "Toutes les transactions";
+            this.tabUsersHistory.UseVisualStyleBackColor = true;
             // 
             // tabList
             // 
@@ -281,7 +254,7 @@
             this.tabList.Name = "tabList";
             this.tabList.Size = new System.Drawing.Size(562, 464);
             this.tabList.TabIndex = 2;
-            this.tabList.Text = "Listes utilisateurs";
+            this.tabList.Text = "Toutes les listes d\'entreprise";
             this.tabList.UseVisualStyleBackColor = true;
             // 
             // datList
@@ -311,23 +284,52 @@
             this.datList.Size = new System.Drawing.Size(556, 465);
             this.datList.TabIndex = 23;
             // 
+            // cmdModifyMonney
+            // 
+            this.cmdModifyMonney.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.cmdModifyMonney.Location = new System.Drawing.Point(633, 161);
+            this.cmdModifyMonney.Name = "cmdModifyMonney";
+            this.cmdModifyMonney.Size = new System.Drawing.Size(114, 39);
+            this.cmdModifyMonney.TabIndex = 27;
+            this.cmdModifyMonney.Text = "Modifier argent utilisateur";
+            this.cmdModifyMonney.UseVisualStyleBackColor = true;
+            this.cmdModifyMonney.Click += new System.EventHandler(this.cmdModifyMonney_Click);
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dataGridViewTextBoxColumn1.HeaderText = "Nom";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            // 
+            // Iban
+            // 
+            this.Iban.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Iban.HeaderText = "Iban";
+            this.Iban.Name = "Iban";
+            // 
+            // colMonney
+            // 
+            this.colMonney.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.colMonney.HeaderText = "Argent";
+            this.colMonney.Name = "colMonney";
+            // 
             // dataGridViewTextBoxColumn2
             // 
-            this.dataGridViewTextBoxColumn2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.dataGridViewTextBoxColumn2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.dataGridViewTextBoxColumn2.HeaderText = "Nom de la liste";
             this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
             // 
             // colOwner
             // 
-            this.colOwner.HeaderText = "Nom detenteur de la liste";
+            this.colOwner.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.colOwner.HeaderText = "Propriétaire de la liste";
             this.colOwner.Name = "colOwner";
             // 
             // dataGridViewTextBoxColumn3
             // 
-            this.dataGridViewTextBoxColumn3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.dataGridViewTextBoxColumn3.HeaderText = "Nom des personnes presente dans la liste";
+            this.dataGridViewTextBoxColumn3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dataGridViewTextBoxColumn3.HeaderText = "Personne dans la liste";
             this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            this.dataGridViewTextBoxColumn3.Width = 127;
             // 
             // FrmHomeAdmin
             // 
@@ -349,9 +351,9 @@
             this.Text = "Accueil Administrateur";
             ((System.ComponentModel.ISupportInitialize)(this.datHistory)).EndInit();
             this.tabDisplay.ResumeLayout(false);
-            this.tabUsersHistory.ResumeLayout(false);
             this.tabAllUsers.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.datAllUsers)).EndInit();
+            this.tabUsersHistory.ResumeLayout(false);
             this.tabList.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.datList)).EndInit();
             this.ResumeLayout(false);
@@ -377,12 +379,12 @@
         private System.Windows.Forms.TabPage tabUsersHistory;
         private System.Windows.Forms.TabPage tabAllUsers;
         private System.Windows.Forms.DataGridView datAllUsers;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Iban;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colMonney;
         private System.Windows.Forms.Button cmdModifyMonney;
         private System.Windows.Forms.TabPage tabList;
         private System.Windows.Forms.DataGridView datList;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Iban;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colMonney;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private System.Windows.Forms.DataGridViewTextBoxColumn colOwner;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;

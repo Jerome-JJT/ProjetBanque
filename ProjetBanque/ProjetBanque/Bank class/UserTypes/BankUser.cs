@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace ProjetBanque
 {
     /// <summary>
-    /// Back user can have money
+    /// Bank user can have money
     /// </summary>
     public class BankUser : User
     {
@@ -33,7 +33,6 @@ namespace ProjetBanque
         public double Money
         {
             get { return money; }
-            set { money = value; }
         }
     }
 }
