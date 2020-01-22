@@ -28,9 +28,9 @@ namespace ProjetBanque
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
             this.datHistory = new System.Windows.Forms.DataGridView();
             this.datColName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.datColNameReceiver = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -73,6 +73,9 @@ namespace ProjetBanque
             this.datHistory.AllowUserToDeleteRows = false;
             this.datHistory.AllowUserToResizeColumns = false;
             this.datHistory.AllowUserToResizeRows = false;
+            this.datHistory.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.datHistory.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.datHistory.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.datColName,
@@ -80,14 +83,14 @@ namespace ProjetBanque
             this.datColAmount,
             this.datColReason,
             this.datColDate});
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.datHistory.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle10.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle10.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle10.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.datHistory.DefaultCellStyle = dataGridViewCellStyle10;
             this.datHistory.Location = new System.Drawing.Point(3, 3);
             this.datHistory.Name = "datHistory";
             this.datHistory.RowHeadersVisible = false;
@@ -174,9 +177,9 @@ namespace ProjetBanque
             this.lblSearchUser.AutoSize = true;
             this.lblSearchUser.Location = new System.Drawing.Point(16, 29);
             this.lblSearchUser.Name = "lblSearchUser";
-            this.lblSearchUser.Size = new System.Drawing.Size(244, 13);
+            this.lblSearchUser.Size = new System.Drawing.Size(288, 13);
             this.lblSearchUser.TabIndex = 24;
-            this.lblSearchUser.Text = "Tapez ici pour rechercher un utilisateur ou un Iban";
+            this.lblSearchUser.Text = "Tapez ici pour rechercher un utilisateur, un iban ou une liste";
             // 
             // cmdModifyPassword
             // 
@@ -191,6 +194,9 @@ namespace ProjetBanque
             // 
             // tabDisplay
             // 
+            this.tabDisplay.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.tabDisplay.Controls.Add(this.tabAllUsers);
             this.tabDisplay.Controls.Add(this.tabUsersHistory);
             this.tabDisplay.Controls.Add(this.tabList);
@@ -217,6 +223,9 @@ namespace ProjetBanque
             this.datAllUsers.AllowUserToDeleteRows = false;
             this.datAllUsers.AllowUserToResizeColumns = false;
             this.datAllUsers.AllowUserToResizeRows = false;
+            this.datAllUsers.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.datAllUsers.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.datAllUsers.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.activeAccount,
@@ -224,14 +233,14 @@ namespace ProjetBanque
             this.dataGridViewTextBoxColumn1,
             this.Iban,
             this.colMonney});
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.datAllUsers.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle11.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle11.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle11.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.datAllUsers.DefaultCellStyle = dataGridViewCellStyle11;
             this.datAllUsers.Location = new System.Drawing.Point(3, 0);
             this.datAllUsers.Name = "datAllUsers";
             this.datAllUsers.RowHeadersVisible = false;
@@ -300,19 +309,22 @@ namespace ProjetBanque
             this.datList.AllowUserToDeleteRows = false;
             this.datList.AllowUserToResizeColumns = false;
             this.datList.AllowUserToResizeRows = false;
+            this.datList.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.datList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.datList.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.colOwner,
             this.dataGridViewTextBoxColumn2,
             this.dataGridViewTextBoxColumn3});
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.datList.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle12.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle12.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle12.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.datList.DefaultCellStyle = dataGridViewCellStyle12;
             this.datList.Location = new System.Drawing.Point(3, 0);
             this.datList.Name = "datList";
             this.datList.RowHeadersVisible = false;
@@ -363,8 +375,6 @@ namespace ProjetBanque
             this.Controls.Add(this.cmdProfil);
             this.Controls.Add(this.cmdExit);
             this.Controls.Add(this.lblEmail);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.MaximumSize = new System.Drawing.Size(827, 612);
             this.MinimumSize = new System.Drawing.Size(827, 612);
             this.Name = "FrmHomeAdmin";
             this.Text = "Accueil Administrateur";

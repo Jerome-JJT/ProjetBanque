@@ -60,13 +60,13 @@ namespace ProjetBanque
                     datHistory.Rows.Add(row);
                 }
 
-                foreach (AdminUsersList lists in userInformations.Lists)
+                foreach (AdminUsersList list in userInformations.Lists)
                 {
-                    for (int i = 0; i < 30 && i < lists.Users.Count; i++)
+                    for (int i = 0; i < 30 && i < list.Users.Count; i++)
                     {
-                        User userInList = lists.Users[i];
+                        User userInList = list.Users[i];
 
-                        string[] rowuser = { lists.Owner, lists.Name, userInList.Email };
+                        string[] rowuser = { list.Owner, list.Name, userInList.Email };
                         datList.Rows.Add(rowuser);
                     }
                 }
@@ -75,7 +75,7 @@ namespace ProjetBanque
             {
                 foreach (BankUser user in userInformations.Users)
                 {
-                    if (user.Email.Contains(txtSearch.Text.Trim()))
+                    if (user.Email.Contains(txtSearch.Text.Trim()) && user.Iban.Contains(txtSearch.Text.Trim()))
                     {
                         string[] row = { user.Email, user.Iban, $"{user.Money.ToString("0.00")} CHF" };
                         datAllUsers.Rows.Add(row);
@@ -91,12 +91,16 @@ namespace ProjetBanque
                     }                    
                 }
 
-                foreach (AdminUsersList lists in userInformations.Lists)
+                foreach (AdminUsersList list in userInformations.Lists)
                 {
-                    foreach (User userInList in lists.Users)
+                    foreach (User userInList in list.Users)
                     {
-                        string[] rowuser = { lists.Owner, lists.Name, userInList.Email };
-                        datList.Rows.Add(rowuser);
+                        if (userInList.Email.Contains(txtSearch.Text.Trim()) || 
+                            list.Owner.Contains(txtSearch.Text.Trim()) || list.Name.Contains(txtSearch.Text.Trim()))
+                        {
+                            string[] rowuser = { list.Owner, list.Name, userInList.Email };
+                            datList.Rows.Add(rowuser);
+                        }
                     }
                 }
             }            
