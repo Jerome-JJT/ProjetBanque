@@ -224,10 +224,10 @@
             0,
             0});
             this.updPayAmount.Minimum = new decimal(new int[] {
-            1,
+            5,
             0,
             0,
-            0});
+            131072});
             this.updPayAmount.Name = "updPayAmount";
             this.updPayAmount.Size = new System.Drawing.Size(268, 20);
             this.updPayAmount.TabIndex = 5;
