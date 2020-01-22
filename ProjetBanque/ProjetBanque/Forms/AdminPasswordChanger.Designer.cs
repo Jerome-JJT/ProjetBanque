@@ -52,7 +52,6 @@
             this.txtNewPassword.Name = "txtNewPassword";
             this.txtNewPassword.Size = new System.Drawing.Size(312, 20);
             this.txtNewPassword.TabIndex = 1;
-            this.txtNewPassword.UseSystemPasswordChar = true;
             // 
             // txtNewPasswordVerify
             // 
@@ -60,7 +59,6 @@
             this.txtNewPasswordVerify.Name = "txtNewPasswordVerify";
             this.txtNewPasswordVerify.Size = new System.Drawing.Size(312, 20);
             this.txtNewPasswordVerify.TabIndex = 4;
-            this.txtNewPasswordVerify.UseSystemPasswordChar = true;
             // 
             // lblUserEmail
             // 

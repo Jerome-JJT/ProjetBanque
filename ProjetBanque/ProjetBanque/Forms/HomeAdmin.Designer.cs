@@ -30,6 +30,7 @@
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.datHistory = new System.Windows.Forms.DataGridView();
             this.datColName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.datColNameReceiver = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -50,11 +51,18 @@
             this.Iban = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colMonney = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cmdModifyMonney = new System.Windows.Forms.Button();
+            this.tabList = new System.Windows.Forms.TabPage();
+            this.datList = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colOwner = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.datHistory)).BeginInit();
             this.tabDisplay.SuspendLayout();
             this.tabUsersHistory.SuspendLayout();
             this.tabAllUsers.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.datAllUsers)).BeginInit();
+            this.tabList.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.datList)).BeginInit();
             this.SuspendLayout();
             // 
             // datHistory
@@ -181,8 +189,9 @@
             // 
             // tabDisplay
             // 
-            this.tabDisplay.Controls.Add(this.tabUsersHistory);
             this.tabDisplay.Controls.Add(this.tabAllUsers);
+            this.tabDisplay.Controls.Add(this.tabUsersHistory);
+            this.tabDisplay.Controls.Add(this.tabList);
             this.tabDisplay.Location = new System.Drawing.Point(8, 71);
             this.tabDisplay.Name = "tabDisplay";
             this.tabDisplay.SelectedIndex = 0;
@@ -265,6 +274,61 @@
             this.cmdModifyMonney.UseVisualStyleBackColor = true;
             this.cmdModifyMonney.Click += new System.EventHandler(this.cmdModifyMonney_Click);
             // 
+            // tabList
+            // 
+            this.tabList.Controls.Add(this.datList);
+            this.tabList.Location = new System.Drawing.Point(4, 22);
+            this.tabList.Name = "tabList";
+            this.tabList.Size = new System.Drawing.Size(562, 464);
+            this.tabList.TabIndex = 2;
+            this.tabList.Text = "Listes utilisateurs";
+            this.tabList.UseVisualStyleBackColor = true;
+            // 
+            // datList
+            // 
+            this.datList.AllowUserToAddRows = false;
+            this.datList.AllowUserToDeleteRows = false;
+            this.datList.AllowUserToResizeColumns = false;
+            this.datList.AllowUserToResizeRows = false;
+            this.datList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.datList.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn2,
+            this.colOwner,
+            this.dataGridViewTextBoxColumn3});
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.datList.DefaultCellStyle = dataGridViewCellStyle3;
+            this.datList.Location = new System.Drawing.Point(3, 0);
+            this.datList.Name = "datList";
+            this.datList.RowHeadersVisible = false;
+            this.datList.RowTemplate.Height = 42;
+            this.datList.RowTemplate.ReadOnly = true;
+            this.datList.Size = new System.Drawing.Size(556, 465);
+            this.datList.TabIndex = 23;
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.dataGridViewTextBoxColumn2.HeaderText = "Nom de la liste";
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            // 
+            // colOwner
+            // 
+            this.colOwner.HeaderText = "Nom detenteur de la liste";
+            this.colOwner.Name = "colOwner";
+            // 
+            // dataGridViewTextBoxColumn3
+            // 
+            this.dataGridViewTextBoxColumn3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.dataGridViewTextBoxColumn3.HeaderText = "Nom des personnes presente dans la liste";
+            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            this.dataGridViewTextBoxColumn3.Width = 127;
+            // 
             // FrmHomeAdmin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -288,6 +352,8 @@
             this.tabUsersHistory.ResumeLayout(false);
             this.tabAllUsers.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.datAllUsers)).EndInit();
+            this.tabList.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.datList)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -315,5 +381,10 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Iban;
         private System.Windows.Forms.DataGridViewTextBoxColumn colMonney;
         private System.Windows.Forms.Button cmdModifyMonney;
+        private System.Windows.Forms.TabPage tabList;
+        private System.Windows.Forms.DataGridView datList;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colOwner;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
     }
 }

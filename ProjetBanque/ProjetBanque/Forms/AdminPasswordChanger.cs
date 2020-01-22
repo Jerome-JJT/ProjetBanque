@@ -79,33 +79,20 @@ namespace ProjetBanque
                 try
                 {
                     DatabaseManagement database = new DatabaseManagement();
+
+                    database = new DatabaseManagement();
+
                     database.OpenConnection();
 
-                    bool allowConnection = database.VerifyUser(userInfos.Email, txtUserEmail.Text.Trim());
+                    database.ChangePassword(userInfos.Email,txtNewPassword.Text.Trim());
 
                     database.CloseConnection();
 
-                    if (allowConnection)
-                    {
-                        database = new DatabaseManagement();
-                        database.OpenConnection();
 
-                        database.ChangePassword(userInfos.Email,txtNewPassword.Text.Trim());
-
-                        database.CloseConnection();
-
-
-                        lblError.Text = "Votre mot de passe a été changé";
-                        txtUserEmail.Text = "";
-                        txtNewPassword.Text = "";
-                        txtNewPasswordVerify.Text = "";
-                    }
-                    else
-                    {
-                        //User and password doesn't match case
-                        lblError.Text = "Login incorrect";
-                        txtUserEmail.BackColor = Color.FromArgb(255, 128, 128);
-                    }
+                    lblError.Text = "Votre mot de passe a été changé";
+                    txtUserEmail.Text = "";
+                    txtNewPassword.Text = "";
+                    txtNewPasswordVerify.Text = "";
                 }
                 catch (UnableToJoinDatabase)
                 {
