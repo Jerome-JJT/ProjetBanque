@@ -49,14 +49,15 @@ namespace ProjetBanque
 
             datHistory.Rows.Clear();
             datAllUsers.Rows.Clear();
+            datList.Rows.Clear();
 
             if (txtSearch.Text.Trim() == "")
             {
                 for (int i = 0; i < 30 && i < userInformations.Users.Count; i++)
                 {
-                    BankUser user = userInformations.Users[i];
+                    BankUserInfos user = userInformations.Users[i];
 
-                    string[] row = { "", "", user.Email, user.Iban, $"{user.Money.ToString("0.00")} CHF" };
+                    string[] row = { user.ActiveAccount.ToString(), user.UserType.ToString(), user.Email, user.Iban, $"{user.Money.ToString("0.00")} CHF" };
                     datAllUsers.Rows.Add(row);
                 }
 
@@ -74,18 +75,18 @@ namespace ProjetBanque
                     {
                         User userInList = list.Users[i];
 
-                        string[] rowuser = { list.Owner, list.Name, userInList.Email };
-                        datList.Rows.Add(rowuser);
+                        string[] row = { list.Owner, list.Name, userInList.Email };
+                        datList.Rows.Add(row);
                     }
                 }
             }
             else
             {
-                foreach (BankUser user in userInformations.Users)
+                foreach (BankUserInfos user in userInformations.Users)
                 {
-                    if (user.Email.Contains(txtSearch.Text.Trim()) && user.Iban.Contains(txtSearch.Text.Trim()))
+                    if (user.Email.Contains(txtSearch.Text.Trim()) || user.Iban.Contains(txtSearch.Text.Trim()))
                     {
-                        string[] row = { user.Email, user.Iban, $"{user.Money.ToString("0.00")} CHF" };
+                        string[] row = { user.ActiveAccount.ToString(), user.UserType.ToString(), user.Email, user.Iban, $"{user.Money.ToString("0.00")} CHF" };
                         datAllUsers.Rows.Add(row);
                     }
                 }
@@ -106,8 +107,8 @@ namespace ProjetBanque
                         if (userInList.Email.Contains(txtSearch.Text.Trim()) || 
                             list.Owner.Contains(txtSearch.Text.Trim()) || list.Name.Contains(txtSearch.Text.Trim()))
                         {
-                            string[] rowuser = { list.Owner, list.Name, userInList.Email };
-                            datList.Rows.Add(rowuser);
+                            string[] row = { list.Owner, list.Name, userInList.Email };
+                            datList.Rows.Add(row);
                         }
                     }
                 }
@@ -134,6 +135,8 @@ namespace ProjetBanque
             FrmAdminMoneyChanger form = new FrmAdminMoneyChanger(userInformations);
 
             form.ShowDialog();
+
+            updateInfos();
         }
 
         private void txtSearch_TextChanged(object sender, EventArgs e)
