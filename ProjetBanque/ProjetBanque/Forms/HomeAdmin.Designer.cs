@@ -32,11 +32,6 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.datHistory = new System.Windows.Forms.DataGridView();
-            this.datColName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.datColNameReceiver = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.datColAmount = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.datColReason = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.datColDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cmdProfil = new System.Windows.Forms.Button();
             this.cmdExit = new System.Windows.Forms.Button();
             this.lblEmail = new System.Windows.Forms.Label();
@@ -49,13 +44,20 @@
             this.tabUsersHistory = new System.Windows.Forms.TabPage();
             this.tabList = new System.Windows.Forms.TabPage();
             this.datList = new System.Windows.Forms.DataGridView();
-            this.cmdModifyMonney = new System.Windows.Forms.Button();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Iban = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colMonney = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colOwner = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cmdModifyMonney = new System.Windows.Forms.Button();
+            this.activeAccount = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.accountType = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Iban = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colMonney = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.datColName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.datColNameReceiver = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.datColAmount = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.datColReason = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.datColDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.datHistory)).BeginInit();
             this.tabDisplay.SuspendLayout();
             this.tabAllUsers.SuspendLayout();
@@ -93,40 +95,6 @@
             this.datHistory.RowTemplate.ReadOnly = true;
             this.datHistory.Size = new System.Drawing.Size(556, 465);
             this.datHistory.TabIndex = 22;
-            // 
-            // datColName
-            // 
-            this.datColName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.datColName.HeaderText = "Nom / Iban(Destinataire)";
-            this.datColName.Name = "datColName";
-            // 
-            // datColNameReceiver
-            // 
-            this.datColNameReceiver.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.datColNameReceiver.HeaderText = "Nom / Iban(Receveur)";
-            this.datColNameReceiver.Name = "datColNameReceiver";
-            this.datColNameReceiver.Width = 127;
-            // 
-            // datColAmount
-            // 
-            this.datColAmount.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.datColAmount.HeaderText = "Montant";
-            this.datColAmount.Name = "datColAmount";
-            this.datColAmount.Width = 75;
-            // 
-            // datColReason
-            // 
-            this.datColReason.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.datColReason.HeaderText = "Raison";
-            this.datColReason.Name = "datColReason";
-            this.datColReason.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            // 
-            // datColDate
-            // 
-            this.datColDate.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.datColDate.HeaderText = "Date";
-            this.datColDate.Name = "datColDate";
-            this.datColDate.Width = 110;
             // 
             // cmdProfil
             // 
@@ -217,6 +185,8 @@
             this.datAllUsers.AllowUserToResizeRows = false;
             this.datAllUsers.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.datAllUsers.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.activeAccount,
+            this.accountType,
             this.dataGridViewTextBoxColumn1,
             this.Iban,
             this.colMonney});
@@ -284,6 +254,24 @@
             this.datList.Size = new System.Drawing.Size(556, 465);
             this.datList.TabIndex = 23;
             // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dataGridViewTextBoxColumn2.HeaderText = "Nom de la liste";
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            // 
+            // colOwner
+            // 
+            this.colOwner.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.colOwner.HeaderText = "Propriétaire de la liste";
+            this.colOwner.Name = "colOwner";
+            // 
+            // dataGridViewTextBoxColumn3
+            // 
+            this.dataGridViewTextBoxColumn3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dataGridViewTextBoxColumn3.HeaderText = "Personne dans la liste";
+            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            // 
             // cmdModifyMonney
             // 
             this.cmdModifyMonney.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -294,6 +282,21 @@
             this.cmdModifyMonney.Text = "Modifier argent utilisateur";
             this.cmdModifyMonney.UseVisualStyleBackColor = true;
             this.cmdModifyMonney.Click += new System.EventHandler(this.cmdModifyMonney_Click);
+            // 
+            // activeAccount
+            // 
+            this.activeAccount.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.activeAccount.HeaderText = "Actif";
+            this.activeAccount.Name = "activeAccount";
+            this.activeAccount.ReadOnly = true;
+            this.activeAccount.Width = 50;
+            // 
+            // accountType
+            // 
+            this.accountType.HeaderText = "Type de compte";
+            this.accountType.Name = "accountType";
+            this.accountType.ReadOnly = true;
+            this.accountType.Width = 110;
             // 
             // dataGridViewTextBoxColumn1
             // 
@@ -313,23 +316,39 @@
             this.colMonney.HeaderText = "Argent";
             this.colMonney.Name = "colMonney";
             // 
-            // dataGridViewTextBoxColumn2
+            // datColName
             // 
-            this.dataGridViewTextBoxColumn2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.dataGridViewTextBoxColumn2.HeaderText = "Nom de la liste";
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.datColName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.datColName.HeaderText = "Envoyeur";
+            this.datColName.Name = "datColName";
             // 
-            // colOwner
+            // datColNameReceiver
             // 
-            this.colOwner.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.colOwner.HeaderText = "Propriétaire de la liste";
-            this.colOwner.Name = "colOwner";
+            this.datColNameReceiver.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.datColNameReceiver.HeaderText = "Receveur";
+            this.datColNameReceiver.Name = "datColNameReceiver";
+            this.datColNameReceiver.Width = 127;
             // 
-            // dataGridViewTextBoxColumn3
+            // datColAmount
             // 
-            this.dataGridViewTextBoxColumn3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.dataGridViewTextBoxColumn3.HeaderText = "Personne dans la liste";
-            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            this.datColAmount.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.datColAmount.HeaderText = "Montant";
+            this.datColAmount.Name = "datColAmount";
+            this.datColAmount.Width = 75;
+            // 
+            // datColReason
+            // 
+            this.datColReason.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.datColReason.HeaderText = "Raison";
+            this.datColReason.Name = "datColReason";
+            this.datColReason.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            // 
+            // datColDate
+            // 
+            this.datColDate.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.datColDate.HeaderText = "Date";
+            this.datColDate.Name = "datColDate";
+            this.datColDate.Width = 110;
             // 
             // FrmHomeAdmin
             // 
@@ -364,11 +383,6 @@
         #endregion
 
         private System.Windows.Forms.DataGridView datHistory;
-        private System.Windows.Forms.DataGridViewTextBoxColumn datColName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn datColNameReceiver;
-        private System.Windows.Forms.DataGridViewTextBoxColumn datColAmount;
-        private System.Windows.Forms.DataGridViewTextBoxColumn datColReason;
-        private System.Windows.Forms.DataGridViewTextBoxColumn datColDate;
         private System.Windows.Forms.Button cmdProfil;
         private System.Windows.Forms.Button cmdExit;
         private System.Windows.Forms.Label lblEmail;
@@ -382,11 +396,18 @@
         private System.Windows.Forms.Button cmdModifyMonney;
         private System.Windows.Forms.TabPage tabList;
         private System.Windows.Forms.DataGridView datList;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Iban;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colMonney;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private System.Windows.Forms.DataGridViewTextBoxColumn colOwner;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn activeAccount;
+        private System.Windows.Forms.DataGridViewTextBoxColumn accountType;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Iban;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colMonney;
+        private System.Windows.Forms.DataGridViewTextBoxColumn datColName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn datColNameReceiver;
+        private System.Windows.Forms.DataGridViewTextBoxColumn datColAmount;
+        private System.Windows.Forms.DataGridViewTextBoxColumn datColReason;
+        private System.Windows.Forms.DataGridViewTextBoxColumn datColDate;
     }
 }
