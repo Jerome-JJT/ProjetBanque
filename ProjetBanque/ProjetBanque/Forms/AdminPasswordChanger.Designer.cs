@@ -132,7 +132,8 @@
             this.Controls.Add(this.txtNewPasswordVerify);
             this.Controls.Add(this.txtNewPassword);
             this.Controls.Add(this.txtUserEmail);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             this.Name = "FrmAdminPasswordChanger";
             this.Text = "Profil";
             this.ResumeLayout(false);

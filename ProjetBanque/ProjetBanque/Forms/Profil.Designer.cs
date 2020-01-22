@@ -157,6 +157,7 @@
             this.Controls.Add(this.txtNewPassword);
             this.Controls.Add(this.txtOldPassword);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             this.MaximumSize = new System.Drawing.Size(446, 489);
             this.MinimumSize = new System.Drawing.Size(446, 489);
             this.Name = "FrmProfil";

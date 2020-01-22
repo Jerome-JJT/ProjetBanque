@@ -125,7 +125,8 @@
             this.Controls.Add(this.lblNewPassword);
             this.Controls.Add(this.lblUserEmail);
             this.Controls.Add(this.txtUserEmail);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             this.Name = "FrmAdminMoneyChanger";
             this.Text = "Profil";
             ((System.ComponentModel.ISupportInitialize)(this.updAmount)).EndInit();

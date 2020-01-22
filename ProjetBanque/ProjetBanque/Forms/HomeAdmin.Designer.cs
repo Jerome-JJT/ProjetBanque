@@ -263,6 +263,7 @@
             this.cmdModifyMonney.TabIndex = 27;
             this.cmdModifyMonney.Text = "Modifier argent utilisateur";
             this.cmdModifyMonney.UseVisualStyleBackColor = true;
+            this.cmdModifyMonney.Click += new System.EventHandler(this.cmdModifyMonney_Click);
             // 
             // FrmHomeAdmin
             // 
