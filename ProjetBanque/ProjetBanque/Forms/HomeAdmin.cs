@@ -84,5 +84,12 @@ namespace ProjetBanque
             form.ShowDialog();
 
         }
+
+        private void cmdModifyMonney_Click(object sender, EventArgs e)
+        {
+            FrmAdminMoneyChanger form = new FrmAdminMoneyChanger(userInformations);
+
+            form.ShowDialog();
+        }
     }
 }

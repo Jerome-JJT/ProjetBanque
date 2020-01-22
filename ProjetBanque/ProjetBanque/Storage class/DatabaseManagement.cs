@@ -528,7 +528,7 @@ namespace ProjetBanque
                                 (select USERS.id from USERS where iban = (@creatorIban)))";
 
             // Add parameters to query
-            //List name : create a list name unique per user
+            // List name : create a list name unique per user
             query.Parameters.AddWithValue("@name", $"{creatorIban}_{newName}");
             query.Parameters.AddWithValue("@creatorIban", creatorIban);
 
