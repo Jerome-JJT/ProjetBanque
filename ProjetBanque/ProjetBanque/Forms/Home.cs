@@ -30,8 +30,6 @@ namespace ProjetBanque
             cmdPay.Enabled = false;
             txtPayIban.Enabled = true;
 
-            
-
             userInformations = userInfos;
             inheritJsonStorage = inheritStorage;
 

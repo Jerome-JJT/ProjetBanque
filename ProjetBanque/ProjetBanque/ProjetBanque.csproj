@@ -70,14 +70,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Bank class\AdminUsersList.cs" />
-    <Compile Include="Bank class\UserTypes\AdminUser.cs" />
+    <Compile Include="Bank class\UserManagement\AdminUsersList.cs" />
+    <Compile Include="Bank class\UserManagement\UserTypes\AdminUser.cs" />
     <Compile Include="Bank class\BankException.cs" />
-    <Compile Include="Bank class\UserTypes\EnterpriseUser.cs" />
-    <Compile Include="Bank class\UserTypes\PublicUser.cs" />
-    <Compile Include="Bank class\UsersList.cs" />
-    <Compile Include="Bank class\UserTypes\BankUser.cs" />
-    <Compile Include="Bank class\UserTypes\BankUserInfos.cs" />
+    <Compile Include="Bank class\UserManagement\UserTypes\EnterpriseUser.cs" />
+    <Compile Include="Bank class\UserManagement\UserTypes\PublicUser.cs" />
+    <Compile Include="Bank class\UserManagement\UsersList.cs" />
+    <Compile Include="Bank class\UserManagement\UserTypes\BankUser.cs" />
+    <Compile Include="Bank class\UserManagement\UserTypes\BankUserInfos.cs" />
     <Compile Include="Forms\AdminMoneyChanger.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -104,7 +104,7 @@
     </Compile>
     <Compile Include="Storage class\JsonData.cs" />
     <Compile Include="Bank class\Transaction.cs" />
-    <Compile Include="Bank class\UserTypes\User.cs" />
+    <Compile Include="Bank class\UserManagement\UserTypes\User.cs" />
     <Compile Include="Forms\Home.cs">
       <SubType>Form</SubType>
     </Compile>

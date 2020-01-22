@@ -15,8 +15,9 @@ namespace ProjetBanque
     /// </summary>
     public partial class FrmHomeAdmin : Form
     {
+        private JsonData inheritJsonStorage;
         private AdminUser userInformations;
-
+        
         /// <summary>
         /// Admin home form constructor
         /// </summary>
@@ -27,8 +28,15 @@ namespace ProjetBanque
             InitializeComponent();
 
             userInformations = userInfos;
+            inheritJsonStorage = inheritStorage;
             updateInfos();
         }
+        private void FrmHomeAdmin_Load(object sender, EventArgs e)
+        {
+            Location = inheritJsonStorage.HomeWindowLocation;
+            Size = inheritJsonStorage.HomeWindowSize;
+        }
+
 
         private void cmdExit_Click(object sender, EventArgs e)
         {

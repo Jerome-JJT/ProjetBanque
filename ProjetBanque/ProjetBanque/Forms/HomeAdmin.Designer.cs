@@ -28,9 +28,9 @@ namespace ProjetBanque
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.datHistory = new System.Windows.Forms.DataGridView();
             this.datColName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.datColNameReceiver = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -54,10 +54,10 @@ namespace ProjetBanque
             this.tabUsersHistory = new System.Windows.Forms.TabPage();
             this.tabList = new System.Windows.Forms.TabPage();
             this.datList = new System.Windows.Forms.DataGridView();
-            this.cmdModifyMonney = new System.Windows.Forms.Button();
             this.colOwner = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cmdModifyMonney = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.datHistory)).BeginInit();
             this.tabDisplay.SuspendLayout();
             this.tabAllUsers.SuspendLayout();
@@ -83,14 +83,14 @@ namespace ProjetBanque
             this.datColAmount,
             this.datColReason,
             this.datColDate});
-            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle10.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle10.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle10.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.datHistory.DefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.datHistory.DefaultCellStyle = dataGridViewCellStyle1;
             this.datHistory.Location = new System.Drawing.Point(3, 3);
             this.datHistory.Name = "datHistory";
             this.datHistory.RowHeadersVisible = false;
@@ -233,14 +233,14 @@ namespace ProjetBanque
             this.dataGridViewTextBoxColumn1,
             this.Iban,
             this.colMonney});
-            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle11.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle11.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle11.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.datAllUsers.DefaultCellStyle = dataGridViewCellStyle11;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.datAllUsers.DefaultCellStyle = dataGridViewCellStyle2;
             this.datAllUsers.Location = new System.Drawing.Point(3, 0);
             this.datAllUsers.Name = "datAllUsers";
             this.datAllUsers.RowHeadersVisible = false;
@@ -317,14 +317,14 @@ namespace ProjetBanque
             this.colOwner,
             this.dataGridViewTextBoxColumn2,
             this.dataGridViewTextBoxColumn3});
-            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle12.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle12.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle12.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.datList.DefaultCellStyle = dataGridViewCellStyle12;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.datList.DefaultCellStyle = dataGridViewCellStyle3;
             this.datList.Location = new System.Drawing.Point(3, 0);
             this.datList.Name = "datList";
             this.datList.RowHeadersVisible = false;
@@ -332,17 +332,6 @@ namespace ProjetBanque
             this.datList.RowTemplate.ReadOnly = true;
             this.datList.Size = new System.Drawing.Size(556, 465);
             this.datList.TabIndex = 23;
-            // 
-            // cmdModifyMonney
-            // 
-            this.cmdModifyMonney.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.cmdModifyMonney.Location = new System.Drawing.Point(633, 161);
-            this.cmdModifyMonney.Name = "cmdModifyMonney";
-            this.cmdModifyMonney.Size = new System.Drawing.Size(114, 39);
-            this.cmdModifyMonney.TabIndex = 27;
-            this.cmdModifyMonney.Text = "Modifier argent utilisateur";
-            this.cmdModifyMonney.UseVisualStyleBackColor = true;
-            this.cmdModifyMonney.Click += new System.EventHandler(this.cmdModifyMonney_Click);
             // 
             // colOwner
             // 
@@ -362,6 +351,17 @@ namespace ProjetBanque
             this.dataGridViewTextBoxColumn3.HeaderText = "Personne dans la liste";
             this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
             // 
+            // cmdModifyMonney
+            // 
+            this.cmdModifyMonney.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.cmdModifyMonney.Location = new System.Drawing.Point(633, 161);
+            this.cmdModifyMonney.Name = "cmdModifyMonney";
+            this.cmdModifyMonney.Size = new System.Drawing.Size(114, 39);
+            this.cmdModifyMonney.TabIndex = 27;
+            this.cmdModifyMonney.Text = "Modifier argent utilisateur";
+            this.cmdModifyMonney.UseVisualStyleBackColor = true;
+            this.cmdModifyMonney.Click += new System.EventHandler(this.cmdModifyMonney_Click);
+            // 
             // FrmHomeAdmin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -378,6 +378,7 @@ namespace ProjetBanque
             this.MinimumSize = new System.Drawing.Size(827, 612);
             this.Name = "FrmHomeAdmin";
             this.Text = "Accueil Administrateur";
+            this.Load += new System.EventHandler(this.FrmHomeAdmin_Load);
             ((System.ComponentModel.ISupportInitialize)(this.datHistory)).EndInit();
             this.tabDisplay.ResumeLayout(false);
             this.tabAllUsers.ResumeLayout(false);
