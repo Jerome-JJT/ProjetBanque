@@ -70,6 +70,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Bank class\AdminUsersList.cs" />
     <Compile Include="Bank class\UserTypes\AdminUser.cs" />
     <Compile Include="Bank class\BankException.cs" />
     <Compile Include="Bank class\UserTypes\EnterpriseUser.cs" />

@@ -84,15 +84,20 @@ namespace ProjetBanque
 
                     database.OpenConnection();
 
-                    database.ChangePassword(userInfos.Email,txtNewPassword.Text.Trim());
+                    if (database.ChangePassword(txtUserEmail.Text.Trim(), txtNewPassword.Text.Trim()))
+                    {
+                        lblError.Text = "Le mot de passe a été changé";
+                        txtUserEmail.Text = "";
+                        txtNewPassword.Text = "";
+                        txtNewPasswordVerify.Text = "";
+                    }
+                    else
+                    {
+                        lblError.Text = "Utilisateur introuvable";
+                        txtUserEmail.BackColor = Color.FromArgb(255, 128, 128);
+                    }                  
 
                     database.CloseConnection();
-
-
-                    lblError.Text = "Votre mot de passe a été changé";
-                    txtUserEmail.Text = "";
-                    txtNewPassword.Text = "";
-                    txtNewPasswordVerify.Text = "";
                 }
                 catch (UnableToJoinDatabase)
                 {

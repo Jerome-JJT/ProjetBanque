@@ -320,7 +320,7 @@ namespace ProjetBanque
                 query = connection.CreateCommand();
                 if (user.GetType() == typeof(AdminUser))
                 {
-                    query.CommandText = @"select lists.name, COALESCE(USER_INSIDE.iban,''), COALESCE(USER_INSIDE.email,'') from lists
+                    query.CommandText = @"select lists.name, COALESCE(USER_INSIDE.iban,''), COALESCE(USER_INSIDE.email,''), LIST_OWNER.email from lists
                                         left join users_lists on users_lists.idList = lists.id
                                         left join users as LIST_OWNER on lists.idUser = LIST_OWNER.id
                                         left join users as USER_INSIDE on users_lists.idUser = USER_INSIDE.id
@@ -350,6 +350,15 @@ namespace ProjetBanque
                     while (!endFlag)
                     {
                         UsersList usersList = new UsersList(reader.GetString(0));
+
+                        if (user.GetType() == typeof(AdminUser))
+                        {
+                            usersList = new AdminUsersList(reader.GetString(0), reader.GetString(3));
+                        }
+                        else
+                        {
+                            usersList = new UsersList(reader.GetString(0));
+                        }
 
                         if (reader.GetString(1) != "" && reader.GetString(2) != "")
                         {
@@ -389,8 +398,6 @@ namespace ProjetBanque
 
 
             #region Users management (only admin users)
-
-
 
             if (user.GetType() == typeof(AdminUser))
             {
