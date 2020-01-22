@@ -44,49 +44,44 @@ namespace ProjetBanque
 
             if (txtSearch.Text.Trim() == "")
             {
-                int counter = 0;
-                int counter2 = 0;
-                int counter3 = 0;
+                for (int i = 0; i < 30 && i < userInformations.Users.Count; i++)
+                {
+                    BankUser user = userInformations.Users[i];
 
-                foreach (Transaction transaction in userInformations.Transactions)
+                    string[] row = { "", "", user.Email, user.Iban, $"{user.Money.ToString("0.00")} CHF" };
+                    datAllUsers.Rows.Add(row);
+                }
+
+                for (int i = 0; i < 30 && i < userInformations.Transactions.Count; i++)
                 {
-                    if (counter <= 29)
-                    {
-                        string[] row = { transaction.SenderDefine + " \n" + transaction.SenderIban, transaction.ReceiverDefine + " \n" + transaction.ReceiverIban, $"{transaction.Amount.ToString("0.00")} CHF", transaction.Reason, transaction.Date };
-                        datHistory.Rows.Add(row);
-                        counter++;
-                    }                    
-                }                             
-                
-                foreach (BankUser user in userInformations.Users)
-                {
-                    if (counter2 <= 29)
-                    {
-                        string[] row = { user.Email, user.Iban, $"{user.Money.ToString("0.00")} CHF" };
-                        datAllUsers.Rows.Add(row);
-                        counter2++;
-                    }                    
+                    Transaction transaction = userInformations.Transactions[i];
+
+                    string[] row = { transaction.SenderDefine + " \n" + transaction.SenderIban, transaction.ReceiverDefine + " \n" + transaction.ReceiverIban, $"{transaction.Amount.ToString("0.00")} CHF", transaction.Reason, transaction.Date };
+                    datHistory.Rows.Add(row);
                 }
 
                 foreach (AdminUsersList lists in userInformations.Lists)
                 {
-                    if (counter3 <= 29)
+                    for (int i = 0; i < 30 && i < lists.Users.Count; i++)
                     {
-                        string[] row = { lists.Owner, lists.Name, "|\nV" };
-                        datAllUsers.Rows.Add(row);
+                        User userInList = lists.Users[i];
 
-                        foreach (User list in lists.Users)
-                        {
-                            string[] rowuser = { "", "", list.Email };
-                            datAllUsers.Rows.Add(rowuser);
-                        }
-                        counter3++;
+                        string[] rowuser = { lists.Owner, lists.Name, userInList.Email };
+                        datList.Rows.Add(rowuser);
                     }
                 }
-
             }
             else
             {
+                foreach (BankUser user in userInformations.Users)
+                {
+                    if (user.Email.Contains(txtSearch.Text.Trim()))
+                    {
+                        string[] row = { user.Email, user.Iban, $"{user.Money.ToString("0.00")} CHF" };
+                        datAllUsers.Rows.Add(row);
+                    }
+                }
+
                 foreach (Transaction transaction in userInformations.Transactions)
                 {
                     if(transaction.SenderDefine.Contains(txtSearch.Text.Trim()) || transaction.ReceiverDefine.Contains(txtSearch.Text.Trim()))
@@ -95,13 +90,14 @@ namespace ProjetBanque
                         datHistory.Rows.Add(row);
                     }                    
                 }
-                foreach (BankUser user in userInformations.Users)
+
+                foreach (AdminUsersList lists in userInformations.Lists)
                 {
-                    if (user.Email.Contains(txtSearch.Text.Trim()))
+                    foreach (User userInList in lists.Users)
                     {
-                        string[] row = { user.Email, user.Iban, $"{user.Money.ToString("0.00")} CHF" };
-                        datAllUsers.Rows.Add(row);
-                    }                         
+                        string[] rowuser = { lists.Owner, lists.Name, userInList.Email };
+                        datList.Rows.Add(rowuser);
+                    }
                 }
             }            
         }

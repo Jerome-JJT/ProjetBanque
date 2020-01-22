@@ -32,6 +32,11 @@ namespace ProjetBanque
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.datHistory = new System.Windows.Forms.DataGridView();
+            this.datColName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.datColNameReceiver = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.datColAmount = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.datColReason = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.datColDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cmdProfil = new System.Windows.Forms.Button();
             this.cmdExit = new System.Windows.Forms.Button();
             this.lblEmail = new System.Windows.Forms.Label();
@@ -41,23 +46,18 @@ namespace ProjetBanque
             this.tabDisplay = new System.Windows.Forms.TabControl();
             this.tabAllUsers = new System.Windows.Forms.TabPage();
             this.datAllUsers = new System.Windows.Forms.DataGridView();
-            this.tabUsersHistory = new System.Windows.Forms.TabPage();
-            this.tabList = new System.Windows.Forms.TabPage();
-            this.datList = new System.Windows.Forms.DataGridView();
-            this.colOwner = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cmdModifyMonney = new System.Windows.Forms.Button();
             this.activeAccount = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.accountType = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Iban = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colMonney = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.datColName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.datColNameReceiver = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.datColAmount = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.datColReason = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.datColDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tabUsersHistory = new System.Windows.Forms.TabPage();
+            this.tabList = new System.Windows.Forms.TabPage();
+            this.datList = new System.Windows.Forms.DataGridView();
+            this.cmdModifyMonney = new System.Windows.Forms.Button();
+            this.colOwner = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.datHistory)).BeginInit();
             this.tabDisplay.SuspendLayout();
             this.tabAllUsers.SuspendLayout();
@@ -95,6 +95,40 @@ namespace ProjetBanque
             this.datHistory.RowTemplate.ReadOnly = true;
             this.datHistory.Size = new System.Drawing.Size(556, 465);
             this.datHistory.TabIndex = 22;
+            // 
+            // datColName
+            // 
+            this.datColName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.datColName.HeaderText = "Envoyeur";
+            this.datColName.Name = "datColName";
+            // 
+            // datColNameReceiver
+            // 
+            this.datColNameReceiver.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.datColNameReceiver.HeaderText = "Receveur";
+            this.datColNameReceiver.Name = "datColNameReceiver";
+            this.datColNameReceiver.Width = 127;
+            // 
+            // datColAmount
+            // 
+            this.datColAmount.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.datColAmount.HeaderText = "Montant";
+            this.datColAmount.Name = "datColAmount";
+            this.datColAmount.Width = 75;
+            // 
+            // datColReason
+            // 
+            this.datColReason.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.datColReason.HeaderText = "Raison";
+            this.datColReason.Name = "datColReason";
+            this.datColReason.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            // 
+            // datColDate
+            // 
+            this.datColDate.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.datColDate.HeaderText = "Date";
+            this.datColDate.Name = "datColDate";
+            this.datColDate.Width = 110;
             // 
             // cmdProfil
             // 
@@ -206,6 +240,39 @@ namespace ProjetBanque
             this.datAllUsers.Size = new System.Drawing.Size(559, 461);
             this.datAllUsers.TabIndex = 27;
             // 
+            // activeAccount
+            // 
+            this.activeAccount.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.activeAccount.HeaderText = "Actif";
+            this.activeAccount.Name = "activeAccount";
+            this.activeAccount.ReadOnly = true;
+            this.activeAccount.Width = 50;
+            // 
+            // accountType
+            // 
+            this.accountType.HeaderText = "Type de compte";
+            this.accountType.Name = "accountType";
+            this.accountType.ReadOnly = true;
+            this.accountType.Width = 110;
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dataGridViewTextBoxColumn1.HeaderText = "Nom";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            // 
+            // Iban
+            // 
+            this.Iban.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Iban.HeaderText = "Iban";
+            this.Iban.Name = "Iban";
+            // 
+            // colMonney
+            // 
+            this.colMonney.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.colMonney.HeaderText = "Argent";
+            this.colMonney.Name = "colMonney";
+            // 
             // tabUsersHistory
             // 
             this.tabUsersHistory.Controls.Add(this.datHistory);
@@ -254,8 +321,20 @@ namespace ProjetBanque
             this.datList.Size = new System.Drawing.Size(556, 465);
             this.datList.TabIndex = 23;
             // 
+            // cmdModifyMonney
+            // 
+            this.cmdModifyMonney.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.cmdModifyMonney.Location = new System.Drawing.Point(633, 161);
+            this.cmdModifyMonney.Name = "cmdModifyMonney";
+            this.cmdModifyMonney.Size = new System.Drawing.Size(114, 39);
+            this.cmdModifyMonney.TabIndex = 27;
+            this.cmdModifyMonney.Text = "Modifier argent utilisateur";
+            this.cmdModifyMonney.UseVisualStyleBackColor = true;
+            this.cmdModifyMonney.Click += new System.EventHandler(this.cmdModifyMonney_Click);
+            // 
             // colOwner
             // 
+            this.colOwner.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.colOwner.HeaderText = "Propriétaire de la liste";
             this.colOwner.Name = "colOwner";
             // 
@@ -270,84 +349,6 @@ namespace ProjetBanque
             this.dataGridViewTextBoxColumn3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.dataGridViewTextBoxColumn3.HeaderText = "Personne dans la liste";
             this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            // 
-            // cmdModifyMonney
-            // 
-            this.cmdModifyMonney.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.cmdModifyMonney.Location = new System.Drawing.Point(633, 161);
-            this.cmdModifyMonney.Name = "cmdModifyMonney";
-            this.cmdModifyMonney.Size = new System.Drawing.Size(114, 39);
-            this.cmdModifyMonney.TabIndex = 27;
-            this.cmdModifyMonney.Text = "Modifier argent utilisateur";
-            this.cmdModifyMonney.UseVisualStyleBackColor = true;
-            this.cmdModifyMonney.Click += new System.EventHandler(this.cmdModifyMonney_Click);
-            // 
-            // activeAccount
-            // 
-            this.activeAccount.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.activeAccount.HeaderText = "Actif";
-            this.activeAccount.Name = "activeAccount";
-            this.activeAccount.ReadOnly = true;
-            this.activeAccount.Width = 50;
-            // 
-            // accountType
-            // 
-            this.accountType.HeaderText = "Type de compte";
-            this.accountType.Name = "accountType";
-            this.accountType.ReadOnly = true;
-            this.accountType.Width = 110;
-            // 
-            // dataGridViewTextBoxColumn1
-            // 
-            this.dataGridViewTextBoxColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.dataGridViewTextBoxColumn1.HeaderText = "Nom";
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            // 
-            // Iban
-            // 
-            this.Iban.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Iban.HeaderText = "Iban";
-            this.Iban.Name = "Iban";
-            // 
-            // colMonney
-            // 
-            this.colMonney.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.colMonney.HeaderText = "Argent";
-            this.colMonney.Name = "colMonney";
-            // 
-            // datColName
-            // 
-            this.datColName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.datColName.HeaderText = "Envoyeur";
-            this.datColName.Name = "datColName";
-            // 
-            // datColNameReceiver
-            // 
-            this.datColNameReceiver.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.datColNameReceiver.HeaderText = "Receveur";
-            this.datColNameReceiver.Name = "datColNameReceiver";
-            this.datColNameReceiver.Width = 127;
-            // 
-            // datColAmount
-            // 
-            this.datColAmount.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.datColAmount.HeaderText = "Montant";
-            this.datColAmount.Name = "datColAmount";
-            this.datColAmount.Width = 75;
-            // 
-            // datColReason
-            // 
-            this.datColReason.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.datColReason.HeaderText = "Raison";
-            this.datColReason.Name = "datColReason";
-            this.datColReason.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            // 
-            // datColDate
-            // 
-            this.datColDate.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.datColDate.HeaderText = "Date";
-            this.datColDate.Name = "datColDate";
-            this.datColDate.Width = 110;
             // 
             // FrmHomeAdmin
             // 
@@ -395,9 +396,6 @@ namespace ProjetBanque
         private System.Windows.Forms.Button cmdModifyMonney;
         private System.Windows.Forms.TabPage tabList;
         private System.Windows.Forms.DataGridView datList;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colOwner;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
         private System.Windows.Forms.DataGridViewTextBoxColumn activeAccount;
         private System.Windows.Forms.DataGridViewTextBoxColumn accountType;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
@@ -408,5 +406,8 @@ namespace ProjetBanque
         private System.Windows.Forms.DataGridViewTextBoxColumn datColAmount;
         private System.Windows.Forms.DataGridViewTextBoxColumn datColReason;
         private System.Windows.Forms.DataGridViewTextBoxColumn datColDate;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colOwner;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
     }
 }
