@@ -551,7 +551,7 @@ namespace ProjetBanque
             }
             catch(MySqlException)
             {
-                throw new ListAlreadyExists();
+                throw new ListAlreadyExistsException();
             }
             
 
