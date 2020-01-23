@@ -57,7 +57,7 @@ namespace ProjetBanque
                 {
                     BankUserInfos user = userInformations.Users[i];
 
-                    string[] row = { user.ActiveAccount.ToString(), user.UserType.ToString(), user.Email, user.Iban, $"{user.Money.ToString("0.00")} CHF" };
+                    string[] row = { user.ActiveAccount ? "Actif" : "Inactif", user.UserType.ToString(), user.Email, user.Iban, $"{user.Money.ToString("0.00")} CHF" };
                     datAllUsers.Rows.Add(row);
                 }
 
@@ -69,14 +69,32 @@ namespace ProjetBanque
                     datHistory.Rows.Add(row);
                 }
 
+                int maxCount = 0;
                 foreach (AdminUsersList list in userInformations.Lists)
                 {
-                    for (int i = 0; i < 30 && i < list.Users.Count; i++)
+                    if (list.Users.Any())
                     {
-                        User userInList = list.Users[i];
+                        foreach (User userInList in list.Users)
+                        {
+                            if (maxCount < 30)
+                            {
+                                string[] row = { list.Owner, list.ToString(), userInList.Email };
+                                datList.Rows.Add(row);
+                            }
+                            else
+                            {
+                                break;
+                            }
 
-                        string[] row = { list.Owner, list.Name, userInList.Email };
+                            maxCount++;
+                        }
+                    }
+                    else if (maxCount < 30)
+                    {
+                        string[] row = { list.Owner, list.ToString(), "Vide" };
                         datList.Rows.Add(row);
+
+                        maxCount++;
                     }
                 }
             }
@@ -86,7 +104,7 @@ namespace ProjetBanque
                 {
                     if (user.Email.Contains(txtSearch.Text.Trim()) || user.Iban.Contains(txtSearch.Text.Trim()))
                     {
-                        string[] row = { user.ActiveAccount.ToString(), user.UserType.ToString(), user.Email, user.Iban, $"{user.Money.ToString("0.00")} CHF" };
+                        string[] row = { user.ActiveAccount ? "Actif" : "Inactif", user.UserType.ToString(), user.Email, user.Iban, $"{user.Money.ToString("0.00")} CHF" };
                         datAllUsers.Rows.Add(row);
                     }
                 }
@@ -102,12 +120,23 @@ namespace ProjetBanque
 
                 foreach (AdminUsersList list in userInformations.Lists)
                 {
-                    foreach (User userInList in list.Users)
+                    if (list.Users.Any())
                     {
-                        if (userInList.Email.Contains(txtSearch.Text.Trim()) || 
-                            list.Owner.Contains(txtSearch.Text.Trim()) || list.Name.Contains(txtSearch.Text.Trim()))
+                        foreach (User userInList in list.Users)
                         {
-                            string[] row = { list.Owner, list.Name, userInList.Email };
+                            if (userInList.Email.Contains(txtSearch.Text.Trim()) ||
+                                list.Owner.Contains(txtSearch.Text.Trim()) || list.Name.Contains(txtSearch.Text.Trim()))
+                            {
+                                string[] row = { list.Owner, list.ToString(), userInList.Email };
+                                datList.Rows.Add(row);
+                            }
+                        }
+                    }
+                    else
+                    {
+                        if (list.Owner.Contains(txtSearch.Text.Trim()) || list.Name.Contains(txtSearch.Text.Trim()))
+                        {
+                            string[] row = { list.Owner, list.ToString(), "Vide" };
                             datList.Rows.Add(row);
                         }
                     }

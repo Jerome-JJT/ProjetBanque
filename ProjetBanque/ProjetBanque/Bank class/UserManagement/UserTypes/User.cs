@@ -8,7 +8,7 @@ namespace ProjetBanque
 {
     /// <summary>
     /// Store user's primary informations to display them
-    /// </summary>
+    /// </summary>y
     public class User
     {
         /// <summary>
