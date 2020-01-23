@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['registerwindowlocation',['RegisterWindowLocation',['../class_projet_banque_1_1_json_data.html#ae2055a1365e1c285dfcbf4b5c4b28375',1,'ProjetBanque::JsonData']]],
-  ['resources',['Resources',['../class_projet_banque_1_1_properties_1_1_resources.html',1,'ProjetBanque::Properties']]]
+  ['openconnection',['OpenConnection',['../class_projet_banque_1_1_database_management.html#ae0af13394741c4671c86ffb098e281e7',1,'ProjetBanque::DatabaseManagement']]],
+  ['owner',['Owner',['../class_projet_banque_1_1_admin_users_list.html#a7e3c434e0b4a1e299d34bee42c8e3b1f',1,'ProjetBanque::AdminUsersList']]]
 ];

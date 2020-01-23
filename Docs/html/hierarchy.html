@@ -9,6 +9,14 @@
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+  $(document).ready(initResizable);
+/* @license-end */</script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
@@ -20,8 +28,10 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr style="height: 56px;">
+  <td id="projectlogo"><img alt="Logo" src="kisspng-united-states-dollar-logo-image-currency-5be2cfbf2c8e99.4620064415415909751825.ico"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">ProjetBanque
+   &#160;<span id="projectnumber">3.0</span>
    </div>
   </td>
  </tr>
@@ -46,6 +56,22 @@ $(function() {
 /* @license-end */</script>
 <div id="main-nav"></div>
 </div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(document).ready(function(){initNavTree('hierarchy.html','');});
+/* @license-end */
+</script>
+<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -66,34 +92,52 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 <div class="textblock">This inheritance list is sorted roughly, but not completely, alphabetically:</div><div class="directory">
-<div class="levels">[detail level <span onclick="javascript:toggleLevel(1);">1</span><span onclick="javascript:toggleLevel(2);">2</span><span onclick="javascript:toggleLevel(3);">3</span>]</div><table class="directory">
+<div class="levels">[detail level <span onclick="javascript:toggleLevel(1);">1</span><span onclick="javascript:toggleLevel(2);">2</span><span onclick="javascript:toggleLevel(3);">3</span><span onclick="javascript:toggleLevel(4);">4</span><span onclick="javascript:toggleLevel(5);">5</span>]</div><table class="directory">
 <tr id="row_0_" class="even"><td class="entry"><span style="width:0px;display:inline-block;">&#160;</span><span id="arr_0_" class="arrow" onclick="toggleFolder('0_')">&#9660;</span><span class="icona"><span class="icon">C</span></span><b>ApplicationSettingsBase</b></td><td class="desc"></td></tr>
 <tr id="row_0_0_"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="class_projet_banque_1_1_properties_1_1_settings.html" target="_self">ProjetBanque.Properties.Settings</a></td><td class="desc"></td></tr>
 <tr id="row_1_" class="even"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="class_projet_banque_1_1_crypto_password.html" target="_self">ProjetBanque.CryptoPassword</a></td><td class="desc">Hashing and salting management with verification </td></tr>
 <tr id="row_2_"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="class_projet_banque_1_1_database_management.html" target="_self">ProjetBanque.DatabaseManagement</a></td><td class="desc">Execute SQL queries on banque database and return success or result </td></tr>
 <tr id="row_3_" class="even"><td class="entry"><span style="width:0px;display:inline-block;">&#160;</span><span id="arr_3_" class="arrow" onclick="toggleFolder('3_')">&#9660;</span><span class="icona"><span class="icon">C</span></span><b>Exception</b></td><td class="desc"></td></tr>
-<tr id="row_3_0_"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><span id="arr_3_0_" class="arrow" onclick="toggleFolder('3_0_')">&#9660;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="class_projet_banque_1_1_bank_exception.html" target="_self">ProjetBanque.BankException</a></td><td class="desc">Group all banque errors </td></tr>
-<tr id="row_3_0_0_" class="even"><td class="entry"><span style="width:48px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="class_projet_banque_1_1_unable_to_join_database.html" target="_self">ProjetBanque.UnableToJoinDatabase</a></td><td class="desc">Exception raised when database is unjoinable </td></tr>
-<tr id="row_3_0_1_"><td class="entry"><span style="width:48px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="class_projet_banque_1_1_user_already_exists_exception.html" target="_self">ProjetBanque.UserAlreadyExistsException</a></td><td class="desc">Exception raised when trying to create a user who already exists </td></tr>
-<tr id="row_3_0_2_" class="even"><td class="entry"><span style="width:48px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="class_projet_banque_1_1_user_does_not_exists_exception.html" target="_self">ProjetBanque.UserDoesNotExistsException</a></td><td class="desc">Exception raised when trying to login with a user who doesn't exists </td></tr>
-<tr id="row_3_0_3_"><td class="entry"><span style="width:48px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="class_projet_banque_1_1_wrong_account_type_exception.html" target="_self">ProjetBanque.WrongAccountTypeException</a></td><td class="desc">Exception raised when trying to create an account without a valid account type </td></tr>
-<tr id="row_3_0_4_" class="even"><td class="entry"><span style="width:48px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="class_projet_banque_1_1_wrong_email_format_exception.html" target="_self">ProjetBanque.WrongEmailFormatException</a></td><td class="desc">Exception raised when an email isn't a valid format </td></tr>
-<tr id="row_4_"><td class="entry"><span style="width:0px;display:inline-block;">&#160;</span><span id="arr_4_" class="arrow" onclick="toggleFolder('4_')">&#9660;</span><span class="icona"><span class="icon">C</span></span><b>Form</b></td><td class="desc"></td></tr>
-<tr id="row_4_0_" class="even"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="class_projet_banque_1_1form_register_ok.html" target="_self">ProjetBanque.formRegisterOk</a></td><td class="desc">This windows is opened when the user has finish the register </td></tr>
-<tr id="row_4_1_"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="class_projet_banque_1_1frm_home.html" target="_self">ProjetBanque.frmHome</a></td><td class="desc">This windows is the home page of our application </td></tr>
-<tr id="row_4_2_" class="even"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="class_projet_banque_1_1frm_login.html" target="_self">ProjetBanque.frmLogin</a></td><td class="desc">This windows is design for login the user who is register in the database </td></tr>
-<tr id="row_4_3_"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="class_projet_banque_1_1frm_register.html" target="_self">ProjetBanque.frmRegister</a></td><td class="desc">This windows is design for register the user in the database </td></tr>
+<tr id="row_3_0_"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><span id="arr_3_0_" class="arrow" onclick="toggleFolder('3_0_')">&#9660;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="class_projet_banque_1_1_bank_exception.html" target="_self">ProjetBanque.BankException</a></td><td class="desc">Group all bank errors </td></tr>
+<tr id="row_3_0_0_" class="even"><td class="entry"><span style="width:48px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="class_projet_banque_1_1_list_already_exists_exception.html" target="_self">ProjetBanque.ListAlreadyExistsException</a></td><td class="desc">Exception raised when trying to create a list who already exist </td></tr>
+<tr id="row_3_0_1_"><td class="entry"><span style="width:48px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="class_projet_banque_1_1_unable_to_join_database.html" target="_self">ProjetBanque.UnableToJoinDatabase</a></td><td class="desc">Exception raised when database is unjoinable </td></tr>
+<tr id="row_3_0_2_" class="even"><td class="entry"><span style="width:48px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="class_projet_banque_1_1_user_already_exists_exception.html" target="_self">ProjetBanque.UserAlreadyExistsException</a></td><td class="desc">Exception raised when trying to create a user who already exists </td></tr>
+<tr id="row_3_0_3_"><td class="entry"><span style="width:48px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="class_projet_banque_1_1_user_does_not_exists_exception.html" target="_self">ProjetBanque.UserDoesNotExistsException</a></td><td class="desc">Exception raised when trying to login with a user who doesn't exists </td></tr>
+<tr id="row_3_0_4_" class="even"><td class="entry"><span style="width:48px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="class_projet_banque_1_1_wrong_account_type_exception.html" target="_self">ProjetBanque.WrongAccountTypeException</a></td><td class="desc">Exception raised when trying to create an account without a valid account type </td></tr>
+<tr id="row_3_0_5_"><td class="entry"><span style="width:48px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="class_projet_banque_1_1_wrong_email_format_exception.html" target="_self">ProjetBanque.WrongEmailFormatException</a></td><td class="desc">Exception raised when an email isn't a valid format </td></tr>
+<tr id="row_4_" class="even"><td class="entry"><span style="width:0px;display:inline-block;">&#160;</span><span id="arr_4_" class="arrow" onclick="toggleFolder('4_')">&#9660;</span><span class="icona"><span class="icon">C</span></span><b>Form</b></td><td class="desc"></td></tr>
+<tr id="row_4_0_"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="class_projet_banque_1_1_frm_admin_money_changer.html" target="_self">ProjetBanque.FrmAdminMoneyChanger</a></td><td class="desc">Admin money changer form's class </td></tr>
+<tr id="row_4_1_" class="even"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="class_projet_banque_1_1_frm_admin_password_changer.html" target="_self">ProjetBanque.FrmAdminPasswordChanger</a></td><td class="desc">Admin password changer form's class </td></tr>
+<tr id="row_4_2_"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="class_projet_banque_1_1_frm_confirm_register.html" target="_self">ProjetBanque.FrmConfirmRegister</a></td><td class="desc">Register confirmation form's class </td></tr>
+<tr id="row_4_3_" class="even"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="class_projet_banque_1_1_frm_home.html" target="_self">ProjetBanque.FrmHome</a></td><td class="desc">Home form's class </td></tr>
+<tr id="row_4_4_"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="class_projet_banque_1_1_frm_home_admin.html" target="_self">ProjetBanque.FrmHomeAdmin</a></td><td class="desc">Admin home form's class </td></tr>
+<tr id="row_4_5_" class="even"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="class_projet_banque_1_1_frm_list_management.html" target="_self">ProjetBanque.FrmListManagement</a></td><td class="desc">List management form's class </td></tr>
+<tr id="row_4_6_"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="class_projet_banque_1_1_frm_login.html" target="_self">ProjetBanque.FrmLogin</a></td><td class="desc">Login form's class </td></tr>
+<tr id="row_4_7_" class="even"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="class_projet_banque_1_1_frm_profil.html" target="_self">ProjetBanque.FrmProfil</a></td><td class="desc"><a class="el" href="class_projet_banque_1_1_user.html" title="Store user&#39;s primary informations to display them">User</a> profil form's class </td></tr>
+<tr id="row_4_8_"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="class_projet_banque_1_1_frm_register.html" target="_self">ProjetBanque.FrmRegister</a></td><td class="desc">Register form's class </td></tr>
 <tr id="row_5_" class="even"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="class_projet_banque_1_1_json_data.html" target="_self">ProjetBanque.JsonData</a></td><td class="desc">Contains all data readable from banque json </td></tr>
 <tr id="row_6_"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="class_projet_banque_1_1_json_management.html" target="_self">ProjetBanque.JsonManagement</a></td><td class="desc">Extract/insert data from json </td></tr>
 <tr id="row_7_" class="even"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="class_projet_banque_1_1_properties_1_1_resources.html" target="_self">ProjetBanque.Properties.Resources</a></td><td class="desc">Une classe de ressource fortement typée destinée, entre autres, à la consultation des chaînes localisées </td></tr>
+<tr id="row_8_"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="class_projet_banque_1_1_transaction.html" target="_self">ProjetBanque.Transaction</a></td><td class="desc">Store unique transaction between two users </td></tr>
+<tr id="row_9_" class="even"><td class="entry"><span style="width:0px;display:inline-block;">&#160;</span><span id="arr_9_" class="arrow" onclick="toggleFolder('9_')">&#9660;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="class_projet_banque_1_1_user.html" target="_self">ProjetBanque.User</a></td><td class="desc">Store user's primary informations to display them </td></tr>
+<tr id="row_9_0_"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><span id="arr_9_0_" class="arrow" onclick="toggleFolder('9_0_')">&#9660;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="class_projet_banque_1_1_bank_user.html" target="_self">ProjetBanque.BankUser</a></td><td class="desc">Bank user can have money </td></tr>
+<tr id="row_9_0_0_" class="even"><td class="entry"><span style="width:48px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="class_projet_banque_1_1_bank_user_infos.html" target="_self">ProjetBanque.BankUserInfos</a></td><td class="desc">Store user's primary databases informations to display them </td></tr>
+<tr id="row_9_0_1_"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><span id="arr_9_0_1_" class="arrow" onclick="toggleFolder('9_0_1_')">&#9660;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="class_projet_banque_1_1_public_user.html" target="_self">ProjetBanque.PublicUser</a></td><td class="desc">Public user can have transactions and can display them </td></tr>
+<tr id="row_9_0_1_0_" class="even"><td class="entry"><span style="width:48px;display:inline-block;">&#160;</span><span id="arr_9_0_1_0_" class="arrow" onclick="toggleFolder('9_0_1_0_')">&#9660;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="class_projet_banque_1_1_enterprise_user.html" target="_self">ProjetBanque.EnterpriseUser</a></td><td class="desc">Enterprise user can have payment lists and can display them </td></tr>
+<tr id="row_9_0_1_0_0_"><td class="entry"><span style="width:80px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="class_projet_banque_1_1_admin_user.html" target="_self">ProjetBanque.AdminUser</a></td><td class="desc">Enterprise user can store bank users and can display them </td></tr>
+<tr id="row_10_" class="even"><td class="entry"><span style="width:0px;display:inline-block;">&#160;</span><span id="arr_10_" class="arrow" onclick="toggleFolder('10_')">&#9660;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="class_projet_banque_1_1_users_list.html" target="_self">ProjetBanque.UsersList</a></td><td class="desc">Store one payment list </td></tr>
+<tr id="row_10_0_"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="class_projet_banque_1_1_admin_users_list.html" target="_self">ProjetBanque.AdminUsersList</a></td><td class="desc">Store one payment list with owner list </td></tr>
 </table>
 </div><!-- directory -->
 </div><!-- contents -->
+</div><!-- doc-content -->
 <!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Generated by &#160;<a href="http://www.doxygen.org/index.html">
-<img class="footer" src="doxygen.png" alt="doxygen"/>
-</a> 1.8.15
-</small></address>
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="footer">Generated by
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.15 </li>
+  </ul>
+</div>
 </body>
 </html>

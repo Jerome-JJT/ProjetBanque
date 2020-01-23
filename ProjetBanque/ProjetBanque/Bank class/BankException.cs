@@ -58,7 +58,7 @@ namespace ProjetBanque
     /// <summary>
     /// Exception raised when trying to create a list who already exist
     /// </summary>
-    public class ListAlreadyExists : BankException
+    public class ListAlreadyExistsException : BankException
     {
 
     }

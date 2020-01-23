@@ -64,7 +64,7 @@ namespace ProjetBanque
             
                 database.CloseConnection();
             }
-            catch (ListAlreadyExists)
+            catch (ListAlreadyExistsException)
             {
                 MessageBox.Show("Ce nom de liste existe déjà");
             }

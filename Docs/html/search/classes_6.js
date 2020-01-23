@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['settings',['Settings',['../class_projet_banque_1_1_properties_1_1_settings.html',1,'ProjetBanque::Properties']]]
+  ['jsondata',['JsonData',['../class_projet_banque_1_1_json_data.html',1,'ProjetBanque']]],
+  ['jsonmanagement',['JsonManagement',['../class_projet_banque_1_1_json_management.html',1,'ProjetBanque']]]
 ];

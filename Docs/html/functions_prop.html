@@ -9,6 +9,14 @@
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+  $(document).ready(initResizable);
+/* @license-end */</script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
@@ -20,8 +28,10 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr style="height: 56px;">
+  <td id="projectlogo"><img alt="Logo" src="kisspng-united-states-dollar-logo-image-currency-5be2cfbf2c8e99.4620064415415909751825.ico"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">ProjetBanque
+   &#160;<span id="projectnumber">3.0</span>
    </div>
   </td>
  </tr>
@@ -46,6 +56,22 @@ $(function() {
 /* @license-end */</script>
 <div id="main-nav"></div>
 </div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(document).ready(function(){initNavTree('functions_prop.html','');});
+/* @license-end */
+</script>
+<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -62,25 +88,81 @@ $(function() {
 
 <div class="contents">
 &#160;<ul>
+<li>ActiveAccount
+: <a class="el" href="class_projet_banque_1_1_bank_user_infos.html#a365027011514ccd358ef49e03e2842be">ProjetBanque.BankUserInfos</a>
+</li>
+<li>Amount
+: <a class="el" href="class_projet_banque_1_1_transaction.html#aedd9199945b63b53613df8b6ddd2dc7f">ProjetBanque.Transaction</a>
+</li>
+<li>Date
+: <a class="el" href="class_projet_banque_1_1_transaction.html#ac76605aef978ac57cea8d373b617c7c0">ProjetBanque.Transaction</a>
+</li>
+<li>Email
+: <a class="el" href="class_projet_banque_1_1_frm_confirm_register.html#af97db583e5c4a63b7f1c442bd026f5e3">ProjetBanque.FrmConfirmRegister</a>
+, <a class="el" href="class_projet_banque_1_1_user.html#a76be7d00b6709100d0db6a3d45082971">ProjetBanque.User</a>
+</li>
 <li>HomeWindowLocation
 : <a class="el" href="class_projet_banque_1_1_json_data.html#a089eed85f18984553c62acfb0c362f06">ProjetBanque.JsonData</a>
 </li>
 <li>HomeWindowSize
 : <a class="el" href="class_projet_banque_1_1_json_data.html#a24bc6496b60aafa2736bcb85c695e675">ProjetBanque.JsonData</a>
 </li>
+<li>Iban
+: <a class="el" href="class_projet_banque_1_1_user.html#a39250d0a9d06279f2d45c2fe0ad6aada">ProjetBanque.User</a>
+</li>
+<li>Lists
+: <a class="el" href="class_projet_banque_1_1_enterprise_user.html#a47de23d9b9f54650da55f8910e4f7bb7">ProjetBanque.EnterpriseUser</a>
+</li>
 <li>LoginWindowLocation
 : <a class="el" href="class_projet_banque_1_1_json_data.html#af8ffa0c2abc32d48243dc8f19677e61d">ProjetBanque.JsonData</a>
+</li>
+<li>Money
+: <a class="el" href="class_projet_banque_1_1_bank_user.html#a466b0babf53339959effca55432c5f50">ProjetBanque.BankUser</a>
+</li>
+<li>Name
+: <a class="el" href="class_projet_banque_1_1_users_list.html#a563f87594db97ece776aa3c229af316a">ProjetBanque.UsersList</a>
+</li>
+<li>Owner
+: <a class="el" href="class_projet_banque_1_1_admin_users_list.html#a7e3c434e0b4a1e299d34bee42c8e3b1f">ProjetBanque.AdminUsersList</a>
+</li>
+<li>Reason
+: <a class="el" href="class_projet_banque_1_1_transaction.html#ac8625e281f75ad2eb1512db70cd90ec8">ProjetBanque.Transaction</a>
+</li>
+<li>ReceiverDefine
+: <a class="el" href="class_projet_banque_1_1_transaction.html#a868dda33ec8d27091ba8f68a64464e29">ProjetBanque.Transaction</a>
+</li>
+<li>ReceiverIban
+: <a class="el" href="class_projet_banque_1_1_transaction.html#aae1fe1c44f9b294bf92f549930a9218b">ProjetBanque.Transaction</a>
 </li>
 <li>RegisterWindowLocation
 : <a class="el" href="class_projet_banque_1_1_json_data.html#ae2055a1365e1c285dfcbf4b5c4b28375">ProjetBanque.JsonData</a>
 </li>
+<li>SenderDefine
+: <a class="el" href="class_projet_banque_1_1_transaction.html#a03b93454caad64a6f271df40a88bb585">ProjetBanque.Transaction</a>
+</li>
+<li>SenderIban
+: <a class="el" href="class_projet_banque_1_1_transaction.html#a227080527c4fc0cd4cb37f15cf5f505e">ProjetBanque.Transaction</a>
+</li>
+<li>Transactions
+: <a class="el" href="class_projet_banque_1_1_public_user.html#aa31449261710729205d4999ad396384b">ProjetBanque.PublicUser</a>
+</li>
+<li>Users
+: <a class="el" href="class_projet_banque_1_1_admin_user.html#a120a08108f220e1900fb56a857f6daec">ProjetBanque.AdminUser</a>
+, <a class="el" href="class_projet_banque_1_1_users_list.html#aa31d44788c6aefd240ab776aeab7f18b">ProjetBanque.UsersList</a>
+</li>
+<li>UserType
+: <a class="el" href="class_projet_banque_1_1_bank_user_infos.html#a80c4bc1e63d3bbe33d1fcfa2d0096714">ProjetBanque.BankUserInfos</a>
+</li>
 </ul>
 </div><!-- contents -->
+</div><!-- doc-content -->
 <!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Generated by &#160;<a href="http://www.doxygen.org/index.html">
-<img class="footer" src="doxygen.png" alt="doxygen"/>
-</a> 1.8.15
-</small></address>
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="footer">Generated by
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.15 </li>
+  </ul>
+</div>
 </body>
 </html>

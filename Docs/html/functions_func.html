@@ -9,6 +9,14 @@
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+  $(document).ready(initResizable);
+/* @license-end */</script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
@@ -20,8 +28,10 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr style="height: 56px;">
+  <td id="projectlogo"><img alt="Logo" src="kisspng-united-states-dollar-logo-image-currency-5be2cfbf2c8e99.4620064415415909751825.ico"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">ProjetBanque
+   &#160;<span id="projectnumber">3.0</span>
    </div>
   </td>
  </tr>
@@ -46,6 +56,22 @@ $(function() {
 /* @license-end */</script>
 <div id="main-nav"></div>
 </div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(document).ready(function(){initNavTree('functions_func.html','');});
+/* @license-end */
+</script>
+<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -61,55 +87,191 @@ $(function() {
 </div>
 
 <div class="contents">
-&#160;<ul>
+&#160;
+
+<h3><a id="index_a"></a>- a -</h3><ul>
 <li>AddUser()
 : <a class="el" href="class_projet_banque_1_1_database_management.html#acf89f88775d4c333e5b17f76a4913530">ProjetBanque.DatabaseManagement</a>
+</li>
+<li>AddUserList()
+: <a class="el" href="class_projet_banque_1_1_database_management.html#ae74398d6164b328937cb35bbbb5c038f">ProjetBanque.DatabaseManagement</a>
+</li>
+<li>AdminUser()
+: <a class="el" href="class_projet_banque_1_1_admin_user.html#a1ab74cd3e86e062f55b3d860eb9c6356">ProjetBanque.AdminUser</a>
+</li>
+<li>AdminUsersList()
+: <a class="el" href="class_projet_banque_1_1_admin_users_list.html#a91fe6ff510354c57d01bedc8f7b9b22c">ProjetBanque.AdminUsersList</a>
+</li>
+</ul>
+
+
+<h3><a id="index_b"></a>- b -</h3><ul>
+<li>BankUser()
+: <a class="el" href="class_projet_banque_1_1_bank_user.html#a71bbea3dd3db42f9ae11b67338d47f48">ProjetBanque.BankUser</a>
+</li>
+<li>BankUserInfos()
+: <a class="el" href="class_projet_banque_1_1_bank_user_infos.html#a5e06a09646d8feca1f40d7a9d706772d">ProjetBanque.BankUserInfos</a>
+</li>
+</ul>
+
+
+<h3><a id="index_c"></a>- c -</h3><ul>
+<li>ChangeMoney()
+: <a class="el" href="class_projet_banque_1_1_database_management.html#a690fc3be405a924031bb4cd505c78c02">ProjetBanque.DatabaseManagement</a>
+</li>
+<li>ChangePassword()
+: <a class="el" href="class_projet_banque_1_1_database_management.html#a1bfabac5efba52fdb4f2a1209f733b91">ProjetBanque.DatabaseManagement</a>
 </li>
 <li>CloseConnection()
 : <a class="el" href="class_projet_banque_1_1_database_management.html#aa825c23c3dd06796b8243ce8ed7c6bfb">ProjetBanque.DatabaseManagement</a>
 </li>
+<li>CreateList()
+: <a class="el" href="class_projet_banque_1_1_database_management.html#acb94b89091289ffd5ca8f24224e46c81">ProjetBanque.DatabaseManagement</a>
+</li>
+</ul>
+
+
+<h3><a id="index_d"></a>- d -</h3><ul>
 <li>DatabaseManagement()
 : <a class="el" href="class_projet_banque_1_1_database_management.html#a595d794798b5b753d9d43c623a679abc">ProjetBanque.DatabaseManagement</a>
 </li>
-<li>DeleteUser()
-: <a class="el" href="class_projet_banque_1_1_database_management.html#a1bc7a22d48a79809b752806bcbf1107a">ProjetBanque.DatabaseManagement</a>
+<li>DeleteList()
+: <a class="el" href="class_projet_banque_1_1_database_management.html#aaeebc8afb1a9c9e654d27ceb1719a740">ProjetBanque.DatabaseManagement</a>
+</li>
+<li>DeleteUserList()
+: <a class="el" href="class_projet_banque_1_1_database_management.html#aeb7e315638bb410c4a269cac784eee76">ProjetBanque.DatabaseManagement</a>
+</li>
+<li>DisableAccount()
+: <a class="el" href="class_projet_banque_1_1_database_management.html#a0754fcad4a15737c428c29e2f08abfdb">ProjetBanque.DatabaseManagement</a>
 </li>
 <li>Dispose()
-: <a class="el" href="class_projet_banque_1_1form_register_ok.html#ac7fc952554f8e22d1b45017ea851cb9a">ProjetBanque.formRegisterOk</a>
-, <a class="el" href="class_projet_banque_1_1frm_home.html#a9cfd52644c0e4b068485ac700fa9a3cb">ProjetBanque.frmHome</a>
-, <a class="el" href="class_projet_banque_1_1frm_login.html#a476b5fe8d0ef3fa86ba706a969d744b7">ProjetBanque.frmLogin</a>
-, <a class="el" href="class_projet_banque_1_1frm_register.html#a243860ddb36ba23a63c3e6ecedb33bc6">ProjetBanque.frmRegister</a>
+: <a class="el" href="class_projet_banque_1_1_frm_admin_money_changer.html#ab9648074593c735c2409f682a20b115e">ProjetBanque.FrmAdminMoneyChanger</a>
+, <a class="el" href="class_projet_banque_1_1_frm_admin_password_changer.html#aabfbbd95a43e94586d993ac2def275ea">ProjetBanque.FrmAdminPasswordChanger</a>
+, <a class="el" href="class_projet_banque_1_1_frm_confirm_register.html#a56116491cf6a86487631b8c7f941b107">ProjetBanque.FrmConfirmRegister</a>
+, <a class="el" href="class_projet_banque_1_1_frm_home.html#aa803b45ae773dfb9f1abe667c6b4de06">ProjetBanque.FrmHome</a>
+, <a class="el" href="class_projet_banque_1_1_frm_home_admin.html#a460a6dce4ef129c07dd33accd4192cc5">ProjetBanque.FrmHomeAdmin</a>
+, <a class="el" href="class_projet_banque_1_1_frm_list_management.html#a9f20a69bc9b201bd02203ad8a3a03bff">ProjetBanque.FrmListManagement</a>
+, <a class="el" href="class_projet_banque_1_1_frm_login.html#a95d917ac105856fc6a14e061f25711df">ProjetBanque.FrmLogin</a>
+, <a class="el" href="class_projet_banque_1_1_frm_profil.html#ae51ee9c4382f5e7bc5510b3d5d924a57">ProjetBanque.FrmProfil</a>
+, <a class="el" href="class_projet_banque_1_1_frm_register.html#a5f53078c455923563c63a457f63895a9">ProjetBanque.FrmRegister</a>
+</li>
+</ul>
+
+
+<h3><a id="index_e"></a>- e -</h3><ul>
+<li>EmailFromIban()
+: <a class="el" href="class_projet_banque_1_1_database_management.html#a15437c7a1ca0d2319481df7c14d2f2e2">ProjetBanque.DatabaseManagement</a>
+</li>
+<li>EnterpriseUser()
+: <a class="el" href="class_projet_banque_1_1_enterprise_user.html#a2d4bdf759ac401ac4c7a41772173c2a9">ProjetBanque.EnterpriseUser</a>
 </li>
 <li>ExtractData()
 : <a class="el" href="class_projet_banque_1_1_json_management.html#a652a9eb08a2f0a52d6c5b43471ca2944">ProjetBanque.JsonManagement</a>
 </li>
-<li>formRegisterOk()
-: <a class="el" href="class_projet_banque_1_1form_register_ok.html#a5714d1a5b568d1667927d0908b53bfde">ProjetBanque.formRegisterOk</a>
+</ul>
+
+
+<h3><a id="index_f"></a>- f -</h3><ul>
+<li>FrmAdminMoneyChanger()
+: <a class="el" href="class_projet_banque_1_1_frm_admin_money_changer.html#a16499d6bd9b74e99da6601daf3f703e5">ProjetBanque.FrmAdminMoneyChanger</a>
 </li>
-<li>frmHome()
-: <a class="el" href="class_projet_banque_1_1frm_home.html#a416d8bd59405cc63e21ba3b3186b1f86">ProjetBanque.frmHome</a>
+<li>FrmAdminPasswordChanger()
+: <a class="el" href="class_projet_banque_1_1_frm_admin_password_changer.html#a64ece1dfd49ad952ce43521f025256bf">ProjetBanque.FrmAdminPasswordChanger</a>
 </li>
-<li>frmLogin()
-: <a class="el" href="class_projet_banque_1_1frm_login.html#a4fcd9d1592741e07be67c4108a8e433e">ProjetBanque.frmLogin</a>
+<li>FrmConfirmRegister()
+: <a class="el" href="class_projet_banque_1_1_frm_confirm_register.html#ad6b8f42b87fdba0cfa30aae8213b36fd">ProjetBanque.FrmConfirmRegister</a>
 </li>
-<li>frmRegister()
-: <a class="el" href="class_projet_banque_1_1frm_register.html#ad442e56ec83d3aef24ae712135291931">ProjetBanque.frmRegister</a>
+<li>FrmHome()
+: <a class="el" href="class_projet_banque_1_1_frm_home.html#a737fa29ecf98ef35e4675e3288ab7555">ProjetBanque.FrmHome</a>
 </li>
-<li>GetUserMoney()
-: <a class="el" href="class_projet_banque_1_1_database_management.html#aeee42ee61e0e0a96a7927bf408956881">ProjetBanque.DatabaseManagement</a>
+<li>FrmHomeAdmin()
+: <a class="el" href="class_projet_banque_1_1_frm_home_admin.html#a9bcab88db38eabe3f71e4bb95f30ac8c">ProjetBanque.FrmHomeAdmin</a>
 </li>
+<li>FrmListManagement()
+: <a class="el" href="class_projet_banque_1_1_frm_list_management.html#aefda22a1f107406811a2ed39f44342da">ProjetBanque.FrmListManagement</a>
+</li>
+<li>FrmLogin()
+: <a class="el" href="class_projet_banque_1_1_frm_login.html#a7b5b2a53d0d6a32dbf81520c356645b4">ProjetBanque.FrmLogin</a>
+</li>
+<li>FrmProfil()
+: <a class="el" href="class_projet_banque_1_1_frm_profil.html#ae572db7d815775f63882e2988fd4a52a">ProjetBanque.FrmProfil</a>
+</li>
+<li>FrmRegister()
+: <a class="el" href="class_projet_banque_1_1_frm_register.html#a292dc36061f06527217b4dc3a14a868e">ProjetBanque.FrmRegister</a>
+</li>
+</ul>
+
+
+<h3><a id="index_g"></a>- g -</h3><ul>
+<li>GenerateIBAN()
+: <a class="el" href="class_projet_banque_1_1_database_management.html#a9564153cbc9e0d832508cc2a6d51932c">ProjetBanque.DatabaseManagement</a>
+</li>
+<li>GetUser()
+: <a class="el" href="class_projet_banque_1_1_database_management.html#aa9be95f45987bd7f55d1553e43e1c546">ProjetBanque.DatabaseManagement</a>
+</li>
+</ul>
+
+
+<h3><a id="index_h"></a>- h -</h3><ul>
 <li>Hash()
 : <a class="el" href="class_projet_banque_1_1_crypto_password.html#ac69cba02df805e603f45c28858ecf05e">ProjetBanque.CryptoPassword</a>
 </li>
+</ul>
+
+
+<h3><a id="index_i"></a>- i -</h3><ul>
 <li>InsertData()
 : <a class="el" href="class_projet_banque_1_1_json_management.html#ab7c696c086a0c83cd6e666b40a57e192">ProjetBanque.JsonManagement</a>
 </li>
+</ul>
+
+
+<h3><a id="index_j"></a>- j -</h3><ul>
 <li>JsonManagement()
 : <a class="el" href="class_projet_banque_1_1_json_management.html#a47b15a935ba2fc015b7d3b7acb19358d">ProjetBanque.JsonManagement</a>
 </li>
+</ul>
+
+
+<h3><a id="index_o"></a>- o -</h3><ul>
 <li>OpenConnection()
 : <a class="el" href="class_projet_banque_1_1_database_management.html#ae0af13394741c4671c86ffb098e281e7">ProjetBanque.DatabaseManagement</a>
 </li>
+</ul>
+
+
+<h3><a id="index_p"></a>- p -</h3><ul>
+<li>PublicUser()
+: <a class="el" href="class_projet_banque_1_1_public_user.html#adf4888fd1d26af87eb50f1c7beb0d212">ProjetBanque.PublicUser</a>
+</li>
+</ul>
+
+
+<h3><a id="index_t"></a>- t -</h3><ul>
+<li>ToString()
+: <a class="el" href="class_projet_banque_1_1_user.html#ae29c534876d9b815be00cb2f2059e1a6">ProjetBanque.User</a>
+, <a class="el" href="class_projet_banque_1_1_users_list.html#ab718952e4885cf0331159b2469d38d7f">ProjetBanque.UsersList</a>
+</li>
+<li>Transact()
+: <a class="el" href="class_projet_banque_1_1_database_management.html#abc8ae003c490e8cd373a8e6cf1a2de6a">ProjetBanque.DatabaseManagement</a>
+</li>
+<li>Transaction()
+: <a class="el" href="class_projet_banque_1_1_transaction.html#a8e5d39a1547162d6dcdf59aa5a65a2bf">ProjetBanque.Transaction</a>
+</li>
+</ul>
+
+
+<h3><a id="index_u"></a>- u -</h3><ul>
+<li>User()
+: <a class="el" href="class_projet_banque_1_1_user.html#a3d3b0681eb830335e5311bb4d4caf067">ProjetBanque.User</a>
+</li>
+<li>UsersList()
+: <a class="el" href="class_projet_banque_1_1_users_list.html#ac4e2ed2432841628f77f4a9a437714ef">ProjetBanque.UsersList</a>
+</li>
+</ul>
+
+
+<h3><a id="index_v"></a>- v -</h3><ul>
 <li>Verify()
 : <a class="el" href="class_projet_banque_1_1_crypto_password.html#a386f50e2b9d7b64fb52a3f56a638a2bd">ProjetBanque.CryptoPassword</a>
 </li>
@@ -118,11 +280,14 @@ $(function() {
 </li>
 </ul>
 </div><!-- contents -->
+</div><!-- doc-content -->
 <!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Generated by &#160;<a href="http://www.doxygen.org/index.html">
-<img class="footer" src="doxygen.png" alt="doxygen"/>
-</a> 1.8.15
-</small></address>
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="footer">Generated by
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.15 </li>
+  </ul>
+</div>
 </body>
 </html>

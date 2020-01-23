@@ -9,6 +9,14 @@
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+  $(document).ready(initResizable);
+/* @license-end */</script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
@@ -20,8 +28,10 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr style="height: 56px;">
+  <td id="projectlogo"><img alt="Logo" src="kisspng-united-states-dollar-logo-image-currency-5be2cfbf2c8e99.4620064415415909751825.ico"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">ProjetBanque
+   &#160;<span id="projectnumber">3.0</span>
    </div>
   </td>
  </tr>
@@ -45,6 +55,23 @@ $(function() {
 });
 /* @license-end */</script>
 <div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(document).ready(function(){initNavTree('class_projet_banque_1_1_database_management.html','');});
+/* @license-end */
+</script>
+<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -59,11 +86,6 @@ $(function() {
 </iframe>
 </div>
 
-<div id="nav-path" class="navpath">
-  <ul>
-<li class="navelem"><a class="el" href="namespace_projet_banque.html">ProjetBanque</a></li><li class="navelem"><a class="el" href="class_projet_banque_1_1_database_management.html">DatabaseManagement</a></li>  </ul>
-</div>
-</div><!-- top -->
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
@@ -84,6 +106,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:ae0af13394741c4671c86ffb098e281e7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_projet_banque_1_1_database_management.html#ae0af13394741c4671c86ffb098e281e7">OpenConnection</a> ()</td></tr>
 <tr class="memdesc:ae0af13394741c4671c86ffb098e281e7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Open connection to the database  <a href="#ae0af13394741c4671c86ffb098e281e7">More...</a><br /></td></tr>
 <tr class="separator:ae0af13394741c4671c86ffb098e281e7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9564153cbc9e0d832508cc2a6d51932c"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_projet_banque_1_1_database_management.html#a9564153cbc9e0d832508cc2a6d51932c">GenerateIBAN</a> ()</td></tr>
+<tr class="memdesc:a9564153cbc9e0d832508cc2a6d51932c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create and generate a unique IBAN by looking in the database if it exist  <a href="#a9564153cbc9e0d832508cc2a6d51932c">More...</a><br /></td></tr>
+<tr class="separator:a9564153cbc9e0d832508cc2a6d51932c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acf89f88775d4c333e5b17f76a4913530"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_projet_banque_1_1_database_management.html#acf89f88775d4c333e5b17f76a4913530">AddUser</a> (string email, string password, string type)</td></tr>
 <tr class="memdesc:acf89f88775d4c333e5b17f76a4913530"><td class="mdescLeft">&#160;</td><td class="mdescRight">Add a user in the database with 0 money  <a href="#acf89f88775d4c333e5b17f76a4913530">More...</a><br /></td></tr>
 <tr class="separator:acf89f88775d4c333e5b17f76a4913530"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -93,12 +118,36 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a2b1815dc73339c7abbe63e2b8403143d"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_projet_banque_1_1_database_management.html#a2b1815dc73339c7abbe63e2b8403143d">VerifyUser</a> (string email, string password)</td></tr>
 <tr class="memdesc:a2b1815dc73339c7abbe63e2b8403143d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check a user's login with password in the database  <a href="#a2b1815dc73339c7abbe63e2b8403143d">More...</a><br /></td></tr>
 <tr class="separator:a2b1815dc73339c7abbe63e2b8403143d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1bc7a22d48a79809b752806bcbf1107a"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_projet_banque_1_1_database_management.html#a1bc7a22d48a79809b752806bcbf1107a">DeleteUser</a> (string email)</td></tr>
-<tr class="memdesc:a1bc7a22d48a79809b752806bcbf1107a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Delete a user from the database  <a href="#a1bc7a22d48a79809b752806bcbf1107a">More...</a><br /></td></tr>
-<tr class="separator:a1bc7a22d48a79809b752806bcbf1107a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aeee42ee61e0e0a96a7927bf408956881"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_projet_banque_1_1_database_management.html#aeee42ee61e0e0a96a7927bf408956881">GetUserMoney</a> (string email)</td></tr>
-<tr class="memdesc:aeee42ee61e0e0a96a7927bf408956881"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the user's money amount from his email  <a href="#aeee42ee61e0e0a96a7927bf408956881">More...</a><br /></td></tr>
-<tr class="separator:aeee42ee61e0e0a96a7927bf408956881"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa9be95f45987bd7f55d1553e43e1c546"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_projet_banque_1_1_user.html">User</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_projet_banque_1_1_database_management.html#aa9be95f45987bd7f55d1553e43e1c546">GetUser</a> (string email)</td></tr>
+<tr class="memdesc:aa9be95f45987bd7f55d1553e43e1c546"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get all user's informations and transactions from his email  <a href="#aa9be95f45987bd7f55d1553e43e1c546">More...</a><br /></td></tr>
+<tr class="separator:aa9be95f45987bd7f55d1553e43e1c546"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a15437c7a1ca0d2319481df7c14d2f2e2"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_projet_banque_1_1_database_management.html#a15437c7a1ca0d2319481df7c14d2f2e2">EmailFromIban</a> (string iban)</td></tr>
+<tr class="memdesc:a15437c7a1ca0d2319481df7c14d2f2e2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return user's from iban  <a href="#a15437c7a1ca0d2319481df7c14d2f2e2">More...</a><br /></td></tr>
+<tr class="separator:a15437c7a1ca0d2319481df7c14d2f2e2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abc8ae003c490e8cd373a8e6cf1a2de6a"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_projet_banque_1_1_database_management.html#abc8ae003c490e8cd373a8e6cf1a2de6a">Transact</a> (double amount, string reason, string senderIban, string receiverIban)</td></tr>
+<tr class="memdesc:abc8ae003c490e8cd373a8e6cf1a2de6a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Move money from one account  <a href="#abc8ae003c490e8cd373a8e6cf1a2de6a">More...</a><br /></td></tr>
+<tr class="separator:abc8ae003c490e8cd373a8e6cf1a2de6a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acb94b89091289ffd5ca8f24224e46c81"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_projet_banque_1_1_database_management.html#acb94b89091289ffd5ca8f24224e46c81">CreateList</a> (string newName, string creatorIban)</td></tr>
+<tr class="memdesc:acb94b89091289ffd5ca8f24224e46c81"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create a new empty list  <a href="#acb94b89091289ffd5ca8f24224e46c81">More...</a><br /></td></tr>
+<tr class="separator:acb94b89091289ffd5ca8f24224e46c81"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaeebc8afb1a9c9e654d27ceb1719a740"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_projet_banque_1_1_database_management.html#aaeebc8afb1a9c9e654d27ceb1719a740">DeleteList</a> (string listName)</td></tr>
+<tr class="memdesc:aaeebc8afb1a9c9e654d27ceb1719a740"><td class="mdescLeft">&#160;</td><td class="mdescRight">Delete a list  <a href="#aaeebc8afb1a9c9e654d27ceb1719a740">More...</a><br /></td></tr>
+<tr class="separator:aaeebc8afb1a9c9e654d27ceb1719a740"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae74398d6164b328937cb35bbbb5c038f"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_projet_banque_1_1_database_management.html#ae74398d6164b328937cb35bbbb5c038f">AddUserList</a> (string listName, string userIban)</td></tr>
+<tr class="memdesc:ae74398d6164b328937cb35bbbb5c038f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Add a user in a list  <a href="#ae74398d6164b328937cb35bbbb5c038f">More...</a><br /></td></tr>
+<tr class="separator:ae74398d6164b328937cb35bbbb5c038f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aeb7e315638bb410c4a269cac784eee76"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_projet_banque_1_1_database_management.html#aeb7e315638bb410c4a269cac784eee76">DeleteUserList</a> (string listName, string userIban)</td></tr>
+<tr class="memdesc:aeb7e315638bb410c4a269cac784eee76"><td class="mdescLeft">&#160;</td><td class="mdescRight">Delete a user from a list  <a href="#aeb7e315638bb410c4a269cac784eee76">More...</a><br /></td></tr>
+<tr class="separator:aeb7e315638bb410c4a269cac784eee76"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1bfabac5efba52fdb4f2a1209f733b91"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_projet_banque_1_1_database_management.html#a1bfabac5efba52fdb4f2a1209f733b91">ChangePassword</a> (string userEmail, string newPassword)</td></tr>
+<tr class="memdesc:a1bfabac5efba52fdb4f2a1209f733b91"><td class="mdescLeft">&#160;</td><td class="mdescRight">Change user's password with a new one  <a href="#a1bfabac5efba52fdb4f2a1209f733b91">More...</a><br /></td></tr>
+<tr class="separator:a1bfabac5efba52fdb4f2a1209f733b91"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a690fc3be405a924031bb4cd505c78c02"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_projet_banque_1_1_database_management.html#a690fc3be405a924031bb4cd505c78c02">ChangeMoney</a> (string userEmail, double newAmount)</td></tr>
+<tr class="memdesc:a690fc3be405a924031bb4cd505c78c02"><td class="mdescLeft">&#160;</td><td class="mdescRight">Change user's money maount with a new one  <a href="#a690fc3be405a924031bb4cd505c78c02">More...</a><br /></td></tr>
+<tr class="separator:a690fc3be405a924031bb4cd505c78c02"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0754fcad4a15737c428c29e2f08abfdb"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_projet_banque_1_1_database_management.html#a0754fcad4a15737c428c29e2f08abfdb">DisableAccount</a> (string userEmail)</td></tr>
+<tr class="memdesc:a0754fcad4a15737c428c29e2f08abfdb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Disable an account  <a href="#a0754fcad4a15737c428c29e2f08abfdb">More...</a><br /></td></tr>
+<tr class="separator:a0754fcad4a15737c428c29e2f08abfdb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa825c23c3dd06796b8243ce8ed7c6bfb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_projet_banque_1_1_database_management.html#aa825c23c3dd06796b8243ce8ed7c6bfb">CloseConnection</a> ()</td></tr>
 <tr class="memdesc:aa825c23c3dd06796b8243ce8ed7c6bfb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Close connection to the database  <a href="#aa825c23c3dd06796b8243ce8ed7c6bfb">More...</a><br /></td></tr>
 <tr class="separator:aa825c23c3dd06796b8243ce8ed7c6bfb"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -161,13 +210,13 @@ Public Member Functions</h2></td></tr>
 <p>Add a user in the database with 0 money </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">email</td><td>User's email, will be verified with regex</td></tr>
-    <tr><td class="paramname">password</td><td>User's password, will be hashed and salted</td></tr>
+    <tr><td class="paramname">email</td><td><a class="el" href="class_projet_banque_1_1_user.html" title="Store user&#39;s primary informations to display them">User</a>'s email, will be verified with regex</td></tr>
+    <tr><td class="paramname">password</td><td><a class="el" href="class_projet_banque_1_1_user.html" title="Store user&#39;s primary informations to display them">User</a>'s password, will be hashed and salted</td></tr>
     <tr><td class="paramname">type</td><td>Account type, "Public" or "Enterprise", "Admin" can't be added here</td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>1 if success, 0 for an error </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>1 if success, 0 for an error</dd></dl>
 
 </div>
 </div>
@@ -212,14 +261,128 @@ Public Member Functions</h2></td></tr>
 <p>Add a user in the database with a certain amount of money </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">email</td><td>User's email, will be verified with regex</td></tr>
-    <tr><td class="paramname">password</td><td>User's password, will be hashed and salted</td></tr>
+    <tr><td class="paramname">email</td><td><a class="el" href="class_projet_banque_1_1_user.html" title="Store user&#39;s primary informations to display them">User</a>'s email, will be verified with regex</td></tr>
+    <tr><td class="paramname">password</td><td><a class="el" href="class_projet_banque_1_1_user.html" title="Store user&#39;s primary informations to display them">User</a>'s password, will be hashed and salted</td></tr>
     <tr><td class="paramname">type</td><td>Account type, "Public" or "Enterprise", "Admin" can't be added here</td></tr>
     <tr><td class="paramname">money</td><td>Base money for the account</td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>true if success, false for an error </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>true if success, false for an error</dd></dl>
+
+</div>
+</div>
+<a id="ae74398d6164b328937cb35bbbb5c038f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae74398d6164b328937cb35bbbb5c038f">&#9670;&nbsp;</a></span>AddUserList()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool ProjetBanque.DatabaseManagement.AddUserList </td>
+          <td>(</td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>listName</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>userIban</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Add a user in a list </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">listName</td><td>List where user need to be added</td></tr>
+    <tr><td class="paramname">userIban</td><td>Iban of the user who need to be added</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>true for success, false for an error</dd></dl>
+
+</div>
+</div>
+<a id="a690fc3be405a924031bb4cd505c78c02"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a690fc3be405a924031bb4cd505c78c02">&#9670;&nbsp;</a></span>ChangeMoney()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool ProjetBanque.DatabaseManagement.ChangeMoney </td>
+          <td>(</td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>userEmail</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>newAmount</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Change user's money maount with a new one </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">userEmail</td><td><a class="el" href="class_projet_banque_1_1_user.html" title="Store user&#39;s primary informations to display them">User</a> who's money amount will be changed</td></tr>
+    <tr><td class="paramname">newAmount</td><td>New amount of money for the user account</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>true for success, false for an errors</dd></dl>
+
+</div>
+</div>
+<a id="a1bfabac5efba52fdb4f2a1209f733b91"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1bfabac5efba52fdb4f2a1209f733b91">&#9670;&nbsp;</a></span>ChangePassword()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool ProjetBanque.DatabaseManagement.ChangePassword </td>
+          <td>(</td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>userEmail</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>newPassword</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Change user's password with a new one </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">userEmail</td><td><a class="el" href="class_projet_banque_1_1_user.html" title="Store user&#39;s primary informations to display them">User</a> who need to change his password</td></tr>
+    <tr><td class="paramname">newPassword</td><td>Iban of the user who need to be deleted</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>true for success, false for an error</dd></dl>
 
 </div>
 </div>
@@ -242,14 +405,185 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a1bc7a22d48a79809b752806bcbf1107a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1bc7a22d48a79809b752806bcbf1107a">&#9670;&nbsp;</a></span>DeleteUser()</h2>
+<a id="acb94b89091289ffd5ca8f24224e46c81"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acb94b89091289ffd5ca8f24224e46c81">&#9670;&nbsp;</a></span>CreateList()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">int ProjetBanque.DatabaseManagement.DeleteUser </td>
+          <td class="memname">bool ProjetBanque.DatabaseManagement.CreateList </td>
+          <td>(</td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>newName</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>creatorIban</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Create a new empty list </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">newName</td><td>New list name</td></tr>
+    <tr><td class="paramname">creatorIban</td><td>Iban of the user who created the list</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>true for success, false for an error</dd></dl>
+
+</div>
+</div>
+<a id="aaeebc8afb1a9c9e654d27ceb1719a740"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaeebc8afb1a9c9e654d27ceb1719a740">&#9670;&nbsp;</a></span>DeleteList()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool ProjetBanque.DatabaseManagement.DeleteList </td>
+          <td>(</td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>listName</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Delete a list </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">listName</td><td>Unique list name</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>true for success, false for an error</dd></dl>
+
+</div>
+</div>
+<a id="aeb7e315638bb410c4a269cac784eee76"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aeb7e315638bb410c4a269cac784eee76">&#9670;&nbsp;</a></span>DeleteUserList()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool ProjetBanque.DatabaseManagement.DeleteUserList </td>
+          <td>(</td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>listName</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>userIban</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Delete a user from a list </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">listName</td><td>List where user need to be deleted</td></tr>
+    <tr><td class="paramname">userIban</td><td>Iban of the user who need to be deleted</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>true for success, false for an error</dd></dl>
+
+</div>
+</div>
+<a id="a0754fcad4a15737c428c29e2f08abfdb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0754fcad4a15737c428c29e2f08abfdb">&#9670;&nbsp;</a></span>DisableAccount()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool ProjetBanque.DatabaseManagement.DisableAccount </td>
+          <td>(</td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>userEmail</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Disable an account </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">userEmail</td><td><a class="el" href="class_projet_banque_1_1_user.html" title="Store user&#39;s primary informations to display them">User</a>'s email of the account who need to be disabled</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>true for success, false for an error</dd></dl>
+
+</div>
+</div>
+<a id="a15437c7a1ca0d2319481df7c14d2f2e2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a15437c7a1ca0d2319481df7c14d2f2e2">&#9670;&nbsp;</a></span>EmailFromIban()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">string ProjetBanque.DatabaseManagement.EmailFromIban </td>
+          <td>(</td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>iban</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Return user's from iban </p>
+<dl class="section return"><dt>Returns</dt><dd>Email address coresponding to iban</dd></dl>
+
+</div>
+</div>
+<a id="a9564153cbc9e0d832508cc2a6d51932c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9564153cbc9e0d832508cc2a6d51932c">&#9670;&nbsp;</a></span>GenerateIBAN()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">string ProjetBanque.DatabaseManagement.GenerateIBAN </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Create and generate a unique IBAN by looking in the database if it exist </p>
+<dl class="section return"><dt>Returns</dt><dd>full unique IBAN</dd></dl>
+
+</div>
+</div>
+<a id="aa9be95f45987bd7f55d1553e43e1c546"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa9be95f45987bd7f55d1553e43e1c546">&#9670;&nbsp;</a></span>GetUser()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_projet_banque_1_1_user.html">User</a> ProjetBanque.DatabaseManagement.GetUser </td>
           <td>(</td>
           <td class="paramtype">string&#160;</td>
           <td class="paramname"><em>email</em></td><td>)</td>
@@ -258,41 +592,14 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Delete a user from the database </p>
+<p>Get all user's informations and transactions from his email </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">email</td><td>User's email to delete</td></tr>
+    <tr><td class="paramname">email</td><td><a class="el" href="class_projet_banque_1_1_user.html" title="Store user&#39;s primary informations to display them">User</a>'s email</td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>1 if success, 0 for failure </dd></dl>
-
-</div>
-</div>
-<a id="aeee42ee61e0e0a96a7927bf408956881"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aeee42ee61e0e0a96a7927bf408956881">&#9670;&nbsp;</a></span>GetUserMoney()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">double ProjetBanque.DatabaseManagement.GetUserMoney </td>
-          <td>(</td>
-          <td class="paramtype">string&#160;</td>
-          <td class="paramname"><em>email</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Get the user's money amount from his email </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">email</td><td>User's email</td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>Return user's money</dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Return user's informations</dd></dl>
 
 </div>
 </div>
@@ -312,6 +619,58 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Open connection to the database </p>
+
+</div>
+</div>
+<a id="abc8ae003c490e8cd373a8e6cf1a2de6a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abc8ae003c490e8cd373a8e6cf1a2de6a">&#9670;&nbsp;</a></span>Transact()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool ProjetBanque.DatabaseManagement.Transact </td>
+          <td>(</td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>amount</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>reason</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>senderIban</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>receiverIban</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Move money from one account </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">amount</td><td></td></tr>
+    <tr><td class="paramname">reason</td><td></td></tr>
+    <tr><td class="paramname">senderIban</td><td></td></tr>
+    <tr><td class="paramname">receiverIban</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>true for success, false for an error</dd></dl>
 
 </div>
 </div>
@@ -344,24 +703,28 @@ Public Member Functions</h2></td></tr>
 <p>Check a user's login with password in the database </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">email</td><td>User's email</td></tr>
-    <tr><td class="paramname">password</td><td>User's password</td></tr>
+    <tr><td class="paramname">email</td><td><a class="el" href="class_projet_banque_1_1_user.html" title="Store user&#39;s primary informations to display them">User</a>'s email</td></tr>
+    <tr><td class="paramname">password</td><td><a class="el" href="class_projet_banque_1_1_user.html" title="Store user&#39;s primary informations to display them">User</a>'s password</td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>true if passwords matchs </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>true if passwords matchs</dd></dl>
 
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li>P:/_Modules CPNV/Projet C# projet 4/ProjetBanque/ProjetBanque/ProjetBanque/DatabaseManagement.cs</li>
+<li>P:/_Modules CPNV/Projet C# projet 4/ProjetBanque/ProjetBanque/ProjetBanque/Storage class/DatabaseManagement.cs</li>
 </ul>
 </div><!-- contents -->
+</div><!-- doc-content -->
 <!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Generated by &#160;<a href="http://www.doxygen.org/index.html">
-<img class="footer" src="doxygen.png" alt="doxygen"/>
-</a> 1.8.15
-</small></address>
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="namespace_projet_banque.html">ProjetBanque</a></li><li class="navelem"><a class="el" href="class_projet_banque_1_1_database_management.html">DatabaseManagement</a></li>
+    <li class="footer">Generated by
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.15 </li>
+  </ul>
+</div>
 </body>
 </html>
