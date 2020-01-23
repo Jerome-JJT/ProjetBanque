@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['openconnection',['OpenConnection',['../class_projet_banque_1_1_database_management.html#ae0af13394741c4671c86ffb098e281e7',1,'ProjetBanque::DatabaseManagement']]]
+  ['jsonmanagement',['JsonManagement',['../class_projet_banque_1_1_json_management.html#a47b15a935ba2fc015b7d3b7acb19358d',1,'ProjetBanque::JsonManagement']]]
 ];

@@ -1,0 +1,161 @@
+\hypertarget{class_projet_banque_1_1_user}{}\section{Projet\+Banque.\+User Class Reference}
+\label{class_projet_banque_1_1_user}\index{ProjetBanque.User@{ProjetBanque.User}}
+
+
+Store user\textquotesingle{}s primary informations to display them  
+
+
+Inheritance diagram for Projet\+Banque.\+User\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=5.000000cm]{class_projet_banque_1_1_user}
+\end{center}
+\end{figure}
+\subsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{class_projet_banque_1_1_user_a3ab673599238173c9d0ef40e731c0437}{Account\+Type}} \{ \mbox{\hyperlink{class_projet_banque_1_1_user_a3ab673599238173c9d0ef40e731c0437a3d067bedfe2f4677470dd6ccf64d05ed}{Account\+Type.\+Public}} = 1, 
+\mbox{\hyperlink{class_projet_banque_1_1_user_a3ab673599238173c9d0ef40e731c0437aa0f27638260642afb474516cc918407e}{Account\+Type.\+Enterprise}} = 2, 
+\mbox{\hyperlink{class_projet_banque_1_1_user_a3ab673599238173c9d0ef40e731c0437ae3afed0047b08059d0fada10f400c1e5}{Account\+Type.\+Admin}} = 3
+ \}
+\begin{DoxyCompactList}\small\item\em Possibles user\textquotesingle{}s accounts types \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_projet_banque_1_1_user_a3d3b0681eb830335e5311bb4d4caf067}{User}} (string \mbox{\hyperlink{class_projet_banque_1_1_user_a52d4f7f22889d33e196357127ceb3ec3}{iban}}, string \mbox{\hyperlink{class_projet_banque_1_1_user_a7ee066f61ff3a59b05f003709548428a}{email}})
+\begin{DoxyCompactList}\small\item\em Create a displayable user \end{DoxyCompactList}\item 
+override string \mbox{\hyperlink{class_projet_banque_1_1_user_ae29c534876d9b815be00cb2f2059e1a6}{To\+String}} ()
+\begin{DoxyCompactList}\small\item\em Display user\textquotesingle{}s informations \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+string \mbox{\hyperlink{class_projet_banque_1_1_user_a52d4f7f22889d33e196357127ceb3ec3}{iban}}
+\item 
+string \mbox{\hyperlink{class_projet_banque_1_1_user_a7ee066f61ff3a59b05f003709548428a}{email}}
+\end{DoxyCompactItemize}
+\subsection*{Properties}
+\begin{DoxyCompactItemize}
+\item 
+string \mbox{\hyperlink{class_projet_banque_1_1_user_a39250d0a9d06279f2d45c2fe0ad6aada}{Iban}}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{class_projet_banque_1_1_user}{User}}\textquotesingle{}s I\+B\+AN \end{DoxyCompactList}\item 
+string \mbox{\hyperlink{class_projet_banque_1_1_user_a76be7d00b6709100d0db6a3d45082971}{Email}}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{class_projet_banque_1_1_user}{User}}\textquotesingle{}s email \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Store user\textquotesingle{}s primary informations to display them 
+
+y 
+
+\subsection{Member Enumeration Documentation}
+\mbox{\Hypertarget{class_projet_banque_1_1_user_a3ab673599238173c9d0ef40e731c0437}\label{class_projet_banque_1_1_user_a3ab673599238173c9d0ef40e731c0437}} 
+\index{ProjetBanque.User@{ProjetBanque.User}!AccountType@{AccountType}}
+\index{AccountType@{AccountType}!ProjetBanque.User@{ProjetBanque.User}}
+\subsubsection{\texorpdfstring{AccountType}{AccountType}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{class_projet_banque_1_1_user_a3ab673599238173c9d0ef40e731c0437}{Projet\+Banque.\+User.\+Account\+Type}}\hspace{0.3cm}{\ttfamily [strong]}}
+
+
+
+Possibles user\textquotesingle{}s accounts types 
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Public@{Public}!ProjetBanque.User@{ProjetBanque.User}}\index{ProjetBanque.User@{ProjetBanque.User}!Public@{Public}}}\mbox{\Hypertarget{class_projet_banque_1_1_user_a3ab673599238173c9d0ef40e731c0437a3d067bedfe2f4677470dd6ccf64d05ed}\label{class_projet_banque_1_1_user_a3ab673599238173c9d0ef40e731c0437a3d067bedfe2f4677470dd6ccf64d05ed}} 
+Public&Normal user account \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Enterprise@{Enterprise}!ProjetBanque.User@{ProjetBanque.User}}\index{ProjetBanque.User@{ProjetBanque.User}!Enterprise@{Enterprise}}}\mbox{\Hypertarget{class_projet_banque_1_1_user_a3ab673599238173c9d0ef40e731c0437aa0f27638260642afb474516cc918407e}\label{class_projet_banque_1_1_user_a3ab673599238173c9d0ef40e731c0437aa0f27638260642afb474516cc918407e}} 
+Enterprise&Enterprise account, can use list \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Admin@{Admin}!ProjetBanque.User@{ProjetBanque.User}}\index{ProjetBanque.User@{ProjetBanque.User}!Admin@{Admin}}}\mbox{\Hypertarget{class_projet_banque_1_1_user_a3ab673599238173c9d0ef40e731c0437ae3afed0047b08059d0fada10f400c1e5}\label{class_projet_banque_1_1_user_a3ab673599238173c9d0ef40e731c0437ae3afed0047b08059d0fada10f400c1e5}} 
+Admin&Admin account, can see every account \\
+\hline
+
+\end{DoxyEnumFields}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_projet_banque_1_1_user_a3d3b0681eb830335e5311bb4d4caf067}\label{class_projet_banque_1_1_user_a3d3b0681eb830335e5311bb4d4caf067}} 
+\index{ProjetBanque.User@{ProjetBanque.User}!User@{User}}
+\index{User@{User}!ProjetBanque.User@{ProjetBanque.User}}
+\subsubsection{\texorpdfstring{User()}{User()}}
+{\footnotesize\ttfamily Projet\+Banque.\+User.\+User (\begin{DoxyParamCaption}\item[{string}]{iban,  }\item[{string}]{email }\end{DoxyParamCaption})}
+
+
+
+Create a displayable user 
+
+
+\begin{DoxyParams}{Parameters}
+{\em iban} & \mbox{\hyperlink{class_projet_banque_1_1_user}{User}}\textquotesingle{}s I\+B\+AN\\
+\hline
+{\em email} & \mbox{\hyperlink{class_projet_banque_1_1_user}{User}}\textquotesingle{}s email\\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_projet_banque_1_1_user_ae29c534876d9b815be00cb2f2059e1a6}\label{class_projet_banque_1_1_user_ae29c534876d9b815be00cb2f2059e1a6}} 
+\index{ProjetBanque.User@{ProjetBanque.User}!ToString@{ToString}}
+\index{ToString@{ToString}!ProjetBanque.User@{ProjetBanque.User}}
+\subsubsection{\texorpdfstring{ToString()}{ToString()}}
+{\footnotesize\ttfamily override string Projet\+Banque.\+User.\+To\+String (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Display user\textquotesingle{}s informations 
+
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{class_projet_banque_1_1_user}{User}}\textquotesingle{}s informations
+\end{DoxyReturn}
+
+
+\subsection{Member Data Documentation}
+\mbox{\Hypertarget{class_projet_banque_1_1_user_a7ee066f61ff3a59b05f003709548428a}\label{class_projet_banque_1_1_user_a7ee066f61ff3a59b05f003709548428a}} 
+\index{ProjetBanque.User@{ProjetBanque.User}!email@{email}}
+\index{email@{email}!ProjetBanque.User@{ProjetBanque.User}}
+\subsubsection{\texorpdfstring{email}{email}}
+{\footnotesize\ttfamily string Projet\+Banque.\+User.\+email\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+
+
+\mbox{\Hypertarget{class_projet_banque_1_1_user_a52d4f7f22889d33e196357127ceb3ec3}\label{class_projet_banque_1_1_user_a52d4f7f22889d33e196357127ceb3ec3}} 
+\index{ProjetBanque.User@{ProjetBanque.User}!iban@{iban}}
+\index{iban@{iban}!ProjetBanque.User@{ProjetBanque.User}}
+\subsubsection{\texorpdfstring{iban}{iban}}
+{\footnotesize\ttfamily string Projet\+Banque.\+User.\+iban\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+
+
+
+
+\subsection{Property Documentation}
+\mbox{\Hypertarget{class_projet_banque_1_1_user_a76be7d00b6709100d0db6a3d45082971}\label{class_projet_banque_1_1_user_a76be7d00b6709100d0db6a3d45082971}} 
+\index{ProjetBanque.User@{ProjetBanque.User}!Email@{Email}}
+\index{Email@{Email}!ProjetBanque.User@{ProjetBanque.User}}
+\subsubsection{\texorpdfstring{Email}{Email}}
+{\footnotesize\ttfamily string Projet\+Banque.\+User.\+Email\hspace{0.3cm}{\ttfamily [get]}}
+
+
+
+\mbox{\hyperlink{class_projet_banque_1_1_user}{User}}\textquotesingle{}s email 
+
+\mbox{\Hypertarget{class_projet_banque_1_1_user_a39250d0a9d06279f2d45c2fe0ad6aada}\label{class_projet_banque_1_1_user_a39250d0a9d06279f2d45c2fe0ad6aada}} 
+\index{ProjetBanque.User@{ProjetBanque.User}!Iban@{Iban}}
+\index{Iban@{Iban}!ProjetBanque.User@{ProjetBanque.User}}
+\subsubsection{\texorpdfstring{Iban}{Iban}}
+{\footnotesize\ttfamily string Projet\+Banque.\+User.\+Iban\hspace{0.3cm}{\ttfamily [get]}}
+
+
+
+\mbox{\hyperlink{class_projet_banque_1_1_user}{User}}\textquotesingle{}s I\+B\+AN 
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+P\+:/\+\_\+\+Modules C\+P\+N\+V/\+Projet C\# projet 4/\+Projet\+Banque/\+Projet\+Banque/\+Projet\+Banque/\+Bank class/\+User\+Management/\+User\+Types/User.\+cs\end{DoxyCompactItemize}

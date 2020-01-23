@@ -9,6 +9,14 @@
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+  $(document).ready(initResizable);
+/* @license-end */</script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
@@ -20,8 +28,10 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr style="height: 56px;">
+  <td id="projectlogo"><img alt="Logo" src="kisspng-united-states-dollar-logo-image-currency-5be2cfbf2c8e99.4620064415415909751825.ico"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">ProjetBanque
+   &#160;<span id="projectnumber">3.0</span>
    </div>
   </td>
  </tr>
@@ -45,6 +55,23 @@ $(function() {
 });
 /* @license-end */</script>
 <div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(document).ready(function(){initNavTree('class_projet_banque_1_1_database_management.html','');});
+/* @license-end */
+</script>
+<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -59,11 +86,6 @@ $(function() {
 </iframe>
 </div>
 
-<div id="nav-path" class="navpath">
-  <ul>
-<li class="navelem"><a class="el" href="namespace_projet_banque.html">ProjetBanque</a></li><li class="navelem"><a class="el" href="class_projet_banque_1_1_database_management.html">DatabaseManagement</a></li>  </ul>
-</div>
-</div><!-- top -->
 <div class="header">
   <div class="headertitle">
 <div class="title">ProjetBanque.DatabaseManagement Member List</div>  </div>
@@ -74,18 +96,30 @@ $(function() {
 <table class="directory">
   <tr class="even"><td class="entry"><a class="el" href="class_projet_banque_1_1_database_management.html#acf89f88775d4c333e5b17f76a4913530">AddUser</a>(string email, string password, string type)</td><td class="entry"><a class="el" href="class_projet_banque_1_1_database_management.html">ProjetBanque.DatabaseManagement</a></td><td class="entry"></td></tr>
   <tr><td class="entry"><a class="el" href="class_projet_banque_1_1_database_management.html#a8897afb1154de9e27b3823465a9af0eb">AddUser</a>(string email, string password, string type, double money)</td><td class="entry"><a class="el" href="class_projet_banque_1_1_database_management.html">ProjetBanque.DatabaseManagement</a></td><td class="entry"></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="class_projet_banque_1_1_database_management.html#aa825c23c3dd06796b8243ce8ed7c6bfb">CloseConnection</a>()</td><td class="entry"><a class="el" href="class_projet_banque_1_1_database_management.html">ProjetBanque.DatabaseManagement</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_projet_banque_1_1_database_management.html#ae74398d6164b328937cb35bbbb5c038f">AddUserList</a>(string listName, string userIban)</td><td class="entry"><a class="el" href="class_projet_banque_1_1_database_management.html">ProjetBanque.DatabaseManagement</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="class_projet_banque_1_1_database_management.html#a690fc3be405a924031bb4cd505c78c02">ChangeMoney</a>(string userEmail, double newAmount)</td><td class="entry"><a class="el" href="class_projet_banque_1_1_database_management.html">ProjetBanque.DatabaseManagement</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_projet_banque_1_1_database_management.html#a1bfabac5efba52fdb4f2a1209f733b91">ChangePassword</a>(string userEmail, string newPassword)</td><td class="entry"><a class="el" href="class_projet_banque_1_1_database_management.html">ProjetBanque.DatabaseManagement</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="class_projet_banque_1_1_database_management.html#aa825c23c3dd06796b8243ce8ed7c6bfb">CloseConnection</a>()</td><td class="entry"><a class="el" href="class_projet_banque_1_1_database_management.html">ProjetBanque.DatabaseManagement</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_projet_banque_1_1_database_management.html#acb94b89091289ffd5ca8f24224e46c81">CreateList</a>(string newName, string creatorIban)</td><td class="entry"><a class="el" href="class_projet_banque_1_1_database_management.html">ProjetBanque.DatabaseManagement</a></td><td class="entry"></td></tr>
   <tr><td class="entry"><a class="el" href="class_projet_banque_1_1_database_management.html#a595d794798b5b753d9d43c623a679abc">DatabaseManagement</a>()</td><td class="entry"><a class="el" href="class_projet_banque_1_1_database_management.html">ProjetBanque.DatabaseManagement</a></td><td class="entry"></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="class_projet_banque_1_1_database_management.html#a1bc7a22d48a79809b752806bcbf1107a">DeleteUser</a>(string email)</td><td class="entry"><a class="el" href="class_projet_banque_1_1_database_management.html">ProjetBanque.DatabaseManagement</a></td><td class="entry"></td></tr>
-  <tr><td class="entry"><a class="el" href="class_projet_banque_1_1_database_management.html#aeee42ee61e0e0a96a7927bf408956881">GetUserMoney</a>(string email)</td><td class="entry"><a class="el" href="class_projet_banque_1_1_database_management.html">ProjetBanque.DatabaseManagement</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_projet_banque_1_1_database_management.html#aaeebc8afb1a9c9e654d27ceb1719a740">DeleteList</a>(string listName)</td><td class="entry"><a class="el" href="class_projet_banque_1_1_database_management.html">ProjetBanque.DatabaseManagement</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="class_projet_banque_1_1_database_management.html#aeb7e315638bb410c4a269cac784eee76">DeleteUserList</a>(string listName, string userIban)</td><td class="entry"><a class="el" href="class_projet_banque_1_1_database_management.html">ProjetBanque.DatabaseManagement</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_projet_banque_1_1_database_management.html#a0754fcad4a15737c428c29e2f08abfdb">DisableAccount</a>(string userEmail)</td><td class="entry"><a class="el" href="class_projet_banque_1_1_database_management.html">ProjetBanque.DatabaseManagement</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="class_projet_banque_1_1_database_management.html#a15437c7a1ca0d2319481df7c14d2f2e2">EmailFromIban</a>(string iban)</td><td class="entry"><a class="el" href="class_projet_banque_1_1_database_management.html">ProjetBanque.DatabaseManagement</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_projet_banque_1_1_database_management.html#a9564153cbc9e0d832508cc2a6d51932c">GenerateIBAN</a>()</td><td class="entry"><a class="el" href="class_projet_banque_1_1_database_management.html">ProjetBanque.DatabaseManagement</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="class_projet_banque_1_1_database_management.html#aa9be95f45987bd7f55d1553e43e1c546">GetUser</a>(string email)</td><td class="entry"><a class="el" href="class_projet_banque_1_1_database_management.html">ProjetBanque.DatabaseManagement</a></td><td class="entry"></td></tr>
   <tr class="even"><td class="entry"><a class="el" href="class_projet_banque_1_1_database_management.html#ae0af13394741c4671c86ffb098e281e7">OpenConnection</a>()</td><td class="entry"><a class="el" href="class_projet_banque_1_1_database_management.html">ProjetBanque.DatabaseManagement</a></td><td class="entry"></td></tr>
-  <tr><td class="entry"><a class="el" href="class_projet_banque_1_1_database_management.html#a2b1815dc73339c7abbe63e2b8403143d">VerifyUser</a>(string email, string password)</td><td class="entry"><a class="el" href="class_projet_banque_1_1_database_management.html">ProjetBanque.DatabaseManagement</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="class_projet_banque_1_1_database_management.html#abc8ae003c490e8cd373a8e6cf1a2de6a">Transact</a>(double amount, string reason, string senderIban, string receiverIban)</td><td class="entry"><a class="el" href="class_projet_banque_1_1_database_management.html">ProjetBanque.DatabaseManagement</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_projet_banque_1_1_database_management.html#a2b1815dc73339c7abbe63e2b8403143d">VerifyUser</a>(string email, string password)</td><td class="entry"><a class="el" href="class_projet_banque_1_1_database_management.html">ProjetBanque.DatabaseManagement</a></td><td class="entry"></td></tr>
 </table></div><!-- contents -->
+</div><!-- doc-content -->
 <!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Generated by &#160;<a href="http://www.doxygen.org/index.html">
-<img class="footer" src="doxygen.png" alt="doxygen"/>
-</a> 1.8.15
-</small></address>
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="footer">Generated by
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.15 </li>
+  </ul>
+</div>
 </body>
 </html>
