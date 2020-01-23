@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmListManagement));
             this.lstList = new System.Windows.Forms.ListBox();
             this.cmdListToDelete = new System.Windows.Forms.Button();
             this.cmdAddToList = new System.Windows.Forms.Button();
@@ -171,6 +172,7 @@
             this.Controls.Add(this.cmdListToDelete);
             this.Controls.Add(this.lstList);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "FrmListManagement";
             this.Text = "Gestion de liste";

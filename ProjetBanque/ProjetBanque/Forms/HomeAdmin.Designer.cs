@@ -31,6 +31,7 @@ namespace ProjetBanque
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmHomeAdmin));
             this.datHistory = new System.Windows.Forms.DataGridView();
             this.datColName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.datColNameReceiver = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -375,6 +376,7 @@ namespace ProjetBanque
             this.Controls.Add(this.cmdProfil);
             this.Controls.Add(this.cmdExit);
             this.Controls.Add(this.lblEmail);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MinimumSize = new System.Drawing.Size(827, 612);
             this.Name = "FrmHomeAdmin";
             this.Text = "Accueil Administrateur";

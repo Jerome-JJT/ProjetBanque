@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmAdminMoneyChanger));
             this.txtUserEmail = new System.Windows.Forms.TextBox();
             this.lblUserEmail = new System.Windows.Forms.Label();
             this.lblNewPassword = new System.Windows.Forms.Label();
@@ -126,6 +127,7 @@
             this.Controls.Add(this.lblUserEmail);
             this.Controls.Add(this.txtUserEmail);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "FrmAdminMoneyChanger";
             this.Text = "Profil";

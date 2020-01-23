@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmAdminPasswordChanger));
             this.txtUserEmail = new System.Windows.Forms.TextBox();
             this.txtNewPassword = new System.Windows.Forms.TextBox();
             this.txtNewPasswordVerify = new System.Windows.Forms.TextBox();
@@ -131,6 +132,7 @@
             this.Controls.Add(this.txtNewPassword);
             this.Controls.Add(this.txtUserEmail);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "FrmAdminPasswordChanger";
             this.Text = "Profil";
