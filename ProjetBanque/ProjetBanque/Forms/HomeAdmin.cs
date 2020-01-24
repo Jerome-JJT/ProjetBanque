@@ -165,6 +165,13 @@ namespace ProjetBanque
 
             form.ShowDialog();
 
+            DatabaseManagement database = new DatabaseManagement();
+            database.OpenConnection();
+
+            userInformations = (AdminUser)database.GetUser(userInformations.Email);
+
+            database.CloseConnection();
+
             updateInfos();
         }
 
