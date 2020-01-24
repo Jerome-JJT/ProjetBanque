@@ -412,12 +412,12 @@ INSERT INTO `transactions` (`date`, `amount`, `reason`, `idReceiver`, `idSender`
 
 
 INSERT INTO `lists` (`id`, `name`, `idUser`) VALUES
-    (1, 'CH44 019_Salaire', 24),
-    (2, 'CH44 016_Famille', 21),
-    (3, 'CH44 019_Amis', 24),
-    (4, 'CH44 016_SalaireEntreprise', 21),
-    (5, 'CH44 016_Cadeaux', 21),
-    (6, 'CH44 018_Association', 23),
+    (1, 'CH44 019_Salaire', 3),
+    (2, 'CH44 016_Famille', 3),
+    (3, 'CH44 019_Amis', 3),
+    (4, 'CH44 016_SalaireEntreprise', 3),
+    (5, 'CH44 016_Cadeaux', 4),
+    (6, 'CH44 018_Association', 4),
     (7, 'CH44 016_Liste7', 21),
     (8, 'CH44 019_Liste8', 24),
     (9, 'CH44 019_Liste9', 24),
