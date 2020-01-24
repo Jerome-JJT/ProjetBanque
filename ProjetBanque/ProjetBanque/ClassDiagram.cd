@@ -8,28 +8,28 @@
     </TypeIdentifier>
   </Class>
   <Class Name="ProjetBanque.UnableToJoinDatabase">
-    <Position X="3.25" Y="2" Width="2" />
+    <Position X="2.75" Y="2" Width="2" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Bank class\BankException.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="ProjetBanque.UserAlreadyExistsException">
-    <Position X="5.75" Y="2" Width="2.25" />
+    <Position X="4.75" Y="2" Width="2.25" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Bank class\BankException.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="ProjetBanque.UserDoesNotExistsException">
-    <Position X="8.25" Y="2" Width="2.25" />
+    <Position X="7" Y="2" Width="2.25" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Bank class\BankException.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="ProjetBanque.WrongEmailFormatException">
-    <Position X="10.75" Y="2" Width="2.25" />
+    <Position X="9.25" Y="2" Width="2.25" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Bank class\BankException.cs</FileName>
@@ -78,7 +78,7 @@
     </TypeIdentifier>
   </Class>
   <Class Name="ProjetBanque.Program">
-    <Position X="6" Y="5.5" Width="1.5" />
+    <Position X="3.25" Y="19" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAA=</HashCode>
       <FileName>Program.cs</FileName>
@@ -92,13 +92,13 @@
     </TypeIdentifier>
   </Class>
   <Class Name="ProjetBanque.Properties.Resources">
-    <Position X="0.5" Y="5" Width="2.75" />
+    <Position X="9" Y="19" Width="2.75" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAABEAAAAQAAAAAAAAAAAAAAAIA=</HashCode>
     </TypeIdentifier>
   </Class>
   <Class Name="ProjetBanque.Properties.Settings">
-    <Position X="0.5" Y="3.25" Width="2" />
+    <Position X="6" Y="19" Width="2" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAIAAAAAABAAAAAAAAAAAAAAA=</HashCode>
     </TypeIdentifier>
@@ -111,77 +111,70 @@
     </TypeIdentifier>
   </Class>
   <Class Name="ProjetBanque.FrmConfirmRegister">
-    <Position X="11" Y="5.5" Width="2.5" />
+    <Position X="18.5" Y="7" Width="2.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAACQAABAgAACAIAACABAAAAAAAACAAAAAAAA=</HashCode>
       <FileName>Forms\ConfirmRegister.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="ProjetBanque.ListAlreadyExists">
-    <Position X="13.5" Y="2" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Bank class\BankException.cs</FileName>
-    </TypeIdentifier>
-  </Class>
   <Class Name="ProjetBanque.Transaction">
-    <Position X="28.25" Y="0.75" Width="2" />
+    <Position X="0.75" Y="9.25" Width="2" />
     <TypeIdentifier>
       <HashCode>AAAAASAAggEgAIIAABAAAACQAAAAgAABAAAAAQAAAAA=</HashCode>
       <FileName>Bank class\Transaction.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="ProjetBanque.AdminUsersList">
-    <Position X="28.5" Y="8.25" Width="1.5" />
+    <Position X="11" Y="10.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAACAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Bank class\UserManagement\AdminUsersList.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="ProjetBanque.UsersList">
-    <Position X="28.5" Y="5.25" Width="1.75" />
+    <Position X="11" Y="7.25" Width="1.75" />
     <TypeIdentifier>
       <HashCode>IAAAACAAAAAAAAAEAAAAAAQAAAAEAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Bank class\UserManagement\UsersList.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="ProjetBanque.AdminUser">
-    <Position X="47.25" Y="6.75" Width="2.25" />
+    <Position X="11.25" Y="13.25" Width="2.25" />
     <TypeIdentifier>
       <HashCode>IAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Bank class\UserManagement\UserTypes\AdminUser.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="ProjetBanque.BankUser">
-    <Position X="42.25" Y="4" Width="1.5" />
+    <Position X="6.25" Y="10.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAA=</HashCode>
       <FileName>Bank class\UserManagement\UserTypes\BankUser.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="ProjetBanque.BankUserInfos">
-    <Position X="39.25" Y="6.75" Width="2" />
+    <Position X="3.25" Y="13.25" Width="2" />
     <TypeIdentifier>
       <HashCode>AAgAAAAAAAAAAAAAAAgAAAAAAAAACAAAAAgAAAAAAAA=</HashCode>
       <FileName>Bank class\UserManagement\UserTypes\BankUserInfos.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="ProjetBanque.EnterpriseUser">
-    <Position X="45" Y="6.75" Width="1.75" />
+    <Position X="9" Y="13.25" Width="1.75" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAABAAAAAQAAAAAAAAAAAAA=</HashCode>
       <FileName>Bank class\UserManagement\UserTypes\EnterpriseUser.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="ProjetBanque.PublicUser">
-    <Position X="41.75" Y="6.75" Width="2.5" />
+    <Position X="5.75" Y="13.25" Width="2.5" />
     <TypeIdentifier>
       <HashCode>AACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAA=</HashCode>
       <FileName>Bank class\UserManagement\UserTypes\PublicUser.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="ProjetBanque.User">
-    <Position X="42.25" Y="0.75" Width="1.5" />
+    <Position X="6.25" Y="7.25" Width="1.5" />
     <NestedTypes>
       <Enum Name="ProjetBanque.User.AccountType" Collapsed="true">
         <TypeIdentifier>
@@ -202,14 +195,14 @@
     </TypeIdentifier>
   </Class>
   <Class Name="ProjetBanque.FrmAdminPasswordChanger">
-    <Position X="30.75" Y="0.75" Width="2.5" />
+    <Position X="28.25" Y="0.75" Width="2.5" />
     <TypeIdentifier>
       <HashCode>AAAAAIAAACAAAAAAAACAAAACEAAAEAAAWgAAAAEBBAQ=</HashCode>
       <FileName>Forms\AdminPasswordChanger.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="ProjetBanque.FrmHomeAdmin">
-    <Position X="34" Y="0.5" Width="4" />
+    <Position X="31.5" Y="0.5" Width="4" />
     <TypeIdentifier>
       <HashCode>wEBgAAAAADIAYKGAAAiAICASAAgEAQCgAICAiADDBAQ=</HashCode>
       <FileName>Forms\HomeAdmin.cs</FileName>
@@ -223,10 +216,17 @@
     </TypeIdentifier>
   </Class>
   <Class Name="ProjetBanque.FrmProfil">
-    <Position X="30.75" Y="5.25" Width="2.5" />
+    <Position X="28.25" Y="5.25" Width="2.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAACAAAABAAACAAAACEAAAUQAAWACAAAEBBAQ=</HashCode>
       <FileName>Forms\Profil.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ProjetBanque.ListAlreadyExistsException">
+    <Position X="11.5" Y="2" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Bank class\BankException.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Font Name="Segoe UI" Size="9" />
