@@ -99,7 +99,8 @@ namespace ProjetBanque
                     
                     txtIban.Text = "";
                     lblNameUser.Text = "L'utilisateur a bien été ajouté";
-                }
+                    cmdAddToList.Enabled = false;
+            }
                 else
                 {
                     MessageBox.Show("Cet utilisateur est déjà dans cette liste");
@@ -108,7 +109,7 @@ namespace ProjetBanque
 
         private void txtIban_TextChanged(object sender, EventArgs e)
         {
-            if (txtIban.Text.Count() == 8)
+            if (txtIban.Text.Count() == 8 && cboList.SelectedIndex != -1)
             {
                 DatabaseManagement database = new DatabaseManagement();
                 database.OpenConnection();
@@ -153,6 +154,8 @@ namespace ProjetBanque
             lstList.Items.Clear();
             cmdListToDelete.Enabled = false;
             cmdDeleteList.Enabled = false;
+            cmdAddToList.Enabled = false;
+            txtIban.Enabled = false;
         }
 
         private void cmdListToDelete_Click(object sender, EventArgs e)
@@ -183,6 +186,7 @@ namespace ProjetBanque
                 cmdDeleteList.Enabled = true;
                 txtIban.Enabled = true;
                 cmdListToDelete.Enabled = true;
+                cmdAddToList.Enabled = true;
             }
             else
             {
