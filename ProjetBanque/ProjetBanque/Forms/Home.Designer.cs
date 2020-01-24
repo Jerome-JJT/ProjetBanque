@@ -318,13 +318,13 @@
             // datColName
             // 
             this.datColName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.datColName.HeaderText = "Nom / Iban(Destinataire)";
+            this.datColName.HeaderText = "Envoyeur";
             this.datColName.Name = "datColName";
             // 
             // datColNameReceiver
             // 
             this.datColNameReceiver.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.datColNameReceiver.HeaderText = "Nom / Iban(Receveur)";
+            this.datColNameReceiver.HeaderText = "Receveur";
             this.datColNameReceiver.Name = "datColNameReceiver";
             this.datColNameReceiver.Width = 127;
             // 
@@ -397,11 +397,11 @@
         private System.Windows.Forms.Label lblEmailReceiver;
         private System.Windows.Forms.NumericUpDown updPayAmount;
         private System.Windows.Forms.Label lblIbanFormat;
+        private System.Windows.Forms.Label lblListAmount;
         private System.Windows.Forms.DataGridViewTextBoxColumn datColName;
         private System.Windows.Forms.DataGridViewTextBoxColumn datColNameReceiver;
         private System.Windows.Forms.DataGridViewTextBoxColumn datColAmount;
         private System.Windows.Forms.DataGridViewTextBoxColumn datColReason;
         private System.Windows.Forms.DataGridViewTextBoxColumn datColDate;
-        private System.Windows.Forms.Label lblListAmount;
     }
 }
