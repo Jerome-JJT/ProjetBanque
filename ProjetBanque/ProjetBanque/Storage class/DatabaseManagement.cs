@@ -403,7 +403,7 @@ namespace ProjetBanque
             {
                 // Create a command object
                 query = connection.CreateCommand();
-                query.CommandText = "select iban, email, money, active, type+0 as type from USERS order by email asc";
+                query.CommandText = "select iban, email, money, active, type+0 as type from USERS order by iban asc";
 
                 //Get user's money from the database
                 reader = query.ExecuteReader();
