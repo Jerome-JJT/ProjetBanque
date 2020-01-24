@@ -186,7 +186,6 @@ namespace ProjetBanque
                 cmdDeleteList.Enabled = true;
                 txtIban.Enabled = true;
                 cmdListToDelete.Enabled = true;
-                cmdAddToList.Enabled = true;
             }
             else
             {
