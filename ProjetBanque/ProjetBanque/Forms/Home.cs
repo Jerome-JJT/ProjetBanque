@@ -228,6 +228,7 @@ namespace ProjetBanque
                     updPayAmount.Value = 1;
                     txtPayReason.Text = "";
                     cboPayList.SelectedIndex = 0;
+                    txtPayIban.Text = "";
                 }
                 else
                 {
